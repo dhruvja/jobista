@@ -3,7 +3,7 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../forgot_password/forgot_password_widget.dart';
-import '../main.dart';
+import '../track_car/track_car_widget.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -81,6 +81,24 @@ class _LoginWidgetState extends State<LoginWidget> {
                     children: [
                       Expanded(
                         child: TextFormField(
+                          onFieldSubmitted: (_) async {
+                            final user = await signInWithEmail(
+                              context,
+                              emailAddressController.text,
+                              passwordController.text,
+                            );
+                            if (user == null) {
+                              return;
+                            }
+
+                            await Navigator.pushAndRemoveUntil(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => TrackCarWidget(),
+                              ),
+                              (r) => false,
+                            );
+                          },
                           controller: emailAddressController,
                           obscureText: false,
                           decoration: InputDecoration(
@@ -136,6 +154,24 @@ class _LoginWidgetState extends State<LoginWidget> {
                     children: [
                       Expanded(
                         child: TextFormField(
+                          onFieldSubmitted: (_) async {
+                            final user = await signInWithEmail(
+                              context,
+                              emailAddressController.text,
+                              passwordController.text,
+                            );
+                            if (user == null) {
+                              return;
+                            }
+
+                            await Navigator.pushAndRemoveUntil(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => TrackCarWidget(),
+                              ),
+                              (r) => false,
+                            );
+                          },
                           controller: passwordController,
                           obscureText: !passwordVisibility,
                           decoration: InputDecoration(
@@ -195,62 +231,119 @@ class _LoginWidgetState extends State<LoginWidget> {
                     ],
                   ),
                 ),
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Expanded(
+                      child: Align(
+                        alignment: AlignmentDirectional(1, 0),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 24),
+                          child: FFButtonWidget(
+                            onPressed: () async {
+                              setState(() => _loadingButton1 = true);
+                              try {
+                                await Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) =>
+                                        ForgotPasswordWidget(),
+                                  ),
+                                );
+                              } finally {
+                                setState(() => _loadingButton1 = false);
+                              }
+                            },
+                            text: 'Forgot Password?',
+                            options: FFButtonOptions(
+                              width: 170,
+                              height: 30,
+                              color: Color(0x00FFFFFF),
+                              textStyle: FlutterFlowTheme.subtitle2.override(
+                                fontFamily: 'Lexend Deca',
+                                color: FlutterFlowTheme.dark400,
+                                fontSize: 14,
+                                fontWeight: FontWeight.w500,
+                              ),
+                              elevation: 0,
+                              borderSide: BorderSide(
+                                color: Colors.transparent,
+                                width: 1,
+                              ),
+                              borderRadius: 0,
+                            ),
+                            loading: _loadingButton1,
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+                Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Expanded(
+                      child: Align(
+                        alignment: AlignmentDirectional(-0.1, 0),
+                        child: Padding(
+                          padding:
+                              EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                          child: FFButtonWidget(
+                            onPressed: () {
+                              print('Button-Login pressed ...');
+                            },
+                            text: 'Login',
+                            options: FFButtonOptions(
+                              width: 130,
+                              height: 50,
+                              color: Color(0xFF193498),
+                              textStyle: FlutterFlowTheme.subtitle1.override(
+                                fontFamily: 'Lexend Deca',
+                                color: Colors.white,
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                              ),
+                              elevation: 3,
+                              borderSide: BorderSide(
+                                color: Colors.transparent,
+                                width: 1,
+                              ),
+                              borderRadius: 50,
+                            ),
+                            loading: _loadingButton2,
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Expanded(
                         child: Align(
-                          alignment: AlignmentDirectional(-0.1, 0),
-                          child: Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
-                            child: FFButtonWidget(
-                              onPressed: () async {
-                                setState(() => _loadingButton1 = true);
-                                try {
-                                  final user = await signInWithEmail(
-                                    context,
-                                    emailAddressController.text,
-                                    passwordController.text,
-                                  );
-                                  if (user == null) {
-                                    return;
-                                  }
-
-                                  await Navigator.pushAndRemoveUntil(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) =>
-                                          NavBarPage(initialPage: 'HomePage'),
-                                    ),
-                                    (r) => false,
-                                  );
-                                } finally {
-                                  setState(() => _loadingButton1 = false);
-                                }
-                              },
-                              text: 'Login',
-                              options: FFButtonOptions(
-                                width: 130,
-                                height: 50,
-                                color: Color(0xFF193498),
-                                textStyle: FlutterFlowTheme.subtitle1.override(
-                                  fontFamily: 'Lexend Deca',
-                                  color: Colors.white,
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                                elevation: 3,
-                                borderSide: BorderSide(
-                                  color: Colors.transparent,
-                                  width: 1,
-                                ),
-                                borderRadius: 50,
-                              ),
-                              loading: _loadingButton1,
+                          alignment: AlignmentDirectional(0.55, 0),
+                          child: Text(
+                            'Dont have an account?',
+                            style: FlutterFlowTheme.bodyText1.override(
+                              fontFamily: 'Lexend Deca',
+                            ),
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        child: Align(
+                          alignment: AlignmentDirectional(0.35, 0.6),
+                          child: Text(
+                            'Register now',
+                            textAlign: TextAlign.end,
+                            style: FlutterFlowTheme.bodyText1.override(
+                              fontFamily: 'Lexend Deca',
+                              color: Color(0xFF012A55),
+                              fontStyle: FontStyle.italic,
                             ),
                           ),
                         ),
@@ -260,138 +353,87 @@ class _LoginWidgetState extends State<LoginWidget> {
                 ),
                 Row(
                   mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Expanded(
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 24),
-                        child: FFButtonWidget(
-                          onPressed: () async {
-                            setState(() => _loadingButton2 = true);
-                            try {
-                              await Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => ForgotPasswordWidget(),
-                                ),
-                              );
-                            } finally {
-                              setState(() => _loadingButton2 = false);
-                            }
-                          },
-                          text: 'Forgot Password?',
-                          options: FFButtonOptions(
-                            width: 170,
-                            height: 30,
-                            color: Color(0x00FFFFFF),
-                            textStyle: FlutterFlowTheme.subtitle2.override(
-                              fontFamily: 'Lexend Deca',
-                              color: FlutterFlowTheme.dark400,
-                              fontSize: 14,
-                              fontWeight: FontWeight.w500,
-                            ),
-                            elevation: 0,
-                            borderSide: BorderSide(
-                              color: Colors.transparent,
-                              width: 1,
-                            ),
-                            borderRadius: 0,
-                          ),
-                          loading: _loadingButton2,
-                        ),
-                      ),
-                    )
-                  ],
-                ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 44),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Expanded(
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              AutoSizeText(
-                                'Use a Social Platform to Login',
-                                textAlign: TextAlign.center,
-                                style: GoogleFonts.getFont(
-                                  'Lexend Deca',
-                                  color: FlutterFlowTheme.dark400,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 12,
-                                ),
+                        padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            AutoSizeText(
+                              'Use a Social Platform to Login',
+                              textAlign: TextAlign.center,
+                              style: GoogleFonts.getFont(
+                                'Lexend Deca',
+                                color: FlutterFlowTheme.dark400,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 12,
                               ),
-                              Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 0, 8, 0),
-                                      child: Card(
-                                        clipBehavior:
-                                            Clip.antiAliasWithSaveLayer,
-                                        color: FlutterFlowTheme.customColor1,
-                                        elevation: 3,
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(50),
-                                        ),
-                                        child: Image.asset(
-                                          'assets/images/Book.png',
-                                          width: 50,
-                                          height: 50,
-                                          fit: BoxFit.cover,
-                                        ),
+                            ),
+                            Padding(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0, 0, 8, 0),
+                                    child: Card(
+                                      clipBehavior: Clip.antiAliasWithSaveLayer,
+                                      color: FlutterFlowTheme.customColor1,
+                                      elevation: 3,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(50),
+                                      ),
+                                      child: Image.asset(
+                                        'assets/images/Book.png',
+                                        width: 50,
+                                        height: 50,
+                                        fit: BoxFit.cover,
                                       ),
                                     ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 0, 8, 0),
-                                      child: Card(
-                                        clipBehavior:
-                                            Clip.antiAliasWithSaveLayer,
-                                        color: Color(0xFF090F13),
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(50),
-                                        ),
-                                        child: Image.asset(
-                                          'assets/images/apple.png',
-                                          width: 50,
-                                          height: 50,
-                                          fit: BoxFit.cover,
-                                        ),
-                                      ),
-                                    ),
-                                    Card(
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0, 0, 8, 0),
+                                    child: Card(
                                       clipBehavior: Clip.antiAliasWithSaveLayer,
                                       color: Color(0xFF090F13),
                                       shape: RoundedRectangleBorder(
                                         borderRadius: BorderRadius.circular(50),
                                       ),
                                       child: Image.asset(
-                                        'assets/images/Book_Copy_2.png',
+                                        'assets/images/apple.png',
                                         width: 50,
                                         height: 50,
                                         fit: BoxFit.cover,
                                       ),
-                                    )
-                                  ],
-                                ),
-                              )
-                            ],
-                          ),
+                                    ),
+                                  ),
+                                  Card(
+                                    clipBehavior: Clip.antiAliasWithSaveLayer,
+                                    color: Color(0xFF090F13),
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(50),
+                                    ),
+                                    child: Image.asset(
+                                      'assets/images/Book_Copy_2.png',
+                                      width: 50,
+                                      height: 50,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  )
+                                ],
+                              ),
+                            )
+                          ],
                         ),
-                      )
-                    ],
-                  ),
+                      ),
+                    )
+                  ],
                 )
               ],
             ),

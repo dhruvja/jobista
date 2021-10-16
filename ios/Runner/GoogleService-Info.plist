@@ -3,23 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>956387210068-5urjrslqh1l146hv2nfimcv66d3knlv0.apps.googleusercontent.com</string>
+	<string>163691472519-o21qj8ubc8gd24fbv1kssipm14os9qac.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.956387210068-5urjrslqh1l146hv2nfimcv66d3knlv0</string>
-	<key>ANDROID_CLIENT_ID</key>
-	<string>956387210068-1pdqkf8558otbm1856fu1tm689fu3ecl.apps.googleusercontent.com</string>
+	<string>com.googleusercontent.apps.163691472519-o21qj8ubc8gd24fbv1kssipm14os9qac</string>
 	<key>API_KEY</key>
-	<string>AIzaSyBOxo048xg5mIXy8bj57dYwATqYAyi1hmk</string>
+	<string>AIzaSyA9_WdejkdJqR2nphC2YyuzqlOWmiGxuWU</string>
 	<key>GCM_SENDER_ID</key>
-	<string>956387210068</string>
+	<string>163691472519</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.flutterflow.edriveapp</string>
 	<key>PROJECT_ID</key>
-	<string>e-drive-dd9c1</string>
+	<string>jobista-37eaa</string>
 	<key>STORAGE_BUCKET</key>
-	<string>e-drive-dd9c1.appspot.com</string>
+	<string>jobista-37eaa.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -31,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:956387210068:ios:4a59a4dbe05b2ef00c0ec1</string>
+	<string>1:163691472519:ios:53c071a077b08cc721fa22</string>
 </dict>
 </plist>
