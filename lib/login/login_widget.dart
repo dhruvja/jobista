@@ -3,6 +3,7 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../forgot_password/forgot_password_widget.dart';
+import '../register_client/register_client_widget.dart';
 import '../track_car/track_car_widget.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
@@ -22,6 +23,7 @@ class _LoginWidgetState extends State<LoginWidget> {
   bool passwordVisibility;
   bool _loadingButton1 = false;
   bool _loadingButton2 = false;
+  bool _loadingButton3 = false;
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -325,26 +327,41 @@ class _LoginWidgetState extends State<LoginWidget> {
                     children: [
                       Expanded(
                         child: Align(
-                          alignment: AlignmentDirectional(0.55, 0),
-                          child: Text(
-                            'Dont have an account?',
-                            style: FlutterFlowTheme.bodyText1.override(
-                              fontFamily: 'Lexend Deca',
+                          alignment: AlignmentDirectional(-0.1, 0),
+                          child: FFButtonWidget(
+                            onPressed: () async {
+                              setState(() => _loadingButton3 = true);
+                              try {
+                                await Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) =>
+                                        RegisterClientWidget(),
+                                  ),
+                                );
+                              } finally {
+                                setState(() => _loadingButton3 = false);
+                              }
+                            },
+                            text: 'Dont have an Account, Register here',
+                            options: FFButtonOptions(
+                              width: double.infinity,
+                              height: 30,
+                              color: Color(0x00FFFFFF),
+                              textStyle: FlutterFlowTheme.subtitle2.override(
+                                fontFamily: 'Lexend Deca',
+                                color: FlutterFlowTheme.dark400,
+                                fontSize: 14,
+                                fontWeight: FontWeight.w500,
+                              ),
+                              elevation: 0,
+                              borderSide: BorderSide(
+                                color: Colors.transparent,
+                                width: 1,
+                              ),
+                              borderRadius: 0,
                             ),
-                          ),
-                        ),
-                      ),
-                      Expanded(
-                        child: Align(
-                          alignment: AlignmentDirectional(0.35, 0.6),
-                          child: Text(
-                            'Register now',
-                            textAlign: TextAlign.end,
-                            style: FlutterFlowTheme.bodyText1.override(
-                              fontFamily: 'Lexend Deca',
-                              color: Color(0xFF012A55),
-                              fontStyle: FontStyle.italic,
-                            ),
+                            loading: _loadingButton3,
                           ),
                         ),
                       )

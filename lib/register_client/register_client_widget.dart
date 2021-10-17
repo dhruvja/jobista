@@ -8,14 +8,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class LoginCopyWidget extends StatefulWidget {
-  LoginCopyWidget({Key key}) : super(key: key);
+class RegisterClientWidget extends StatefulWidget {
+  RegisterClientWidget({Key key}) : super(key: key);
 
   @override
-  _LoginCopyWidgetState createState() => _LoginCopyWidgetState();
+  _RegisterClientWidgetState createState() => _RegisterClientWidgetState();
 }
 
-class _LoginCopyWidgetState extends State<LoginCopyWidget> {
+class _RegisterClientWidgetState extends State<RegisterClientWidget> {
   TextEditingController emailAddressController;
   TextEditingController textController1;
   TextEditingController textController2;
@@ -85,9 +85,8 @@ class _LoginCopyWidgetState extends State<LoginCopyWidget> {
                     obscureText: false,
                     decoration: InputDecoration(
                       hintText: 'Your Name',
-                      hintStyle: FlutterFlowTheme.bodyText1.override(
+                      hintStyle: FlutterFlowTheme.bodyText2.override(
                         fontFamily: 'Lexend Deca',
-                        color: Color(0xFF464F57),
                       ),
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
@@ -128,7 +127,7 @@ class _LoginCopyWidgetState extends State<LoginCopyWidget> {
                     keyboardType: TextInputType.name,
                     validator: (val) {
                       if (val.isEmpty) {
-                        return 'Mention y';
+                        return 'Please enter a valid Name';
                       }
 
                       return null;
@@ -142,9 +141,8 @@ class _LoginCopyWidgetState extends State<LoginCopyWidget> {
                       obscureText: false,
                       decoration: InputDecoration(
                         hintText: 'Mobile Number',
-                        hintStyle: FlutterFlowTheme.bodyText1.override(
+                        hintStyle: FlutterFlowTheme.bodyText2.override(
                           fontFamily: 'Lexend Deca',
-                          color: FlutterFlowTheme.dark400,
                         ),
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
@@ -250,6 +248,13 @@ class _LoginCopyWidgetState extends State<LoginCopyWidget> {
                               fontWeight: FontWeight.normal,
                             ),
                             keyboardType: TextInputType.emailAddress,
+                            validator: (val) {
+                              if (val.isEmpty) {
+                                return 'Please Enter  a valid email address';
+                              }
+
+                              return null;
+                            },
                           ),
                         )
                       ],
@@ -308,6 +313,13 @@ class _LoginCopyWidgetState extends State<LoginCopyWidget> {
                             style: FlutterFlowTheme.bodyText1.override(
                               fontFamily: 'Lexend Deca',
                             ),
+                            validator: (val) {
+                              if (val.isEmpty) {
+                                return 'Please Enter your password';
+                              }
+
+                              return null;
+                            },
                           ),
                         )
                       ],
@@ -329,6 +341,9 @@ class _LoginCopyWidgetState extends State<LoginCopyWidget> {
                                 onPressed: () async {
                                   setState(() => _loadingButton = true);
                                   try {
+                                    if (!formKey.currentState.validate()) {
+                                      return;
+                                    }
                                     final user = await signInWithEmail(
                                       context,
                                       emailAddressController.text,
@@ -349,7 +364,7 @@ class _LoginCopyWidgetState extends State<LoginCopyWidget> {
                                     setState(() => _loadingButton = false);
                                   }
                                 },
-                                text: 'Sign UP',
+                                text: 'Sign Up',
                                 options: FFButtonOptions(
                                   width: 130,
                                   height: 50,
