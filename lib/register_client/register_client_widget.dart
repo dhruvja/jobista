@@ -43,7 +43,7 @@ class _RegisterClientWidgetState extends State<RegisterClientWidget> {
   }
 
   var status;
-  var present = false; 
+  var present = false;
 
   void createRecord() async {
     print(emailAddressController.text);
@@ -57,7 +57,7 @@ class _RegisterClientWidgetState extends State<RegisterClientWidget> {
               'email': emailAddressController.text,
               'phone': textController2.text,
               'password': passwordController.text,
-              'type' : 'client'
+              'type': 'client'
             }));
     if (response.statusCode == 200) {
       // If the server did return a 201 CREATED response,
@@ -75,11 +75,15 @@ class _RegisterClientWidgetState extends State<RegisterClientWidget> {
       print("true");
       if (status['success']) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Account Created Successfully'),backgroundColor: Colors.green),
+          const SnackBar(
+              content: Text('Account Created Successfully'),
+              backgroundColor: Colors.green),
         );
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Account Couldnt be created'),backgroundColor: Colors.redAccent),
+          const SnackBar(
+              content: Text('Account Couldnt be created'),
+              backgroundColor: Colors.redAccent),
         );
       }
     }
@@ -475,9 +479,21 @@ class _RegisterClientWidgetState extends State<RegisterClientWidget> {
                                     if (!formKey.currentState.validate()) {
                                       return;
                                     }
+                                    if (passwordController.text !=
+                                        confirmPasswordTextController.text) {
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(
+                                        SnackBar(
+                                          content: Text(
+                                            "Passwords don't match!",
+                                            
+                                          ),
+                                          backgroundColor: Colors.redAccent
+                                        ),
+                                      );
+                                      return;
+                                    }
                                     createRecord();
-
-                                    
                                   } finally {
                                     setState(() => _loadingButton = false);
                                   }
