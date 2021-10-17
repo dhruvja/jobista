@@ -151,6 +151,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                 fontSize: 14,
                                 fontWeight: FontWeight.normal,
                               ),
+                              keyboardType: TextInputType.emailAddress,
                               validator: (val) {
                                 if (val.isEmpty) {
                                   return 'Enter a valid email address';
