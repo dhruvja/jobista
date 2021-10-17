@@ -19,11 +19,13 @@ class RegisterClientWidget extends StatefulWidget {
 }
 
 class _RegisterClientWidgetState extends State<RegisterClientWidget> {
+  TextEditingController confirmPasswordTextController;
+  bool passwordVisibility2;
   TextEditingController emailAddressController;
   TextEditingController textController1;
   TextEditingController textController2;
   TextEditingController passwordController;
-  bool passwordVisibility;
+  bool passwordVisibility1;
   bool _loadingButton = false;
   final formKey = GlobalKey<FormState>();
   final scaffoldKey = GlobalKey<ScaffoldState>();
@@ -31,11 +33,13 @@ class _RegisterClientWidgetState extends State<RegisterClientWidget> {
   @override
   void initState() {
     super.initState();
+    confirmPasswordTextController = TextEditingController();
+    passwordVisibility2 = false;
     emailAddressController = TextEditingController();
     textController1 = TextEditingController();
     textController2 = TextEditingController();
     passwordController = TextEditingController();
-    passwordVisibility = false;
+    passwordVisibility1 = false;
   }
 
   var status;
@@ -315,7 +319,7 @@ class _RegisterClientWidgetState extends State<RegisterClientWidget> {
                         Expanded(
                           child: TextFormField(
                             controller: passwordController,
-                            obscureText: !passwordVisibility,
+                            obscureText: !passwordVisibility1,
                             decoration: InputDecoration(
                               hintText: 'Password',
                               hintStyle: FlutterFlowTheme.bodyText1.override(
@@ -344,11 +348,11 @@ class _RegisterClientWidgetState extends State<RegisterClientWidget> {
                                   16, 24, 24, 24),
                               suffixIcon: InkWell(
                                 onTap: () => setState(
-                                  () =>
-                                      passwordVisibility = !passwordVisibility,
+                                  () => passwordVisibility1 =
+                                      !passwordVisibility1,
                                 ),
                                 child: Icon(
-                                  passwordVisibility
+                                  passwordVisibility1
                                       ? Icons.visibility_outlined
                                       : Icons.visibility_off_outlined,
                                   color: Color(0xFF95A1AC),
@@ -369,6 +373,87 @@ class _RegisterClientWidgetState extends State<RegisterClientWidget> {
                           ),
                         )
                       ],
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
+                    child: TextFormField(
+                      onFieldSubmitted: (_) async {
+                        if (!formKey.currentState.validate()) {
+                          return;
+                        }
+                        if (passwordController.text !=
+                            confirmPasswordTextController.text) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text(
+                                "Passwords don't match!",
+                              ),
+                            ),
+                          );
+                          return;
+                        }
+
+                        final user = await createAccountWithEmail(
+                          context,
+                          emailAddressController.text,
+                          passwordController.text,
+                        );
+                        if (user == null) {
+                          return;
+                        }
+
+                        await Navigator.pushAndRemoveUntil(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => TrackCarWidget(),
+                          ),
+                          (r) => false,
+                        );
+                      },
+                      controller: confirmPasswordTextController,
+                      obscureText: !passwordVisibility2,
+                      decoration: InputDecoration(
+                        hintText: 'Confirm Password',
+                        hintStyle: FlutterFlowTheme.bodyText1.override(
+                          fontFamily: 'Lexend Deca',
+                          color: FlutterFlowTheme.grayLight,
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: FlutterFlowTheme.grayLight,
+                            width: 1,
+                          ),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: FlutterFlowTheme.grayLight,
+                            width: 1,
+                          ),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        filled: true,
+                        fillColor: FlutterFlowTheme.customColor1,
+                        contentPadding:
+                            EdgeInsetsDirectional.fromSTEB(16, 24, 0, 24),
+                        suffixIcon: InkWell(
+                          onTap: () => setState(
+                            () => passwordVisibility2 = !passwordVisibility2,
+                          ),
+                          child: Icon(
+                            passwordVisibility2
+                                ? Icons.visibility_outlined
+                                : Icons.visibility_off_outlined,
+                            color: Color(0xFF757575),
+                            size: 22,
+                          ),
+                        ),
+                      ),
+                      style: FlutterFlowTheme.bodyText1.override(
+                        fontFamily: 'Lexend Deca',
+                        color: FlutterFlowTheme.grayLight,
+                      ),
                     ),
                   ),
                   Padding(
