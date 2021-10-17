@@ -33,7 +33,6 @@ dependencies:
   firebase_auth: ^3.0.1
   firebase_core: ^1.4.0
   firebase_storage: ^10.0.1
-  flutter_credit_card: ^2.0.0
   flutter_spinkit: ^4.1.2+1
   font_awesome_flutter:
   geolocator: 7.6.2

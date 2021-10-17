@@ -1,20 +1,20 @@
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
-import '../main.dart';
+import '../home_page/home_page_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-class OnboardingWidget extends StatefulWidget {
-  OnboardingWidget({Key key}) : super(key: key);
+class OnboardWidget extends StatefulWidget {
+  OnboardWidget({Key key}) : super(key: key);
 
   @override
-  _OnboardingWidgetState createState() => _OnboardingWidgetState();
+  _OnboardWidgetState createState() => _OnboardWidgetState();
 }
 
-class _OnboardingWidgetState extends State<OnboardingWidget> {
+class _OnboardWidgetState extends State<OnboardWidget> {
   PageController pageViewController;
   bool _loadingButton = false;
   final scaffoldKey = GlobalKey<ScaffoldState>();
@@ -23,20 +23,20 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.customColor1,
+      backgroundColor: Color(0xFF42A5F5),
       body: Column(
         mainAxisSize: MainAxisSize.max,
         children: [
           Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(24, 60, 24, 0),
+            padding: EdgeInsetsDirectional.fromSTEB(0, 60, 0, 0),
             child: Row(
               mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Image.asset(
-                  'assets/images/logoDark@3x.png',
+                  'assets/images/JOBista.png',
                   width: 200,
-                  height: 50,
+                  height: 100,
                   fit: BoxFit.fitHeight,
                 )
               ],
@@ -72,7 +72,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0, 0, 0, 20),
                                       child: Image.asset(
-                                        'assets/images/fleetCar_1@3x.png',
+                                        'assets/images/onboarding_1.png',
                                         width: 350,
                                         height: 300,
                                         fit: BoxFit.fitWidth,
@@ -88,11 +88,14 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                                     children: [
                                       Expanded(
                                         child: Text(
-                                          'Add Cars',
+                                          'Search for Books',
                                           textAlign: TextAlign.center,
                                           style:
-                                              FlutterFlowTheme.title2.override(
+                                              FlutterFlowTheme.title1.override(
                                             fontFamily: 'Lexend Deca',
+                                            color: Colors.white,
+                                            fontSize: 32,
+                                            fontWeight: FontWeight.bold,
                                           ),
                                         ),
                                       )
@@ -101,17 +104,20 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      33, 0, 43, 8),
+                                      20, 0, 20, 8),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Expanded(
                                         child: Text(
-                                          'Keep track of all your cars in one application, schedule maintentance.',
+                                          'Find amazing classic books in our library.',
                                           textAlign: TextAlign.center,
-                                          style: FlutterFlowTheme.bodyText2
+                                          style: FlutterFlowTheme.subtitle2
                                               .override(
                                             fontFamily: 'Lexend Deca',
+                                            color: Color(0x99FFFFFF),
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.normal,
                                           ),
                                         ),
                                       )
@@ -137,7 +143,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0, 0, 0, 20),
                                       child: Image.asset(
-                                        'assets/images/fleetCar_2@3x.png',
+                                        'assets/images/onboarding_2.png',
                                         width: 300,
                                         height: 300,
                                         fit: BoxFit.fitWidth,
@@ -153,11 +159,14 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                                     children: [
                                       Expanded(
                                         child: Text(
-                                          'Full Control',
+                                          'Purchase Books',
                                           textAlign: TextAlign.center,
                                           style:
-                                              FlutterFlowTheme.title2.override(
+                                              FlutterFlowTheme.title1.override(
                                             fontFamily: 'Lexend Deca',
+                                            color: Colors.white,
+                                            fontSize: 32,
+                                            fontWeight: FontWeight.bold,
                                           ),
                                         ),
                                       )
@@ -166,17 +175,20 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      32, 0, 32, 8),
+                                      20, 0, 20, 8),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Expanded(
                                         child: Text(
-                                          'Always have control over your car, prestart it, review battery life, temp and range.',
+                                          'Buy and view all your favorite books you find in this library.',
                                           textAlign: TextAlign.center,
-                                          style: FlutterFlowTheme.bodyText2
+                                          style: FlutterFlowTheme.subtitle2
                                               .override(
                                             fontFamily: 'Lexend Deca',
+                                            color: Color(0x99FFFFFF),
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.normal,
                                           ),
                                         ),
                                       )
@@ -202,7 +214,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0, 30, 0, 30),
                                       child: Image.asset(
-                                        'assets/images/fleetCar_3@3x.png',
+                                        'assets/images/onboarding_3.png',
                                         width: 300,
                                         height: 250,
                                         fit: BoxFit.fitWidth,
@@ -218,11 +230,14 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                                     children: [
                                       Expanded(
                                         child: Text(
-                                          'Never Lose Your Car',
+                                          'Review Purchases',
                                           textAlign: TextAlign.center,
                                           style:
-                                              FlutterFlowTheme.title2.override(
+                                              FlutterFlowTheme.title1.override(
                                             fontFamily: 'Lexend Deca',
+                                            color: Colors.white,
+                                            fontSize: 32,
+                                            fontWeight: FontWeight.bold,
                                           ),
                                         ),
                                       )
@@ -237,12 +252,12 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                                     children: [
                                       Expanded(
                                         child: Text(
-                                          'Always track your car with integrated GPS, sharing rides has never been easier.',
+                                          'Keep track of all your purchases that you have made, want to trade books in? Go ahead and list them for exchange.',
                                           textAlign: TextAlign.center,
                                           style: FlutterFlowTheme.subtitle2
                                               .override(
                                             fontFamily: 'Lexend Deca',
-                                            color: FlutterFlowTheme.grayLight,
+                                            color: Color(0xFF82878C),
                                             fontSize: 16,
                                             fontWeight: FontWeight.normal,
                                           ),
@@ -279,7 +294,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                               dotWidth: 16,
                               dotHeight: 4,
                               dotColor: Color(0x8AC6CAD4),
-                              activeDotColor: FlutterFlowTheme.grayLight,
+                              activeDotColor: Colors.white,
                               paintStyle: PaintingStyle.fill,
                             ),
                           ),
@@ -291,53 +306,50 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
               )
             ],
           ),
-          Expanded(
-            child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
-                    child: FFButtonWidget(
-                      onPressed: () async {
-                        setState(() => _loadingButton = true);
-                        try {
-                          await Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) =>
-                                  NavBarPage(initialPage: 'HomePage'),
-                            ),
-                          );
-                        } finally {
-                          setState(() => _loadingButton = false);
-                        }
-                      },
-                      text: 'Continue',
-                      options: FFButtonOptions(
-                        width: 200,
-                        height: 50,
-                        color: FlutterFlowTheme.background,
-                        textStyle: FlutterFlowTheme.subtitle1.override(
-                          fontFamily: 'Lexend Deca',
-                          color: Color(0xFF39D2C0),
-                          fontSize: 18,
-                          fontWeight: FontWeight.w500,
-                        ),
-                        elevation: 0,
-                        borderSide: BorderSide(
-                          color: Colors.transparent,
-                          width: 1,
-                        ),
-                        borderRadius: 40,
+          Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
+            child: Row(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
+                  child: FFButtonWidget(
+                    onPressed: () async {
+                      setState(() => _loadingButton = true);
+                      try {
+                        await Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => HomePageWidget(),
+                          ),
+                        );
+                      } finally {
+                        setState(() => _loadingButton = false);
+                      }
+                    },
+                    text: 'Continue',
+                    options: FFButtonOptions(
+                      width: 200,
+                      height: 50,
+                      color: Color(0xFF262D34),
+                      textStyle: FlutterFlowTheme.subtitle1.override(
+                        fontFamily: 'Lexend Deca',
+                        color: Color(0xFF39D2C0),
+                        fontSize: 18,
+                        fontWeight: FontWeight.w500,
                       ),
-                      loading: _loadingButton,
+                      elevation: 2,
+                      borderSide: BorderSide(
+                        color: Colors.transparent,
+                        width: 1,
+                      ),
+                      borderRadius: 8,
                     ),
-                  )
-                ],
-              ),
+                    loading: _loadingButton,
+                  ),
+                )
+              ],
             ),
           )
         ],

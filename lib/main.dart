@@ -7,11 +7,8 @@ import 'auth/auth_util.dart';
 
 import '../flutter_flow/flutter_flow_theme.dart';
 import 'package:j_o_b_ista/login/login_widget.dart';
-import 'flutter_flow/flutter_flow_theme.dart';
+import 'package:j_o_b_ista/track_car/track_car_widget.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'home_page/home_page_widget.dart';
-import 'payments/payments_widget.dart';
-import 'profile_page/profile_page_widget.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -60,95 +57,15 @@ class _MyAppState extends State<MyApp> {
               child: SizedBox(
                 width: 50,
                 height: 50,
-                child: SpinKitCubeGrid(
-                  color: FlutterFlowTheme.primaryColor,
+                child: SpinKitFadingCube(
+                  color: Color(0xFF1976D2),
                   size: 50,
                 ),
               ),
             )
           : currentUser.loggedIn
-              ? NavBarPage()
+              ? TrackCarWidget()
               : LoginWidget(),
-    );
-  }
-}
-
-class NavBarPage extends StatefulWidget {
-  NavBarPage({Key key, this.initialPage}) : super(key: key);
-
-  final String initialPage;
-
-  @override
-  _NavBarPageState createState() => _NavBarPageState();
-}
-
-/// This is the private State class that goes with NavBarPage.
-class _NavBarPageState extends State<NavBarPage> {
-  String _currentPage = 'HomePage';
-
-  @override
-  void initState() {
-    super.initState();
-    _currentPage = widget.initialPage ?? _currentPage;
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    final tabs = {
-      'HomePage': HomePageWidget(),
-      'payments': PaymentsWidget(),
-      'profilePage': ProfilePageWidget(),
-    };
-    return Scaffold(
-      body: tabs[_currentPage],
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.directions_car_outlined,
-              size: 24,
-            ),
-            activeIcon: Icon(
-              Icons.directions_car,
-              size: 24,
-            ),
-            label: '•',
-            tooltip: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.attach_money_rounded,
-              size: 24,
-            ),
-            activeIcon: Icon(
-              Icons.attach_money_rounded,
-              size: 24,
-            ),
-            label: '•',
-            tooltip: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.account_circle_outlined,
-              size: 24,
-            ),
-            activeIcon: Icon(
-              Icons.account_circle_rounded,
-              size: 24,
-            ),
-            label: '•',
-            tooltip: '',
-          )
-        ],
-        backgroundColor: FlutterFlowTheme.customColor1,
-        currentIndex: tabs.keys.toList().indexOf(_currentPage),
-        selectedItemColor: FlutterFlowTheme.primaryColor,
-        unselectedItemColor: FlutterFlowTheme.grayLight,
-        onTap: (i) => setState(() => _currentPage = tabs.keys.toList()[i]),
-        showSelectedLabels: true,
-        showUnselectedLabels: false,
-        type: BottomNavigationBarType.fixed,
-      ),
     );
   }
 }

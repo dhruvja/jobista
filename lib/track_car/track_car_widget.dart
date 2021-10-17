@@ -32,8 +32,8 @@ class _TrackCarWidgetState extends State<TrackCarWidget> {
             child: SizedBox(
               width: 50,
               height: 50,
-              child: SpinKitCubeGrid(
-                color: FlutterFlowTheme.primaryColor,
+              child: SpinKitFadingCube(
+                color: Color(0xFF1976D2),
                 size: 50,
               ),
             ),

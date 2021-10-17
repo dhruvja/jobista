@@ -1,41 +1,34 @@
 {
   "project_info": {
-    "project_number": "956387210068",
-    "project_id": "e-drive-dd9c1",
-    "storage_bucket": "e-drive-dd9c1.appspot.com"
+    "project_number": "163691472519",
+    "project_id": "jobista-37eaa",
+    "storage_bucket": "jobista-37eaa.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:956387210068:android:3321456178698a580c0ec1",
+        "mobilesdk_app_id": "1:163691472519:android:0fb15c725917c52e21fa22",
         "android_client_info": {
           "package_name": "com.flutterflow.edriveapp"
         }
       },
       "oauth_client": [
         {
-          "client_id": "956387210068-sp2ibtairbucq9507mrqcte1q8tgl2qm.apps.googleusercontent.com",
+          "client_id": "163691472519-s5i6g3r0q9r2lbgle6dv00uv3pommvf2.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBgdN0CWQnd2XlcCYM8ALovYd7G4fVuHLs"
+          "current_key": "AIzaSyAp08Oqss8o1rWIa1HdX8zjsgtx-MbpHRY"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "956387210068-sp2ibtairbucq9507mrqcte1q8tgl2qm.apps.googleusercontent.com",
+              "client_id": "163691472519-s5i6g3r0q9r2lbgle6dv00uv3pommvf2.apps.googleusercontent.com",
               "client_type": 3
-            },
-            {
-              "client_id": "956387210068-5urjrslqh1l146hv2nfimcv66d3knlv0.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.flutterflow.edriveapp"
-              }
             }
           ]
         }
