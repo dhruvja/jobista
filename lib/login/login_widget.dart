@@ -63,7 +63,6 @@ class _LoginWidgetState extends State<LoginWidget> {
         status = data;
         present = true;
       });
-    }
 
     if (present) {
       print("true");
@@ -77,12 +76,15 @@ class _LoginWidgetState extends State<LoginWidget> {
         );
       }
     }
+    }
 
-    // } else {
-    //   // If the server did not return a 201 CREATED response,
-    //   // then throw an exception.
-    //   throw Exception('Failed to create album.');
-    // }
+   else {
+      // If the server did not return a 201 CREATED response,
+      // then throw an exception.
+      ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Cannot connect to server'),backgroundColor: Colors.redAccent),
+        );
+    }
   }
 
   @override
