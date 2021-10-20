@@ -1,7 +1,7 @@
+import '../base/base_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
-import '../home_page/home_page_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -23,7 +23,7 @@ class _OnboardWidgetState extends State<OnboardWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: Color(0xFF42A5F5),
+      backgroundColor: Color(0xFF289CF0),
       body: Column(
         mainAxisSize: MainAxisSize.max,
         children: [
@@ -33,11 +33,14 @@ class _OnboardWidgetState extends State<OnboardWidget> {
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image.asset(
-                  'assets/images/JOBista.png',
-                  width: 200,
-                  height: 100,
-                  fit: BoxFit.fitHeight,
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0, 50, 0, 0),
+                  child: Image.asset(
+                    'assets/images/JOBista.png',
+                    width: 200,
+                    height: 100,
+                    fit: BoxFit.fitHeight,
+                  ),
                 )
               ],
             ),
@@ -56,6 +59,84 @@ class _OnboardWidgetState extends State<OnboardWidget> {
                             PageController(initialPage: 0),
                         scrollDirection: Axis.horizontal,
                         children: [
+                          Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(20, 20, 20, 20),
+                            child: Container(
+                              width: 100,
+                              height: 100,
+                              decoration: BoxDecoration(),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        2, 0, 0, 0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Expanded(
+                                          child: Image.asset(
+                                            'assets/images/mcatd_1.png',
+                                            width: 350,
+                                            height: 300,
+                                            fit: BoxFit.fitWidth,
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        20, 0, 20, 8),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Expanded(
+                                          child: Text(
+                                            'Want a nurse?',
+                                            textAlign: TextAlign.center,
+                                            style: FlutterFlowTheme.title1
+                                                .override(
+                                              fontFamily: 'Lexend Deca',
+                                              color: Colors.white,
+                                              fontSize: 32,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        20, 0, 20, 8),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Expanded(
+                                          child: Text(
+                                            'Are somebody in emergency care and you are in need/ready to take care of them? ',
+                                            textAlign: TextAlign.center,
+                                            style: FlutterFlowTheme.subtitle2
+                                                .override(
+                                              fontFamily: 'Lexend Deca',
+                                              color: Color(0xFF012A55),
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.normal,
+                                            ),
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
                           Container(
                             width: 100,
                             height: 100,
@@ -68,15 +149,11 @@ class _OnboardWidgetState extends State<OnboardWidget> {
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 0, 0, 20),
-                                      child: Image.asset(
-                                        'assets/images/onboarding_1.png',
-                                        width: 350,
-                                        height: 300,
-                                        fit: BoxFit.fitWidth,
-                                      ),
+                                    Image.asset(
+                                      'assets/images/9hsjc_2.png',
+                                      width: 300,
+                                      height: 300,
+                                      fit: BoxFit.cover,
                                     )
                                   ],
                                 ),
@@ -88,7 +165,7 @@ class _OnboardWidgetState extends State<OnboardWidget> {
                                     children: [
                                       Expanded(
                                         child: Text(
-                                          'Search for Books',
+                                          'Oh!! the water supply is out !!',
                                           textAlign: TextAlign.center,
                                           style:
                                               FlutterFlowTheme.title1.override(
@@ -110,12 +187,12 @@ class _OnboardWidgetState extends State<OnboardWidget> {
                                     children: [
                                       Expanded(
                                         child: Text(
-                                          'Find amazing classic books in our library.',
+                                          'Get your plumber right in click, post the need get the man.',
                                           textAlign: TextAlign.center,
                                           style: FlutterFlowTheme.subtitle2
                                               .override(
                                             fontFamily: 'Lexend Deca',
-                                            color: Color(0x99FFFFFF),
+                                            color: Color(0xFF012A55),
                                             fontSize: 16,
                                             fontWeight: FontWeight.normal,
                                           ),
@@ -132,22 +209,18 @@ class _OnboardWidgetState extends State<OnboardWidget> {
                             height: 100,
                             decoration: BoxDecoration(),
                             child: Column(
-                              mainAxisSize: MainAxisSize.max,
+                              mainAxisSize: MainAxisSize.min,
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Row(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 0, 0, 20),
-                                      child: Image.asset(
-                                        'assets/images/onboarding_2.png',
-                                        width: 300,
-                                        height: 300,
-                                        fit: BoxFit.fitWidth,
-                                      ),
+                                    Image.asset(
+                                      'assets/images/albfo_3.png',
+                                      width: 300,
+                                      height: 250,
+                                      fit: BoxFit.contain,
                                     )
                                   ],
                                 ),
@@ -159,7 +232,7 @@ class _OnboardWidgetState extends State<OnboardWidget> {
                                     children: [
                                       Expanded(
                                         child: Text(
-                                          'Purchase Books',
+                                          'Oh!! the water supply is out ',
                                           textAlign: TextAlign.center,
                                           style:
                                               FlutterFlowTheme.title1.override(
@@ -181,12 +254,12 @@ class _OnboardWidgetState extends State<OnboardWidget> {
                                     children: [
                                       Expanded(
                                         child: Text(
-                                          'Buy and view all your favorite books you find in this library.',
+                                          'Get your plumber right in click, post the need get the man.',
                                           textAlign: TextAlign.center,
                                           style: FlutterFlowTheme.subtitle2
                                               .override(
                                             fontFamily: 'Lexend Deca',
-                                            color: Color(0x99FFFFFF),
+                                            color: FlutterFlowTheme.dark400,
                                             fontSize: 16,
                                             fontWeight: FontWeight.normal,
                                           ),
@@ -194,77 +267,59 @@ class _OnboardWidgetState extends State<OnboardWidget> {
                                       )
                                     ],
                                   ),
-                                )
-                              ],
-                            ),
-                          ),
-                          Container(
-                            width: 100,
-                            height: 100,
-                            decoration: BoxDecoration(),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
+                                ),
                                 Row(
                                   mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 30, 0, 30),
-                                      child: Image.asset(
-                                        'assets/images/onboarding_3.png',
-                                        width: 300,
-                                        height: 250,
-                                        fit: BoxFit.fitWidth,
+                                    Expanded(
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    20, 0, 20, 20),
+                                            child: FFButtonWidget(
+                                              onPressed: () async {
+                                                setState(() =>
+                                                    _loadingButton = true);
+                                                try {
+                                                  await Navigator.push(
+                                                    context,
+                                                    MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          BaseWidget(),
+                                                    ),
+                                                  );
+                                                } finally {
+                                                  setState(() =>
+                                                      _loadingButton = false);
+                                                }
+                                              },
+                                              text: 'Sign in',
+                                              options: FFButtonOptions(
+                                                width: 130,
+                                                height: 40,
+                                                color: Color(0xFF012A55),
+                                                textStyle: FlutterFlowTheme
+                                                    .subtitle2
+                                                    .override(
+                                                  fontFamily: 'Lexend Deca',
+                                                  color: Colors.white,
+                                                ),
+                                                borderSide: BorderSide(
+                                                  color: Colors.transparent,
+                                                  width: 1,
+                                                ),
+                                                borderRadius: 15,
+                                              ),
+                                              loading: _loadingButton,
+                                            ),
+                                          )
+                                        ],
                                       ),
                                     )
                                   ],
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      20, 0, 20, 8),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      Expanded(
-                                        child: Text(
-                                          'Review Purchases',
-                                          textAlign: TextAlign.center,
-                                          style:
-                                              FlutterFlowTheme.title1.override(
-                                            fontFamily: 'Lexend Deca',
-                                            color: Colors.white,
-                                            fontSize: 32,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      20, 0, 20, 8),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      Expanded(
-                                        child: Text(
-                                          'Keep track of all your purchases that you have made, want to trade books in? Go ahead and list them for exchange.',
-                                          textAlign: TextAlign.center,
-                                          style: FlutterFlowTheme.subtitle2
-                                              .override(
-                                            fontFamily: 'Lexend Deca',
-                                            color: Color(0xFF82878C),
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.normal,
-                                          ),
-                                        ),
-                                      )
-                                    ],
-                                  ),
                                 )
                               ],
                             ),
@@ -305,52 +360,6 @@ class _OnboardWidgetState extends State<OnboardWidget> {
                 ),
               )
             ],
-          ),
-          Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
-            child: Row(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
-                  child: FFButtonWidget(
-                    onPressed: () async {
-                      setState(() => _loadingButton = true);
-                      try {
-                        await Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => HomePageWidget(),
-                          ),
-                        );
-                      } finally {
-                        setState(() => _loadingButton = false);
-                      }
-                    },
-                    text: 'Continue',
-                    options: FFButtonOptions(
-                      width: 200,
-                      height: 50,
-                      color: Color(0xFF262D34),
-                      textStyle: FlutterFlowTheme.subtitle1.override(
-                        fontFamily: 'Lexend Deca',
-                        color: Color(0xFF39D2C0),
-                        fontSize: 18,
-                        fontWeight: FontWeight.w500,
-                      ),
-                      elevation: 2,
-                      borderSide: BorderSide(
-                        color: Colors.transparent,
-                        width: 1,
-                      ),
-                      borderRadius: 8,
-                    ),
-                    loading: _loadingButton,
-                  ),
-                )
-              ],
-            ),
           )
         ],
       ),
