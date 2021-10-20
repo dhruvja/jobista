@@ -115,22 +115,25 @@ Widget build(BuildContext context) {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Expanded(
-                          child: Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 180, 0, 0),
-                            child: Image.asset(
-                              'assets/images/JOBista.png',
-                              width: 100,
-                              height: 100,
-                              fit: BoxFit.contain,
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 2, 0, 0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Expanded(
+                            child: Padding(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 90, 0, 0),
+                              child: Image.asset(
+                                'assets/images/JOBista.png',
+                                width: 100,
+                                height: 100,
+                                fit: BoxFit.contain,
+                              ),
                             ),
-                          ),
-                        )
-                      ],
+                          )
+                        ],
+                      ),
                     ),
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
