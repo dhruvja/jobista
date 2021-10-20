@@ -24,171 +24,165 @@ class _BaseWidgetState extends State<BaseWidget> {
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: Color(0xFF1597E5),
-      body: Stack(
-        children: [
-          Container(
-            width: double.infinity,
-            height: double.infinity,
-            constraints: BoxConstraints(
-              maxWidth: double.infinity,
-              maxHeight: double.infinity,
-            ),
-            decoration: BoxDecoration(
-              color: Color(0x001976D2),
-              image: DecorationImage(
-                fit: BoxFit.fill,
-                image: Image.asset(
-                  'assets/images/Bg.png',
-                ).image,
+      body: SafeArea(
+        child: Stack(
+          children: [
+            Container(
+              width: double.infinity,
+              height: double.infinity,
+              constraints: BoxConstraints(
+                maxWidth: double.infinity,
+                maxHeight: double.infinity,
               ),
-            ),
-            child: Row(
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                Expanded(
-                  child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Expanded(
-                            child: Align(
-                              alignment: AlignmentDirectional(1, 0),
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0, 50, 0, 20),
+              decoration: BoxDecoration(
+                color: Color(0x001976D2),
+                image: DecorationImage(
+                  fit: BoxFit.fill,
+                  image: Image.asset(
+                    'assets/images/Bg.png',
+                  ).image,
+                ),
+              ),
+              child: Row(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Expanded(
+                    child: Column(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Expanded(
+                              child: Align(
+                                alignment: AlignmentDirectional(1, 0),
                                 child: Image.asset(
                                   'assets/images/Want_to_(4).png',
-                                  width: 300,
+                                  width: 250,
                                   height: 300,
                                   fit: BoxFit.cover,
                                 ),
                               ),
-                            ),
-                          )
-                        ],
-                      ),
-                      Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Expanded(
-                            child: Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(90, 0, 90, 0),
-                              child: FFButtonWidget(
-                                onPressed: () async {
-                                  setState(() => _loadingButton1 = true);
-                                  try {
-                                    await Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) => Worker1Widget(),
-                                      ),
-                                    );
-                                  } finally {
-                                    setState(() => _loadingButton1 = false);
-                                  }
-                                },
-                                text: 'WORKER',
-                                options: FFButtonOptions(
-                                  width: 130,
-                                  height: 40,
-                                  color: Color(0xFF012A55),
-                                  textStyle:
-                                      FlutterFlowTheme.subtitle2.override(
-                                    fontFamily: 'Lexend Deca',
-                                    color: Colors.white,
+                            )
+                          ],
+                        ),
+                        Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Expanded(
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    90, 0, 90, 0),
+                                child: FFButtonWidget(
+                                  onPressed: () async {
+                                    setState(() => _loadingButton1 = true);
+                                    try {
+                                      await Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => Worker1Widget(),
+                                        ),
+                                      );
+                                    } finally {
+                                      setState(() => _loadingButton1 = false);
+                                    }
+                                  },
+                                  text: 'WORKER',
+                                  options: FFButtonOptions(
+                                    width: 130,
+                                    height: 40,
+                                    color: Color(0xFF012A55),
+                                    textStyle:
+                                        FlutterFlowTheme.subtitle2.override(
+                                      fontFamily: 'Lexend Deca',
+                                      color: Colors.white,
+                                    ),
+                                    borderSide: BorderSide(
+                                      color: Colors.transparent,
+                                      width: 1,
+                                    ),
+                                    borderRadius: 12,
                                   ),
-                                  borderSide: BorderSide(
-                                    color: Colors.transparent,
-                                    width: 1,
-                                  ),
-                                  borderRadius: 12,
+                                  loading: _loadingButton1,
                                 ),
-                                loading: _loadingButton1,
                               ),
-                            ),
-                          )
-                        ],
-                      ),
-                      Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 20, 0, 2),
-                            child: Image.asset(
+                            )
+                          ],
+                        ),
+                        Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Image.asset(
                               'assets/images/Want_to_(5).png',
-                              width: 300,
+                              width: 250,
                               height: 300,
                               fit: BoxFit.contain,
-                            ),
-                          )
-                        ],
-                      ),
-                      Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Expanded(
-                            child: Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(90, 0, 90, 0),
-                              child: FFButtonWidget(
-                                onPressed: () async {
-                                  setState(() => _loadingButton2 = true);
-                                  try {
-                                    await Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) =>
-                                            RegisterClientWidget(),
-                                      ),
-                                    );
-                                  } finally {
-                                    setState(() => _loadingButton2 = false);
-                                  }
-                                },
-                                text: 'CLIENT',
-                                options: FFButtonOptions(
-                                  width: 130,
-                                  height: 40,
-                                  color: Color(0xFF012A55),
-                                  textStyle:
-                                      FlutterFlowTheme.subtitle2.override(
-                                    fontFamily: 'Lexend Deca',
-                                    color: Colors.white,
+                            )
+                          ],
+                        ),
+                        Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Expanded(
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    90, 0, 90, 0),
+                                child: FFButtonWidget(
+                                  onPressed: () async {
+                                    setState(() => _loadingButton2 = true);
+                                    try {
+                                      await Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) =>
+                                              RegisterClientWidget(),
+                                        ),
+                                      );
+                                    } finally {
+                                      setState(() => _loadingButton2 = false);
+                                    }
+                                  },
+                                  text: 'CLIENT',
+                                  options: FFButtonOptions(
+                                    width: 130,
+                                    height: 40,
+                                    color: Color(0xFF012A55),
+                                    textStyle:
+                                        FlutterFlowTheme.subtitle2.override(
+                                      fontFamily: 'Lexend Deca',
+                                      color: Colors.white,
+                                    ),
+                                    borderSide: BorderSide(
+                                      color: Colors.transparent,
+                                      width: 1,
+                                    ),
+                                    borderRadius: 12,
                                   ),
-                                  borderSide: BorderSide(
-                                    color: Colors.transparent,
-                                    width: 1,
-                                  ),
-                                  borderRadius: 12,
+                                  loading: _loadingButton2,
                                 ),
-                                loading: _loadingButton2,
                               ),
-                            ),
-                          )
-                        ],
+                            )
+                          ],
+                        )
+                      ],
+                    ),
+                  ),
+                  Column(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Container(
+                        height: 100,
+                        decoration: BoxDecoration(
+                          color: Color(0x00EEEEEE),
+                        ),
                       )
                     ],
-                  ),
-                ),
-                Column(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Container(
-                      height: 100,
-                      decoration: BoxDecoration(
-                        color: Color(0x00EEEEEE),
-                      ),
-                    )
-                  ],
-                )
-              ],
-            ),
-          )
-        ],
+                  )
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
