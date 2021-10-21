@@ -18,8 +18,7 @@ class Worker1Widget extends StatefulWidget {
 }
 
 class _Worker1WidgetState extends State<Worker1Widget> {
-  String uploadedFileUrl1 = '';
-  String uploadedFileUrl2 = '';
+  String uploadedFileUrl = '';
   TextEditingController emailTextController;
   TextEditingController textController1;
   TextEditingController passwordController;
@@ -88,12 +87,12 @@ class _Worker1WidgetState extends State<Worker1Widget> {
                       ],
                     ),
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 20),
                       child: Container(
                         width: 100,
                         height: 100,
                         decoration: BoxDecoration(
-                          color: Color(0xFFEEEEEE),
+                          color: Color(0x00EEEEEE),
                         ),
                         child: InkWell(
                           onTap: () async {
@@ -113,7 +112,7 @@ class _Worker1WidgetState extends State<Worker1Widget> {
                               ScaffoldMessenger.of(context)
                                   .hideCurrentSnackBar();
                               if (downloadUrl != null) {
-                                setState(() => uploadedFileUrl1 = downloadUrl);
+                                setState(() => uploadedFileUrl = downloadUrl);
                                 showUploadMessage(context, 'Success!');
                               } else {
                                 showUploadMessage(
@@ -125,46 +124,48 @@ class _Worker1WidgetState extends State<Worker1Widget> {
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
-                              InkWell(
-                                onTap: () async {
-                                  final selectedMedia =
-                                      await selectMediaWithSourceBottomSheet(
-                                    context: context,
-                                    allowPhoto: true,
-                                  );
-                                  if (selectedMedia != null &&
-                                      validateFileFormat(
-                                          selectedMedia.storagePath, context)) {
-                                    showUploadMessage(
-                                        context, 'Uploading file...',
-                                        showLoading: true);
-                                    final downloadUrl = await uploadData(
-                                        selectedMedia.storagePath,
-                                        selectedMedia.bytes);
-                                    ScaffoldMessenger.of(context)
-                                        .hideCurrentSnackBar();
-                                    if (downloadUrl != null) {
-                                      setState(
-                                          () => uploadedFileUrl2 = downloadUrl);
-                                      showUploadMessage(context, 'Success!');
-                                    } else {
-                                      showUploadMessage(
-                                          context, 'Failed to upload media');
-                                      return;
-                                    }
-                                  }
-                                },
-                                child: Image.network(
-                                  uploadedFileUrl1,
-                                  width: 100,
-                                  height: 100,
-                                  fit: BoxFit.cover,
+                              Padding(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
+                                child: Container(
+                                  width: 120,
+                                  height: 120,
+                                  clipBehavior: Clip.antiAlias,
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                  ),
+                                  child: Image.asset(
+                                    'assets/images/Want_to_(6).png',
+                                  ),
                                 ),
                               )
                             ],
                           ),
                         ),
                       ),
+                    ),
+                    Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Expanded(
+                          child: Align(
+                            alignment: AlignmentDirectional(0, 0.7),
+                            child: Padding(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
+                              child: Text(
+                                'Upload Photo',
+                                style: FlutterFlowTheme.title3.override(
+                                  fontFamily: 'Lexend Deca',
+                                  color: FlutterFlowTheme.customColor1,
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ),
+                        )
+                      ],
                     ),
                     TextFormField(
                       onChanged: (_) => setState(() {}),
