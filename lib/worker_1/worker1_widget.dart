@@ -16,7 +16,6 @@ import 'dart:io';
 import 'package:image_picker/image_picker.dart';
 import 'package:path/path.dart' as Path;
 
-
 class Worker1Widget extends StatefulWidget {
   Worker1Widget({Key key}) : super(key: key);
 
@@ -53,7 +52,7 @@ class _Worker1WidgetState extends State<Worker1Widget> {
     passwordVisibility1 = false;
   }
 
-  getImage() async{
+  getImage() async {
     var image_source = await picker.pickImage(source: ImageSource.gallery);
     setState(() {
       _image = File(image_source.path);
@@ -65,8 +64,7 @@ class _Worker1WidgetState extends State<Worker1Widget> {
   uploadImage(File imageFile) async {
     // open a bytestream
     print("hi");
-    var stream =
-        new http.ByteStream(imageFile.openRead());
+    var stream = new http.ByteStream(imageFile.openRead());
     stream.cast();
     // get file length
     var length = await imageFile.length();
@@ -93,12 +91,21 @@ class _Worker1WidgetState extends State<Worker1Widget> {
     var response = await request.send();
     print(response.statusCode);
 
-    // listen for response
-    response.stream.transform(utf8.decoder).listen((value) {
-      print(value);
-    });
+    print(response);
 
-    
+    // listen for response
+    if (response.statusCode == 200) {
+      response.stream.transform(utf8.decoder).listen((value) {
+        print(value);
+      });
+    }
+    else{
+      ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+              content: Text('Account Couldnt be created'),
+              backgroundColor: Colors.redAccent),
+        );
+    }
 
     // if (present) {
     //   print("true");
@@ -163,7 +170,6 @@ class _Worker1WidgetState extends State<Worker1Widget> {
       }
     }
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -230,8 +236,10 @@ class _Worker1WidgetState extends State<Worker1Widget> {
                                   decoration: BoxDecoration(
                                     shape: BoxShape.circle,
                                   ),
-                                  child: 
-                                    _image == null ? Image.asset('assets/images/Want_to_(6).png') : Image.file(_image) ,
+                                  child: _image == null
+                                      ? Image.asset(
+                                          'assets/images/Want_to_(6).png')
+                                      : Image.file(_image),
                                   // ),
                                 ),
                               ),
@@ -495,13 +503,14 @@ class _Worker1WidgetState extends State<Worker1Widget> {
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   10, 10, 10, 10),
                               child: FFButtonWidget(
-                                onPressed: () async{
+                                onPressed: () async {
                                   setState(() => _loadingButton = true);
                                   try {
                                     if (!formKey.currentState.validate()) {
                                       return;
                                     }
-                                    if(passwordController.text != confirmPasswordTextController.text){
+                                    if (passwordController.text !=
+                                        confirmPasswordTextController.text) {
                                       return;
                                     }
 
