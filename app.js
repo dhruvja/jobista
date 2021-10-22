@@ -3,6 +3,7 @@ var app = express();
 var cors = require('cors')
 const jwt = require('jsonwebtoken')
 var pool = require('./db')
+var fileupload = require('express-fileupload')
 const authorize = require('./middleware/authorize')
 
 const worker = require('./routes/worker')
@@ -11,11 +12,12 @@ const analytics = require('./routes/analytics')
 
 app.use(cors())
 app.use(express.json())
+app.use(fileupload())
 app.use('/api/worker',worker)
 app.use('/api/client',client)
 app.use('/api/analytics',analytics)
 
-
+app.use('/api/uploads',express.static('uploads'))
 
 
 app.post('/api/login',(req,res) => {
@@ -29,15 +31,15 @@ app.post('/api/login',(req,res) => {
             }
             else{
                 if(rows.length  == 1){
-                    // const token = jwt.sign({
-                    //         user_id: query.rows[0].id,
-                    //     },
-                    //     "heya", {
-                    //         expiresIn: "2h",
-                    //     }
-                    // )
+                    const token = jwt.sign({
+                            user_id: rows[0].id,
+                        },
+                        "heya", {
+                            expiresIn: "2h",
+                        }
+                    )
                     console.log("Login successfully")
-                    res.json({success: true, msg: "You have logged in successfully"})
+                    res.json({success: true, msg: "You have logged in successfully", token: token})
                 }
                 else{
                     console.log("Login failed")
@@ -68,22 +70,47 @@ app.post('/api/register', (req, res) => {
                 try {
                     if(rows.insertId){
                         console.log("Registration Successful")
-                        // const token = jwt.sign({
-                        //         user_id: query.rows[0].id,
-                        //     },
-                        //     "heya", {
-                        //         expiresIn: "2h",
-                        //     }
-                        // )
+                        const token = jwt.sign({
+                                user_id: query.rows[0].id,
+                            },
+                            "heya", {
+                                expiresIn: "2h",
+                            }
+                        )
                         console.log(rows)
-                        res.json({success: true, msg: "You have registered successfully",data: rows.insertId})
+                        if(details.email == ""){
+                            const image = req.files.photo;
+                            image.mv('./uploads/' + image.name , function (err, result) {
+                                if (err) {
+                                    console.log(err)
+                                    res.json({success: false, msg: "Worker details couldnt not be uploaded"})
+                                } else {
+                                    const location = 'uploads' + image.name;
+                                    const sql = "INSERT INTO work_details(user_id,username,profile_pic) VALUES(?,?,?) ";
+                                    pool.query(sql , [rows.insertId,details.username,location], (err,rows) => {
+                                        if(err){
+                                            console.log("Worker Registration failed");
+                                            res.json({success: false, msg: "Worker details couldnt not be uploaded"})
+        
+                                        }
+                                        console.log("File upload successful")
+                                        res.json({success: true, msg: "You have registered successfully",data: rows.insertId, token: token})
+                                    })
+                                }
+                            })
+
+                            
+                        }
+                        else{
+                            res.json({success: true, msg: "You have registered successfully",data: rows.insertId})
+                        }
                     }
                     else{
-                        console.log("Reigstration Failed")
+                        console.log("Registration Failed")
                         res.json({success: false, msg: "unexpected error occured"})
                     }
                 } catch (error) {
-                    console.log("Reigstration Failed", error)
+                    console.log("Registration Failed", error)
                     res.json({success: false, msg: error})
                 }
             }

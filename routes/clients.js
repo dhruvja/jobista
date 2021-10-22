@@ -31,6 +31,8 @@ router.route('/search/:query').post(async (req,res) => {
         minsalary = 10000000;
     if(pincode == "")
         pincode = 572101
+    
+    console.log(params)
 
 
     const roles_query = (id) => {
