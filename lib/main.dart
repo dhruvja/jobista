@@ -7,10 +7,8 @@ import 'auth/auth_util.dart';
 
 import '../flutter_flow/flutter_flow_theme.dart';
 import 'package:j_o_b_ista/login/login_widget.dart';
-import 'flutter_flow/flutter_flow_theme.dart';
+import 'package:j_o_b_ista/track_car/track_car_widget.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'filter/filter_widget.dart';
-import 'filter_copy/filter_copy_widget.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -66,67 +64,8 @@ class _MyAppState extends State<MyApp> {
               ),
             )
           : currentUser.loggedIn
-              ? NavBarPage()
+              ? TrackCarWidget()
               : LoginWidget(),
-    );
-  }
-}
-
-class NavBarPage extends StatefulWidget {
-  NavBarPage({Key key, this.initialPage}) : super(key: key);
-
-  final String initialPage;
-
-  @override
-  _NavBarPageState createState() => _NavBarPageState();
-}
-
-/// This is the private State class that goes with NavBarPage.
-class _NavBarPageState extends State<NavBarPage> {
-  String _currentPage = 'trackCar';
-
-  @override
-  void initState() {
-    super.initState();
-    _currentPage = widget.initialPage ?? _currentPage;
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    final tabs = {
-      'Filter': FilterWidget(),
-      'FilterCopy': FilterCopyWidget(),
-    };
-    return Scaffold(
-      body: tabs[_currentPage],
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.home_outlined,
-              size: 24,
-            ),
-            label: 'Home',
-            tooltip: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.home_outlined,
-              size: 24,
-            ),
-            label: 'Home',
-            tooltip: '',
-          )
-        ],
-        backgroundColor: FlutterFlowTheme.customColor1,
-        currentIndex: tabs.keys.toList().indexOf(_currentPage),
-        selectedItemColor: FlutterFlowTheme.primaryColor,
-        unselectedItemColor: FlutterFlowTheme.grayLight,
-        onTap: (i) => setState(() => _currentPage = tabs.keys.toList()[i]),
-        showSelectedLabels: true,
-        showUnselectedLabels: false,
-        type: BottomNavigationBarType.fixed,
-      ),
     );
   }
 }
