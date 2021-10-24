@@ -2,6 +2,7 @@ import '../base/base_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
+import '../login/login_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -16,7 +17,8 @@ class OnboardWidget extends StatefulWidget {
 
 class _OnboardWidgetState extends State<OnboardWidget> {
   PageController pageViewController;
-  bool _loadingButton = false;
+  bool _loadingButton1 = false;
+  bool _loadingButton2 = false;
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -268,58 +270,166 @@ class _OnboardWidgetState extends State<OnboardWidget> {
                                     ],
                                   ),
                                 ),
-                                Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Expanded(
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    20, 0, 20, 20),
-                                            child: FFButtonWidget(
-                                              onPressed: () async {
-                                                setState(() =>
-                                                    _loadingButton = true);
-                                                try {
-                                                  await Navigator.push(
-                                                    context,
-                                                    MaterialPageRoute(
-                                                      builder: (context) =>
-                                                          BaseWidget(),
+                                Align(
+                                  alignment: AlignmentDirectional(0, 0),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Expanded(
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  children: [
+                                                    Column(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      children: [
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      20,
+                                                                      20,
+                                                                      20,
+                                                                      20),
+                                                          child: FFButtonWidget(
+                                                            onPressed:
+                                                                () async {
+                                                              setState(() =>
+                                                                  _loadingButton1 =
+                                                                      true);
+                                                              try {
+                                                                await Navigator
+                                                                    .push(
+                                                                  context,
+                                                                  MaterialPageRoute(
+                                                                    builder:
+                                                                        (context) =>
+                                                                            LoginWidget(),
+                                                                  ),
+                                                                );
+                                                              } finally {
+                                                                setState(() =>
+                                                                    _loadingButton1 =
+                                                                        false);
+                                                              }
+                                                            },
+                                                            text: 'Log-IN',
+                                                            options:
+                                                                FFButtonOptions(
+                                                              width: 130,
+                                                              height: 40,
+                                                              color: Color(
+                                                                  0xFFE43C3C),
+                                                              textStyle:
+                                                                  FlutterFlowTheme
+                                                                      .subtitle2
+                                                                      .override(
+                                                                fontFamily:
+                                                                    'Lexend Deca',
+                                                                color: Colors
+                                                                    .white,
+                                                              ),
+                                                              borderSide:
+                                                                  BorderSide(
+                                                                color: Colors
+                                                                    .transparent,
+                                                                width: 1,
+                                                              ),
+                                                              borderRadius: 12,
+                                                            ),
+                                                            loading:
+                                                                _loadingButton1,
+                                                          ),
+                                                        )
+                                                      ],
                                                     ),
-                                                  );
-                                                } finally {
-                                                  setState(() =>
-                                                      _loadingButton = false);
-                                                }
-                                              },
-                                              text: 'Sign in',
-                                              options: FFButtonOptions(
-                                                width: 130,
-                                                height: 40,
-                                                color: Color(0xFF012A55),
-                                                textStyle: FlutterFlowTheme
-                                                    .subtitle2
-                                                    .override(
-                                                  fontFamily: 'Lexend Deca',
-                                                  color: Colors.white,
-                                                ),
-                                                borderSide: BorderSide(
-                                                  color: Colors.transparent,
-                                                  width: 1,
-                                                ),
-                                                borderRadius: 15,
-                                              ),
-                                              loading: _loadingButton,
-                                            ),
-                                          )
-                                        ],
-                                      ),
-                                    )
-                                  ],
+                                                    Column(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      children: [
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      20,
+                                                                      20,
+                                                                      20,
+                                                                      20),
+                                                          child: FFButtonWidget(
+                                                            onPressed:
+                                                                () async {
+                                                              setState(() =>
+                                                                  _loadingButton2 =
+                                                                      true);
+                                                              try {
+                                                                await Navigator
+                                                                    .push(
+                                                                  context,
+                                                                  MaterialPageRoute(
+                                                                    builder:
+                                                                        (context) =>
+                                                                            BaseWidget(),
+                                                                  ),
+                                                                );
+                                                              } finally {
+                                                                setState(() =>
+                                                                    _loadingButton2 =
+                                                                        false);
+                                                              }
+                                                            },
+                                                            text: 'Sign-UP',
+                                                            options:
+                                                                FFButtonOptions(
+                                                              width: 130,
+                                                              height: 40,
+                                                              color: Color(
+                                                                  0xFF022747),
+                                                              textStyle:
+                                                                  FlutterFlowTheme
+                                                                      .subtitle2
+                                                                      .override(
+                                                                fontFamily:
+                                                                    'Lexend Deca',
+                                                                color: Colors
+                                                                    .white,
+                                                              ),
+                                                              borderSide:
+                                                                  BorderSide(
+                                                                color: Colors
+                                                                    .transparent,
+                                                                width: 1,
+                                                              ),
+                                                              borderRadius: 12,
+                                                            ),
+                                                            loading:
+                                                                _loadingButton2,
+                                                          ),
+                                                        )
+                                                      ],
+                                                    )
+                                                  ],
+                                                )
+                                              ],
+                                            )
+                                          ],
+                                        ),
+                                      )
+                                    ],
+                                  ),
                                 )
                               ],
                             ),
