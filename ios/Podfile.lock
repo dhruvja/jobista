@@ -56,6 +56,8 @@ PODS:
     - FirebaseCore (~> 8.0)
     - GTMSessionFetcher/Core (~> 1.5)
   - Flutter (1.0.0)
+  - flutter_secure_storage (3.3.1):
+    - Flutter
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
   - FMDB/standard (2.7.5)
@@ -126,6 +128,7 @@ DEPENDENCIES:
   - firebase_storage (from `.symlinks/plugins/firebase_storage/ios`)
   - FirebaseFirestore (from `https://github.com/invertase/firestore-ios-sdk-frameworks.git`, tag `8.7.0`)
   - Flutter (from `Flutter`)
+  - flutter_secure_storage (from `.symlinks/plugins/flutter_secure_storage/ios`)
   - geolocator_apple (from `.symlinks/plugins/geolocator_apple/ios`)
   - google_maps_flutter (from `.symlinks/plugins/google_maps_flutter/ios`)
   - google_sign_in (from `.symlinks/plugins/google_sign_in/ios`)
@@ -168,6 +171,8 @@ EXTERNAL SOURCES:
     :tag: 8.7.0
   Flutter:
     :path: Flutter
+  flutter_secure_storage:
+    :path: ".symlinks/plugins/flutter_secure_storage/ios"
   geolocator_apple:
     :path: ".symlinks/plugins/geolocator_apple/ios"
   google_maps_flutter:
@@ -205,6 +210,7 @@ SPEC CHECKSUMS:
   FirebaseFirestore: 0f0d98ab906dbf65c82d070dd1a0c53da48d74dd
   FirebaseStorage: 2e6e58fe31fb0061fdce3f156d0ebc964e9de6ba
   Flutter: 434fef37c0980e73bb6479ef766c45957d4b510c
+  flutter_secure_storage: 7953c38a04c3fdbb00571bcd87d8e3b5ceb9daec
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   geolocator_apple: b741765c55dc21950e3e106e8b3584e55cf81ce5
   google_maps_flutter: 279865bd07e2d8751f43a3bc64bac7f6075d0c93

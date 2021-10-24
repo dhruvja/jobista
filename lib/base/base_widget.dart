@@ -6,6 +6,7 @@ import '../worker_1/worker1_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class BaseWidget extends StatefulWidget {
   BaseWidget({Key key}) : super(key: key);
@@ -18,6 +19,16 @@ class _BaseWidgetState extends State<BaseWidget> {
   bool _loadingButton1 = false;
   bool _loadingButton2 = false;
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  void initState() {
+    final storage = new FlutterSecureStorage();
+    getToken(storage);
+  }
+
+  getToken(storage) async{
+    String token = await storage.read(key: "jwt");
+    print(token);
+  }
 
   @override
   Widget build(BuildContext context) {

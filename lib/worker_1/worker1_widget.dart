@@ -15,6 +15,8 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:image_picker/image_picker.dart';
 import 'package:path/path.dart' as Path;
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+
 
 class Worker1Widget extends StatefulWidget {
   Worker1Widget({Key key}) : super(key: key);
@@ -31,7 +33,7 @@ class _Worker1WidgetState extends State<Worker1Widget> {
   bool passwordVisibility1;
   TextEditingController confirmPasswordTextController;
   bool passwordVisibility2;
-  bool _loadingButton = false;
+  bool _loadingButton = true;
   final formKey = GlobalKey<FormState>();
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -87,89 +89,50 @@ class _Worker1WidgetState extends State<Worker1Widget> {
     request.fields['type'] = "worker";
     request.fields['email'] = "";
 
-    // send
-    var response = await request.send();
-    print(response.statusCode);
+    request
+        .send()
+        .then((result) async {
+          http.Response.fromStream(result).then((response) async{
+            if (response.statusCode == 200) {
+              print("Uploaded! ");
+              print('response.body ' + response.body);
+              var data = json.decode(response.body);
+              print(data['success']);
+              setState((){
+                present = true;
+                status = data;
 
-    print(response);
+              });
 
-    // listen for response
-    if (response.statusCode == 200) {
-      response.stream.transform(utf8.decoder).listen((value) {
-        print(value);
-      });
-    }
-    else{
-      ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-              content: Text('Account Couldnt be created'),
-              backgroundColor: Colors.redAccent),
-        );
-    }
+              if (present) {
+                print("true");
+                if (status['success']) {
+                  final storage = new FlutterSecureStorage();
+                  await storage.write(key:"jwt", value: status['token']);
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                        content: Text('Account Created Successfully'),
+                        backgroundColor: Colors.green),
+                  );
+                } else {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                        content: Text('Account Couldnt be created'),
+                        backgroundColor: Colors.redAccent),
+                  );
+                }
+              }
+            }
 
-    // if (present) {
-    //   print("true");
-    //   if (status['success']) {
-    //     ScaffoldMessenger.of(context).showSnackBar(
-    //       const SnackBar(
-    //           content: Text('Account Created Successfully'),
-    //           backgroundColor: Colors.green),
-    //     );
-    //   } else {
-    //     ScaffoldMessenger.of(context).showSnackBar(
-    //       const SnackBar(
-    //           content: Text('Account Couldnt be created'),
-    //           backgroundColor: Colors.redAccent),
-    //     );
-    //   }
-    // }
+            return response.body;
+          });
+        })
+        .catchError((err) => print('error : ' + err.toString()))
+        .whenComplete(() {});
   }
 
   bool isloaded = false;
   var result;
-
-  void createWorker() async {
-    print(emailTextController.text);
-    final response =
-        await http.post(Uri.parse('http://localhost:5000/api/register'),
-            headers: <String, String>{
-              'Content-Type': 'application/json; charset=UTF-8',
-            },
-            body: jsonEncode(<String, String>{
-              'username': textController1.text,
-              'phone': textController1.text,
-              'password': passwordController.text,
-              'type': 'worker'
-            }));
-    if (response.statusCode == 200) {
-      // If the server did return a 201 CREATED response,
-      // then parse the JSON.
-      print(response.body);
-      var data = json.decode(response.body);
-      print(data['success']);
-      setState(() {
-        status = data;
-        present = true;
-      });
-    }
-
-    if (present) {
-      print("true");
-      if (status['success']) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-              content: Text('Account Created Successfully'),
-              backgroundColor: Colors.green),
-        );
-      } else {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-              content: Text('Account Couldnt be created'),
-              backgroundColor: Colors.redAccent),
-        );
-      }
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -429,22 +392,6 @@ class _Worker1WidgetState extends State<Worker1Widget> {
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
                     child: TextFormField(
-                      // onFieldSubmitted: (_) async {
-                      //   if (!formKey.currentState.validate()) {
-                      //     return;
-                      //   }
-                      //   final user = await signInAnonymously(context);
-                      //   if (user == null) {
-                      //     return;
-                      //   }
-                      //   await Navigator.pushAndRemoveUntil(
-                      //     context,
-                      //     MaterialPageRoute(
-                      //       builder: (context) => TrackCarWidget(),
-                      //     ),
-                      //     (r) => false,
-                      //   );
-                      // },
                       controller: confirmPasswordTextController,
                       obscureText: !passwordVisibility2,
                       decoration: InputDecoration(
@@ -513,8 +460,19 @@ class _Worker1WidgetState extends State<Worker1Widget> {
                                         confirmPasswordTextController.text) {
                                       return;
                                     }
-
                                     uploadImage(_image);
+                                    if(present){
+                                      await Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) =>
+                                              Worker2Widget(),
+                                        ),
+                                      );
+                                    }
+                                    
+
+                                    // uploadImage(_image);
                                   } finally {
                                     setState(() => _loadingButton = false);
                                   }

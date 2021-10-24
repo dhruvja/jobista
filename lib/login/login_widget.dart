@@ -12,6 +12,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 import 'dart:async';
 import 'dart:convert';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class LoginWidget extends StatefulWidget {
   LoginWidget({Key key}) : super(key: key);
@@ -48,6 +49,7 @@ class _LoginWidgetState extends State<LoginWidget> {
         await http.post(Uri.parse('http://localhost:5000/api/login'),
             headers: <String, String>{
               'Content-Type': 'application/json; charset=UTF-8',
+              'accept' : 'application/json' 
             },
             body: jsonEncode(<String, String>{
               'email': emailAddressController.text,
@@ -67,6 +69,8 @@ class _LoginWidgetState extends State<LoginWidget> {
     if (present) {
       print("true");
       if (status['success']) {
+        final storage = new FlutterSecureStorage();
+        await storage.write(key: "jwt", value: status['token']);
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text('Authentication Successful'),backgroundColor: Colors.green),
         );

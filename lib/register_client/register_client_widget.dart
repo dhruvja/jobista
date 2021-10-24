@@ -10,6 +10,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 import 'dart:async';
 import 'dart:convert';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+
 
 class RegisterClientWidget extends StatefulWidget {
   RegisterClientWidget({Key key}) : super(key: key);
@@ -74,6 +76,8 @@ class _RegisterClientWidgetState extends State<RegisterClientWidget> {
     if (present) {
       print("true");
       if (status['success']) {
+        final storage = new FlutterSecureStorage();
+        await storage.write(key: "jwt", value: status['token']);
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
               content: Text('Account Created Successfully'),
