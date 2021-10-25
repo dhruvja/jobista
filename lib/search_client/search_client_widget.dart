@@ -27,6 +27,7 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
   String choiceChipsValue3;
   TextEditingController textController1;
   bool _loadingButton1 = false;
+  bool _loadingButton2 = false;
   final scaffoldKey = GlobalKey<ScaffoldState>();
   String dropDownValue1;
   TextEditingController textController2;
@@ -34,7 +35,7 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
   int countControllerValue;
   double sliderValue;
   double ratingBarValue;
-  bool _loadingButton2 = false;
+  bool _loadingButton3 = false;
 
   @override
   void initState() {
@@ -91,7 +92,7 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
     return Scaffold(
       key: scaffoldKey,
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(30),
+        preferredSize: Size.fromHeight(40),
         child: AppBar(
           backgroundColor: Color(0xFF08253E),
           automaticallyImplyLeading: true,
@@ -635,7 +636,7 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
                                             ),
                                             borderRadius: 12,
                                           ),
-                                          loading: _loadingButton2,
+                                          loading: _loadingButton3,
                                         ),
                                       ),
                                     )
@@ -975,7 +976,7 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
                                                 Text(
-                                                  answer['address_code'] as String,
+                                                 'hi',
                                                   style: FlutterFlowTheme
                                                       .bodyText1
                                                       .override(
@@ -999,7 +1000,7 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
                                                   ),
                                                 ),
                                                 Text(
-                                                    answer['exptime'],
+                                                    'hi',
                                                   style: FlutterFlowTheme
                                                       .bodyText1
                                                       .override(

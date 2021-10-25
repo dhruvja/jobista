@@ -1,5 +1,4 @@
 import '../auth/auth_util.dart';
-import '../flutter_flow/flutter_flow_radio_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
@@ -17,12 +16,9 @@ class Worker2Widget extends StatefulWidget {
 }
 
 class _Worker2WidgetState extends State<Worker2Widget> {
-  String radioButtonValue;
-  TextEditingController passwordController;
   TextEditingController textController1;
   TextEditingController textController2;
   TextEditingController textController3;
-  TextEditingController textController4;
   bool _loadingButton = false;
   final formKey = GlobalKey<FormState>();
   final scaffoldKey = GlobalKey<ScaffoldState>();
@@ -30,11 +26,9 @@ class _Worker2WidgetState extends State<Worker2Widget> {
   @override
   void initState() {
     super.initState();
-    passwordController = TextEditingController();
     textController1 = TextEditingController();
     textController2 = TextEditingController();
     textController3 = TextEditingController();
-    textController4 = TextEditingController();
   }
 
   @override
@@ -128,6 +122,7 @@ class _Worker2WidgetState extends State<Worker2Widget> {
                         color: FlutterFlowTheme.dark400,
                         fontWeight: FontWeight.normal,
                       ),
+                      maxLines: 5,
                       validator: (val) {
                         if (val.isEmpty) {
                           return 'Please enter a valid Name';
@@ -257,124 +252,7 @@ class _Worker2WidgetState extends State<Worker2Widget> {
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Expanded(
-                            child: TextFormField(
-                              controller: passwordController,
-                              obscureText: false,
-                              decoration: InputDecoration(
-                                hintText: 'Experience',
-                                hintStyle: FlutterFlowTheme.bodyText1.override(
-                                  fontFamily: 'Lexend Deca',
-                                  color: Color(0xFF95A1AC),
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.normal,
-                                ),
-                                enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0xFFDBE2E7),
-                                    width: 2,
-                                  ),
-                                  borderRadius: BorderRadius.circular(8),
-                                ),
-                                focusedBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0xFFDBE2E7),
-                                    width: 2,
-                                  ),
-                                  borderRadius: BorderRadius.circular(8),
-                                ),
-                                filled: true,
-                                fillColor: Colors.white,
-                                contentPadding: EdgeInsetsDirectional.fromSTEB(
-                                    16, 24, 24, 24),
-                                prefixIcon: Icon(
-                                  Icons.threesixty_rounded,
-                                ),
-                              ),
-                              style: FlutterFlowTheme.bodyText1.override(
-                                fontFamily: 'Lexend Deca',
-                              ),
-                              keyboardType: TextInputType.multiline,
-                              validator: (val) {
-                                if (val.isEmpty) {
-                                  return 'Please Enter your password';
-                                }
-
-                                return null;
-                              },
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
-                      child: TextFormField(
-                        controller: textController4,
-                        obscureText: false,
-                        decoration: InputDecoration(
-                          hintText: 'Maximum Education',
-                          hintStyle: FlutterFlowTheme.bodyText1.override(
-                            fontFamily: 'Lexend Deca',
-                            color: FlutterFlowTheme.grayLight,
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: FlutterFlowTheme.grayLight,
-                              width: 1,
-                            ),
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: FlutterFlowTheme.grayLight,
-                              width: 1,
-                            ),
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                          filled: true,
-                          fillColor: FlutterFlowTheme.customColor1,
-                          contentPadding:
-                              EdgeInsetsDirectional.fromSTEB(16, 24, 0, 24),
-                        ),
-                        style: FlutterFlowTheme.bodyText1.override(
-                          fontFamily: 'Lexend Deca',
-                          color: FlutterFlowTheme.grayLight,
-                        ),
-                      ),
-                    ),
-                    Align(
-                      alignment: AlignmentDirectional(-1, 0),
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
-                        child: Text(
-                          'JOB WAY',
-                          style: FlutterFlowTheme.bodyText1.override(
-                            fontFamily: 'Lexend Deca',
-                          ),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 190, 0),
-                      child: FlutterFlowRadioButton(
-                        options: ['Full Time', 'Part Time'],
-                        onChanged: (value) {
-                          setState(() => radioButtonValue = value);
-                        },
-                        optionHeight: 25,
-                        textStyle: FlutterFlowTheme.bodyText1.override(
-                          fontFamily: 'Lexend Deca',
-                          color: Colors.black,
-                        ),
-                        buttonPosition: RadioButtonPosition.left,
-                        direction: Axis.vertical,
-                        radioButtonColor: Colors.blue,
-                        inactiveRadioButtonColor: Color(0x8A000000),
-                        toggleable: false,
-                        horizontalAlignment: WrapAlignment.start,
-                        verticalAlignment: WrapCrossAlignment.start,
+                        children: [],
                       ),
                     ),
                     Padding(
@@ -393,9 +271,6 @@ class _Worker2WidgetState extends State<Worker2Widget> {
                                   onPressed: () async {
                                     setState(() => _loadingButton = true);
                                     try {
-                                      if (!formKey.currentState.validate()) {
-                                        return;
-                                      }
                                       final user =
                                           await signInAnonymously(context);
                                       if (user == null) {
