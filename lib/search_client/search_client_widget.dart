@@ -88,12 +88,13 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
                         ),
                         alignment: AlignmentDirectional(0, 0),
                         child: Align(
-                          alignment: AlignmentDirectional(0, 1),
+                          alignment: AlignmentDirectional(0, 0),
                           child: Padding(
                             padding:
                                 EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Align(
