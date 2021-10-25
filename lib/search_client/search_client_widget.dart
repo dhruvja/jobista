@@ -9,6 +9,10 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:http/http.dart' as http;
+import 'dart:async';
+import 'dart:convert';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class SearchClientWidget extends StatefulWidget {
   SearchClientWidget({Key key}) : super(key: key);
@@ -37,6 +41,49 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
     super.initState();
     textController1 = TextEditingController();
     textController2 = TextEditingController();
+    searchWorkers();
+  }
+
+  final arr = [0,1,2,3];
+  var present = false;
+  var status = [];
+
+  void searchWorkers() async {
+    final search = " ";
+    final url = 'http://localhost:5000/api/client/search/' + search;
+    final response =
+        await http.post(Uri.parse(url),
+            headers: <String, String>{
+              'Content-Type': 'application/json; charset=UTF-8',
+              'accept' : 'application/json' 
+            },
+            body: jsonEncode(<String, String>{
+              "designation": "",
+              "edulevel": "",
+              "exptime": "",
+              "minsalary": "",
+              "pincode": ""
+            }));
+    if (response.statusCode == 200) {
+      // If the server did return a 201 CREATED response,
+      // then parse the JSON.
+      print(response.body);
+      var data = json.decode(response.body);
+      setState(() {
+        status = data;
+        present = true;
+      });
+      
+    }
+
+   else {
+      // If the server did not return a 201 CREATED response,
+      // then throw an exception.
+      ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Cannot connect to server'),backgroundColor: Colors.redAccent),
+        );
+    }
+    print(present);
   }
 
   @override
@@ -52,7 +99,7 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
           elevation: 6,
         ),
       ),
-      backgroundColor: Color(0x1D255C8F),
+      backgroundColor: Color(0xFFEEEEEE),
       endDrawer: Drawer(
         elevation: 16,
         child: Container(
@@ -607,7 +654,7 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
           ),
         ),
       ),
-      body: SafeArea(
+      body: present ? SafeArea(
         child: SingleChildScrollView(
           child: Column(
             mainAxisSize: MainAxisSize.max,
@@ -779,7 +826,8 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
                         )
                       ],
                     ),
-                    Padding(
+                    ...(status).map((answer) {
+                    return Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
                       child: Container(
                         width: 370,
@@ -826,7 +874,7 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
                                             Text(
-                                              'JOB1',
+                                              answer['roles'][0]['designation'],
                                               style: FlutterFlowTheme.bodyText1
                                                   .override(
                                                 fontFamily: 'Lexend Deca',
@@ -870,7 +918,7 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
                                                         AlignmentDirectional(
                                                             0.05, 0),
                                                     child: Text(
-                                                      'Name',
+                                                      answer['username'],
                                                       style: FlutterFlowTheme
                                                           .bodyText1
                                                           .override(
@@ -927,7 +975,7 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
                                                 Text(
-                                                  'Location',
+                                                  answer['address_code'] as String,
                                                   style: FlutterFlowTheme
                                                       .bodyText1
                                                       .override(
@@ -951,7 +999,7 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
                                                   ),
                                                 ),
                                                 Text(
-                                                  ' 3 Years',
+                                                    answer['exptime'],
                                                   style: FlutterFlowTheme
                                                       .bodyText1
                                                       .override(
@@ -972,6 +1020,7 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
                                                     onPressed: () {
                                                       print(
                                                           'Button pressed ...');
+                                                      searchWorkers();
                                                     },
                                                     text: 'Book Now',
                                                     options: FFButtonOptions(
@@ -1071,7 +1120,7 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
                                                                             0,
                                                                             0),
                                                                     child: Text(
-                                                                      '10+',
+                                                                      answer['eduname'],
                                                                       style: FlutterFlowTheme
                                                                           .bodyText1
                                                                           .override(
@@ -1124,14 +1173,17 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
                           ],
                         ),
                       ),
-                    )
+                    );
+                    return status;
+                    }).toList(),
+                    // }
                   ],
                 ),
               )
             ],
           ),
         ),
-      ),
+      ) : Text('hi') ,
     );
   }
 }

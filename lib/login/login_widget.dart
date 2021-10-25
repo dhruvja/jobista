@@ -6,6 +6,7 @@ import '../flutter_flow/flutter_flow_widgets.dart';
 import '../forgot_password/forgot_password_widget.dart';
 import '../track_car/track_car_widget.dart';
 import 'package:auto_size_text/auto_size_text.dart';
+import '../search_client/search_client_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -294,7 +295,7 @@ Widget build(BuildContext context) {
                                       context,
                                       MaterialPageRoute(
                                         builder: (context) =>
-                                            ForgotPasswordWidget(),
+                                            SearchClientWidget(),
                                       ),
                                     );
                                   } finally {
