@@ -123,8 +123,11 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
                                                                   5, 0, 5, 0),
                                                       child:
                                                           FlutterFlowDropDown(
-                                                        options: ['Select JOB']
-                                                            .toList(),
+                                                        options: [
+                                                          'Select JOB',
+                                                          'bls bls',
+                                                          'drr aa'
+                                                        ].toList(),
                                                         onChanged: (val) =>
                                                             setState(() =>
                                                                 dropDownValue1 =
@@ -286,7 +289,7 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
                                                           FlutterFlowDropDown(
                                                         initialOption:
                                                             dropDownValue2 ??=
-                                                                'asdfjlaksdfjasf',
+                                                                'Education',
                                                         options: [
                                                           'Education',
                                                           'bla bla',
