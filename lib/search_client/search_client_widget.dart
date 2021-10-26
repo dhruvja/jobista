@@ -332,7 +332,7 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
                                                       child:
                                                           FlutterFlowDropDown(
                                                         initialOption:
-                                                            dropDownValue2 ??=
+                                                            dropDownValue2 =
                                                                 'asdfjlaksdfjasf',
                                                         options: [
                                                           'Education',
