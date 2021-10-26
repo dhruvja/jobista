@@ -1,3 +1,4 @@
+import '../components/filter2_widget.dart';
 import '../components/search_widget.dart';
 import '../flutter_flow/flutter_flow_choice_chips.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
@@ -50,6 +51,7 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
         width: 300,
         child: Drawer(
           elevation: 16,
+          child: Filter2Widget(),
         ),
       ),
       body: SafeArea(
