@@ -4,6 +4,7 @@ import '../flutter_flow/flutter_flow_drop_down.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
+import '../onboard/onboard_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -27,7 +28,6 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
   String choiceChipsValue3;
   TextEditingController textController1;
   bool _loadingButton1 = false;
-  bool _loadingButton2 = false;
   final scaffoldKey = GlobalKey<ScaffoldState>();
   String dropDownValue1;
   TextEditingController textController2;
@@ -35,7 +35,7 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
   int countControllerValue;
   double sliderValue;
   double ratingBarValue;
-  bool _loadingButton3 = false;
+  bool _loadingButton2 = false;
 
   @override
   void initState() {
@@ -135,12 +135,13 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
                         ),
                         alignment: AlignmentDirectional(0, 0),
                         child: Align(
-                          alignment: AlignmentDirectional(0, 1),
+                          alignment: AlignmentDirectional(0, 0),
                           child: Padding(
                             padding:
                                 EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Align(
@@ -612,7 +613,7 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
                                             ),
                                             borderRadius: 12,
                                           ),
-                                          loading: _loadingButton3,
+                                          loading: _loadingButton2,
                                         ),
                                       ),
                                     )
@@ -649,6 +650,10 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
                                 EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
                             child: TextFormField(
                               onChanged: (_) => setState(() {}),
+                              onFieldSubmitted: (_) {
+
+                                print("hellow");
+                              },
                               controller: textController1,
                               obscureText: false,
                               decoration: InputDecoration(
