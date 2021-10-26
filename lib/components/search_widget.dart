@@ -1,3 +1,4 @@
+import '../change_password/change_password_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
@@ -114,10 +115,22 @@ class _SearchWidgetState extends State<SearchWidget> {
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
-                                          Icon(
-                                            Icons.star_outline,
-                                            color: FlutterFlowTheme.background,
-                                            size: 24,
+                                          InkWell(
+                                            onTap: () async {
+                                              await Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      ChangePasswordWidget(),
+                                                ),
+                                              );
+                                            },
+                                            child: Icon(
+                                              Icons.star_outline,
+                                              color:
+                                                  FlutterFlowTheme.background,
+                                              size: 24,
+                                            ),
                                           )
                                         ],
                                       ),
