@@ -9,6 +9,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import '../search_client/search_client_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import '../trial/trial_widget.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 import 'dart:async';

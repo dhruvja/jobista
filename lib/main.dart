@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'auth/firebase_user_provider.dart';
 import 'auth/auth_util.dart';
+import '../trial/trial_widget.dart';
+
 
 import '../flutter_flow/flutter_flow_theme.dart';
 import 'package:j_o_b_ista/login/login_widget.dart';
@@ -65,7 +67,7 @@ class _MyAppState extends State<MyApp> {
             )
           : currentUser.loggedIn
               ? TrackCarWidget()
-              : LoginWidget(),
+              : TrialWidget(),
     );
   }
 }
