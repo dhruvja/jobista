@@ -42,7 +42,7 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
     super.initState();
     textController1 = TextEditingController();
     textController2 = TextEditingController();
-    searchWorkers();
+    // searchWorkers();
   }
 
   final arr = [0,1,2,3];
