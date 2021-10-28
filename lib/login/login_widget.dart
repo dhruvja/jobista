@@ -7,9 +7,10 @@ import '../search_client/search_client_widget.dart';
 import '../track_car/track_car_widget.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import '../search_client/search_client_widget.dart';
+import '../forgot_password/forgot_password_widget.dart';
+import '../search3/search3_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import '../trial/trial_widget.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 import 'dart:async';
@@ -47,7 +48,9 @@ class _LoginWidgetState extends State<LoginWidget> {
 
   void authorize() async {
     print(emailAddressController.text);
-    final response =
+    try
+    {
+      final response =
         await http.post(Uri.parse('http://localhost:5000/api/login'),
             headers: <String, String>{
               'Content-Type': 'application/json; charset=UTF-8',
@@ -73,8 +76,12 @@ class _LoginWidgetState extends State<LoginWidget> {
       if (status['success']) {
         final storage = new FlutterSecureStorage();
         await storage.write(key: "jwt", value: status['token']);
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Authentication Successful'),backgroundColor: Colors.green),
+        await Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) =>
+                Search3Widget(),
+          ),
         );
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
@@ -89,6 +96,12 @@ class _LoginWidgetState extends State<LoginWidget> {
       // then throw an exception.
       ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text('Cannot connect to server'),backgroundColor: Colors.redAccent),
+        );
+    }
+    }
+    catch(e){
+      ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('No Interent Found, try again'),backgroundColor: Colors.redAccent),
         );
     }
   }

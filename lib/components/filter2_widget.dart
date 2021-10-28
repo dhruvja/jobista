@@ -51,7 +51,6 @@ class _Filter2WidgetState extends State<Filter2Widget> {
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
                     child: FlutterFlowDropDown(
-                      initialOption: dropDownValue1 ??= 'Select job',
                       options: ['Select job'].toList(),
                       onChanged: (val) => setState(() => dropDownValue1 = val),
                       width: 190,

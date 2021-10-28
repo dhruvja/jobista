@@ -24,13 +24,64 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
   String choiceChipsValue1;
   String choiceChipsValue2;
   String choiceChipsValue3;
+  bool present = false;
+  var status;
   TextEditingController textController;
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
     textController = TextEditingController();
+  }
+
+  void search() async {
+    print(textController.text);
+    var data;
+    try {
+      var url = "http://localhost:5000/api/client/search/" + textController.text;
+      print(url);
+      final response = await http.post(
+          Uri.parse(url),
+          headers: <String, String>{
+            'Content-Type': 'application/json; charset=UTF-8',
+            'accept': 'application/json'
+          },
+          body: jsonEncode(<String, String>{
+            "designation": "",
+            "edulevel": "2",
+            "exptime": "",
+            "minsalary": "",
+            "pincode": ""
+          }));
+      if (response.statusCode == 200) {
+        // If the server did return a 201 CREATED response,
+        // then parse the JSON.
+        print(response.body);
+        data = json.decode(response.body);
+        if (data['success'])
+          setState(() {
+            status = data['rows'];
+            present = true;
+          });
+      }
+
+      if (!data['success']) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+              content: Text('Could not fetch data'),
+              backgroundColor: Colors.redAccent),
+        );
+      } 
+    } catch (e) {
+      print(e);
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+            content: Text('No Interent Found, try again'),
+            backgroundColor: Colors.redAccent),
+      );
+    }
   }
 
   @override
@@ -46,7 +97,7 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
           elevation: 6,
         ),
       ),
-      backgroundColor: Color(0x1D255C8F),
+      backgroundColor: Colors.white,
       endDrawer: Container(
         width: 300,
         child: Drawer(
@@ -76,12 +127,7 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
                                 child: TextFormField(
                                   onChanged: (_) => setState(() {}),
                                   onFieldSubmitted: (_) async {
-                                    await Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) => OnboardWidget(),
-                                      ),
-                                    );
+                                    search();
                                   },
                                   controller: textController,
                                   obscureText: false,
@@ -255,7 +301,11 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
                 ],
               ),
             ),
-            SearchWidget()
+            if(present)
+              ...(status).map((answer){
+                  return SearchWidget();
+                }).toList() 
+            
           ],
         ),
       ),
