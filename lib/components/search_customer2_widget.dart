@@ -22,7 +22,7 @@ class _SearchCustomer2WidgetState extends State<SearchCustomer2Widget> {
       padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
       child: Container(
         width: 370,
-        height: 200,
+        height: 220,
         decoration: BoxDecoration(
           color: Color(0xFF012A55),
           borderRadius: BorderRadius.circular(10),
