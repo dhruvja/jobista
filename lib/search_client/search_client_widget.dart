@@ -28,10 +28,10 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
   String choiceChipsValue2;
   String choiceChipsValue3;
   TextEditingController textController2;
-  String dropDownValue1;
+  String dropDownValue1 = "";
   TextEditingController textController1;
-  String dropDownValue2;
-  int countControllerValue;
+  String dropDownValue2 = "";
+  int countControllerValue = 0;
   double sliderValue;
   double ratingBarValue;
   bool _loadingButton = false;
@@ -49,8 +49,25 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
   }
 
   void search() async {
-    print(textController2.text);
+    values();
+    // print(textController2.text);
     var data;
+    int edulevel = 0 ;
+
+    if(dropDownValue2 == "studied till 9th")
+      edulevel = 0;
+    else if(dropDownValue2 == "10th pass")
+      edulevel = 1;
+    else if(dropDownValue2 == "12th pass")
+      edulevel = 2;
+    else if(dropDownValue2 == "bachelors")
+      edulevel = 3;
+    else if(dropDownValue2 == 'masters')
+      edulevel = 4;
+    else 
+      edulevel = 0;
+
+    
     try {
       var url = "http://localhost:5000/api/client/search/" + textController2.text;
       print(url);
@@ -61,11 +78,11 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
             'accept': 'application/json'
           },
           body: jsonEncode(<String, String>{
-            "designation": "",
-            "edulevel": "2",
-            "exptime": "",
+            "designation": dropDownValue1,
+            "edulevel": edulevel.toString(),
+            "exptime": countControllerValue.toString(),
             "minsalary": "",
-            "pincode": ""
+            "pincode": textController1.text
           }));
       if (response.statusCode == 200) {
         // If the server did return a 201 CREATED response,
@@ -96,6 +113,15 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
     }
   }
 
+  void values() {
+    print(dropDownValue1);// role
+    print(dropDownValue2);// education
+    print(textController1.text);// pincode
+    print(textController2.text); // search
+    print(countControllerValue); // experience
+
+  }
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -111,7 +137,7 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
             elevation: 6,
           ),
         ),
-        backgroundColor: Color(0x1D255C8F),
+        backgroundColor: Colors.white,
         endDrawer: Container(
           width: 300,
           child: Drawer(
@@ -139,9 +165,7 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0, 20, 0, 0),
                                   child: FlutterFlowDropDown(
-                                    initialOption: dropDownValue1 ??=
-                                        'Select job',
-                                    options: ['Select job'].toList(),
+                                    options: ['Select job', 'Maid', 'plumber', 'electrician','driver','cook','nurse'].toList(),
                                     onChanged: (val) =>
                                         setState(() => dropDownValue1 = val),
                                     width: 190,
@@ -206,7 +230,7 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
                                   ),
                                 ),
                                 FlutterFlowDropDown(
-                                  options: ['Education'].toList(),
+                                  options: ['Education', 'Studied till 9th', '10th pass','12th pass','Bachelors','Masters'].toList(),
                                   onChanged: (val) =>
                                       setState(() => dropDownValue2 = val),
                                   width: 190,
@@ -324,13 +348,7 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
                                     onPressed: () async {
                                       setState(() => _loadingButton = true);
                                       try {
-                                        await Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) =>
-                                                SearchClientWidget(),
-                                          ),
-                                        );
+                                        search();
                                       } finally {
                                         setState(() => _loadingButton = false);
                                       }
@@ -390,13 +408,7 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
                                     child: TextFormField(
                                       onChanged: (_) => setState(() {}),
                                       onFieldSubmitted: (_) async {
-                                        await Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) =>
-                                                OnboardWidget(),
-                                          ),
-                                        );
+                                        search();
                                       },
                                       controller: textController2,
                                       obscureText: false,
@@ -569,7 +581,10 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
                     ],
                   ),
                 ),
-                SearchWidget()
+                if(present)
+                  ...(status).map((answer){
+                    return SearchWidget(answer);
+                  })
               ],
             ),
           ),

@@ -7,15 +7,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class SearchWidget extends StatefulWidget {
-  SearchWidget({Key key}) : super(key: key);
-
-  @override
-  _SearchWidgetState createState() => _SearchWidgetState();
-}
-
-class _SearchWidgetState extends State<SearchWidget> {
+class SearchWidget extends StatelessWidget {
   bool _loadingButton = false;
+  var values;
+
+  SearchWidget(this.values);
+
+  void vals() {
+    print(this.values);
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -65,7 +66,7 @@ class _SearchWidgetState extends State<SearchWidget> {
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Text(
-                              'JOB1',
+                              values['roles'][0]['designation'],
                               style: FlutterFlowTheme.bodyText1.override(
                                 fontFamily: 'Lexend Deca',
                                 color: FlutterFlowTheme.customColor1,
@@ -73,11 +74,12 @@ class _SearchWidgetState extends State<SearchWidget> {
                             )
                           ],
                         ),
+                        if(values['roles'].length > 1)
                         Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Text(
-                              'JOB2',
+                              values['roles'][1]['designation'],
                               style: FlutterFlowTheme.bodyText1.override(
                                 fontFamily: 'Lexend Deca',
                                 color: FlutterFlowTheme.customColor1,
@@ -102,7 +104,7 @@ class _SearchWidgetState extends State<SearchWidget> {
                                   Align(
                                     alignment: AlignmentDirectional(0.05, 0),
                                     child: Text(
-                                      'Name',
+                                      values['username'],
                                       style:
                                           FlutterFlowTheme.bodyText1.override(
                                         fontFamily: 'Lexend Deca',
@@ -127,7 +129,7 @@ class _SearchWidgetState extends State<SearchWidget> {
                                               );
                                             },
                                             child: Icon(
-                                              Icons.star_outline,
+                                              values['account_verification'] == 1 ? Icons.star_rate : Icons.star_outline ,
                                               color:
                                                   FlutterFlowTheme.background,
                                               size: 24,
@@ -137,20 +139,6 @@ class _SearchWidgetState extends State<SearchWidget> {
                                       ),
                                     ),
                                   ),
-                                  Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 0, 10, 0),
-                                        child: Icon(
-                                          Icons.star_rate,
-                                          color: FlutterFlowTheme.customColor1,
-                                          size: 24,
-                                        ),
-                                      )
-                                    ],
-                                  )
                                 ],
                               ),
                             ),
@@ -158,7 +146,7 @@ class _SearchWidgetState extends State<SearchWidget> {
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Text(
-                                  'Location',
+                                  'Pincode: ' + values['pincode'].toString(),
                                   style: FlutterFlowTheme.bodyText1.override(
                                     fontFamily: 'Lexend Deca',
                                     color: FlutterFlowTheme.customColor1,
@@ -170,14 +158,14 @@ class _SearchWidgetState extends State<SearchWidget> {
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Text(
-                                  'Experience',
+                                  'Experience:  ',
                                   style: FlutterFlowTheme.bodyText1.override(
                                     fontFamily: 'Lexend Deca',
                                     color: Color(0xFF289CF0),
                                   ),
                                 ),
                                 Text(
-                                  ' 3 Years',
+                                  values['exptime'].toString() + " Years",
                                   style: FlutterFlowTheme.bodyText1.override(
                                     fontFamily: 'Lexend Deca',
                                     color: FlutterFlowTheme.customColor1,
@@ -194,6 +182,7 @@ class _SearchWidgetState extends State<SearchWidget> {
                                   child: FFButtonWidget(
                                     onPressed: () {
                                       print('Button pressed ...');
+                                      vals();
                                     },
                                     text: 'Book Now',
                                     options: FFButtonOptions(
@@ -290,7 +279,7 @@ class _SearchWidgetState extends State<SearchWidget> {
                                                               .fromSTEB(
                                                                   10, 10, 0, 0),
                                                       child: Text(
-                                                        '10+',
+                                                        values['eduname'].toString(),
                                                         style: FlutterFlowTheme
                                                             .bodyText1,
                                                       ),
