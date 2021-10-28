@@ -2,19 +2,18 @@ import '../change_password/change_password_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class SearchWidget extends StatefulWidget {
-  SearchWidget({Key key}) : super(key: key);
+class SearchCustomer2Widget extends StatefulWidget {
+  SearchCustomer2Widget({Key key}) : super(key: key);
 
   @override
-  _SearchWidgetState createState() => _SearchWidgetState();
+  _SearchCustomer2WidgetState createState() => _SearchCustomer2WidgetState();
 }
 
-class _SearchWidgetState extends State<SearchWidget> {
+class _SearchCustomer2WidgetState extends State<SearchCustomer2Widget> {
   bool _loadingButton = false;
 
   @override
@@ -60,30 +59,6 @@ class _SearchWidgetState extends State<SearchWidget> {
                               ),
                             )
                           ],
-                        ),
-                        Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Text(
-                              'JOB1',
-                              style: FlutterFlowTheme.bodyText1.override(
-                                fontFamily: 'Lexend Deca',
-                                color: FlutterFlowTheme.customColor1,
-                              ),
-                            )
-                          ],
-                        ),
-                        Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Text(
-                              'JOB2',
-                              style: FlutterFlowTheme.bodyText1.override(
-                                fontFamily: 'Lexend Deca',
-                                color: FlutterFlowTheme.customColor1,
-                              ),
-                            )
-                          ],
                         )
                       ],
                     ),
@@ -102,7 +77,7 @@ class _SearchWidgetState extends State<SearchWidget> {
                                   Align(
                                     alignment: AlignmentDirectional(0.05, 0),
                                     child: Text(
-                                      'Name',
+                                      'Job type',
                                       style:
                                           FlutterFlowTheme.bodyText1.override(
                                         fontFamily: 'Lexend Deca',
@@ -195,7 +170,7 @@ class _SearchWidgetState extends State<SearchWidget> {
                                     onPressed: () {
                                       print('Button pressed ...');
                                     },
-                                    text: 'Book Now',
+                                    text: 'Apply now',
                                     options: FFButtonOptions(
                                       width: 130,
                                       height: 40,
@@ -221,6 +196,7 @@ class _SearchWidgetState extends State<SearchWidget> {
                                   EdgeInsetsDirectional.fromSTEB(0, 0, 20, 0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
@@ -243,10 +219,12 @@ class _SearchWidgetState extends State<SearchWidget> {
                                               Expanded(
                                                 child: Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(0, 0, 20, 0),
+                                                      .fromSTEB(0, 0, 30, 0),
                                                   child: Column(
                                                     mainAxisSize:
                                                         MainAxisSize.min,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment.start,
                                                     crossAxisAlignment:
                                                         CrossAxisAlignment
                                                             .start,
@@ -255,11 +233,9 @@ class _SearchWidgetState extends State<SearchWidget> {
                                                         padding:
                                                             EdgeInsetsDirectional
                                                                 .fromSTEB(5, 10,
-                                                                    10, 10),
-                                                        child: AutoSizeText(
+                                                                    0, 10),
+                                                        child: Text(
                                                           'Education',
-                                                          textAlign:
-                                                              TextAlign.start,
                                                           style:
                                                               FlutterFlowTheme
                                                                   .bodyText1
@@ -277,20 +253,26 @@ class _SearchWidgetState extends State<SearchWidget> {
                                               ),
                                               Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(0, 0, 10, 10),
+                                                    .fromSTEB(0, 0, 0, 10),
                                                 child: Column(
                                                   mainAxisSize:
                                                       MainAxisSize.min,
                                                   children: [
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  10, 10, 0, 0),
-                                                      child: Text(
-                                                        '10+',
-                                                        style: FlutterFlowTheme
-                                                            .bodyText1,
+                                                    Align(
+                                                      alignment:
+                                                          AlignmentDirectional(
+                                                              0, 0),
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(0, 10,
+                                                                    10, 0),
+                                                        child: Text(
+                                                          '10+',
+                                                          style:
+                                                              FlutterFlowTheme
+                                                                  .bodyText1,
+                                                        ),
                                                       ),
                                                     )
                                                   ],
