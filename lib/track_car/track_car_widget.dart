@@ -145,18 +145,14 @@ class _TrackCarWidgetState extends State<TrackCarWidget> {
                               children: [
                                 Text(
                                   'Battery Status',
-                                  style: FlutterFlowTheme.subtitle1.override(
-                                    fontFamily: 'Lexend Deca',
-                                  ),
+                                  style: FlutterFlowTheme.subtitle1,
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0, 4, 0, 8),
                                   child: Text(
                                     'Below is the status of your current charge.',
-                                    style: FlutterFlowTheme.bodyText2.override(
-                                      fontFamily: 'Lexend Deca',
-                                    ),
+                                    style: FlutterFlowTheme.bodyText2,
                                   ),
                                 ),
                                 Padding(
@@ -231,18 +227,12 @@ class _TrackCarWidgetState extends State<TrackCarWidget> {
                                                     0, 0, 0, 8),
                                             child: Text(
                                               'Charge',
-                                              style: FlutterFlowTheme.bodyText2
-                                                  .override(
-                                                fontFamily: 'Lexend Deca',
-                                              ),
+                                              style: FlutterFlowTheme.bodyText2,
                                             ),
                                           ),
                                           Text(
                                             '70%',
-                                            style: FlutterFlowTheme.title1
-                                                .override(
-                                              fontFamily: 'Lexend Deca',
-                                            ),
+                                            style: FlutterFlowTheme.title1,
                                           )
                                         ],
                                       ),
@@ -257,18 +247,12 @@ class _TrackCarWidgetState extends State<TrackCarWidget> {
                                                     0, 0, 0, 8),
                                             child: Text(
                                               'Range',
-                                              style: FlutterFlowTheme.bodyText2
-                                                  .override(
-                                                fontFamily: 'Lexend Deca',
-                                              ),
+                                              style: FlutterFlowTheme.bodyText2,
                                             ),
                                           ),
                                           Text(
                                             '329m',
-                                            style: FlutterFlowTheme.title1
-                                                .override(
-                                              fontFamily: 'Lexend Deca',
-                                            ),
+                                            style: FlutterFlowTheme.title1,
                                           )
                                         ],
                                       ),
@@ -283,10 +267,7 @@ class _TrackCarWidgetState extends State<TrackCarWidget> {
                                                     0, 0, 0, 8),
                                             child: Text(
                                               'MPH',
-                                              style: FlutterFlowTheme.bodyText2
-                                                  .override(
-                                                fontFamily: 'Lexend Deca',
-                                              ),
+                                              style: FlutterFlowTheme.bodyText2,
                                             ),
                                           ),
                                           Text(

@@ -234,35 +234,13 @@ class _SearchWidgetState extends State<SearchWidget> {
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
-                                          Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Column(
-                                                mainAxisSize: MainAxisSize.min,
-                                                children: [
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                5, 10, 0, 10),
-                                                    child: Text(
-                                                      'Education',
-                                                      style: FlutterFlowTheme
-                                                          .bodyText1
-                                                          .override(
-                                                        fontFamily:
-                                                            'Lexend Deca',
-                                                        fontWeight:
-                                                            FontWeight.w600,
-                                                      ),
-                                                    ),
-                                                  )
-                                                ],
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(0, 0, 0, 10),
-                                                child: Column(
+                                          Expanded(
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.min,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                Column(
                                                   mainAxisSize:
                                                       MainAxisSize.min,
                                                   children: [
@@ -270,38 +248,64 @@ class _SearchWidgetState extends State<SearchWidget> {
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  10, 10, 0, 0),
+                                                                  5, 10, 0, 10),
                                                       child: Text(
-                                                        '10+',
+                                                        'Education',
                                                         style: FlutterFlowTheme
                                                             .bodyText1
                                                             .override(
                                                           fontFamily:
                                                               'Lexend Deca',
+                                                          fontWeight:
+                                                              FontWeight.w600,
                                                         ),
                                                       ),
                                                     )
                                                   ],
                                                 ),
-                                              ),
-                                              Column(
-                                                mainAxisSize: MainAxisSize.max,
-                                                children: [
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                40, 5, 0, 10),
-                                                    child: Icon(
-                                                      Icons
-                                                          .aspect_ratio_outlined,
-                                                      color: Color(0xFF022747),
-                                                      size: 24,
-                                                    ),
-                                                  )
-                                                ],
-                                              )
-                                            ],
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(0, 0, 0, 10),
+                                                  child: Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.min,
+                                                    children: [
+                                                      Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(10,
+                                                                    10, 0, 0),
+                                                        child: Text(
+                                                          '10+',
+                                                          style:
+                                                              FlutterFlowTheme
+                                                                  .bodyText1,
+                                                        ),
+                                                      )
+                                                    ],
+                                                  ),
+                                                ),
+                                                Column(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  children: [
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  40, 5, 0, 10),
+                                                      child: Icon(
+                                                        Icons
+                                                            .aspect_ratio_outlined,
+                                                        color:
+                                                            Color(0xFF022747),
+                                                        size: 24,
+                                                      ),
+                                                    )
+                                                  ],
+                                                )
+                                              ],
+                                            ),
                                           )
                                         ],
                                       ),

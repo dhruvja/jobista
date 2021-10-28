@@ -79,9 +79,7 @@ class _Filter2WidgetState extends State<Filter2Widget> {
                           obscureText: false,
                           decoration: InputDecoration(
                             hintText: 'Pincode',
-                            hintStyle: FlutterFlowTheme.bodyText1.override(
-                              fontFamily: 'Lexend Deca',
-                            ),
+                            hintStyle: FlutterFlowTheme.bodyText1,
                             enabledBorder: UnderlineInputBorder(
                               borderSide: BorderSide(
                                 color: Color(0x00000000),
@@ -99,9 +97,7 @@ class _Filter2WidgetState extends State<Filter2Widget> {
                             filled: true,
                             fillColor: Color(0x00FFFFFF),
                           ),
-                          style: FlutterFlowTheme.bodyText1.override(
-                            fontFamily: 'Lexend Deca',
-                          ),
+                          style: FlutterFlowTheme.bodyText1,
                           validator: (val) {
                             if (val.isEmpty) {
                               return 'Field is required';
@@ -135,9 +131,7 @@ class _Filter2WidgetState extends State<Filter2Widget> {
                     child: Text(
                       'Experience',
                       textAlign: TextAlign.center,
-                      style: FlutterFlowTheme.bodyText1.override(
-                        fontFamily: 'Lexend Deca',
-                      ),
+                      style: FlutterFlowTheme.bodyText1,
                     ),
                   ),
                   Container(
@@ -182,9 +176,7 @@ class _Filter2WidgetState extends State<Filter2Widget> {
                     padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                     child: Text(
                       'Salary Range',
-                      style: FlutterFlowTheme.bodyText1.override(
-                        fontFamily: 'Lexend Deca',
-                      ),
+                      style: FlutterFlowTheme.bodyText1,
                     ),
                   ),
                   Slider(
@@ -202,9 +194,7 @@ class _Filter2WidgetState extends State<Filter2Widget> {
                     padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 10),
                     child: Text(
                       'Rating',
-                      style: FlutterFlowTheme.bodyText1.override(
-                        fontFamily: 'Lexend Deca',
-                      ),
+                      style: FlutterFlowTheme.bodyText1,
                     ),
                   ),
                   RatingBar.builder(
