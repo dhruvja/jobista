@@ -90,9 +90,7 @@ class _RegisterClientWidgetState extends State<RegisterClientWidget> {
                       obscureText: false,
                       decoration: InputDecoration(
                         hintText: 'Your Name',
-                        hintStyle: FlutterFlowTheme.bodyText2.override(
-                          fontFamily: 'Lexend Deca',
-                        ),
+                        hintStyle: FlutterFlowTheme.bodyText2,
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
                             color: Color(0xFF95A1AC),
@@ -146,9 +144,7 @@ class _RegisterClientWidgetState extends State<RegisterClientWidget> {
                         obscureText: false,
                         decoration: InputDecoration(
                           hintText: 'Mobile Number',
-                          hintStyle: FlutterFlowTheme.bodyText2.override(
-                            fontFamily: 'Lexend Deca',
-                          ),
+                          hintStyle: FlutterFlowTheme.bodyText2,
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: Color(0xFFDBE2E7),
@@ -316,9 +312,7 @@ class _RegisterClientWidgetState extends State<RegisterClientWidget> {
                                   ),
                                 ),
                               ),
-                              style: FlutterFlowTheme.bodyText1.override(
-                                fontFamily: 'Lexend Deca',
-                              ),
+                              style: FlutterFlowTheme.bodyText1,
                               validator: (val) {
                                 if (val.isEmpty) {
                                   return 'Please Enter your password';

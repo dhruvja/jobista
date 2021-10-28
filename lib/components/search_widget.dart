@@ -274,11 +274,7 @@ class _SearchWidgetState extends State<SearchWidget> {
                                                       child: Text(
                                                         '10+',
                                                         style: FlutterFlowTheme
-                                                            .bodyText1
-                                                            .override(
-                                                          fontFamily:
-                                                              'Lexend Deca',
-                                                        ),
+                                                            .bodyText1,
                                                       ),
                                                     )
                                                   ],

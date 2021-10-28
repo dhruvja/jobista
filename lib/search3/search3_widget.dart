@@ -176,11 +176,7 @@ class _Search3WidgetState extends State<Search3Widget> {
                                                                     'Pincode',
                                                                 hintStyle:
                                                                     FlutterFlowTheme
-                                                                        .bodyText1
-                                                                        .override(
-                                                                  fontFamily:
-                                                                      'Lexend Deca',
-                                                                ),
+                                                                        .bodyText1,
                                                                 enabledBorder:
                                                                     UnderlineInputBorder(
                                                                   borderSide:
@@ -250,11 +246,7 @@ class _Search3WidgetState extends State<Search3Widget> {
                                                               ),
                                                               style:
                                                                   FlutterFlowTheme
-                                                                      .bodyText1
-                                                                      .override(
-                                                                fontFamily:
-                                                                    'Lexend Deca',
-                                                              ),
+                                                                      .bodyText1,
                                                               textAlign:
                                                                   TextAlign
                                                                       .justify,
@@ -328,11 +320,7 @@ class _Search3WidgetState extends State<Search3Widget> {
                                                           'Experience',
                                                           style:
                                                               FlutterFlowTheme
-                                                                  .bodyText1
-                                                                  .override(
-                                                            fontFamily:
-                                                                'Lexend Deca',
-                                                          ),
+                                                                  .bodyText1,
                                                         ),
                                                       )
                                                     ],
@@ -469,9 +457,7 @@ class _Search3WidgetState extends State<Search3Widget> {
                                   EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                               child: Text(
                                 'You may also LIKE',
-                                style: FlutterFlowTheme.bodyText1.override(
-                                  fontFamily: 'Lexend Deca',
-                                ),
+                                style: FlutterFlowTheme.bodyText1,
                               ),
                             ),
                             Padding(
@@ -519,9 +505,7 @@ class _Search3WidgetState extends State<Search3Widget> {
                                   EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                               child: Text(
                                 ' ',
-                                style: FlutterFlowTheme.bodyText1.override(
-                                  fontFamily: 'Lexend Deca',
-                                ),
+                                style: FlutterFlowTheme.bodyText1,
                               ),
                             ),
                             Padding(

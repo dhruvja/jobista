@@ -124,11 +124,8 @@ class _FilterWidgetState extends State<FilterWidget> {
                                             obscureText: false,
                                             decoration: InputDecoration(
                                               hintText: 'Pincode',
-                                              hintStyle: FlutterFlowTheme
-                                                  .bodyText1
-                                                  .override(
-                                                fontFamily: 'Lexend Deca',
-                                              ),
+                                              hintStyle:
+                                                  FlutterFlowTheme.bodyText1,
                                               enabledBorder:
                                                   UnderlineInputBorder(
                                                 borderSide: BorderSide(
@@ -179,10 +176,7 @@ class _FilterWidgetState extends State<FilterWidget> {
                                                     )
                                                   : null,
                                             ),
-                                            style: FlutterFlowTheme.bodyText1
-                                                .override(
-                                              fontFamily: 'Lexend Deca',
-                                            ),
+                                            style: FlutterFlowTheme.bodyText1,
                                             textAlign: TextAlign.justify,
                                           ),
                                         ),
@@ -237,10 +231,7 @@ class _FilterWidgetState extends State<FilterWidget> {
                                           5, 0, 0, 0),
                                       child: Text(
                                         'Experience (Years)',
-                                        style:
-                                            FlutterFlowTheme.bodyText1.override(
-                                          fontFamily: 'Lexend Deca',
-                                        ),
+                                        style: FlutterFlowTheme.bodyText1,
                                       ),
                                     )
                                   ],
@@ -314,10 +305,7 @@ class _FilterWidgetState extends State<FilterWidget> {
                                       children: [
                                         Text(
                                           'Salary Range',
-                                          style: FlutterFlowTheme.bodyText1
-                                              .override(
-                                            fontFamily: 'Lexend Deca',
-                                          ),
+                                          style: FlutterFlowTheme.bodyText1,
                                         )
                                       ],
                                     )
@@ -354,10 +342,7 @@ class _FilterWidgetState extends State<FilterWidget> {
                                       children: [
                                         Text(
                                           'Rating',
-                                          style: FlutterFlowTheme.bodyText1
-                                              .override(
-                                            fontFamily: 'Lexend Deca',
-                                          ),
+                                          style: FlutterFlowTheme.bodyText1,
                                         )
                                       ],
                                     )

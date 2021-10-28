@@ -83,10 +83,7 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
                                   obscureText: false,
                                   decoration: InputDecoration(
                                     hintText: 'Search JOB',
-                                    hintStyle:
-                                        FlutterFlowTheme.bodyText1.override(
-                                      fontFamily: 'Lexend Deca',
-                                    ),
+                                    hintStyle: FlutterFlowTheme.bodyText1,
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color: Color(0xFF022747),
@@ -121,9 +118,7 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
                                           )
                                         : null,
                                   ),
-                                  style: FlutterFlowTheme.bodyText1.override(
-                                    fontFamily: 'Lexend Deca',
-                                  ),
+                                  style: FlutterFlowTheme.bodyText1,
                                 ),
                               ),
                             )

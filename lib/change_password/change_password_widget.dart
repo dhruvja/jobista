@@ -113,9 +113,7 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
                 Expanded(
                   child: Text(
                     'We will send you an email with a link to reset your password, please enter the email associated with your account above.',
-                    style: FlutterFlowTheme.bodyText2.override(
-                      fontFamily: 'Lexend Deca',
-                    ),
+                    style: FlutterFlowTheme.bodyText2,
                   ),
                 )
               ],
