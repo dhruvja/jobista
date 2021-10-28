@@ -19,8 +19,7 @@ class _SearchHomeWidgetState extends State<SearchHomeWidget> {
   String dropDownValue1;
   TextEditingController textController;
   String dropDownValue2;
-  String radioButtonValue1;
-  String radioButtonValue2;
+  String radioButtonValue;
   bool _loadingButton = false;
 
   @override
@@ -41,26 +40,25 @@ class _SearchHomeWidgetState extends State<SearchHomeWidget> {
           borderRadius: BorderRadius.circular(20),
         ),
         child: Column(
-          mainAxisSize: MainAxisSize.max,
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
-              child: FlutterFlowDropDown(
-                options: ['Job Type', 'Electrician', 'Carpenter'].toList(),
-                onChanged: (val) => setState(() => dropDownValue1 = val),
-                width: 230,
-                height: 40,
-                textStyle: FlutterFlowTheme.bodyText1.override(
-                  fontFamily: 'Lexend Deca',
-                  color: Colors.black,
-                ),
-                fillColor: Color(0x00FFFFFF),
-                elevation: 2,
-                borderColor: Colors.transparent,
-                borderWidth: 0,
-                borderRadius: 0,
-                margin: EdgeInsetsDirectional.fromSTEB(8, 4, 8, 4),
+            FlutterFlowDropDown(
+              options: ['Job Type', 'Electrician', 'Carpenter'].toList(),
+              onChanged: (val) => setState(() => dropDownValue1 = val),
+              width: 230,
+              height: 40,
+              textStyle: FlutterFlowTheme.bodyText1.override(
+                fontFamily: 'Lexend Deca',
+                color: Colors.black,
               ),
+              fillColor: Color(0x00FFFFFF),
+              elevation: 2,
+              borderColor: Colors.transparent,
+              borderWidth: 0,
+              borderRadius: 0,
+              margin: EdgeInsetsDirectional.fromSTEB(8, 4, 8, 4),
             ),
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 20),
@@ -82,7 +80,7 @@ class _SearchHomeWidgetState extends State<SearchHomeWidget> {
                 decoration: InputDecoration(
                   hintText: 'Enter Pincode',
                   hintStyle: FlutterFlowTheme.bodyText1,
-                  enabledBorder: OutlineInputBorder(
+                  enabledBorder: UnderlineInputBorder(
                     borderSide: BorderSide(
                       color: Color(0x00000000),
                       width: 1,
@@ -92,7 +90,7 @@ class _SearchHomeWidgetState extends State<SearchHomeWidget> {
                       topRight: Radius.circular(4.0),
                     ),
                   ),
-                  focusedBorder: OutlineInputBorder(
+                  focusedBorder: UnderlineInputBorder(
                     borderSide: BorderSide(
                       color: Color(0x00000000),
                       width: 1,
@@ -106,6 +104,7 @@ class _SearchHomeWidgetState extends State<SearchHomeWidget> {
                   fillColor: Colors.transparent,
                   prefixIcon: Icon(
                     Icons.edit_location,
+                    color: Color(0xFF022747),
                   ),
                   suffixIcon: textController.text.isNotEmpty
                       ? InkWell(
@@ -114,7 +113,7 @@ class _SearchHomeWidgetState extends State<SearchHomeWidget> {
                           ),
                           child: Icon(
                             Icons.clear,
-                            color: Color(0xFF757575),
+                            color: Color(0xFF08253E),
                             size: 22,
                           ),
                         )
@@ -124,7 +123,8 @@ class _SearchHomeWidgetState extends State<SearchHomeWidget> {
               ),
             ),
             FlutterFlowDropDown(
-              options: ['Education ', ''].toList(),
+              options:
+                  ['Education ', '10 th pass', '12+ pass', 'Degree'].toList(),
               onChanged: (val) => setState(() => dropDownValue2 = val),
               width: 230,
               height: 40,
@@ -140,9 +140,9 @@ class _SearchHomeWidgetState extends State<SearchHomeWidget> {
               margin: EdgeInsetsDirectional.fromSTEB(8, 4, 8, 4),
             ),
             FlutterFlowRadioButton(
-              options: ['Option 1'],
+              options: ['Full Time', 'Part Time'],
               onChanged: (value) {
-                setState(() => radioButtonValue1 = value);
+                setState(() => radioButtonValue = value);
               },
               optionHeight: 25,
               textStyle: FlutterFlowTheme.bodyText1.override(
@@ -157,54 +157,43 @@ class _SearchHomeWidgetState extends State<SearchHomeWidget> {
               horizontalAlignment: WrapAlignment.start,
               verticalAlignment: WrapCrossAlignment.start,
             ),
-            FlutterFlowRadioButton(
-              options: ['Option 1'],
-              onChanged: (value) {
-                setState(() => radioButtonValue2 = value);
-              },
-              optionHeight: 25,
-              textStyle: FlutterFlowTheme.bodyText1.override(
-                fontFamily: 'Lexend Deca',
-                color: Colors.black,
-              ),
-              buttonPosition: RadioButtonPosition.left,
-              direction: Axis.vertical,
-              radioButtonColor: Colors.blue,
-              inactiveRadioButtonColor: Color(0x8A000000),
-              toggleable: false,
-              horizontalAlignment: WrapAlignment.start,
-              verticalAlignment: WrapCrossAlignment.start,
-            ),
-            FFButtonWidget(
-              onPressed: () async {
-                setState(() => _loadingButton = true);
-                try {
-                  await Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => Search3Widget(),
-                    ),
-                  );
-                } finally {
-                  setState(() => _loadingButton = false);
-                }
-              },
-              text: 'Button',
-              options: FFButtonOptions(
-                width: 130,
-                height: 40,
-                color: FlutterFlowTheme.primaryColor,
-                textStyle: FlutterFlowTheme.subtitle2.override(
-                  fontFamily: 'Lexend Deca',
-                  color: Colors.white,
+            Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+              child: FFButtonWidget(
+                onPressed: () async {
+                  setState(() => _loadingButton = true);
+                  try {
+                    await Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => Search3Widget(),
+                      ),
+                    );
+                  } finally {
+                    setState(() => _loadingButton = false);
+                  }
+                },
+                text: 'Search',
+                icon: Icon(
+                  Icons.person_search,
+                  size: 15,
                 ),
-                borderSide: BorderSide(
-                  color: Colors.transparent,
-                  width: 1,
+                options: FFButtonOptions(
+                  width: 130,
+                  height: 40,
+                  color: Color(0xFF08253E),
+                  textStyle: FlutterFlowTheme.subtitle2.override(
+                    fontFamily: 'Lexend Deca',
+                    color: Colors.white,
+                  ),
+                  borderSide: BorderSide(
+                    color: Colors.transparent,
+                    width: 1,
+                  ),
+                  borderRadius: 12,
                 ),
-                borderRadius: 12,
+                loading: _loadingButton,
               ),
-              loading: _loadingButton,
             )
           ],
         ),
