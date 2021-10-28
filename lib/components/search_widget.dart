@@ -23,7 +23,7 @@ class _SearchWidgetState extends State<SearchWidget> {
       padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
       child: Container(
         width: 370,
-        height: 200,
+        height: 220,
         decoration: BoxDecoration(
           color: Color(0xFF012A55),
           borderRadius: BorderRadius.circular(10),
@@ -238,7 +238,9 @@ class _SearchWidgetState extends State<SearchWidget> {
                                           Row(
                                             mainAxisSize: MainAxisSize.min,
                                             mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                                MainAxisAlignment.spaceEvenly,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
                                             children: [
                                               Expanded(
                                                 child: Padding(
@@ -254,8 +256,8 @@ class _SearchWidgetState extends State<SearchWidget> {
                                                       Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
-                                                                .fromSTEB(5, 10,
-                                                                    10, 10),
+                                                                .fromSTEB(10, 0,
+                                                                    0, 0),
                                                         child: AutoSizeText(
                                                           'Education',
                                                           textAlign:
