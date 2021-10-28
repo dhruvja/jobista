@@ -234,13 +234,13 @@ class _SearchWidgetState extends State<SearchWidget> {
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
-                                          Expanded(
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.min,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                              children: [
-                                                Column(
+                                          Row(
+                                            mainAxisSize: MainAxisSize.min,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Expanded(
+                                                child: Column(
                                                   mainAxisSize:
                                                       MainAxisSize.min,
                                                   children: [
@@ -263,49 +263,46 @@ class _SearchWidgetState extends State<SearchWidget> {
                                                     )
                                                   ],
                                                 ),
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(0, 0, 0, 10),
-                                                  child: Column(
-                                                    mainAxisSize:
-                                                        MainAxisSize.min,
-                                                    children: [
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(10,
-                                                                    10, 0, 0),
-                                                        child: Text(
-                                                          '10+',
-                                                          style:
-                                                              FlutterFlowTheme
-                                                                  .bodyText1,
-                                                        ),
-                                                      )
-                                                    ],
-                                                  ),
-                                                ),
-                                                Column(
+                                              ),
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(0, 0, 0, 10),
+                                                child: Column(
                                                   mainAxisSize:
-                                                      MainAxisSize.max,
+                                                      MainAxisSize.min,
                                                   children: [
                                                     Padding(
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  40, 5, 0, 10),
-                                                      child: Icon(
-                                                        Icons
-                                                            .aspect_ratio_outlined,
-                                                        color:
-                                                            Color(0xFF022747),
-                                                        size: 24,
+                                                                  10, 10, 0, 0),
+                                                      child: Text(
+                                                        '10+',
+                                                        style: FlutterFlowTheme
+                                                            .bodyText1,
                                                       ),
                                                     )
                                                   ],
-                                                )
-                                              ],
-                                            ),
+                                                ),
+                                              ),
+                                              Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(
+                                                                40, 5, 0, 10),
+                                                    child: Icon(
+                                                      Icons
+                                                          .aspect_ratio_outlined,
+                                                      color: Color(0xFF022747),
+                                                      size: 24,
+                                                    ),
+                                                  )
+                                                ],
+                                              )
+                                            ],
                                           )
                                         ],
                                       ),
