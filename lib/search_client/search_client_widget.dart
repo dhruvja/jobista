@@ -164,6 +164,8 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
                                         ),
                                       ),
                                       FlutterFlowDropDown(
+                                        initialOption: dropDownValue2 ??=
+                                            textController1.text,
                                         options: ['Education'].toList(),
                                         onChanged: (val) => setState(
                                             () => dropDownValue2 = val),
