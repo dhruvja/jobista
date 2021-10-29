@@ -70,74 +70,78 @@ class _OnboardWidgetState extends State<OnboardWidget> {
                                 width: 100,
                                 height: 100,
                                 decoration: BoxDecoration(),
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          2, 0, 0, 0),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Expanded(
-                                            child: Image.asset(
-                                              'assets/images/mcatd_1.png',
-                                              width: 350,
-                                              height: 300,
-                                              fit: BoxFit.fitWidth,
-                                            ),
-                                          )
-                                        ],
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          20, 0, 20, 8),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Expanded(
-                                            child: Text(
-                                              'Want a nurse?',
-                                              textAlign: TextAlign.center,
-                                              style: FlutterFlowTheme.title1
-                                                  .override(
-                                                fontFamily: 'Lexend Deca',
-                                                color: Colors.white,
-                                                fontSize: 32,
-                                                fontWeight: FontWeight.bold,
+                                child: SingleChildScrollView(
+                                  primary: false,
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            2, 0, 0, 0),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Expanded(
+                                              child: Image.asset(
+                                                'assets/images/mcatd_1.png',
+                                                width: 350,
+                                                height: 300,
+                                                fit: BoxFit.fitWidth,
                                               ),
-                                            ),
-                                          )
-                                        ],
+                                            )
+                                          ],
+                                        ),
                                       ),
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          20, 0, 20, 8),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Expanded(
-                                            child: Text(
-                                              'Are somebody in emergency care and you are in need/ready to take care of them? ',
-                                              textAlign: TextAlign.center,
-                                              style: FlutterFlowTheme.subtitle2
-                                                  .override(
-                                                fontFamily: 'Lexend Deca',
-                                                color: Color(0xFF012A55),
-                                                fontSize: 16,
-                                                fontWeight: FontWeight.normal,
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            20, 0, 20, 8),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Expanded(
+                                              child: Text(
+                                                'Want a nurse?',
+                                                textAlign: TextAlign.center,
+                                                style: FlutterFlowTheme.title1
+                                                    .override(
+                                                  fontFamily: 'Lexend Deca',
+                                                  color: Colors.white,
+                                                  fontSize: 32,
+                                                  fontWeight: FontWeight.bold,
+                                                ),
                                               ),
-                                            ),
-                                          )
-                                        ],
+                                            )
+                                          ],
+                                        ),
                                       ),
-                                    )
-                                  ],
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            20, 0, 20, 8),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Expanded(
+                                              child: Text(
+                                                'Are somebody in emergency care and you are in need/ready to take care of them? ',
+                                                textAlign: TextAlign.center,
+                                                style: FlutterFlowTheme
+                                                    .subtitle2
+                                                    .override(
+                                                  fontFamily: 'Lexend Deca',
+                                                  color: Color(0xFF012A55),
+                                                  fontSize: 16,
+                                                  fontWeight: FontWeight.normal,
+                                                ),
+                                              ),
+                                            )
+                                          ],
+                                        ),
+                                      )
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
