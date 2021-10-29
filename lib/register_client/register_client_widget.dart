@@ -3,6 +3,7 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../track_car/track_car_widget.dart';
+import '../search3/search3_widget.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -11,7 +12,6 @@ import 'package:http/http.dart' as http;
 import 'dart:async';
 import 'dart:convert';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-
 
 class RegisterClientWidget extends StatefulWidget {
   RegisterClientWidget({Key key}) : super(key: key);
@@ -78,10 +78,11 @@ class _RegisterClientWidgetState extends State<RegisterClientWidget> {
       if (status['success']) {
         final storage = new FlutterSecureStorage();
         await storage.write(key: "jwt", value: status['token']);
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-              content: Text('Account Created Successfully'),
-              backgroundColor: Colors.green),
+        await Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => Search3Widget(),
+          ),
         );
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
@@ -474,30 +475,29 @@ class _RegisterClientWidgetState extends State<RegisterClientWidget> {
                                     10, 10, 10, 10),
                                 child: FFButtonWidget(
                                   onPressed: () async {
-                                  setState(() => _loadingButton = true);
-                                  try {
-                                    if (!formKey.currentState.validate()) {
-                                      return;
+                                    setState(() => _loadingButton = true);
+                                    try {
+                                      if (!formKey.currentState.validate()) {
+                                        return;
+                                      }
+                                      if (passwordController.text !=
+                                          confirmPasswordTextController.text) {
+                                        ScaffoldMessenger.of(context)
+                                            .showSnackBar(
+                                          SnackBar(
+                                              content: Text(
+                                                "Passwords don't match!",
+                                              ),
+                                              backgroundColor:
+                                                  Colors.redAccent),
+                                        );
+                                        return;
+                                      }
+                                      createRecord();
+                                    } finally {
+                                      setState(() => _loadingButton = false);
                                     }
-                                    if (passwordController.text !=
-                                        confirmPasswordTextController.text) {
-                                      ScaffoldMessenger.of(context)
-                                          .showSnackBar(
-                                        SnackBar(
-                                          content: Text(
-                                            "Passwords don't match!",
-                                            
-                                          ),
-                                          backgroundColor: Colors.redAccent
-                                        ),
-                                      );
-                                      return;
-                                    }
-                                    createRecord();
-                                  } finally {
-                                    setState(() => _loadingButton = false);
-                                  }
-                                },
+                                  },
                                   text: 'Sign Up',
                                   options: FFButtonOptions(
                                     width: 130,

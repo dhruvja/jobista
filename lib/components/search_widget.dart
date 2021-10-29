@@ -10,8 +10,10 @@ import 'package:google_fonts/google_fonts.dart';
 class SearchWidget extends StatelessWidget {
   bool _loadingButton = false;
   var values;
+  var roles;
 
-  SearchWidget(this.values);
+  SearchWidget(this.values,this.roles);
+
 
   void vals() {
     print(this.values);
@@ -66,7 +68,7 @@ class SearchWidget extends StatelessWidget {
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Text(
-                              values['roles'][0]['designation'],
+                              roles ? values['designation'] : values['roles'][0]['designation'],
                               style: FlutterFlowTheme.bodyText1.override(
                                 fontFamily: 'Lexend Deca',
                                 color: FlutterFlowTheme.customColor1,
@@ -74,20 +76,21 @@ class SearchWidget extends StatelessWidget {
                             )
                           ],
                         ),
-                        if(values['roles'].length > 1)
-                        Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Text(
-                              values['roles'][1]['designation'],
-                              style: FlutterFlowTheme.bodyText1.override(
-                                fontFamily: 'Lexend Deca',
-                                color: FlutterFlowTheme.customColor1,
-                              ),
+                        if(!roles)
+                          if(values['roles'].length > 1)
+                            Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Text(
+                                  values['roles'][1]['designation'],
+                                  style: FlutterFlowTheme.bodyText1.override(
+                                    fontFamily: 'Lexend Deca',
+                                    color: FlutterFlowTheme.customColor1,
+                                  ),
+                                )
+                              ],
                             )
                           ],
-                        )
-                      ],
                     ),
                     Expanded(
                       child: Align(

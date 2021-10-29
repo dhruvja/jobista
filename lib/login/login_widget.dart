@@ -48,66 +48,79 @@ class _LoginWidgetState extends State<LoginWidget> {
 
   void authorize() async {
     print(emailAddressController.text);
-    try
-    {
-      final response =
-        await http.post(Uri.parse('http://localhost:5000/api/login'),
-            headers: <String, String>{
-              'Content-Type': 'application/json; charset=UTF-8',
-              'accept' : 'application/json' 
-            },
-            body: jsonEncode(<String, String>{
-              'email': emailAddressController.text,
-              'password': passwordController.text,
-            }));
-    if (response.statusCode == 200) {
-      // If the server did return a 201 CREATED response,
-      // then parse the JSON.
-      print(response.body);
-      var data = json.decode(response.body);
-      print(data['success']);
-      setState(() {
-        status = data;
-        present = true;
-      });
+    try {
+      final response = await http.post(
+          Uri.parse('http://localhost:5000/api/login'),
+          headers: <String, String>{
+            'Content-Type': 'application/json; charset=UTF-8',
+            'accept': 'application/json'
+          },
+          body: jsonEncode(<String, String>{
+            'email': emailAddressController.text,
+            'password': passwordController.text,
+          }));
+      if (response.statusCode == 200) {
+        // If the server did return a 201 CREATED response,
+        // then parse the JSON.
+        print(response.body);
+        var data = json.decode(response.body);
+        print(data['success']);
+        setState(() {
+          status = data;
+          present = true;
+        });
 
-    if (present) {
-      print("true");
-      if (status['success']) {
-        final storage = new FlutterSecureStorage();
-        await storage.write(key: "jwt", value: status['token']);
-        await Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) =>
-                Search3Widget(),
-          ),
-        );
+        if (present) {
+          print("true");
+          if (status['success']) {
+            final storage = new FlutterSecureStorage();
+            await storage.write(key: "jwt", value: status['token']);
+
+            await Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => Search3Widget(),
+              ),
+            );
+
+            // await Navigator.pushAndRemoveUntil(
+            //     context,
+            //     PageTransition(
+            //       type: PageTransitionType.fade,
+            //       duration: Duration(milliseconds: 0),
+            //       reverseDuration: Duration(milliseconds: 0),
+            //       child: Search3Widget(),
+            //     ),
+            //     (r) => false,
+            //   );
+          } else {
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                  content: Text('Authentication is not Successful'),
+                  backgroundColor: Colors.redAccent),
+            );
+          }
+        }
       } else {
+        // If the server did not return a 201 CREATED response,
+        // then throw an exception.
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Authentication is not Successful'),backgroundColor: Colors.redAccent),
+          const SnackBar(
+              content: Text('Cannot connect to server'),
+              backgroundColor: Colors.redAccent),
         );
       }
-    }
-    }
-
-   else {
-      // If the server did not return a 201 CREATED response,
-      // then throw an exception.
+    } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Cannot connect to server'),backgroundColor: Colors.redAccent),
-        );
-    }
-    }
-    catch(e){
-      ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('No Interent Found, try again'),backgroundColor: Colors.redAccent),
-        );
+        const SnackBar(
+            content: Text('No Interent Found, try again'),
+            backgroundColor: Colors.redAccent),
+      );
     }
   }
 
   @override
-Widget build(BuildContext context) {
+  Widget build(BuildContext context) {
     return Form(
       key: formKey,
       child: Scaffold(
@@ -351,10 +364,10 @@ Widget build(BuildContext context) {
                             alignment: AlignmentDirectional(-0.1, 0),
                             child: FFButtonWidget(
                               onPressed: () {
-                                    if (!formKey.currentState.validate()) {
-                                      return;
-                                    }
-                                    authorize();
+                                if (!formKey.currentState.validate()) {
+                                  return;
+                                }
+                                authorize();
                               },
                               text: 'Login',
                               options: FFButtonOptions(

@@ -52,7 +52,7 @@ class _SearchHomeWidgetState extends State<SearchHomeWidget> {
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
                     child: FlutterFlowDropDown(
-                      options: ['Job Type', 'Electrician'].toList(),
+                      options: ['Select Job','maid','plumber','electrician','nurse','driver','cook'].toList(),
                       onChanged: (val) => setState(() => dropDownValue1 = val),
                       width: 180,
                       height: 40,
@@ -109,7 +109,7 @@ class _SearchHomeWidgetState extends State<SearchHomeWidget> {
                     ),
                   ),
                   FlutterFlowDropDown(
-                    options: ['Education', '10th Pass'].toList(),
+                    options: ['Education', 'Studied till 9th', '10th pass','12th pass','Bachelors','Masters'].toList(),
                     onChanged: (val) => setState(() => dropDownValue2 = val),
                     width: 180,
                     height: 40,
@@ -127,7 +127,7 @@ class _SearchHomeWidgetState extends State<SearchHomeWidget> {
                   Align(
                     alignment: AlignmentDirectional(-0.45, 0),
                     child: Text(
-                      'Expereince',
+                      'Experience',
                       style: FlutterFlowTheme.bodyText1,
                     ),
                   ),
@@ -176,13 +176,11 @@ class _SearchHomeWidgetState extends State<SearchHomeWidget> {
                   FFButtonWidget(
                     onPressed: () async {
                       setState(() => _loadingButton = true);
+                      // if (!formKey.currentState.validate()) {
+                      //     return;
+                      // }
                       try {
-                        await Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => SearchClientWidget(),
-                          ),
-                        );
+                        await Navigator.of(context).push(MaterialPageRoute(builder:(context)=>SearchClientWidget(designation: dropDownValue1, pincode: textController.text, education: dropDownValue2, experience: countControllerValue)));
                       } finally {
                         setState(() => _loadingButton = false);
                       }

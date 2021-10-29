@@ -220,7 +220,7 @@ class _Filter2WidgetState extends State<Filter2Widget> {
                           await Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => SearchClientWidget(),
+                              builder: (context) => SearchClientWidget(education: ""),
                             ),
                           );
                         } finally {
