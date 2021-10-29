@@ -47,124 +47,128 @@ class _BaseWidgetState extends State<BaseWidget> {
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Expanded(
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Expanded(
-                              child: Align(
-                                alignment: AlignmentDirectional(1, 0),
-                                child: Image.asset(
-                                  'assets/images/Want_to_(4).png',
-                                  width: 250,
-                                  height: 300,
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                            )
-                          ],
-                        ),
-                        Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Expanded(
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    90, 0, 90, 0),
-                                child: FFButtonWidget(
-                                  onPressed: () async {
-                                    setState(() => _loadingButton1 = true);
-                                    try {
-                                      await Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) => Worker1Widget(),
-                                        ),
-                                      );
-                                    } finally {
-                                      setState(() => _loadingButton1 = false);
-                                    }
-                                  },
-                                  text: 'WORKER',
-                                  options: FFButtonOptions(
-                                    width: 130,
-                                    height: 40,
-                                    color: Color(0xFF012A55),
-                                    textStyle:
-                                        FlutterFlowTheme.subtitle2.override(
-                                      fontFamily: 'Lexend Deca',
-                                      color: Colors.white,
-                                    ),
-                                    borderSide: BorderSide(
-                                      color: Colors.transparent,
-                                      width: 1,
-                                    ),
-                                    borderRadius: 12,
+                    child: SingleChildScrollView(
+                      primary: false,
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Expanded(
+                                child: Align(
+                                  alignment: AlignmentDirectional(1, 0),
+                                  child: Image.asset(
+                                    'assets/images/Want_to_(4).png',
+                                    width: 250,
+                                    height: 300,
+                                    fit: BoxFit.cover,
                                   ),
-                                  loading: _loadingButton1,
                                 ),
-                              ),
-                            )
-                          ],
-                        ),
-                        Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Image.asset(
-                              'assets/images/Want_to_(5).png',
-                              width: 250,
-                              height: 300,
-                              fit: BoxFit.contain,
-                            )
-                          ],
-                        ),
-                        Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Expanded(
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    90, 0, 90, 0),
-                                child: FFButtonWidget(
-                                  onPressed: () async {
-                                    setState(() => _loadingButton2 = true);
-                                    try {
-                                      await Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) =>
-                                              RegisterClientWidget(),
-                                        ),
-                                      );
-                                    } finally {
-                                      setState(() => _loadingButton2 = false);
-                                    }
-                                  },
-                                  text: 'CLIENT',
-                                  options: FFButtonOptions(
-                                    width: 130,
-                                    height: 40,
-                                    color: Color(0xFF012A55),
-                                    textStyle:
-                                        FlutterFlowTheme.subtitle2.override(
-                                      fontFamily: 'Lexend Deca',
-                                      color: Colors.white,
+                              )
+                            ],
+                          ),
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Expanded(
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      90, 0, 90, 0),
+                                  child: FFButtonWidget(
+                                    onPressed: () async {
+                                      setState(() => _loadingButton1 = true);
+                                      try {
+                                        await Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                Worker1Widget(),
+                                          ),
+                                        );
+                                      } finally {
+                                        setState(() => _loadingButton1 = false);
+                                      }
+                                    },
+                                    text: 'WORKER',
+                                    options: FFButtonOptions(
+                                      width: 130,
+                                      height: 40,
+                                      color: Color(0xFF012A55),
+                                      textStyle:
+                                          FlutterFlowTheme.subtitle2.override(
+                                        fontFamily: 'Lexend Deca',
+                                        color: Colors.white,
+                                      ),
+                                      borderSide: BorderSide(
+                                        color: Colors.transparent,
+                                        width: 1,
+                                      ),
+                                      borderRadius: 12,
                                     ),
-                                    borderSide: BorderSide(
-                                      color: Colors.transparent,
-                                      width: 1,
-                                    ),
-                                    borderRadius: 12,
+                                    loading: _loadingButton1,
                                   ),
-                                  loading: _loadingButton2,
                                 ),
-                              ),
-                            )
-                          ],
-                        )
-                      ],
+                              )
+                            ],
+                          ),
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Image.asset(
+                                'assets/images/Want_to_(5).png',
+                                width: 250,
+                                height: 300,
+                                fit: BoxFit.contain,
+                              )
+                            ],
+                          ),
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Expanded(
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      90, 0, 90, 0),
+                                  child: FFButtonWidget(
+                                    onPressed: () async {
+                                      setState(() => _loadingButton2 = true);
+                                      try {
+                                        await Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                RegisterClientWidget(),
+                                          ),
+                                        );
+                                      } finally {
+                                        setState(() => _loadingButton2 = false);
+                                      }
+                                    },
+                                    text: 'CLIENT',
+                                    options: FFButtonOptions(
+                                      width: 130,
+                                      height: 40,
+                                      color: Color(0xFF012A55),
+                                      textStyle:
+                                          FlutterFlowTheme.subtitle2.override(
+                                        fontFamily: 'Lexend Deca',
+                                        color: Colors.white,
+                                      ),
+                                      borderSide: BorderSide(
+                                        color: Colors.transparent,
+                                        width: 1,
+                                      ),
+                                      borderRadius: 12,
+                                    ),
+                                    loading: _loadingButton2,
+                                  ),
+                                ),
+                              )
+                            ],
+                          )
+                        ],
+                      ),
                     ),
                   ),
                   Column(
