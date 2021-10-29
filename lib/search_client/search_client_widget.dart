@@ -346,12 +346,7 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
                                       0, 10, 0, 0),
                                   child: FFButtonWidget(
                                     onPressed: () async {
-                                      setState(() => _loadingButton = true);
-                                      try {
                                         search();
-                                      } finally {
-                                        setState(() => _loadingButton = false);
-                                      }
                                     },
                                     text: 'Filter',
                                     options: FFButtonOptions(
