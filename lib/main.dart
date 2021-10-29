@@ -10,6 +10,8 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import 'package:j_o_b_ista/login/login_widget.dart';
 import 'package:j_o_b_ista/track_car/track_car_widget.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import '../onboard/onboard_widget.dart';
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -66,7 +68,7 @@ class _MyAppState extends State<MyApp> {
             )
           : currentUser.loggedIn
               ? TrackCarWidget()
-              : LoginWidget(),
+              : OnboardWidget(),
     );
   }
 }
