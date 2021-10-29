@@ -37,14 +37,11 @@ class _OnboardWidgetState extends State<OnboardWidget> {
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 50, 0, 0),
-                    child: Image.asset(
-                      'assets/images/JOBista.png',
-                      width: 200,
-                      height: 100,
-                      fit: BoxFit.fitHeight,
-                    ),
+                  Image.asset(
+                    'assets/images/JOBista.png',
+                    width: 200,
+                    height: 100,
+                    fit: BoxFit.fitHeight,
                   )
                 ],
               ),
@@ -87,7 +84,7 @@ class _OnboardWidgetState extends State<OnboardWidget> {
                                             Expanded(
                                               child: Image.asset(
                                                 'assets/images/mcatd_1.png',
-                                                width: 350,
+                                                width: 300,
                                                 height: 300,
                                                 fit: BoxFit.fitWidth,
                                               ),
