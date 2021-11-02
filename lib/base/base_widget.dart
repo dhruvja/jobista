@@ -45,6 +45,7 @@ class _BaseWidgetState extends State<BaseWidget> {
               ),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Expanded(
                     child: SingleChildScrollView(
