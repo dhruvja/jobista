@@ -1,7 +1,10 @@
+import '../backend/firebase_storage/storage.dart';
 import '../flutter_flow/flutter_flow_count_controller.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
+import '../flutter_flow/upload_media.dart';
+import '../home_page/home_page_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -15,10 +18,11 @@ class Standalone1Widget extends StatefulWidget {
 }
 
 class _Standalone1WidgetState extends State<Standalone1Widget> {
+  String uploadedFileUrl = '';
   TextEditingController textController;
-  bool _loadingButton = false;
   int countControllerValue;
   bool checkboxListTileValue;
+  bool _loadingButton = false;
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -97,47 +101,52 @@ class _Standalone1WidgetState extends State<Standalone1Widget> {
                   ),
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
-                    child: Container(
-                      width: 200,
-                      height: 100,
-                      decoration: BoxDecoration(
-                        color: FlutterFlowTheme.customColor1,
-                        boxShadow: [
-                          BoxShadow(
-                            color: FlutterFlowTheme.background,
-                          )
-                        ],
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: Align(
-                        alignment: AlignmentDirectional(0, 0),
-                        child: Text(
-                          'Upload Age Proof',
-                          style: FlutterFlowTheme.bodyText1,
+                    child: InkWell(
+                      onTap: () async {
+                        final selectedMedia =
+                            await selectMediaWithSourceBottomSheet(
+                          context: context,
+                          allowPhoto: true,
+                        );
+                        if (selectedMedia != null &&
+                            validateFileFormat(
+                                selectedMedia.storagePath, context)) {
+                          showUploadMessage(context, 'Uploading file...',
+                              showLoading: true);
+                          final downloadUrl = await uploadData(
+                              selectedMedia.storagePath, selectedMedia.bytes);
+                          ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                          if (downloadUrl != null) {
+                            setState(() => uploadedFileUrl = downloadUrl);
+                            showUploadMessage(context, 'Success!');
+                          } else {
+                            showUploadMessage(
+                                context, 'Failed to upload media');
+                            return;
+                          }
+                        }
+                      },
+                      child: Container(
+                        width: 200,
+                        height: 100,
+                        decoration: BoxDecoration(
+                          color: FlutterFlowTheme.customColor1,
+                          boxShadow: [
+                            BoxShadow(
+                              color: FlutterFlowTheme.background,
+                            )
+                          ],
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Align(
+                          alignment: AlignmentDirectional(0, 0),
+                          child: Text(
+                            'Upload Age Proof',
+                            style: FlutterFlowTheme.bodyText1,
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  FFButtonWidget(
-                    onPressed: () {
-                      print('Button pressed ...');
-                    },
-                    text: 'Button',
-                    options: FFButtonOptions(
-                      width: 130,
-                      height: 40,
-                      color: Color(0x6908253E),
-                      textStyle: FlutterFlowTheme.subtitle2.override(
-                        fontFamily: 'Lexend Deca',
-                        color: Colors.white,
-                      ),
-                      borderSide: BorderSide(
-                        color: Colors.transparent,
-                        width: 1,
-                      ),
-                      borderRadius: 12,
-                    ),
-                    loading: _loadingButton,
                   ),
                   Container(
                     width: 200,
@@ -215,6 +224,37 @@ class _Standalone1WidgetState extends State<Standalone1Widget> {
                         controlAffinity: ListTileControlAffinity.trailing,
                       ),
                     ),
+                  ),
+                  FFButtonWidget(
+                    onPressed: () async {
+                      setState(() => _loadingButton = true);
+                      try {
+                        await Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => HomePageWidget(),
+                          ),
+                        );
+                      } finally {
+                        setState(() => _loadingButton = false);
+                      }
+                    },
+                    text: 'Submit',
+                    options: FFButtonOptions(
+                      width: 130,
+                      height: 40,
+                      color: Color(0x6908253E),
+                      textStyle: FlutterFlowTheme.subtitle2.override(
+                        fontFamily: 'Lexend Deca',
+                        color: Colors.white,
+                      ),
+                      borderSide: BorderSide(
+                        color: Colors.transparent,
+                        width: 1,
+                      ),
+                      borderRadius: 12,
+                    ),
+                    loading: _loadingButton,
                   )
                 ],
               )
