@@ -10,14 +10,14 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class Standalone1Widget extends StatefulWidget {
-  Standalone1Widget({Key key}) : super(key: key);
+class Worker3Widget extends StatefulWidget {
+  Worker3Widget({Key key}) : super(key: key);
 
   @override
-  _Standalone1WidgetState createState() => _Standalone1WidgetState();
+  _Worker3WidgetState createState() => _Worker3WidgetState();
 }
 
-class _Standalone1WidgetState extends State<Standalone1Widget> {
+class _Worker3WidgetState extends State<Worker3Widget> {
   String uploadedFileUrl = '';
   TextEditingController textController;
   int countControllerValue;
@@ -200,7 +200,7 @@ class _Standalone1WidgetState extends State<Standalone1Widget> {
                           setState(() => countControllerValue = count),
                       stepSize: 500,
                       minimum: 4500,
-                      maximum: 50000,
+                      maximum: 30000,
                     ),
                   ),
                   Container(
