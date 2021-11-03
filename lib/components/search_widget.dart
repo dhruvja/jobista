@@ -23,7 +23,7 @@ class _SearchWidgetState extends State<SearchWidget> {
       padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
       child: Container(
         width: 370,
-        height: 220,
+        height: 230,
         decoration: BoxDecoration(
           color: Color(0xFF012A55),
           borderRadius: BorderRadius.circular(10),
@@ -227,13 +227,17 @@ class _SearchWidgetState extends State<SearchWidget> {
                                         0, 10, 10, 10),
                                     child: Container(
                                       width: 180,
-                                      height: 35,
+                                      height: 29,
                                       decoration: BoxDecoration(
                                         color: Color(0xFFEEEEEE),
                                         borderRadius: BorderRadius.circular(2),
                                       ),
                                       child: Column(
-                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisSize: MainAxisSize.min,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.end,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.end,
                                         children: [
                                           Row(
                                             mainAxisSize: MainAxisSize.min,
@@ -249,9 +253,12 @@ class _SearchWidgetState extends State<SearchWidget> {
                                                   child: Column(
                                                     mainAxisSize:
                                                         MainAxisSize.min,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .center,
                                                     crossAxisAlignment:
                                                         CrossAxisAlignment
-                                                            .start,
+                                                            .center,
                                                     children: [
                                                       Padding(
                                                         padding:
@@ -288,7 +295,7 @@ class _SearchWidgetState extends State<SearchWidget> {
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  10, 10, 0, 0),
+                                                                  10, 5, 0, 0),
                                                       child: Text(
                                                         '10+',
                                                         style: FlutterFlowTheme
@@ -314,6 +321,31 @@ class _SearchWidgetState extends State<SearchWidget> {
                   ],
                 )
               ],
+            ),
+            Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(2, 2, 2, 2),
+              child: Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.end,
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Column(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 20, 0),
+                        child: Icon(
+                          Icons.verified,
+                          color: FlutterFlowTheme.primaryColor,
+                          size: 30,
+                        ),
+                      )
+                    ],
+                  )
+                ],
+              ),
             )
           ],
         ),
