@@ -1,8 +1,9 @@
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
-import 'package:auto_size_text/auto_size_text.dart';
+import '../home_page/home_page_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -15,6 +16,7 @@ class Dashboard2Widget extends StatefulWidget {
 
 class _Dashboard2WidgetState extends State<Dashboard2Widget> {
   bool _loadingButton1 = false;
+  double ratingBarValue;
   bool _loadingButton2 = false;
   bool _loadingButton3 = false;
   final scaffoldKey = GlobalKey<ScaffoldState>();
@@ -29,7 +31,13 @@ class _Dashboard2WidgetState extends State<Dashboard2Widget> {
           width: double.infinity,
           height: double.infinity,
           decoration: BoxDecoration(
-            color: Color(0xC908253E),
+            color: Color(0x5139D2C0),
+            image: DecorationImage(
+              fit: BoxFit.cover,
+              image: Image.asset(
+                'assets/images/Want_to_(2).png',
+              ).image,
+            ),
           ),
           child: Row(
             mainAxisSize: MainAxisSize.max,
@@ -43,7 +51,7 @@ class _Dashboard2WidgetState extends State<Dashboard2Widget> {
                     children: [
                       Container(
                         width: 320,
-                        height: 500,
+                        height: 400,
                         decoration: BoxDecoration(
                           color: Color(0xFF08253E),
                           borderRadius: BorderRadius.circular(20),
@@ -54,15 +62,16 @@ class _Dashboard2WidgetState extends State<Dashboard2Widget> {
                           children: [
                             Column(
                               mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                 Row(
                                   mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 20, 0, 20),
+                                          0, 0, 0, 10),
                                       child: Container(
                                         width: 120,
                                         height: 120,
@@ -100,7 +109,7 @@ class _Dashboard2WidgetState extends State<Dashboard2Widget> {
                                                 CrossAxisAlignment.start,
                                             children: [
                                               Text(
-                                                'Hello World',
+                                                'Name',
                                                 style:
                                                     FlutterFlowTheme.bodyText1,
                                               ),
@@ -108,7 +117,7 @@ class _Dashboard2WidgetState extends State<Dashboard2Widget> {
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
                                                   Text(
-                                                    'Hello World',
+                                                    'Location',
                                                     style: FlutterFlowTheme
                                                         .bodyText1,
                                                   )
@@ -173,50 +182,281 @@ class _Dashboard2WidgetState extends State<Dashboard2Widget> {
                                         crossAxisAlignment:
                                             CrossAxisAlignment.center,
                                         children: [
-                                          AutoSizeText(
-                                            'Hello World',
-                                            style: FlutterFlowTheme.bodyText1,
-                                          ),
                                           Text(
-                                            'Hello World',
-                                            style: FlutterFlowTheme.bodyText1,
-                                          ),
-                                          Text(
-                                            'Hello World',
-                                            style: FlutterFlowTheme.bodyText1,
-                                          ),
-                                          Text(
-                                            'Hello World',
-                                            style: FlutterFlowTheme.bodyText1,
+                                            'Overall Rating',
+                                            style: FlutterFlowTheme.bodyText1
+                                                .override(
+                                              fontFamily: 'Lexend Deca',
+                                              color:
+                                                  FlutterFlowTheme.customColor1,
+                                            ),
                                           )
                                         ],
                                       )
                                     ],
                                   ),
+                                ),
+                                Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Row(
+                                          mainAxisSize: MainAxisSize.min,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Column(
+                                              mainAxisSize: MainAxisSize.min,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                RatingBar.builder(
+                                                  onRatingUpdate: (newValue) =>
+                                                      setState(() =>
+                                                          ratingBarValue =
+                                                              newValue),
+                                                  itemBuilder:
+                                                      (context, index) => Icon(
+                                                    Icons.star_rounded,
+                                                    color: FlutterFlowTheme
+                                                        .customColor1,
+                                                  ),
+                                                  direction: Axis.horizontal,
+                                                  initialRating:
+                                                      ratingBarValue ??= 3,
+                                                  unratedColor:
+                                                      Color(0xFF9E9E9E),
+                                                  itemCount: 5,
+                                                  itemSize: 40,
+                                                  glowColor: FlutterFlowTheme
+                                                      .customColor1,
+                                                )
+                                              ],
+                                            )
+                                          ],
+                                        )
+                                      ],
+                                    )
+                                  ],
                                 )
                               ],
                             )
                           ],
                         ),
                       ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Column(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                FFButtonWidget(
-                                  onPressed: () {
-                                    print('Button pressed ...');
+                      Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Expanded(
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  10, 10, 10, 10),
+                              child: GridView(
+                                padding: EdgeInsets.zero,
+                                gridDelegate:
+                                    SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: 2,
+                                  crossAxisSpacing: 20,
+                                  mainAxisSpacing: 20,
+                                  childAspectRatio: 1.5,
+                                ),
+                                shrinkWrap: true,
+                                scrollDirection: Axis.vertical,
+                                children: [
+                                  Container(
+                                    width: 100,
+                                    height: 100,
+                                    decoration: BoxDecoration(
+                                      color: Color(0xFFEEEEEE),
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Icon(
+                                          Icons.cast_for_education,
+                                          color: Colors.black,
+                                          size: 24,
+                                        ),
+                                        Text(
+                                          'Education ',
+                                          style: FlutterFlowTheme.bodyText1,
+                                        ),
+                                        Text(
+                                          '10+',
+                                          style: FlutterFlowTheme.bodyText1
+                                              .override(
+                                            fontFamily: 'Lexend Deca',
+                                            color: Color(0xC908253E),
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                  Container(
+                                    width: 100,
+                                    height: 100,
+                                    decoration: BoxDecoration(
+                                      color: Color(0xFFEEEEEE),
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Icon(
+                                          Icons.exposure,
+                                          color: Colors.black,
+                                          size: 24,
+                                        ),
+                                        Text(
+                                          'Experience',
+                                          style: FlutterFlowTheme.bodyText1,
+                                        ),
+                                        Text(
+                                          '2 Years',
+                                          style: FlutterFlowTheme.bodyText1
+                                              .override(
+                                            fontFamily: 'Lexend Deca',
+                                            color: Color(0xFF08253E),
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                  Container(
+                                    width: 100,
+                                    height: 100,
+                                    decoration: BoxDecoration(
+                                      color: Color(0xFFEEEEEE),
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Icon(
+                                          Icons.add_call,
+                                          color: Colors.black,
+                                          size: 24,
+                                        ),
+                                        Text(
+                                          'Book Appointment',
+                                          style: FlutterFlowTheme.bodyText1,
+                                        ),
+                                        InkWell(
+                                          onTap: () async {
+                                            await Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                builder: (context) =>
+                                                    HomePageWidget(),
+                                              ),
+                                            );
+                                          },
+                                          child: Text(
+                                            'Call now',
+                                            style: FlutterFlowTheme.bodyText1
+                                                .override(
+                                              fontFamily: 'Lexend Deca',
+                                              color: Color(0xFF08253E),
+                                            ),
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                  Container(
+                                    width: 100,
+                                    height: 100,
+                                    decoration: BoxDecoration(
+                                      color: Color(0xFFEEEEEE),
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Icon(
+                                          Icons.verified,
+                                          color: Colors.black,
+                                          size: 24,
+                                        ),
+                                        Text(
+                                          'Verified',
+                                          style: FlutterFlowTheme.bodyText1,
+                                        ),
+                                        InkWell(
+                                          onTap: () async {
+                                            await Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                builder: (context) =>
+                                                    HomePageWidget(),
+                                              ),
+                                            );
+                                          },
+                                          child: Text(
+                                            'Check now',
+                                            style: FlutterFlowTheme.bodyText1
+                                                .override(
+                                              fontFamily: 'Lexend Deca',
+                                              color: Color(0xFF08253E),
+                                            ),
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                      Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Column(
+                            mainAxisSize: MainAxisSize.max,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    10, 10, 10, 10),
+                                child: FFButtonWidget(
+                                  onPressed: () async {
+                                    setState(() => _loadingButton2 = true);
+                                    try {
+                                      await Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) =>
+                                              HomePageWidget(),
+                                        ),
+                                      );
+                                    } finally {
+                                      setState(() => _loadingButton2 = false);
+                                    }
                                   },
-                                  text: 'Button',
+                                  text: 'Book Now',
+                                  icon: Icon(
+                                    Icons.looks,
+                                    size: 10,
+                                  ),
                                   options: FFButtonOptions(
                                     width: 130,
                                     height: 40,
-                                    color: FlutterFlowTheme.primaryColor,
+                                    color: Color(0xFF08253E),
                                     textStyle:
                                         FlutterFlowTheme.subtitle2.override(
                                       fontFamily: 'Lexend Deca',
@@ -229,21 +469,42 @@ class _Dashboard2WidgetState extends State<Dashboard2Widget> {
                                     borderRadius: 12,
                                   ),
                                   loading: _loadingButton2,
-                                )
-                              ],
-                            ),
-                            Column(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                FFButtonWidget(
-                                  onPressed: () {
-                                    print('Button pressed ...');
+                                ),
+                              )
+                            ],
+                          ),
+                          Column(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: [
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    10, 10, 10, 10),
+                                child: FFButtonWidget(
+                                  onPressed: () async {
+                                    setState(() => _loadingButton3 = true);
+                                    try {
+                                      await Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) =>
+                                              HomePageWidget(),
+                                        ),
+                                      );
+                                    } finally {
+                                      setState(() => _loadingButton3 = false);
+                                    }
                                   },
-                                  text: 'Button',
+                                  text: 'Whishlist',
+                                  icon: Icon(
+                                    Icons.whatshot,
+                                    size: 10,
+                                  ),
                                   options: FFButtonOptions(
                                     width: 130,
                                     height: 40,
-                                    color: FlutterFlowTheme.primaryColor,
+                                    color: Color(0xFFD23939),
                                     textStyle:
                                         FlutterFlowTheme.subtitle2.override(
                                       fontFamily: 'Lexend Deca',
@@ -256,21 +517,9 @@ class _Dashboard2WidgetState extends State<Dashboard2Widget> {
                                     borderRadius: 12,
                                   ),
                                   loading: _loadingButton3,
-                                )
-                              ],
-                            )
-                          ],
-                        ),
-                      ),
-                      Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Container(
-                            width: 100,
-                            height: 100,
-                            decoration: BoxDecoration(
-                              color: Color(0xFFEEEEEE),
-                            ),
+                                ),
+                              )
+                            ],
                           )
                         ],
                       )
