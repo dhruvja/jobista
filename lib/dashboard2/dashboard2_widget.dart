@@ -139,7 +139,7 @@ class _Dashboard2WidgetState extends State<Dashboard2Widget> {
                                                   onPressed: () {
                                                     print('Button pressed ...');
                                                   },
-                                                  text: 'Button',
+                                                  text: 'match %',
                                                   options: FFButtonOptions(
                                                     width: 130,
                                                     height: 40,

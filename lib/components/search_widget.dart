@@ -150,6 +150,15 @@ class _SearchWidgetState extends State<SearchWidget> {
                                         ),
                                       )
                                     ],
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0, 0, 20, 0),
+                                    child: Icon(
+                                      Icons.verified,
+                                      color: FlutterFlowTheme.primaryColor,
+                                      size: 30,
+                                    ),
                                   )
                                 ],
                               ),
@@ -321,31 +330,6 @@ class _SearchWidgetState extends State<SearchWidget> {
                   ],
                 )
               ],
-            ),
-            Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(2, 2, 2, 2),
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.end,
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  Column(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 20, 0),
-                        child: Icon(
-                          Icons.verified,
-                          color: FlutterFlowTheme.primaryColor,
-                          size: 30,
-                        ),
-                      )
-                    ],
-                  )
-                ],
-              ),
             )
           ],
         ),
