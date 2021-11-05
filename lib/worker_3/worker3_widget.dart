@@ -19,8 +19,9 @@ class Worker3Widget extends StatefulWidget {
 }
 
 class _Worker3WidgetState extends State<Worker3Widget> {
-  String uploadedFileUrl = '';
+  String uploadedFileUrl1 = '';
   TextEditingController textController;
+  String uploadedFileUrl2 = '';
   int countControllerValue;
   bool checkboxListTileValue;
   bool _loadingButton = false;
@@ -69,9 +70,50 @@ class _Worker3WidgetState extends State<Worker3Widget> {
                         fit: BoxFit.contain,
                       ),
                     ),
+                    InkWell(
+                      onTap: () async {
+                        final selectedMedia =
+                            await selectMediaWithSourceBottomSheet(
+                          context: context,
+                          allowPhoto: true,
+                        );
+                        if (selectedMedia != null &&
+                            validateFileFormat(
+                                selectedMedia.storagePath, context)) {
+                          showUploadMessage(context, 'Uploading file...',
+                              showLoading: true);
+                          final downloadUrl = await uploadData(
+                              selectedMedia.storagePath, selectedMedia.bytes);
+                          ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                          if (downloadUrl != null) {
+                            setState(() => uploadedFileUrl1 = downloadUrl);
+                            showUploadMessage(context, 'Success!');
+                          } else {
+                            showUploadMessage(
+                                context, 'Failed to upload media');
+                            return;
+                          }
+                        }
+                      },
+                      child: Container(
+                        width: 100,
+                        height: 100,
+                        clipBehavior: Clip.antiAlias,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                        ),
+                        child: Image.network(
+                          'https://picsum.photos/seed/418/600',
+                        ),
+                      ),
+                    ),
+                    Text(
+                      'Upload Photo',
+                      style: FlutterFlowTheme.bodyText1,
+                    ),
                     Container(
                       width: 300,
-                      height: 180,
+                      height: 160,
                       decoration: BoxDecoration(),
                       child: Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
@@ -106,7 +148,7 @@ class _Worker3WidgetState extends State<Worker3Widget> {
                             color: FlutterFlowTheme.grayDark,
                           ),
                           textAlign: TextAlign.start,
-                          maxLines: 8,
+                          maxLines: 7,
                           validator: (val) {
                             if (val.isEmpty) {
                               return 'Please enter your experience';
@@ -135,7 +177,7 @@ class _Worker3WidgetState extends State<Worker3Widget> {
                                 selectedMedia.storagePath, selectedMedia.bytes);
                             ScaffoldMessenger.of(context).hideCurrentSnackBar();
                             if (downloadUrl != null) {
-                              setState(() => uploadedFileUrl = downloadUrl);
+                              setState(() => uploadedFileUrl2 = downloadUrl);
                               showUploadMessage(context, 'Success!');
                             } else {
                               showUploadMessage(
@@ -146,7 +188,7 @@ class _Worker3WidgetState extends State<Worker3Widget> {
                         },
                         child: Container(
                           width: 300,
-                          height: 100,
+                          height: 50,
                           decoration: BoxDecoration(
                             color: FlutterFlowTheme.customColor1,
                             boxShadow: [
