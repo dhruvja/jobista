@@ -496,7 +496,7 @@ class _Dashboard2WidgetState extends State<Dashboard2Widget> {
                                       setState(() => _loadingButton3 = false);
                                     }
                                   },
-                                  text: 'Whishlist',
+                                  text: 'Wishlist',
                                   icon: Icon(
                                     Icons.whatshot,
                                     size: 10,
