@@ -23,8 +23,10 @@ class _PostJOBWidgetState extends State<PostJOBWidget> {
   String dropDownValue1;
   String dropDownValue2;
   String dropDownValue3;
-  TextEditingController textController;
-  String uploadedFileUrl = '';
+  TextEditingController textController1;
+  TextEditingController textController2;
+  String uploadedFileUrl1 = '';
+  String uploadedFileUrl2 = '';
   int countControllerValue;
   bool checkboxListTileValue;
   bool _loadingButton = false;
@@ -34,7 +36,8 @@ class _PostJOBWidgetState extends State<PostJOBWidget> {
   @override
   void initState() {
     super.initState();
-    textController = TextEditingController();
+    textController1 = TextEditingController();
+    textController2 = TextEditingController();
   }
 
   @override
@@ -116,7 +119,7 @@ class _PostJOBWidgetState extends State<PostJOBWidget> {
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
                       child: FlutterFlowDropDown(
-                        options: ['Location'].toList(),
+                        options: ['Experience'].toList(),
                         onChanged: (val) =>
                             setState(() => dropDownValue3 = val),
                         width: 300,
@@ -126,7 +129,7 @@ class _PostJOBWidgetState extends State<PostJOBWidget> {
                           color: FlutterFlowTheme.grayDark,
                         ),
                         icon: Icon(
-                          Icons.edit_location,
+                          Icons.arrow_drop_down,
                           size: 15,
                         ),
                         fillColor: Colors.white,
@@ -139,12 +142,58 @@ class _PostJOBWidgetState extends State<PostJOBWidget> {
                     ),
                     Container(
                       width: 300,
+                      height: 40,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.customColor1,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(5, 0, 0, 5),
+                            child: TextFormField(
+                              controller: textController1,
+                              obscureText: false,
+                              decoration: InputDecoration(
+                                hintText: 'Location',
+                                hintStyle: FlutterFlowTheme.bodyText1.override(
+                                  fontFamily: 'Lexend Deca',
+                                  color: FlutterFlowTheme.grayDark,
+                                ),
+                                enabledBorder: UnderlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Color(0x00000000),
+                                    width: 1,
+                                  ),
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                focusedBorder: UnderlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Color(0x00000000),
+                                    width: 1,
+                                  ),
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                              ),
+                              style: FlutterFlowTheme.bodyText1.override(
+                                fontFamily: 'Lexend Deca',
+                                color: FlutterFlowTheme.grayDark,
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                    Container(
+                      width: 300,
                       height: 80,
                       decoration: BoxDecoration(),
                       child: Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
                         child: TextFormField(
-                          controller: textController,
+                          controller: textController2,
                           obscureText: false,
                           decoration: InputDecoration(
                             hintText: 'JOB Information ',
@@ -203,7 +252,7 @@ class _PostJOBWidgetState extends State<PostJOBWidget> {
                                 selectedMedia.storagePath, selectedMedia.bytes);
                             ScaffoldMessenger.of(context).hideCurrentSnackBar();
                             if (downloadUrl != null) {
-                              setState(() => uploadedFileUrl = downloadUrl);
+                              setState(() => uploadedFileUrl1 = downloadUrl);
                               showUploadMessage(context, 'Success!');
                             } else {
                               showUploadMessage(
@@ -226,11 +275,41 @@ class _PostJOBWidgetState extends State<PostJOBWidget> {
                           ),
                           child: Align(
                             alignment: AlignmentDirectional(0, 0),
-                            child: AutoSizeText(
-                              'Upload Poster/Document',
-                              style: FlutterFlowTheme.bodyText1.override(
-                                fontFamily: 'Lexend Deca',
-                                color: FlutterFlowTheme.grayDark,
+                            child: InkWell(
+                              onTap: () async {
+                                final selectedMedia =
+                                    await selectMediaWithSourceBottomSheet(
+                                  context: context,
+                                  allowPhoto: true,
+                                );
+                                if (selectedMedia != null &&
+                                    validateFileFormat(
+                                        selectedMedia.storagePath, context)) {
+                                  showUploadMessage(
+                                      context, 'Uploading file...',
+                                      showLoading: true);
+                                  final downloadUrl = await uploadData(
+                                      selectedMedia.storagePath,
+                                      selectedMedia.bytes);
+                                  ScaffoldMessenger.of(context)
+                                      .hideCurrentSnackBar();
+                                  if (downloadUrl != null) {
+                                    setState(
+                                        () => uploadedFileUrl2 = downloadUrl);
+                                    showUploadMessage(context, 'Success!');
+                                  } else {
+                                    showUploadMessage(
+                                        context, 'Failed to upload media');
+                                    return;
+                                  }
+                                }
+                              },
+                              child: AutoSizeText(
+                                'Upload Poster',
+                                style: FlutterFlowTheme.bodyText1.override(
+                                  fontFamily: 'Lexend Deca',
+                                  color: FlutterFlowTheme.grayDark,
+                                ),
                               ),
                             ),
                           ),
