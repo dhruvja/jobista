@@ -5,6 +5,7 @@ import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../flutter_flow/upload_media.dart';
 import '../home_page/home_page_widget.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -69,7 +70,8 @@ class _Worker3WidgetState extends State<Worker3Widget> {
                       ),
                     ),
                     Container(
-                      width: 200,
+                      width: 300,
+                      height: 180,
                       decoration: BoxDecoration(),
                       child: Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
@@ -78,7 +80,10 @@ class _Worker3WidgetState extends State<Worker3Widget> {
                           obscureText: false,
                           decoration: InputDecoration(
                             hintText: 'Experience ',
-                            hintStyle: FlutterFlowTheme.bodyText1,
+                            hintStyle: FlutterFlowTheme.bodyText1.override(
+                              fontFamily: 'Lexend Deca',
+                              color: FlutterFlowTheme.grayDark,
+                            ),
                             enabledBorder: UnderlineInputBorder(
                               borderSide: BorderSide(
                                 color: Color(0x00000000),
@@ -96,9 +101,12 @@ class _Worker3WidgetState extends State<Worker3Widget> {
                             filled: true,
                             fillColor: FlutterFlowTheme.customColor1,
                           ),
-                          style: FlutterFlowTheme.bodyText1,
-                          textAlign: TextAlign.center,
-                          maxLines: 5,
+                          style: FlutterFlowTheme.bodyText1.override(
+                            fontFamily: 'Lexend Deca',
+                            color: FlutterFlowTheme.grayDark,
+                          ),
+                          textAlign: TextAlign.start,
+                          maxLines: 8,
                           validator: (val) {
                             if (val.isEmpty) {
                               return 'Please enter your experience';
@@ -137,7 +145,7 @@ class _Worker3WidgetState extends State<Worker3Widget> {
                           }
                         },
                         child: Container(
-                          width: 200,
+                          width: 300,
                           height: 100,
                           decoration: BoxDecoration(
                             color: FlutterFlowTheme.customColor1,
@@ -150,9 +158,12 @@ class _Worker3WidgetState extends State<Worker3Widget> {
                           ),
                           child: Align(
                             alignment: AlignmentDirectional(0, 0),
-                            child: Text(
+                            child: AutoSizeText(
                               'Upload Age Proof',
-                              style: FlutterFlowTheme.bodyText1,
+                              style: FlutterFlowTheme.bodyText1.override(
+                                fontFamily: 'Lexend Deca',
+                                color: FlutterFlowTheme.grayDark,
+                              ),
                             ),
                           ),
                         ),
@@ -254,7 +265,7 @@ class _Worker3WidgetState extends State<Worker3Widget> {
                       options: FFButtonOptions(
                         width: 130,
                         height: 40,
-                        color: Color(0x6908253E),
+                        color: Color(0xFF08253E),
                         textStyle: FlutterFlowTheme.subtitle2.override(
                           fontFamily: 'Lexend Deca',
                           color: Colors.white,

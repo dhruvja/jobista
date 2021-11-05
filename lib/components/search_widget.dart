@@ -137,9 +137,8 @@ class _SearchWidgetState extends State<SearchWidget> {
                                                 );
                                               },
                                               child: Icon(
-                                                Icons.star_outline,
-                                                color:
-                                                    FlutterFlowTheme.background,
+                                                Icons.bookmark_sharp,
+                                                color: Color(0xFF082C54),
                                                 size: 24,
                                               ),
                                             )
