@@ -1,10 +1,11 @@
+import '../auth/auth_util.dart';
 import '../backend/firebase_storage/storage.dart';
 import '../flutter_flow/flutter_flow_count_controller.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../flutter_flow/upload_media.dart';
-import '../home_page/home_page_widget.dart';
+import '../track_car/track_car_widget.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -293,17 +294,25 @@ class _Worker3WidgetState extends State<Worker3Widget> {
                       onPressed: () async {
                         setState(() => _loadingButton = true);
                         try {
-                          await Navigator.push(
+                          final user = await signInAnonymously(context);
+                          if (user == null) {
+                            return;
+                          }
+                          await Navigator.pushAndRemoveUntil(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => HomePageWidget(),
+                              builder: (context) => TrackCarWidget(),
                             ),
+                            (r) => false,
                           );
                         } finally {
                           setState(() => _loadingButton = false);
                         }
                       },
-                      text: 'Submit',
+                      text: 'Sign UP',
+                      icon: FaIcon(
+                        FontAwesomeIcons.signLanguage,
+                      ),
                       options: FFButtonOptions(
                         width: 130,
                         height: 40,
