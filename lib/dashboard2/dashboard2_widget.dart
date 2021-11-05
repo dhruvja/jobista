@@ -54,7 +54,7 @@ class _Dashboard2WidgetState extends State<Dashboard2Widget> {
                           width: 320,
                           height: 400,
                           decoration: BoxDecoration(
-                            color: Color(0xFF08253E),
+                            color: Color(0x58255C8F),
                             borderRadius: BorderRadius.circular(20),
                           ),
                           child: Row(
