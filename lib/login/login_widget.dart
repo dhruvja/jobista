@@ -8,6 +8,8 @@ import '../track_car/track_car_widget.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import '../search_client/search_client_widget.dart';
 import '../forgot_password/forgot_password_widget.dart';
+import '../dashboard2/dashboard2_widget.dart';
+import '../worker_3/worker3_widget.dart';
 import '../search3/search3_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -322,7 +324,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                       context,
                                       MaterialPageRoute(
                                         builder: (context) =>
-                                            SearchClientWidget(),
+                                            Dashboard2Widget(),
                                       ),
                                     );
                                   } finally {

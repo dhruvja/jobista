@@ -68,7 +68,7 @@ class _MyAppState extends State<MyApp> {
             )
           : currentUser.loggedIn
               ? TrackCarWidget()
-              : OnboardWidget(),
+              : LoginWidget(),
     );
   }
 }

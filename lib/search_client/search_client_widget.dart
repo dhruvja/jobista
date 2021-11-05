@@ -15,6 +15,7 @@ import 'package:http/http.dart' as http;
 import 'dart:async';
 import 'dart:convert';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:lottie/lottie.dart';
 
 class SearchClientWidget extends StatefulWidget {
   // String something;
@@ -85,6 +86,14 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
     // print(textController2.text);
     var data;
     int edulevel = 0 ;
+    String designation = "";
+
+    designation = dropDownValue1;
+
+    if(dropDownValue2 == "Education")
+      edulevel = 0;
+    if(dropDownValue1 == "Select Job")
+      designation = "";
 
     if(dropDownValue2 == "studied till 9th")
       edulevel = 0;
@@ -112,7 +121,7 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
             'accept': 'application/json'
           },
           body: jsonEncode(<String, String>{
-            "designation": dropDownValue1,
+            "designation": designation,
             "edulevel": edulevel.toString(),
             "exptime": countControllerValue.toString(),
             "minsalary": "",
@@ -636,6 +645,14 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
                   ...(status).map((answer){
                     return SearchWidget(answer,roles_present);
                   })
+                else
+                  Lottie.asset(
+                    'assets/lottie_animations/72785-searching.json',
+                    width: 200,
+                    height: 200,
+                    fit: BoxFit.cover,
+                    animate: true,
+                  )
               ],
             ),
           ),

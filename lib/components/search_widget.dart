@@ -2,6 +2,7 @@ import '../change_password/change_password_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
+import '../dashboard2/dashboard2_widget.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -26,7 +27,7 @@ class SearchWidget extends StatelessWidget {
       padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
       child: Container(
         width: 370,
-        height: 220,
+        height: 230,
         decoration: BoxDecoration(
           color: Color(0xFF012A55),
           borderRadius: BorderRadius.circular(10),
@@ -142,6 +143,29 @@ class SearchWidget extends StatelessWidget {
                                       ),
                                     ),
                                   ),
+                                  Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0, 0, 10, 0),
+                                        child: Icon(
+                                          Icons.star_rate,
+                                          color: FlutterFlowTheme.customColor1,
+                                          size: 24,
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0, 0, 20, 0),
+                                    child: Icon(
+                                      Icons.verified,
+                                      color: FlutterFlowTheme.primaryColor,
+                                      size: 30,
+                                    ),
+                                  )
                                 ],
                               ),
                             ),
@@ -219,13 +243,17 @@ class SearchWidget extends StatelessWidget {
                                         0, 10, 10, 10),
                                     child: Container(
                                       width: 180,
-                                      height: 35,
+                                      height: 29,
                                       decoration: BoxDecoration(
                                         color: Color(0xFFEEEEEE),
                                         borderRadius: BorderRadius.circular(2),
                                       ),
                                       child: Column(
-                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisSize: MainAxisSize.min,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.end,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.end,
                                         children: [
                                           Row(
                                             mainAxisSize: MainAxisSize.min,
@@ -241,9 +269,12 @@ class SearchWidget extends StatelessWidget {
                                                   child: Column(
                                                     mainAxisSize:
                                                         MainAxisSize.min,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .center,
                                                     crossAxisAlignment:
                                                         CrossAxisAlignment
-                                                            .start,
+                                                            .center,
                                                     children: [
                                                       Padding(
                                                         padding:
@@ -280,7 +311,7 @@ class SearchWidget extends StatelessWidget {
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  10, 10, 0, 0),
+                                                                  10, 5, 0, 0),
                                                       child: Text(
                                                         values['eduname'].toString(),
                                                         style: FlutterFlowTheme
