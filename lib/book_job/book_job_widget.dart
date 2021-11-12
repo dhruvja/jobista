@@ -1,32 +1,30 @@
-import '../backend/firebase_storage/storage.dart';
 import '../flutter_flow/flutter_flow_count_controller.dart';
 import '../flutter_flow/flutter_flow_drop_down.dart';
+import '../flutter_flow/flutter_flow_radio_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
-import '../flutter_flow/upload_media.dart';
 import '../home_page/home_page_widget.dart';
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class PostJOBWidget extends StatefulWidget {
-  PostJOBWidget({Key key}) : super(key: key);
+class BookJobWidget extends StatefulWidget {
+  BookJobWidget({Key key}) : super(key: key);
 
   @override
-  _PostJOBWidgetState createState() => _PostJOBWidgetState();
+  _BookJobWidgetState createState() => _BookJobWidgetState();
 }
 
-class _PostJOBWidgetState extends State<PostJOBWidget> {
+class _BookJobWidgetState extends State<BookJobWidget> {
   String dropDownValue1;
+  String radioButtonValue1;
+  String radioButtonValue2;
+  String radioButtonValue3;
   String dropDownValue2;
-  String dropDownValue3;
   TextEditingController textController1;
   TextEditingController textController2;
-  String uploadedFileUrl1 = '';
-  String uploadedFileUrl2 = '';
   int countControllerValue;
   bool checkboxListTileValue;
   bool _loadingButton = false;
@@ -66,64 +64,112 @@ class _PostJOBWidgetState extends State<PostJOBWidget> {
               children: [
                 Column(
                   mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 40, 0, 0),
-                      child: Image.asset(
-                        'assets/images/JOBista.png',
+                      padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                      child: Container(
                         width: 300,
                         height: 100,
-                        fit: BoxFit.contain,
+                        decoration: BoxDecoration(
+                          color: FlutterFlowTheme.customColor1,
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Column(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                FlutterFlowRadioButton(
+                                  options: ['Electrician'],
+                                  onChanged: (value) {
+                                    setState(() => radioButtonValue1 = value);
+                                  },
+                                  optionHeight: 25,
+                                  textStyle:
+                                      FlutterFlowTheme.bodyText1.override(
+                                    fontFamily: 'Lexend Deca',
+                                    color: Colors.black,
+                                  ),
+                                  buttonPosition: RadioButtonPosition.left,
+                                  direction: Axis.vertical,
+                                  radioButtonColor: Colors.blue,
+                                  inactiveRadioButtonColor: Color(0x8A000000),
+                                  toggleable: false,
+                                  horizontalAlignment: WrapAlignment.start,
+                                  verticalAlignment: WrapCrossAlignment.start,
+                                ),
+                                FlutterFlowRadioButton(
+                                  options: ['Plumber'],
+                                  onChanged: (value) {
+                                    setState(() => radioButtonValue2 = value);
+                                  },
+                                  optionHeight: 25,
+                                  textStyle:
+                                      FlutterFlowTheme.bodyText1.override(
+                                    fontFamily: 'Lexend Deca',
+                                    color: Colors.black,
+                                  ),
+                                  buttonPosition: RadioButtonPosition.left,
+                                  direction: Axis.vertical,
+                                  radioButtonColor: Colors.blue,
+                                  inactiveRadioButtonColor: Color(0x8A000000),
+                                  toggleable: false,
+                                  horizontalAlignment: WrapAlignment.start,
+                                  verticalAlignment: WrapCrossAlignment.start,
+                                ),
+                                FlutterFlowRadioButton(
+                                  options: ['Carpentry'],
+                                  onChanged: (value) {
+                                    setState(() => radioButtonValue3 = value);
+                                  },
+                                  optionHeight: 25,
+                                  textStyle:
+                                      FlutterFlowTheme.bodyText1.override(
+                                    fontFamily: 'Lexend Deca',
+                                    color: Colors.black,
+                                  ),
+                                  buttonPosition: RadioButtonPosition.left,
+                                  direction: Axis.vertical,
+                                  radioButtonColor: Colors.blue,
+                                  inactiveRadioButtonColor: Color(0x8A000000),
+                                  toggleable: false,
+                                  horizontalAlignment: WrapAlignment.start,
+                                  verticalAlignment: WrapCrossAlignment.start,
+                                )
+                              ],
+                            )
+                          ],
+                        ),
                       ),
                     ),
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
-                      child: FlutterFlowDropDown(
-                        options: ['JOB Type'].toList(),
-                        onChanged: (val) =>
-                            setState(() => dropDownValue1 = val),
-                        width: 300,
-                        height: 40,
-                        textStyle: FlutterFlowTheme.bodyText1.override(
-                          fontFamily: 'Lexend Deca',
-                          color: FlutterFlowTheme.grayDark,
-                        ),
-                        fillColor: Colors.white,
-                        elevation: 2,
-                        borderColor: Colors.transparent,
-                        borderWidth: 0,
-                        borderRadius: 10,
-                        margin: EdgeInsetsDirectional.fromSTEB(8, 4, 8, 4),
-                        hidesUnderline: true,
+                    FlutterFlowDropDown(
+                      options: ['Education '].toList(),
+                      onChanged: (val) => setState(() => dropDownValue1 = val),
+                      width: 300,
+                      height: 40,
+                      textStyle: FlutterFlowTheme.bodyText1.override(
+                        fontFamily: 'Lexend Deca',
+                        color: FlutterFlowTheme.grayDark,
                       ),
-                    ),
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
-                      child: FlutterFlowDropDown(
-                        options: ['Education '].toList(),
-                        onChanged: (val) =>
-                            setState(() => dropDownValue2 = val),
-                        width: 300,
-                        height: 40,
-                        textStyle: FlutterFlowTheme.bodyText1.override(
-                          fontFamily: 'Lexend Deca',
-                          color: FlutterFlowTheme.grayDark,
-                        ),
-                        fillColor: Colors.white,
-                        elevation: 2,
-                        borderColor: Colors.transparent,
-                        borderWidth: 0,
-                        borderRadius: 10,
-                        margin: EdgeInsetsDirectional.fromSTEB(8, 4, 8, 4),
-                        hidesUnderline: true,
-                      ),
+                      fillColor: Colors.white,
+                      elevation: 2,
+                      borderColor: Colors.transparent,
+                      borderWidth: 0,
+                      borderRadius: 10,
+                      margin: EdgeInsetsDirectional.fromSTEB(8, 4, 8, 4),
+                      hidesUnderline: true,
                     ),
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
                       child: FlutterFlowDropDown(
                         options: ['Experience'].toList(),
                         onChanged: (val) =>
-                            setState(() => dropDownValue3 = val),
+                            setState(() => dropDownValue2 = val),
                         width: 300,
                         height: 40,
                         textStyle: FlutterFlowTheme.bodyText1.override(
@@ -237,88 +283,6 @@ class _PostJOBWidgetState extends State<PostJOBWidget> {
                         ),
                       ),
                     ),
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
-                      child: InkWell(
-                        onTap: () async {
-                          final selectedMedia =
-                              await selectMediaWithSourceBottomSheet(
-                            context: context,
-                            allowPhoto: true,
-                          );
-                          if (selectedMedia != null &&
-                              validateFileFormat(
-                                  selectedMedia.storagePath, context)) {
-                            showUploadMessage(context, 'Uploading file...',
-                                showLoading: true);
-                            final downloadUrl = await uploadData(
-                                selectedMedia.storagePath, selectedMedia.bytes);
-                            ScaffoldMessenger.of(context).hideCurrentSnackBar();
-                            if (downloadUrl != null) {
-                              setState(() => uploadedFileUrl1 = downloadUrl);
-                              showUploadMessage(context, 'Success!');
-                            } else {
-                              showUploadMessage(
-                                  context, 'Failed to upload media');
-                              return;
-                            }
-                          }
-                        },
-                        child: Container(
-                          width: 300,
-                          height: 50,
-                          decoration: BoxDecoration(
-                            color: FlutterFlowTheme.customColor1,
-                            boxShadow: [
-                              BoxShadow(
-                                color: FlutterFlowTheme.background,
-                              )
-                            ],
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          child: Align(
-                            alignment: AlignmentDirectional(0, 0),
-                            child: InkWell(
-                              onTap: () async {
-                                final selectedMedia =
-                                    await selectMediaWithSourceBottomSheet(
-                                  context: context,
-                                  allowPhoto: true,
-                                );
-                                if (selectedMedia != null &&
-                                    validateFileFormat(
-                                        selectedMedia.storagePath, context)) {
-                                  showUploadMessage(
-                                      context, 'Uploading file...',
-                                      showLoading: true);
-                                  final downloadUrl = await uploadData(
-                                      selectedMedia.storagePath,
-                                      selectedMedia.bytes);
-                                  ScaffoldMessenger.of(context)
-                                      .hideCurrentSnackBar();
-                                  if (downloadUrl != null) {
-                                    setState(
-                                        () => uploadedFileUrl2 = downloadUrl);
-                                    showUploadMessage(context, 'Success!');
-                                  } else {
-                                    showUploadMessage(
-                                        context, 'Failed to upload media');
-                                    return;
-                                  }
-                                }
-                              },
-                              child: AutoSizeText(
-                                'Upload Poster',
-                                style: FlutterFlowTheme.bodyText1.override(
-                                  fontFamily: 'Lexend Deca',
-                                  color: FlutterFlowTheme.grayDark,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
                     Container(
                       width: 200,
                       decoration: BoxDecoration(),
@@ -411,7 +375,7 @@ class _PostJOBWidgetState extends State<PostJOBWidget> {
                           setState(() => _loadingButton = false);
                         }
                       },
-                      text: 'Post JOB',
+                      text: 'BOOK ',
                       options: FFButtonOptions(
                         width: 130,
                         height: 40,
