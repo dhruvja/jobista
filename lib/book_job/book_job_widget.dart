@@ -25,6 +25,7 @@ class _BookJobWidgetState extends State<BookJobWidget> {
   String dropDownValue2;
   TextEditingController textController1;
   TextEditingController textController2;
+  TextEditingController textController3;
   int countControllerValue;
   bool checkboxListTileValue;
   bool _loadingButton = false;
@@ -36,6 +37,7 @@ class _BookJobWidgetState extends State<BookJobWidget> {
     super.initState();
     textController1 = TextEditingController();
     textController2 = TextEditingController();
+    textController3 = TextEditingController();
   }
 
   @override
@@ -206,7 +208,7 @@ class _BookJobWidgetState extends State<BookJobWidget> {
                               controller: textController1,
                               obscureText: false,
                               decoration: InputDecoration(
-                                hintText: 'Location',
+                                hintText: 'Pincode',
                                 hintStyle: FlutterFlowTheme.bodyText1.override(
                                   fontFamily: 'Lexend Deca',
                                   color: FlutterFlowTheme.grayDark,
@@ -235,6 +237,57 @@ class _BookJobWidgetState extends State<BookJobWidget> {
                         ],
                       ),
                     ),
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                      child: Container(
+                        width: 300,
+                        height: 40,
+                        decoration: BoxDecoration(
+                          color: FlutterFlowTheme.customColor1,
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(5, 0, 0, 5),
+                              child: TextFormField(
+                                controller: textController2,
+                                obscureText: false,
+                                decoration: InputDecoration(
+                                  hintText: 'Address',
+                                  hintStyle:
+                                      FlutterFlowTheme.bodyText1.override(
+                                    fontFamily: 'Lexend Deca',
+                                    color: FlutterFlowTheme.grayDark,
+                                  ),
+                                  enabledBorder: UnderlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: Color(0x00000000),
+                                      width: 1,
+                                    ),
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                  focusedBorder: UnderlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: Color(0x00000000),
+                                      width: 1,
+                                    ),
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                ),
+                                style: FlutterFlowTheme.bodyText1.override(
+                                  fontFamily: 'Lexend Deca',
+                                  color: FlutterFlowTheme.grayDark,
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
                     Container(
                       width: 300,
                       height: 80,
@@ -242,7 +295,7 @@ class _BookJobWidgetState extends State<BookJobWidget> {
                       child: Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
                         child: TextFormField(
-                          controller: textController2,
+                          controller: textController3,
                           obscureText: false,
                           decoration: InputDecoration(
                             hintText: 'JOB Information ',
