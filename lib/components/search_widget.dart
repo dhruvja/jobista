@@ -33,6 +33,14 @@ class SearchWidget extends StatelessWidget {
           borderRadius: BorderRadius.circular(10),
         ),
         alignment: AlignmentDirectional(0.050000000000000044, 0),
+        child: InkWell(
+          onTap: () async {
+            await Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => Dashboard2Widget(
+                                  data: values,
+                                  roles: roles
+                                  )));
+          },
         child: Column(
           mainAxisSize: MainAxisSize.max,
           children: [
@@ -59,7 +67,7 @@ class SearchWidget extends StatelessWidget {
                                   shape: BoxShape.circle,
                                 ),
                                 child: Image.network(
-                                  'https://picsum.photos/seed/143/600',
+                                  'http://localhost:5000/api/uploads/image_picker_DE922313-6196-4CD1-A279-0CC7FA0DA71F-47079-0000535E5E38284F.jpg',
                                 ),
                               ),
                             )
@@ -132,39 +140,25 @@ class SearchWidget extends StatelessWidget {
                                                 ),
                                               );
                                             },
-                                            child: Icon(
-                                              values['account_verification'] == 1 ? Icons.star_rate : Icons.star_outline ,
-                                              color:
-                                                  FlutterFlowTheme.background,
-                                              size: 24,
-                                            ),
+                                              child: Icon(
+                                                Icons.star_outline ,
+                                                color:
+                                                    FlutterFlowTheme.background,
+                                                size: 24,
+                                              ),
                                           )
                                         ],
                                       ),
                                     ),
                                   ),
-                                  Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 0, 10, 0),
-                                        child: Icon(
-                                          Icons.star_rate,
-                                          color: FlutterFlowTheme.customColor1,
-                                          size: 24,
-                                        ),
-                                      )
-                                    ],
-                                  ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         0, 0, 20, 0),
-                                    child: Icon(
-                                      Icons.verified,
-                                      color: FlutterFlowTheme.primaryColor,
-                                      size: 30,
-                                    ),
+                                      child: Icon(
+                                        values['account_verification'] == 1 ? Icons.verified : Icons.bookmark_sharp,
+                                        color: values['account_verification'] == 1 ? FlutterFlowTheme.primaryColor : Color(0xFF082C54),
+                                        size: values['account_verification'] == 1 ? 30 : 24,
+                                      ),
                                   )
                                 ],
                               ),
@@ -339,6 +333,7 @@ class SearchWidget extends StatelessWidget {
               ],
             )
           ],
+        ),
         ),
       ),
     );

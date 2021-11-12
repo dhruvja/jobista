@@ -8,7 +8,11 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Dashboard2Widget extends StatefulWidget {
-  Dashboard2Widget({Key key}) : super(key: key);
+
+  var data;
+  var roles;
+
+  Dashboard2Widget({Key key, @required this.data, @required this.roles }) : super(key: key);
 
   @override
   _Dashboard2WidgetState createState() => _Dashboard2WidgetState();
@@ -19,7 +23,14 @@ class _Dashboard2WidgetState extends State<Dashboard2Widget> {
   double ratingBarValue;
   bool _loadingButton2 = false;
   bool _loadingButton3 = false;
+  var values;
+  var roles;
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  void initState(){
+    values = widget.data;
+    roles = widget.roles;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -80,7 +91,7 @@ class _Dashboard2WidgetState extends State<Dashboard2Widget> {
                                           shape: BoxShape.circle,
                                         ),
                                         child: Image.network(
-                                          'https://picsum.photos/seed/702/600',
+                                          'http://localhost:5000/api/uploads/image_picker_DE922313-6196-4CD1-A279-0CC7FA0DA71F-47079-0000535E5E38284F.jpg',
                                         ),
                                       ),
                                     )
@@ -109,7 +120,7 @@ class _Dashboard2WidgetState extends State<Dashboard2Widget> {
                                                 CrossAxisAlignment.start,
                                             children: [
                                               Text(
-                                                'Name',
+                                                values['username'],
                                                 style:
                                                     FlutterFlowTheme.bodyText1,
                                               ),
@@ -117,7 +128,7 @@ class _Dashboard2WidgetState extends State<Dashboard2Widget> {
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
                                                   Text(
-                                                    'Location',
+                                                    values['pincode'].toString(),
                                                     style: FlutterFlowTheme
                                                         .bodyText1,
                                                   )
@@ -287,7 +298,7 @@ class _Dashboard2WidgetState extends State<Dashboard2Widget> {
                                           style: FlutterFlowTheme.bodyText1,
                                         ),
                                         Text(
-                                          '10+',
+                                          values['eduname'],
                                           style: FlutterFlowTheme.bodyText1
                                               .override(
                                             fontFamily: 'Lexend Deca',
@@ -319,7 +330,7 @@ class _Dashboard2WidgetState extends State<Dashboard2Widget> {
                                           style: FlutterFlowTheme.bodyText1,
                                         ),
                                         Text(
-                                          '2 Years',
+                                          values['exptime'].toString() + " Years",
                                           style: FlutterFlowTheme.bodyText1
                                               .override(
                                             fontFamily: 'Lexend Deca',
@@ -390,7 +401,7 @@ class _Dashboard2WidgetState extends State<Dashboard2Widget> {
                                           size: 24,
                                         ),
                                         Text(
-                                          'Verified',
+                                           values['account_verification'] == 1 ? 'Verified' : 'Not Verfied',
                                           style: FlutterFlowTheme.bodyText1,
                                         ),
                                         InkWell(
@@ -404,7 +415,7 @@ class _Dashboard2WidgetState extends State<Dashboard2Widget> {
                                             );
                                           },
                                           child: Text(
-                                            'Check now',
+                                            values['account_verification'] == 1 ? 'Check Now' : '',
                                             style: FlutterFlowTheme.bodyText1
                                                 .override(
                                               fontFamily: 'Lexend Deca',
@@ -496,7 +507,7 @@ class _Dashboard2WidgetState extends State<Dashboard2Widget> {
                                       setState(() => _loadingButton3 = false);
                                     }
                                   },
-                                  text: 'Whishlist',
+                                  text: 'Wishlist',
                                   icon: Icon(
                                     Icons.whatshot,
                                     size: 10,
