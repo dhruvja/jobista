@@ -29,6 +29,7 @@ import '../../worker_3/worker3_widget.dart';
 import '../../error1/error1_widget.dart';
 import '../../post_j_o_b/post_j_o_b_widget.dart';
 import '../../book_job/book_job_widget.dart';
+import '../../clentpage/clentpage_widget.dart';
 
 class PushNotificationsHandler extends StatefulWidget {
   const PushNotificationsHandler(
@@ -118,6 +119,7 @@ final pageBuilderMap = <String, Future<Widget> Function(Map<String, dynamic>)>{
   'error1': (data) async => Error1Widget(),
   'PostJOB': (data) async => PostJOBWidget(),
   'BookJob': (data) async => BookJobWidget(),
+  'clentpage': (data) async => ClentpageWidget(),
 };
 
 bool hasMatchingParameters(Map<String, dynamic> data, Set<String> params) =>
