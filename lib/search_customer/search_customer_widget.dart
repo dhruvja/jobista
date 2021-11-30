@@ -12,6 +12,8 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../api_endpoint.dart';
+
 
 class SearchCustomerWidget extends StatefulWidget {
   SearchCustomerWidget({Key key}) : super(key: key);

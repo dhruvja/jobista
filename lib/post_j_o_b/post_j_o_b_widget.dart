@@ -1,27 +1,33 @@
-import '../auth/auth_util.dart';
 import '../backend/firebase_storage/storage.dart';
 import '../flutter_flow/flutter_flow_count_controller.dart';
+import '../flutter_flow/flutter_flow_drop_down.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../flutter_flow/upload_media.dart';
-import '../track_car/track_car_widget.dart';
+import '../home_page/home_page_widget.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../api_endpoint.dart';
 
-class Worker3Widget extends StatefulWidget {
-  Worker3Widget({Key key}) : super(key: key);
+
+class PostJOBWidget extends StatefulWidget {
+  PostJOBWidget({Key key}) : super(key: key);
 
   @override
-  _Worker3WidgetState createState() => _Worker3WidgetState();
+  _PostJOBWidgetState createState() => _PostJOBWidgetState();
 }
 
-class _Worker3WidgetState extends State<Worker3Widget> {
+class _PostJOBWidgetState extends State<PostJOBWidget> {
+  String dropDownValue1;
+  String dropDownValue2;
+  String dropDownValue3;
+  TextEditingController textController1;
+  TextEditingController textController2;
   String uploadedFileUrl1 = '';
-  TextEditingController textController;
   String uploadedFileUrl2 = '';
   int countControllerValue;
   bool checkboxListTileValue;
@@ -32,7 +38,8 @@ class _Worker3WidgetState extends State<Worker3Widget> {
   @override
   void initState() {
     super.initState();
-    textController = TextEditingController();
+    textController1 = TextEditingController();
+    textController2 = TextEditingController();
   }
 
   @override
@@ -47,7 +54,7 @@ class _Worker3WidgetState extends State<Worker3Widget> {
             width: double.infinity,
             height: double.infinity,
             decoration: BoxDecoration(
-              color: Color(0xFFEEEEEE),
+              color: FlutterFlowTheme.grayLight,
               image: DecorationImage(
                 fit: BoxFit.cover,
                 image: Image.asset(
@@ -71,58 +78,130 @@ class _Worker3WidgetState extends State<Worker3Widget> {
                         fit: BoxFit.contain,
                       ),
                     ),
-                    InkWell(
-                      onTap: () async {
-                        final selectedMedia =
-                            await selectMediaWithSourceBottomSheet(
-                          context: context,
-                          allowPhoto: true,
-                        );
-                        if (selectedMedia != null &&
-                            validateFileFormat(
-                                selectedMedia.storagePath, context)) {
-                          showUploadMessage(context, 'Uploading file...',
-                              showLoading: true);
-                          final downloadUrl = await uploadData(
-                              selectedMedia.storagePath, selectedMedia.bytes);
-                          ScaffoldMessenger.of(context).hideCurrentSnackBar();
-                          if (downloadUrl != null) {
-                            setState(() => uploadedFileUrl1 = downloadUrl);
-                            showUploadMessage(context, 'Success!');
-                          } else {
-                            showUploadMessage(
-                                context, 'Failed to upload media');
-                            return;
-                          }
-                        }
-                      },
-                      child: Container(
-                        width: 100,
-                        height: 100,
-                        clipBehavior: Clip.antiAlias,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
+                      child: FlutterFlowDropDown(
+                        options: ['JOB Type'].toList(),
+                        onChanged: (val) =>
+                            setState(() => dropDownValue1 = val),
+                        width: 300,
+                        height: 40,
+                        textStyle: FlutterFlowTheme.bodyText1.override(
+                          fontFamily: 'Lexend Deca',
+                          color: FlutterFlowTheme.grayDark,
                         ),
-                        child: Image.network(
-                          'https://picsum.photos/seed/418/600',
-                        ),
+                        fillColor: Colors.white,
+                        elevation: 2,
+                        borderColor: Colors.transparent,
+                        borderWidth: 0,
+                        borderRadius: 10,
+                        margin: EdgeInsetsDirectional.fromSTEB(8, 4, 8, 4),
+                        hidesUnderline: true,
                       ),
                     ),
-                    Text(
-                      'Upload Photo',
-                      style: FlutterFlowTheme.bodyText1,
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
+                      child: FlutterFlowDropDown(
+                        options: ['Education '].toList(),
+                        onChanged: (val) =>
+                            setState(() => dropDownValue2 = val),
+                        width: 300,
+                        height: 40,
+                        textStyle: FlutterFlowTheme.bodyText1.override(
+                          fontFamily: 'Lexend Deca',
+                          color: FlutterFlowTheme.grayDark,
+                        ),
+                        fillColor: Colors.white,
+                        elevation: 2,
+                        borderColor: Colors.transparent,
+                        borderWidth: 0,
+                        borderRadius: 10,
+                        margin: EdgeInsetsDirectional.fromSTEB(8, 4, 8, 4),
+                        hidesUnderline: true,
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
+                      child: FlutterFlowDropDown(
+                        options: ['Experience'].toList(),
+                        onChanged: (val) =>
+                            setState(() => dropDownValue3 = val),
+                        width: 300,
+                        height: 40,
+                        textStyle: FlutterFlowTheme.bodyText1.override(
+                          fontFamily: 'Lexend Deca',
+                          color: FlutterFlowTheme.grayDark,
+                        ),
+                        icon: Icon(
+                          Icons.arrow_drop_down,
+                          size: 15,
+                        ),
+                        fillColor: Colors.white,
+                        elevation: 2,
+                        borderColor: Colors.transparent,
+                        borderWidth: 0,
+                        borderRadius: 10,
+                        margin: EdgeInsetsDirectional.fromSTEB(8, 4, 8, 4),
+                        hidesUnderline: true,
+                      ),
                     ),
                     Container(
                       width: 300,
-                      height: 160,
+                      height: 40,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.customColor1,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(5, 0, 0, 5),
+                            child: TextFormField(
+                              controller: textController1,
+                              obscureText: false,
+                              decoration: InputDecoration(
+                                hintText: 'Location',
+                                hintStyle: FlutterFlowTheme.bodyText1.override(
+                                  fontFamily: 'Lexend Deca',
+                                  color: FlutterFlowTheme.grayDark,
+                                ),
+                                enabledBorder: UnderlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Color(0x00000000),
+                                    width: 1,
+                                  ),
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                focusedBorder: UnderlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Color(0x00000000),
+                                    width: 1,
+                                  ),
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                              ),
+                              style: FlutterFlowTheme.bodyText1.override(
+                                fontFamily: 'Lexend Deca',
+                                color: FlutterFlowTheme.grayDark,
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                    Container(
+                      width: 300,
+                      height: 80,
                       decoration: BoxDecoration(),
                       child: Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
                         child: TextFormField(
-                          controller: textController,
+                          controller: textController2,
                           obscureText: false,
                           decoration: InputDecoration(
-                            hintText: 'Experience ',
+                            hintText: 'JOB Information ',
                             hintStyle: FlutterFlowTheme.bodyText1.override(
                               fontFamily: 'Lexend Deca',
                               color: FlutterFlowTheme.grayDark,
@@ -178,7 +257,7 @@ class _Worker3WidgetState extends State<Worker3Widget> {
                                 selectedMedia.storagePath, selectedMedia.bytes);
                             ScaffoldMessenger.of(context).hideCurrentSnackBar();
                             if (downloadUrl != null) {
-                              setState(() => uploadedFileUrl2 = downloadUrl);
+                              setState(() => uploadedFileUrl1 = downloadUrl);
                               showUploadMessage(context, 'Success!');
                             } else {
                               showUploadMessage(
@@ -201,11 +280,41 @@ class _Worker3WidgetState extends State<Worker3Widget> {
                           ),
                           child: Align(
                             alignment: AlignmentDirectional(0, 0),
-                            child: AutoSizeText(
-                              'Upload Age Proof',
-                              style: FlutterFlowTheme.bodyText1.override(
-                                fontFamily: 'Lexend Deca',
-                                color: FlutterFlowTheme.grayDark,
+                            child: InkWell(
+                              onTap: () async {
+                                final selectedMedia =
+                                    await selectMediaWithSourceBottomSheet(
+                                  context: context,
+                                  allowPhoto: true,
+                                );
+                                if (selectedMedia != null &&
+                                    validateFileFormat(
+                                        selectedMedia.storagePath, context)) {
+                                  showUploadMessage(
+                                      context, 'Uploading file...',
+                                      showLoading: true);
+                                  final downloadUrl = await uploadData(
+                                      selectedMedia.storagePath,
+                                      selectedMedia.bytes);
+                                  ScaffoldMessenger.of(context)
+                                      .hideCurrentSnackBar();
+                                  if (downloadUrl != null) {
+                                    setState(
+                                        () => uploadedFileUrl2 = downloadUrl);
+                                    showUploadMessage(context, 'Success!');
+                                  } else {
+                                    showUploadMessage(
+                                        context, 'Failed to upload media');
+                                    return;
+                                  }
+                                }
+                              },
+                              child: AutoSizeText(
+                                'Upload Poster',
+                                style: FlutterFlowTheme.bodyText1.override(
+                                  fontFamily: 'Lexend Deca',
+                                  color: FlutterFlowTheme.grayDark,
+                                ),
                               ),
                             ),
                           ),
@@ -221,7 +330,7 @@ class _Worker3WidgetState extends State<Worker3Widget> {
                       child: Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(0, 10, 180, 10),
                         child: Text(
-                          'Expected Salary',
+                          'Salary Stake',
                           textAlign: TextAlign.center,
                           style: FlutterFlowTheme.bodyText1,
                         ),
@@ -294,25 +403,17 @@ class _Worker3WidgetState extends State<Worker3Widget> {
                       onPressed: () async {
                         setState(() => _loadingButton = true);
                         try {
-                          final user = await signInAnonymously(context);
-                          if (user == null) {
-                            return;
-                          }
-                          await Navigator.pushAndRemoveUntil(
+                          await Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => TrackCarWidget(),
+                              builder: (context) => HomePageWidget(),
                             ),
-                            (r) => false,
                           );
                         } finally {
                           setState(() => _loadingButton = false);
                         }
                       },
-                      text: 'Sign UP',
-                      icon: FaIcon(
-                        FontAwesomeIcons.signLanguage,
-                      ),
+                      text: 'Post JOB',
                       options: FFButtonOptions(
                         width: 130,
                         height: 40,

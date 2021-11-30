@@ -7,11 +7,14 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../api_endpoint.dart';
+
 
 class SearchWidget extends StatelessWidget {
   bool _loadingButton = false;
   var values;
   var roles;
+  String endpoint = Endpoint();
 
   SearchWidget(this.values,this.roles);
 
@@ -67,7 +70,7 @@ class SearchWidget extends StatelessWidget {
                                   shape: BoxShape.circle,
                                 ),
                                 child: Image.network(
-                                  'http://localhost:5000/api/uploads/image_picker_DE922313-6196-4CD1-A279-0CC7FA0DA71F-47079-0000535E5E38284F.jpg',
+                                  endpoint + 'api/uploads/image_picker_DE922313-6196-4CD1-A279-0CC7FA0DA71F-47079-0000535E5E38284F.jpg',
                                 ),
                               ),
                             )

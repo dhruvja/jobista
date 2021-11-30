@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "163691472519",
-    "project_id": "jobista-37eaa",
-    "storage_bucket": "jobista-37eaa.appspot.com"
+    "project_number": "612561736235",
+    "project_id": "jobista-notifs",
+    "storage_bucket": "jobista-notifs.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:163691472519:android:0fb15c725917c52e21fa22",
+        "mobilesdk_app_id": "1:612561736235:android:dce1fcadccb49bae5c106e",
         "android_client_info": {
           "package_name": "com.flutterflow.edriveapp"
         }
       },
       "oauth_client": [
         {
-          "client_id": "163691472519-s5i6g3r0q9r2lbgle6dv00uv3pommvf2.apps.googleusercontent.com",
+          "client_id": "612561736235-7a1ms56jd5ued7djcpg7cho8sn7ovn14.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAp08Oqss8o1rWIa1HdX8zjsgtx-MbpHRY"
+          "current_key": "AIzaSyAQL1AYsB0LKdpRNxlLfOf6cUUqEWHjnRQ"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "163691472519-s5i6g3r0q9r2lbgle6dv00uv3pommvf2.apps.googleusercontent.com",
+              "client_id": "612561736235-7a1ms56jd5ued7djcpg7cho8sn7ovn14.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

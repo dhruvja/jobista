@@ -18,6 +18,8 @@ import 'package:http/http.dart' as http;
 import 'dart:async';
 import 'dart:convert';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import '../api_endpoint.dart';
+
 
 class LoginWidget extends StatefulWidget {
   LoginWidget({Key key}) : super(key: key);
@@ -36,6 +38,7 @@ class _LoginWidgetState extends State<LoginWidget> {
   final formKey = GlobalKey<FormState>();
   final scaffoldKey = GlobalKey<ScaffoldState>();
   final _formKey = GlobalKey<FormState>();
+  String endpoint = Endpoint();
 
   @override
   void initState() {
@@ -52,7 +55,7 @@ class _LoginWidgetState extends State<LoginWidget> {
     print(emailAddressController.text);
     try {
       final response = await http.post(
-          Uri.parse('http://localhost:5000/api/login'),
+          Uri.parse(endpoint + "api/login"),
           headers: <String, String>{
             'Content-Type': 'application/json; charset=UTF-8',
             'accept': 'application/json'
@@ -113,6 +116,7 @@ class _LoginWidgetState extends State<LoginWidget> {
         );
       }
     } catch (e) {
+      print(e);
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
             content: Text('No Interent Found, try again'),

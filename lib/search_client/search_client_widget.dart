@@ -16,6 +16,8 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:lottie/lottie.dart';
+import '../api_endpoint.dart';
+
 
 class SearchClientWidget extends StatefulWidget {
   // String something;
@@ -54,6 +56,8 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
   bool roles_present = false;
   final formKey = GlobalKey<FormState>();
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  String endpoint = Endpoint();
+  bool empty = true;
 
   // SearchWidget search_widget = SearchWidget();
 
@@ -110,9 +114,12 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
 
     print(edulevel);
     print(dropDownValue1.runtimeType);
+
+    if(designation == null)
+      designation = "";
     
     try {
-      var url = "http://localhost:5000/api/client/search/" + textController2.text;
+      var url = endpoint + "api/client/search/" + textController2.text;
       print(url);
       final response = await http.post(
           Uri.parse(url),
@@ -137,6 +144,10 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
             status = data['rows'];
             present = true;
             roles_present = data['role'];
+          });
+        if(status != null)
+          setState((){
+            empty = false;
           });
       }
 
@@ -641,10 +652,12 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
                     ],
                   ),
                 ),
-                if(present)
-                  ...(status).map((answer){
-                    return SearchWidget(answer,roles_present);
-                  })
+                if(present && !empty)
+                    ...(status).map((answer){
+                      return SearchWidget(answer,roles_present);
+                    })
+                else if(present && empty)
+                  Text('No Results Found')
                 else
                   Lottie.asset(
                     'assets/lottie_animations/72785-searching.json',

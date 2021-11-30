@@ -70,7 +70,7 @@ class _SearchHomeWidgetState extends State<SearchHomeWidget> {
                         height: 40,
                         textStyle: FlutterFlowTheme.bodyText1.override(
                           fontFamily: 'Lexend Deca',
-                          color: Colors.black,
+                          color: FlutterFlowTheme.grayDark,
                         ),
                         fillColor: Colors.white,
                         elevation: 2,
@@ -89,7 +89,10 @@ class _SearchHomeWidgetState extends State<SearchHomeWidget> {
                           obscureText: false,
                           decoration: InputDecoration(
                             hintText: 'Pincode',
-                            hintStyle: FlutterFlowTheme.bodyText1,
+                            hintStyle: FlutterFlowTheme.bodyText1.override(
+                              fontFamily: 'Lexend Deca',
+                              color: FlutterFlowTheme.grayDark,
+                            ),
                             enabledBorder: UnderlineInputBorder(
                               borderSide: BorderSide(
                                 color: Color(0x00000000),
@@ -116,7 +119,10 @@ class _SearchHomeWidgetState extends State<SearchHomeWidget> {
                               Icons.edit_location,
                             ),
                           ),
-                          style: FlutterFlowTheme.bodyText1,
+                          style: FlutterFlowTheme.bodyText1.override(
+                            fontFamily: 'Lexend Deca',
+                            color: FlutterFlowTheme.grayDark,
+                          ),
                           validator: (val) {
                             if (val.isEmpty) {
                               return 'Please Enter the pincode before proceeding';
@@ -141,7 +147,7 @@ class _SearchHomeWidgetState extends State<SearchHomeWidget> {
                       height: 40,
                       textStyle: FlutterFlowTheme.bodyText1.override(
                         fontFamily: 'Lexend Deca',
-                        color: Colors.black,
+                        color: FlutterFlowTheme.grayDark,
                       ),
                       fillColor: Colors.white,
                       elevation: 2,

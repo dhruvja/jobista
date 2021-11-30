@@ -12,6 +12,8 @@ import 'package:http/http.dart' as http;
 import 'dart:async';
 import 'dart:convert';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import '../api_endpoint.dart';
+
 
 class RegisterClientWidget extends StatefulWidget {
   RegisterClientWidget({Key key}) : super(key: key);
@@ -31,6 +33,7 @@ class _RegisterClientWidgetState extends State<RegisterClientWidget> {
   bool _loadingButton = false;
   final formKey = GlobalKey<FormState>();
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  String endpoint = Endpoint();
 
   @override
   void initState() {
@@ -50,7 +53,7 @@ class _RegisterClientWidgetState extends State<RegisterClientWidget> {
   void createRecord() async {
     print(emailAddressController.text);
     final response =
-        await http.post(Uri.parse('http://localhost:5000/api/register'),
+        await http.post(Uri.parse( endpoint + 'api/register'),
             headers: <String, String>{
               'Content-Type': 'application/json; charset=UTF-8',
             },

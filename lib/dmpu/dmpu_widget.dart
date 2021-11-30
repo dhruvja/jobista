@@ -19,8 +19,7 @@ class DmpuWidget extends StatefulWidget {
 }
 
 class _DmpuWidgetState extends State<DmpuWidget> {
-  String uploadedFileUrl1 = '';
-  String uploadedFileUrl2 = '';
+  String uploadedFileUrl = '';
   TextEditingController textController;
   var placePickerValue = FFPlace();
   bool _loadingButton = false;
@@ -105,7 +104,7 @@ class _DmpuWidgetState extends State<DmpuWidget> {
                               ScaffoldMessenger.of(context)
                                   .hideCurrentSnackBar();
                               if (downloadUrl != null) {
-                                setState(() => uploadedFileUrl1 = downloadUrl);
+                                setState(() => uploadedFileUrl = downloadUrl);
                                 showUploadMessage(context, 'Success!');
                               } else {
                                 showUploadMessage(
@@ -116,7 +115,7 @@ class _DmpuWidgetState extends State<DmpuWidget> {
                           },
                           child: Container(
                             width: MediaQuery.of(context).size.width * 0.96,
-                            height: 350,
+                            height: 300,
                             decoration: BoxDecoration(
                               color: Color(0xFFF1F5F8),
                               image: DecorationImage(
@@ -134,43 +133,6 @@ class _DmpuWidgetState extends State<DmpuWidget> {
                               ],
                               borderRadius: BorderRadius.circular(8),
                             ),
-                          ),
-                        ),
-                      ),
-                      InkWell(
-                        onTap: () async {
-                          final selectedMedia =
-                              await selectMediaWithSourceBottomSheet(
-                            context: context,
-                            allowPhoto: true,
-                          );
-                          if (selectedMedia != null &&
-                              validateFileFormat(
-                                  selectedMedia.storagePath, context)) {
-                            showUploadMessage(context, 'Uploading file...',
-                                showLoading: true);
-                            final downloadUrl = await uploadData(
-                                selectedMedia.storagePath, selectedMedia.bytes);
-                            ScaffoldMessenger.of(context).hideCurrentSnackBar();
-                            if (downloadUrl != null) {
-                              setState(() => uploadedFileUrl2 = downloadUrl);
-                              showUploadMessage(context, 'Success!');
-                            } else {
-                              showUploadMessage(
-                                  context, 'Failed to upload media');
-                              return;
-                            }
-                          }
-                        },
-                        child: Container(
-                          width: 120,
-                          height: 120,
-                          clipBehavior: Clip.antiAlias,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                          ),
-                          child: Image.network(
-                            'https://picsum.photos/seed/773/600',
                           ),
                         ),
                       ),

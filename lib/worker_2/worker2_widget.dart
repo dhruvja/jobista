@@ -1,11 +1,9 @@
-import '../auth/auth_util.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
-import '../track_car/track_car_widget.dart';
+import '../worker_3/worker3_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Worker2Widget extends StatefulWidget {
@@ -265,26 +263,20 @@ class _Worker2WidgetState extends State<Worker2Widget> {
                                   onPressed: () async {
                                     setState(() => _loadingButton = true);
                                     try {
-                                      final user =
-                                          await signInAnonymously(context);
-                                      if (user == null) {
-                                        return;
-                                      }
-                                      await Navigator.pushAndRemoveUntil(
+                                      await Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                          builder: (context) =>
-                                              TrackCarWidget(),
+                                          builder: (context) => Worker3Widget(),
                                         ),
-                                        (r) => false,
                                       );
                                     } finally {
                                       setState(() => _loadingButton = false);
                                     }
                                   },
-                                  text: 'Sign UP',
-                                  icon: FaIcon(
-                                    FontAwesomeIcons.signLanguage,
+                                  text: 'Next',
+                                  icon: Icon(
+                                    Icons.play_arrow,
+                                    size: 15,
                                   ),
                                   options: FFButtonOptions(
                                     width: 130,

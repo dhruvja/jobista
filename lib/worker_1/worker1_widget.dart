@@ -1,9 +1,7 @@
 import '../auth/auth_util.dart';
-import '../backend/firebase_storage/storage.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
-import '../flutter_flow/upload_media.dart';
 import '../track_car/track_car_widget.dart';
 import '../worker_2/worker2_widget.dart';
 import 'package:flutter/material.dart';
@@ -16,6 +14,8 @@ import 'dart:io';
 import 'package:image_picker/image_picker.dart';
 import 'package:path/path.dart' as Path;
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import '../api_endpoint.dart';
+
 
 
 class Worker1Widget extends StatefulWidget {
@@ -26,16 +26,19 @@ class Worker1Widget extends StatefulWidget {
 }
 
 class _Worker1WidgetState extends State<Worker1Widget> {
-  String uploadedFileUrl = '';
+  TextEditingController confirmPasswordTextController;
+  bool passwordVisibility2;
   TextEditingController emailTextController;
   TextEditingController textController1;
   TextEditingController passwordController;
   bool passwordVisibility1;
-  TextEditingController confirmPasswordTextController;
-  bool passwordVisibility2;
+  // TextEditingController confirmPasswordTextController;
+  // bool passwordVisibility2;
   bool _loadingButton = true;
   final formKey = GlobalKey<FormState>();
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  String endpoint = Endpoint();
 
   ImagePicker picker = ImagePicker();
 
@@ -72,7 +75,7 @@ class _Worker1WidgetState extends State<Worker1Widget> {
     var length = await imageFile.length();
 
     // string to uri
-    var uri = Uri.parse("http://localhost:5000/api/register");
+    var uri = Uri.parse( endpoint +  "api/register");
 
     // create multipart request
     var request = new http.MultipartRequest("POST", uri);
