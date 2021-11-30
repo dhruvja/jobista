@@ -1,21 +1,21 @@
-import '../change_password/change_password_widget.dart';
-import '../dashboard2/dashboard2_widget.dart';
+import '../base/base_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
+import '../worker_1/worker1_widget.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class SearchWidget extends StatefulWidget {
-  SearchWidget({Key key}) : super(key: key);
+class SearchClientCompWidget extends StatefulWidget {
+  const SearchClientCompWidget({Key key}) : super(key: key);
 
   @override
-  _SearchWidgetState createState() => _SearchWidgetState();
+  _SearchClientCompWidgetState createState() => _SearchClientCompWidgetState();
 }
 
-class _SearchWidgetState extends State<SearchWidget> {
+class _SearchClientCompWidgetState extends State<SearchClientCompWidget> {
   bool _loadingButton = false;
 
   @override
@@ -35,7 +35,7 @@ class _SearchWidgetState extends State<SearchWidget> {
             await Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => Dashboard2Widget(),
+                builder: (context) => Worker1Widget(),
               ),
             );
           },
@@ -132,7 +132,7 @@ class _SearchWidgetState extends State<SearchWidget> {
                                                   context,
                                                   MaterialPageRoute(
                                                     builder: (context) =>
-                                                        ChangePasswordWidget(),
+                                                        BaseWidget(),
                                                   ),
                                                 );
                                               },

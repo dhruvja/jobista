@@ -6,7 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 
 class Error1Widget extends StatefulWidget {
-  Error1Widget({Key key}) : super(key: key);
+  const Error1Widget({Key key}) : super(key: key);
 
   @override
   _Error1WidgetState createState() => _Error1WidgetState();

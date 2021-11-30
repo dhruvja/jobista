@@ -1,19 +1,19 @@
-import '../change_password/change_password_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
+import '../home_client/home_client_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class SearchCustomer2Widget extends StatefulWidget {
-  SearchCustomer2Widget({Key key}) : super(key: key);
+class SearchWorkerCompWidget extends StatefulWidget {
+  const SearchWorkerCompWidget({Key key}) : super(key: key);
 
   @override
-  _SearchCustomer2WidgetState createState() => _SearchCustomer2WidgetState();
+  _SearchWorkerCompWidgetState createState() => _SearchWorkerCompWidgetState();
 }
 
-class _SearchCustomer2WidgetState extends State<SearchCustomer2Widget> {
+class _SearchWorkerCompWidgetState extends State<SearchWorkerCompWidget> {
   bool _loadingButton = false;
 
   @override
@@ -97,7 +97,7 @@ class _SearchCustomer2WidgetState extends State<SearchCustomer2Widget> {
                                                 context,
                                                 MaterialPageRoute(
                                                   builder: (context) =>
-                                                      ChangePasswordWidget(),
+                                                      HomeClientWidget(),
                                                 ),
                                               );
                                             },

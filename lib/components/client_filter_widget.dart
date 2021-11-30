@@ -3,20 +3,20 @@ import '../flutter_flow/flutter_flow_drop_down.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
-import '../search_client/search_client_widget.dart';
+import '../home_client/home_client_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class SearchClient1Widget extends StatefulWidget {
-  SearchClient1Widget({Key key}) : super(key: key);
+class ClientFilterWidget extends StatefulWidget {
+  const ClientFilterWidget({Key key}) : super(key: key);
 
   @override
-  _SearchClient1WidgetState createState() => _SearchClient1WidgetState();
+  _ClientFilterWidgetState createState() => _ClientFilterWidgetState();
 }
 
-class _SearchClient1WidgetState extends State<SearchClient1Widget> {
+class _ClientFilterWidgetState extends State<ClientFilterWidget> {
   String dropDownValue1;
   TextEditingController textController;
   String dropDownValue2;
@@ -197,7 +197,7 @@ class _SearchClient1WidgetState extends State<SearchClient1Widget> {
                           await Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => SearchClientWidget(),
+                              builder: (context) => HomeClientWidget(),
                             ),
                           );
                         } finally {

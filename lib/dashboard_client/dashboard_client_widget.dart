@@ -1,19 +1,20 @@
-import '../components/search_client1_widget.dart';
+import '../components/client_filter_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
-import '../home_page/home_page_widget.dart';
+import '../home_client/home_client_widget.dart';
+import '../search_client/search_client_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class ClentpageWidget extends StatefulWidget {
-  ClentpageWidget({Key key}) : super(key: key);
+class DashboardClientWidget extends StatefulWidget {
+  const DashboardClientWidget({Key key}) : super(key: key);
 
   @override
-  _ClentpageWidgetState createState() => _ClentpageWidgetState();
+  _DashboardClientWidgetState createState() => _DashboardClientWidgetState();
 }
 
-class _ClentpageWidgetState extends State<ClentpageWidget> {
+class _DashboardClientWidgetState extends State<DashboardClientWidget> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -71,7 +72,7 @@ class _ClentpageWidgetState extends State<ClentpageWidget> {
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.center,
-                              children: [SearchClient1Widget()],
+                              children: [ClientFilterWidget()],
                             ),
                           ),
                         ),
@@ -185,7 +186,7 @@ class _ClentpageWidgetState extends State<ClentpageWidget> {
                                                 context,
                                                 MaterialPageRoute(
                                                   builder: (context) =>
-                                                      HomePageWidget(),
+                                                      HomeClientWidget(),
                                                 ),
                                               );
                                             },
@@ -228,7 +229,7 @@ class _ClentpageWidgetState extends State<ClentpageWidget> {
                                                 context,
                                                 MaterialPageRoute(
                                                   builder: (context) =>
-                                                      HomePageWidget(),
+                                                      SearchClientWidget(),
                                                 ),
                                               );
                                             },

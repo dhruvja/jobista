@@ -2,14 +2,14 @@ import '../auth/auth_util.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
-import '../track_car/track_car_widget.dart';
+import '../onboard/onboard_widget.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class RegisterClientWidget extends StatefulWidget {
-  RegisterClientWidget({Key key}) : super(key: key);
+  const RegisterClientWidget({Key key}) : super(key: key);
 
   @override
   _RegisterClientWidgetState createState() => _RegisterClientWidgetState();
@@ -356,7 +356,7 @@ class _RegisterClientWidgetState extends State<RegisterClientWidget> {
                           await Navigator.pushAndRemoveUntil(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => TrackCarWidget(),
+                              builder: (context) => OnboardWidget(),
                             ),
                             (r) => false,
                           );
@@ -437,8 +437,7 @@ class _RegisterClientWidgetState extends State<RegisterClientWidget> {
                                       await Navigator.pushAndRemoveUntil(
                                         context,
                                         MaterialPageRoute(
-                                          builder: (context) =>
-                                              TrackCarWidget(),
+                                          builder: (context) => OnboardWidget(),
                                         ),
                                         (r) => false,
                                       );

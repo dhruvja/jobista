@@ -3,15 +3,15 @@ import '../base/base_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
+import '../onboard/onboard_widget.dart';
 import '../search_client/search_client_widget.dart';
-import '../track_car/track_car_widget.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class LoginWidget extends StatefulWidget {
-  LoginWidget({Key key}) : super(key: key);
+  const LoginWidget({Key key}) : super(key: key);
 
   @override
   _LoginWidgetState createState() => _LoginWidgetState();
@@ -107,7 +107,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                 await Navigator.pushAndRemoveUntil(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => TrackCarWidget(),
+                                    builder: (context) => OnboardWidget(),
                                   ),
                                   (r) => false,
                                 );
@@ -191,7 +191,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                 await Navigator.pushAndRemoveUntil(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => TrackCarWidget(),
+                                    builder: (context) => OnboardWidget(),
                                   ),
                                   (r) => false,
                                 );

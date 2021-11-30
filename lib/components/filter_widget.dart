@@ -3,6 +3,7 @@ import '../flutter_flow/flutter_flow_drop_down.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
+import '../home_client/home_client_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -10,7 +11,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class FilterWidget extends StatefulWidget {
-  FilterWidget({Key key}) : super(key: key);
+  const FilterWidget({Key key}) : super(key: key);
 
   @override
   _FilterWidgetState createState() => _FilterWidgetState();
@@ -24,6 +25,7 @@ class _FilterWidgetState extends State<FilterWidget> {
   double sliderValue;
   double ratingBarValue;
   bool _loadingButton = false;
+  final formKey = GlobalKey<FormState>();
 
   @override
   void initState() {
@@ -33,392 +35,220 @@ class _FilterWidgetState extends State<FilterWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Align(
-      alignment: AlignmentDirectional(0, -1),
-      child: Padding(
-        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
-        child: Container(
-          width: 280,
-          height: 600,
-          decoration: BoxDecoration(
-            color: FlutterFlowTheme.customColor1,
-            borderRadius: BorderRadius.circular(15),
-            border: Border.all(
-              color: FlutterFlowTheme.dark400,
-            ),
-          ),
-          alignment: AlignmentDirectional(-0.0, 0),
-          child: Align(
-            alignment: AlignmentDirectional(0, 0),
-            child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
-              child: Column(
+    return Form(
+      key: formKey,
+      child: Align(
+        alignment: AlignmentDirectional(-0.05, 0),
+        child: Padding(
+          padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Column(
                 mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Align(
-                    alignment: AlignmentDirectional(-1, 0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Expanded(
-                          child: Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(40, 0, 40, 0),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Expanded(
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            5, 0, 5, 0),
-                                        child: FlutterFlowDropDown(
-                                          options: [
-                                            'Select JOB',
-                                            'bls bls',
-                                            'drr aa'
-                                          ].toList(),
-                                          onChanged: (val) => setState(
-                                              () => dropDownValue1 = val),
-                                          width: 290,
-                                          height: 40,
-                                          textStyle: FlutterFlowTheme.bodyText1
-                                              .override(
-                                            fontFamily: 'Lexend Deca',
-                                            color: Colors.black,
-                                          ),
-                                          fillColor:
-                                              FlutterFlowTheme.customColor1,
-                                          elevation: 5,
-                                          borderColor: Color(0x001D2429),
-                                          borderRadius: 3,
-                                          margin:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  10, 0, 1, 1),
-                                          hidesUnderline: true,
-                                        ),
-                                      ),
-                                    )
-                                  ],
-                                ),
-                                Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Expanded(
-                                      child: Align(
-                                        alignment: AlignmentDirectional(0.1, 0),
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  5, 0, 0, 0),
-                                          child: TextFormField(
-                                            onChanged: (_) => setState(() {}),
-                                            controller: textController,
-                                            obscureText: false,
-                                            decoration: InputDecoration(
-                                              hintText: 'Pincode',
-                                              hintStyle:
-                                                  FlutterFlowTheme.bodyText1,
-                                              enabledBorder:
-                                                  UnderlineInputBorder(
-                                                borderSide: BorderSide(
-                                                  color: FlutterFlowTheme
-                                                      .customColor1,
-                                                  width: 10,
-                                                ),
-                                                borderRadius:
-                                                    const BorderRadius.only(
-                                                  topLeft: Radius.circular(4.0),
-                                                  topRight:
-                                                      Radius.circular(4.0),
-                                                ),
-                                              ),
-                                              focusedBorder:
-                                                  UnderlineInputBorder(
-                                                borderSide: BorderSide(
-                                                  color: FlutterFlowTheme
-                                                      .customColor1,
-                                                  width: 10,
-                                                ),
-                                                borderRadius:
-                                                    const BorderRadius.only(
-                                                  topLeft: Radius.circular(4.0),
-                                                  topRight:
-                                                      Radius.circular(4.0),
-                                                ),
-                                              ),
-                                              filled: true,
-                                              fillColor:
-                                                  FlutterFlowTheme.customColor1,
-                                              contentPadding:
-                                                  EdgeInsetsDirectional
-                                                      .fromSTEB(10, 15, 10, 10),
-                                              suffixIcon: textController
-                                                      .text.isNotEmpty
-                                                  ? InkWell(
-                                                      onTap: () => setState(
-                                                        () => textController
-                                                            .clear(),
-                                                      ),
-                                                      child: Icon(
-                                                        Icons.clear,
-                                                        color:
-                                                            Color(0xFF757575),
-                                                        size: 22,
-                                                      ),
-                                                    )
-                                                  : null,
-                                            ),
-                                            style: FlutterFlowTheme.bodyText1,
-                                            textAlign: TextAlign.justify,
-                                          ),
-                                        ),
-                                      ),
-                                    )
-                                  ],
-                                ),
-                                Row(
-                                  mainAxisSize: MainAxisSize.min,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Expanded(
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            5, 0, 5, 5),
-                                        child: FlutterFlowDropDown(
-                                          initialOption: dropDownValue2 ??=
-                                              'Education',
-                                          options: [
-                                            'Education',
-                                            'bla bla',
-                                            'how r u '
-                                          ].toList(),
-                                          onChanged: (val) => setState(
-                                              () => dropDownValue2 = val),
-                                          width: 290,
-                                          height: 40,
-                                          textStyle: FlutterFlowTheme.bodyText1
-                                              .override(
-                                            fontFamily: 'Lexend Deca',
-                                            color: Colors.black,
-                                          ),
-                                          fillColor:
-                                              FlutterFlowTheme.customColor1,
-                                          elevation: 5,
-                                          borderColor: Color(0x001D2429),
-                                          borderRadius: 3,
-                                          margin:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  10, 1, 1, 1),
-                                          hidesUnderline: true,
-                                        ),
-                                      ),
-                                    )
-                                  ],
-                                ),
-                                Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          5, 0, 0, 0),
-                                      child: Text(
-                                        'Experience (Years)',
-                                        style: FlutterFlowTheme.bodyText1,
-                                      ),
-                                    )
-                                  ],
-                                ),
-                                Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  10, 10, 10, 10),
-                                          child: Container(
-                                            width: 160,
-                                            height: 50,
-                                            decoration: BoxDecoration(
-                                              color: Colors.white,
-                                              borderRadius:
-                                                  BorderRadius.circular(5),
-                                              shape: BoxShape.rectangle,
-                                              border: Border.all(
-                                                color: Color(0xFF9E9E9E),
-                                                width: 1,
-                                              ),
-                                            ),
-                                            child: FlutterFlowCountController(
-                                              decrementIconBuilder: (enabled) =>
-                                                  FaIcon(
-                                                FontAwesomeIcons.minus,
-                                                color: enabled
-                                                    ? Color(0xDD000000)
-                                                    : Color(0xFFEEEEEE),
-                                                size: 20,
-                                              ),
-                                              incrementIconBuilder: (enabled) =>
-                                                  FaIcon(
-                                                FontAwesomeIcons.plus,
-                                                color: enabled
-                                                    ? Colors.blue
-                                                    : Color(0xFFEEEEEE),
-                                                size: 20,
-                                              ),
-                                              countBuilder: (count) => Text(
-                                                count.toString(),
-                                                style: GoogleFonts.getFont(
-                                                  'Roboto',
-                                                  color: Colors.black,
-                                                  fontWeight: FontWeight.w600,
-                                                  fontSize: 16,
-                                                ),
-                                              ),
-                                              count: countControllerValue ??= 0,
-                                              updateCount: (count) => setState(
-                                                  () => countControllerValue =
-                                                      count),
-                                              stepSize: 1,
-                                            ),
-                                          ),
-                                        )
-                                      ],
-                                    )
-                                  ],
-                                ),
-                                Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Text(
-                                          'Salary Range',
-                                          style: FlutterFlowTheme.bodyText1,
-                                        )
-                                      ],
-                                    )
-                                  ],
-                                ),
-                                Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Slider(
-                                          activeColor: Color(0xFF08253E),
-                                          inactiveColor: Color(0xFF9E9E9E),
-                                          min: 5000,
-                                          max: 100000,
-                                          value: sliderValue ??= 5001,
-                                          label: sliderValue.toString(),
-                                          divisions: 190,
-                                          onChanged: (newValue) {
-                                            setState(
-                                                () => sliderValue = newValue);
-                                          },
-                                        )
-                                      ],
-                                    )
-                                  ],
-                                ),
-                                Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Text(
-                                          'Rating',
-                                          style: FlutterFlowTheme.bodyText1,
-                                        )
-                                      ],
-                                    )
-                                  ],
-                                ),
-                                Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        RatingBar.builder(
-                                          onRatingUpdate: (newValue) =>
-                                              setState(() =>
-                                                  ratingBarValue = newValue),
-                                          itemBuilder: (context, index) => Icon(
-                                            Icons.star_rounded,
-                                            color: Color(0xFF08253E),
-                                          ),
-                                          direction: Axis.horizontal,
-                                          initialRating: ratingBarValue ??= 3,
-                                          unratedColor: Color(0xFF9E9E9E),
-                                          itemCount: 5,
-                                          itemSize: 40,
-                                          glowColor: Color(0xFF08253E),
-                                        )
-                                      ],
-                                    )
-                                  ],
-                                )
-                              ],
-                            ),
-                          ),
-                        )
-                      ],
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
+                    child: FlutterFlowDropDown(
+                      initialOption: dropDownValue1 ??= 'Select job',
+                      options: ['Select job'].toList(),
+                      onChanged: (val) => setState(() => dropDownValue1 = val),
+                      width: 190,
+                      height: 40,
+                      textStyle: FlutterFlowTheme.bodyText1.override(
+                        fontFamily: 'Lexend Deca',
+                        color: Colors.black,
+                      ),
+                      fillColor: Color(0x00FFFFFF),
+                      elevation: 2,
+                      borderColor: Colors.transparent,
+                      borderWidth: 0,
+                      borderRadius: 10,
+                      margin: EdgeInsetsDirectional.fromSTEB(8, 4, 8, 4),
+                      hidesUnderline: true,
                     ),
                   ),
-                  Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Expanded(
-                        child: Padding(
-                          padding:
-                              EdgeInsetsDirectional.fromSTEB(50, 0, 50, 15),
-                          child: FFButtonWidget(
-                            onPressed: () {
-                              print('Button pressed ...');
-                            },
-                            text: 'Filter',
-                            icon: Icon(
-                              Icons.person_search_sharp,
-                              size: 15,
-                            ),
-                            options: FFButtonOptions(
-                              width: 130,
-                              height: 40,
-                              color: Color(0xFF08253E),
-                              textStyle: FlutterFlowTheme.subtitle2.override(
-                                fontFamily: 'Lexend Deca',
-                                color: Colors.white,
-                              ),
+                  Container(
+                    width: 200,
+                    child: Align(
+                      alignment: AlignmentDirectional(0, 0),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
+                        child: TextFormField(
+                          controller: textController,
+                          obscureText: false,
+                          decoration: InputDecoration(
+                            hintText: 'Pincode',
+                            hintStyle: FlutterFlowTheme.bodyText1,
+                            enabledBorder: UnderlineInputBorder(
                               borderSide: BorderSide(
-                                color: Colors.transparent,
-                                width: 1,
+                                color: Color(0x00000000),
+                                width: 10,
                               ),
-                              borderRadius: 12,
+                              borderRadius: BorderRadius.circular(10),
                             ),
-                            loading: _loadingButton,
+                            focusedBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Color(0x00000000),
+                                width: 10,
+                              ),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            filled: true,
+                            fillColor: Color(0x00FFFFFF),
                           ),
+                          style: FlutterFlowTheme.bodyText1,
+                          validator: (val) {
+                            if (val.isEmpty) {
+                              return 'Field is required';
+                            }
+
+                            return null;
+                          },
                         ),
-                      )
-                    ],
+                      ),
+                    ),
+                  ),
+                  FlutterFlowDropDown(
+                    options: ['Education'].toList(),
+                    onChanged: (val) => setState(() => dropDownValue2 = val),
+                    width: 190,
+                    height: 40,
+                    textStyle: FlutterFlowTheme.bodyText1.override(
+                      fontFamily: 'Lexend Deca',
+                      color: Colors.black,
+                    ),
+                    fillColor: Color(0x00FFFFFF),
+                    elevation: 2,
+                    borderColor: Colors.transparent,
+                    borderWidth: 0,
+                    borderRadius: 10,
+                    margin: EdgeInsetsDirectional.fromSTEB(8, 4, 8, 4),
+                    hidesUnderline: true,
+                  ),
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                    child: Text(
+                      'Experience',
+                      textAlign: TextAlign.center,
+                      style: FlutterFlowTheme.bodyText1,
+                    ),
+                  ),
+                  Container(
+                    width: 160,
+                    height: 50,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(25),
+                      shape: BoxShape.rectangle,
+                      border: Border.all(
+                        color: Color(0xFF9E9E9E),
+                        width: 1,
+                      ),
+                    ),
+                    child: FlutterFlowCountController(
+                      decrementIconBuilder: (enabled) => FaIcon(
+                        FontAwesomeIcons.minus,
+                        color: enabled ? Color(0xDD000000) : Color(0xFFEEEEEE),
+                        size: 20,
+                      ),
+                      incrementIconBuilder: (enabled) => FaIcon(
+                        FontAwesomeIcons.plus,
+                        color: enabled ? Colors.blue : Color(0xFFEEEEEE),
+                        size: 20,
+                      ),
+                      countBuilder: (count) => Text(
+                        count.toString(),
+                        style: GoogleFonts.getFont(
+                          'Roboto',
+                          color: Colors.black,
+                          fontWeight: FontWeight.w600,
+                          fontSize: 16,
+                        ),
+                      ),
+                      count: countControllerValue ??= 0,
+                      updateCount: (count) =>
+                          setState(() => countControllerValue = count),
+                      stepSize: 1,
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                    child: Text(
+                      'Salary Range',
+                      style: FlutterFlowTheme.bodyText1,
+                    ),
+                  ),
+                  Slider(
+                    activeColor: Color(0xFF08253E),
+                    inactiveColor: Color(0xFF9E9E9E),
+                    min: 5000,
+                    max: 100000,
+                    value: sliderValue ??= 5000,
+                    divisions: 190,
+                    onChanged: (newValue) {
+                      setState(() => sliderValue = newValue);
+                    },
+                  ),
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 10),
+                    child: Text(
+                      'Rating',
+                      style: FlutterFlowTheme.bodyText1,
+                    ),
+                  ),
+                  RatingBar.builder(
+                    onRatingUpdate: (newValue) =>
+                        setState(() => ratingBarValue = newValue),
+                    itemBuilder: (context, index) => Icon(
+                      Icons.star_rounded,
+                      color: Color(0xFF08253E),
+                    ),
+                    direction: Axis.horizontal,
+                    initialRating: ratingBarValue ??= 3,
+                    unratedColor: Color(0xFF9E9E9E),
+                    itemCount: 5,
+                    itemSize: 40,
+                    glowColor: Color(0xFF08253E),
+                  ),
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                    child: FFButtonWidget(
+                      onPressed: () async {
+                        setState(() => _loadingButton = true);
+                        try {
+                          await Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => HomeClientWidget(),
+                            ),
+                          );
+                        } finally {
+                          setState(() => _loadingButton = false);
+                        }
+                      },
+                      text: 'Filter',
+                      options: FFButtonOptions(
+                        width: 130,
+                        height: 40,
+                        color: Color(0xFF090F13),
+                        textStyle: FlutterFlowTheme.subtitle2.override(
+                          fontFamily: 'Lexend Deca',
+                          color: Colors.white,
+                        ),
+                        borderSide: BorderSide(
+                          color: Colors.transparent,
+                          width: 1,
+                        ),
+                        borderRadius: 12,
+                      ),
+                      loading: _loadingButton,
+                    ),
                   )
                 ],
-              ),
-            ),
+              )
+            ],
           ),
         ),
       ),

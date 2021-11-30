@@ -7,7 +7,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Worker2Widget extends StatefulWidget {
-  Worker2Widget({Key key}) : super(key: key);
+  const Worker2Widget({Key key}) : super(key: key);
 
   @override
   _Worker2WidgetState createState() => _Worker2WidgetState();

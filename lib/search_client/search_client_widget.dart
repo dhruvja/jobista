@@ -1,4 +1,4 @@
-import '../components/search_widget.dart';
+import '../components/search_client_comp_widget.dart';
 import '../flutter_flow/flutter_flow_choice_chips.dart';
 import '../flutter_flow/flutter_flow_count_controller.dart';
 import '../flutter_flow/flutter_flow_drop_down.dart';
@@ -13,7 +13,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SearchClientWidget extends StatefulWidget {
-  SearchClientWidget({Key key}) : super(key: key);
+  const SearchClientWidget({Key key}) : super(key: key);
 
   @override
   _SearchClientWidgetState createState() => _SearchClientWidgetState();
@@ -539,7 +539,7 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
                     ],
                   ),
                 ),
-                SearchWidget()
+                SearchClientCompWidget()
               ],
             ),
           ),

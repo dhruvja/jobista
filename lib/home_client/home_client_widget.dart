@@ -5,14 +5,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class Search3Widget extends StatefulWidget {
-  Search3Widget({Key key}) : super(key: key);
+class HomeClientWidget extends StatefulWidget {
+  const HomeClientWidget({Key key}) : super(key: key);
 
   @override
-  _Search3WidgetState createState() => _Search3WidgetState();
+  _HomeClientWidgetState createState() => _HomeClientWidgetState();
 }
 
-class _Search3WidgetState extends State<Search3Widget> {
+class _HomeClientWidgetState extends State<HomeClientWidget> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override

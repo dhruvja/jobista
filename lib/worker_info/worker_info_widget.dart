@@ -1,20 +1,22 @@
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
-import '../home_page/home_page_widget.dart';
+import '../onboard/onboard_widget.dart';
+import '../search_client/search_client_widget.dart';
+import '../worker_2/worker2_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class Dashboard2Widget extends StatefulWidget {
-  Dashboard2Widget({Key key}) : super(key: key);
+class WorkerInfoWidget extends StatefulWidget {
+  const WorkerInfoWidget({Key key}) : super(key: key);
 
   @override
-  _Dashboard2WidgetState createState() => _Dashboard2WidgetState();
+  _WorkerInfoWidgetState createState() => _WorkerInfoWidgetState();
 }
 
-class _Dashboard2WidgetState extends State<Dashboard2Widget> {
+class _WorkerInfoWidgetState extends State<WorkerInfoWidget> {
   bool _loadingButton1 = false;
   double ratingBarValue;
   bool _loadingButton2 = false;
@@ -392,7 +394,7 @@ class _Dashboard2WidgetState extends State<Dashboard2Widget> {
                                                 context,
                                                 MaterialPageRoute(
                                                   builder: (context) =>
-                                                      HomePageWidget(),
+                                                      SearchClientWidget(),
                                                 ),
                                               );
                                             },
@@ -435,7 +437,7 @@ class _Dashboard2WidgetState extends State<Dashboard2Widget> {
                                                 context,
                                                 MaterialPageRoute(
                                                   builder: (context) =>
-                                                      HomePageWidget(),
+                                                      Worker2Widget(),
                                                 ),
                                               );
                                             },
@@ -477,7 +479,7 @@ class _Dashboard2WidgetState extends State<Dashboard2Widget> {
                                           context,
                                           MaterialPageRoute(
                                             builder: (context) =>
-                                                HomePageWidget(),
+                                                OnboardWidget(),
                                           ),
                                         );
                                       } finally {
@@ -525,7 +527,7 @@ class _Dashboard2WidgetState extends State<Dashboard2Widget> {
                                           context,
                                           MaterialPageRoute(
                                             builder: (context) =>
-                                                HomePageWidget(),
+                                                SearchClientWidget(),
                                           ),
                                         );
                                       } finally {

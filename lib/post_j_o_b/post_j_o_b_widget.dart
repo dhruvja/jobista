@@ -5,7 +5,7 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../flutter_flow/upload_media.dart';
-import '../home_page/home_page_widget.dart';
+import '../search_client/search_client_widget.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -13,7 +13,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class PostJOBWidget extends StatefulWidget {
-  PostJOBWidget({Key key}) : super(key: key);
+  const PostJOBWidget({Key key}) : super(key: key);
 
   @override
   _PostJOBWidgetState createState() => _PostJOBWidgetState();
@@ -404,7 +404,7 @@ class _PostJOBWidgetState extends State<PostJOBWidget> {
                           await Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => HomePageWidget(),
+                              builder: (context) => SearchClientWidget(),
                             ),
                           );
                         } finally {
