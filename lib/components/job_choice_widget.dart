@@ -5,14 +5,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class Book1Widget extends StatefulWidget {
-  Book1Widget({Key key}) : super(key: key);
+class JobChoiceWidget extends StatefulWidget {
+  const JobChoiceWidget({Key key}) : super(key: key);
 
   @override
-  _Book1WidgetState createState() => _Book1WidgetState();
+  _JobChoiceWidgetState createState() => _JobChoiceWidgetState();
 }
 
-class _Book1WidgetState extends State<Book1Widget> {
+class _JobChoiceWidgetState extends State<JobChoiceWidget> {
   String radioButtonValue1;
   String radioButtonValue2;
   String radioButtonValue3;

@@ -3,14 +3,13 @@ import '../base/base_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
+import '../onboard/onboard_widget.dart';
 import '../search_client/search_client_widget.dart';
-import '../track_car/track_car_widget.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import '../search_client/search_client_widget.dart';
-import '../forgot_password/forgot_password_widget.dart';
-import '../dashboard2/dashboard2_widget.dart';
 import '../worker_3/worker3_widget.dart';
-import '../search3/search3_widget.dart';
+import '../home_client/home_client_widget.dart';
+import '../worker_info/worker_info_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -22,7 +21,7 @@ import '../api_endpoint.dart';
 
 
 class LoginWidget extends StatefulWidget {
-  LoginWidget({Key key}) : super(key: key);
+  const LoginWidget({Key key}) : super(key: key);
 
   @override
   _LoginWidgetState createState() => _LoginWidgetState();
@@ -84,7 +83,7 @@ class _LoginWidgetState extends State<LoginWidget> {
             await Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => Search3Widget(),
+                builder: (context) => HomeClientWidget(),
               ),
             );
 
@@ -328,7 +327,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                       context,
                                       MaterialPageRoute(
                                         builder: (context) =>
-                                            Dashboard2Widget(),
+                                            WorkerInfoWidget(),
                                       ),
                                     );
                                   } finally {

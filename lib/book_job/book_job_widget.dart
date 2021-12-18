@@ -4,7 +4,6 @@ import '../flutter_flow/flutter_flow_radio_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
-import '../home_page/home_page_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -13,7 +12,7 @@ import '../api_endpoint.dart';
 
 
 class BookJobWidget extends StatefulWidget {
-  BookJobWidget({Key key}) : super(key: key);
+  const BookJobWidget({Key key}) : super(key: key);
 
   @override
   _BookJobWidgetState createState() => _BookJobWidgetState();
@@ -21,9 +20,7 @@ class BookJobWidget extends StatefulWidget {
 
 class _BookJobWidgetState extends State<BookJobWidget> {
   String dropDownValue1;
-  String radioButtonValue1;
-  String radioButtonValue2;
-  String radioButtonValue3;
+  String radioButtonValue;
   String dropDownValue2;
   TextEditingController textController1;
   TextEditingController textController2;
@@ -91,45 +88,7 @@ class _BookJobWidgetState extends State<BookJobWidget> {
                                 FlutterFlowRadioButton(
                                   options: ['Electrician'],
                                   onChanged: (value) {
-                                    setState(() => radioButtonValue1 = value);
-                                  },
-                                  optionHeight: 25,
-                                  textStyle:
-                                      FlutterFlowTheme.bodyText1.override(
-                                    fontFamily: 'Lexend Deca',
-                                    color: Colors.black,
-                                  ),
-                                  buttonPosition: RadioButtonPosition.left,
-                                  direction: Axis.vertical,
-                                  radioButtonColor: Colors.blue,
-                                  inactiveRadioButtonColor: Color(0x8A000000),
-                                  toggleable: false,
-                                  horizontalAlignment: WrapAlignment.start,
-                                  verticalAlignment: WrapCrossAlignment.start,
-                                ),
-                                FlutterFlowRadioButton(
-                                  options: ['Plumber'],
-                                  onChanged: (value) {
-                                    setState(() => radioButtonValue2 = value);
-                                  },
-                                  optionHeight: 25,
-                                  textStyle:
-                                      FlutterFlowTheme.bodyText1.override(
-                                    fontFamily: 'Lexend Deca',
-                                    color: Colors.black,
-                                  ),
-                                  buttonPosition: RadioButtonPosition.left,
-                                  direction: Axis.vertical,
-                                  radioButtonColor: Colors.blue,
-                                  inactiveRadioButtonColor: Color(0x8A000000),
-                                  toggleable: false,
-                                  horizontalAlignment: WrapAlignment.start,
-                                  verticalAlignment: WrapCrossAlignment.start,
-                                ),
-                                FlutterFlowRadioButton(
-                                  options: ['Carpentry'],
-                                  onChanged: (value) {
-                                    setState(() => radioButtonValue3 = value);
+                                    setState(() => radioButtonValue = value);
                                   },
                                   optionHeight: 25,
                                   textStyle:
@@ -152,7 +111,7 @@ class _BookJobWidgetState extends State<BookJobWidget> {
                       ),
                     ),
                     FlutterFlowDropDown(
-                      options: ['Education '].toList(),
+                      options: ['Select Ad'].toList(),
                       onChanged: (val) => setState(() => dropDownValue1 = val),
                       width: 300,
                       height: 40,
@@ -423,7 +382,7 @@ class _BookJobWidgetState extends State<BookJobWidget> {
                           await Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => HomePageWidget(),
+                              builder: (context) => BookJobWidget(),
                             ),
                           );
                         } finally {

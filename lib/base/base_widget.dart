@@ -9,7 +9,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class BaseWidget extends StatefulWidget {
-  BaseWidget({Key key}) : super(key: key);
+  const BaseWidget({Key key}) : super(key: key);
 
   @override
   _BaseWidgetState createState() => _BaseWidgetState();

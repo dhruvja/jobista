@@ -1,4 +1,4 @@
-import '../components/search_customer2_widget.dart';
+import '../components/search_worker_comp_widget.dart';
 import '../flutter_flow/flutter_flow_choice_chips.dart';
 import '../flutter_flow/flutter_flow_count_controller.dart';
 import '../flutter_flow/flutter_flow_drop_down.dart';
@@ -16,7 +16,7 @@ import '../api_endpoint.dart';
 
 
 class SearchCustomerWidget extends StatefulWidget {
-  SearchCustomerWidget({Key key}) : super(key: key);
+  const SearchCustomerWidget({Key key}) : super(key: key);
 
   @override
   _SearchCustomerWidgetState createState() => _SearchCustomerWidgetState();
@@ -531,7 +531,7 @@ class _SearchCustomerWidgetState extends State<SearchCustomerWidget> {
                   ],
                 ),
               ),
-              SearchCustomer2Widget()
+              SearchWorkerCompWidget()
             ],
           ),
         ),

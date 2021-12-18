@@ -2,7 +2,7 @@ import '../auth/auth_util.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
-import '../track_car/track_car_widget.dart';
+import '../onboard/onboard_widget.dart';
 import '../worker_2/worker2_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -19,7 +19,7 @@ import '../api_endpoint.dart';
 
 
 class Worker1Widget extends StatefulWidget {
-  Worker1Widget({Key key}) : super(key: key);
+  const Worker1Widget({Key key}) : super(key: key);
 
   @override
   _Worker1WidgetState createState() => _Worker1WidgetState();

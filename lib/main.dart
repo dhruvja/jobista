@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'auth/firebase_user_provider.dart';
 import 'auth/auth_util.dart';
-import 'backend/push_notifications/push_notifications_util.dart';
+
 import '../flutter_flow/flutter_flow_theme.dart';
 import 'package:j_o_b_ista/login/login_widget.dart';
-import 'package:j_o_b_ista/track_car/track_car_widget.dart';
+import 'package:j_o_b_ista/onboard/onboard_widget.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import '../onboard/onboard_widget.dart';
 
@@ -28,7 +28,6 @@ class _MyAppState extends State<MyApp> {
   Stream<JOBIstaFirebaseUser> userStream;
   JOBIstaFirebaseUser initialUser;
   final authUserSub = authenticatedUserStream.listen((_) {});
-  final fcmTokenSub = fcmTokenUserStream.listen((_) {});
 
   @override
   void initState() {
@@ -40,7 +39,7 @@ class _MyAppState extends State<MyApp> {
   @override
   void dispose() {
     authUserSub.cancel();
-    fcmTokenSub.cancel();
+
     super.dispose();
   }
 
@@ -67,7 +66,7 @@ class _MyAppState extends State<MyApp> {
               ),
             )
           : currentUser.loggedIn
-              ? PushNotificationsHandler(child: TrackCarWidget())
+              ? OnboardWidget()
               : LoginWidget(),
     );
   }

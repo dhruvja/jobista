@@ -1,4 +1,4 @@
-import '../components/search_widget.dart';
+import '../components/search_client_comp_widget.dart';
 import '../flutter_flow/flutter_flow_choice_chips.dart';
 import '../flutter_flow/flutter_flow_count_controller.dart';
 import '../flutter_flow/flutter_flow_drop_down.dart';

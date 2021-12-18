@@ -9,7 +9,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class OnboardWidget extends StatefulWidget {
-  OnboardWidget({Key key}) : super(key: key);
+  const OnboardWidget({Key key}) : super(key: key);
 
   @override
   _OnboardWidgetState createState() => _OnboardWidgetState();

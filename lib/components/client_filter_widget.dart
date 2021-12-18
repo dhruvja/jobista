@@ -3,20 +3,20 @@ import '../flutter_flow/flutter_flow_drop_down.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
-import '../search_client/search_client_widget.dart';
+import '../home_client/home_client_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class SearchHomeWidget extends StatefulWidget {
-  const SearchHomeWidget({Key key}) : super(key: key);
+class ClientFilterWidget extends StatefulWidget {
+  const ClientFilterWidget({Key key}) : super(key: key);
 
   @override
-  _SearchHomeWidgetState createState() => _SearchHomeWidgetState();
+  _ClientFilterWidgetState createState() => _ClientFilterWidgetState();
 }
 
-class _SearchHomeWidgetState extends State<SearchHomeWidget> {
+class _ClientFilterWidgetState extends State<ClientFilterWidget> {
   String dropDownValue1;
   TextEditingController textController;
   String dropDownValue2;
@@ -55,15 +55,7 @@ class _SearchHomeWidgetState extends State<SearchHomeWidget> {
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
                       child: FlutterFlowDropDown(
-                        options: [
-                          'Select Job',
-                          'maid',
-                          'plumber',
-                          'electrician',
-                          'nurse',
-                          'driver',
-                          'cook'
-                        ].toList(),
+                        options: ['Select AD', 'Electrician'].toList(),
                         onChanged: (val) =>
                             setState(() => dropDownValue1 = val),
                         width: 180,
@@ -134,14 +126,7 @@ class _SearchHomeWidgetState extends State<SearchHomeWidget> {
                       ),
                     ),
                     FlutterFlowDropDown(
-                      options: [
-                        'Education',
-                        'Studied till 9th',
-                        '10th pass',
-                        '12th pass',
-                        'Bachelors',
-                        'Masters'
-                      ].toList(),
+                      options: ['Education', '10th Pass'].toList(),
                       onChanged: (val) => setState(() => dropDownValue2 = val),
                       width: 180,
                       height: 40,
@@ -159,7 +144,7 @@ class _SearchHomeWidgetState extends State<SearchHomeWidget> {
                     Align(
                       alignment: AlignmentDirectional(-0.45, 0),
                       child: Text(
-                        'Experience',
+                        'Expereince',
                         style: FlutterFlowTheme.bodyText1,
                       ),
                     ),
@@ -208,22 +193,18 @@ class _SearchHomeWidgetState extends State<SearchHomeWidget> {
                     FFButtonWidget(
                       onPressed: () async {
                         setState(() => _loadingButton = true);
-                        if (!formKey.currentState.validate()) {
-                            setState(() => _loadingButton = false);
-                            return;
-                        }
                         try {
-                          await Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => SearchClientWidget(
-                                  designation: dropDownValue1,
-                                  pincode: textController.text,
-                                  education: dropDownValue2,
-                                  experience: countControllerValue)));
+                          await Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => HomeClientWidget(),
+                            ),
+                          );
                         } finally {
                           setState(() => _loadingButton = false);
                         }
                       },
-                      text: 'Search',
+                      text: 'Sort',
                       icon: Icon(
                         Icons.person_search,
                         size: 15,
