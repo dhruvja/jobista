@@ -24,7 +24,6 @@ class _FilterWidgetState extends State<FilterWidget> {
   int countControllerValue;
   double sliderValue;
   double ratingBarValue;
-  bool _loadingButton = false;
   final formKey = GlobalKey<FormState>();
 
   @override
@@ -216,17 +215,12 @@ class _FilterWidgetState extends State<FilterWidget> {
                     padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                     child: FFButtonWidget(
                       onPressed: () async {
-                        setState(() => _loadingButton = true);
-                        try {
-                          await Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => HomeClientWidget(),
-                            ),
-                          );
-                        } finally {
-                          setState(() => _loadingButton = false);
-                        }
+                        await Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => HomeClientWidget(),
+                          ),
+                        );
                       },
                       text: 'Filter',
                       options: FFButtonOptions(
@@ -243,11 +237,10 @@ class _FilterWidgetState extends State<FilterWidget> {
                         ),
                         borderRadius: 12,
                       ),
-                      loading: _loadingButton,
                     ),
-                  )
+                  ),
                 ],
-              )
+              ),
             ],
           ),
         ),

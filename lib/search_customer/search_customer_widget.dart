@@ -7,6 +7,7 @@ import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../onboard/onboard_widget.dart';
 import '../search_client/search_client_widget.dart';
+import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -33,7 +34,6 @@ class _SearchCustomerWidgetState extends State<SearchCustomerWidget> {
   int countControllerValue;
   double sliderValue;
   double ratingBarValue;
-  bool _loadingButton = false;
   final formKey = GlobalKey<FormState>();
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -270,18 +270,13 @@ class _SearchCustomerWidgetState extends State<SearchCustomerWidget> {
                                       0, 10, 0, 0),
                                   child: FFButtonWidget(
                                     onPressed: () async {
-                                      setState(() => _loadingButton = true);
-                                      try {
-                                        await Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) =>
-                                                SearchClientWidget(),
-                                          ),
-                                        );
-                                      } finally {
-                                        setState(() => _loadingButton = false);
-                                      }
+                                      await Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) =>
+                                              SearchClientWidget(),
+                                        ),
+                                      );
                                     },
                                     text: 'Filter',
                                     options: FFButtonOptions(
@@ -299,17 +294,16 @@ class _SearchCustomerWidgetState extends State<SearchCustomerWidget> {
                                       ),
                                       borderRadius: 12,
                                     ),
-                                    loading: _loadingButton,
                                   ),
-                                )
+                                ),
                               ],
                             ),
                           ),
-                        )
+                        ),
                       ],
                     ),
                   ),
-                )
+                ),
               ],
             ),
           ),
@@ -339,7 +333,12 @@ class _SearchCustomerWidgetState extends State<SearchCustomerWidget> {
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             10, 10, 10, 10),
                                         child: TextFormField(
-                                          onChanged: (_) => setState(() {}),
+                                          onChanged: (_) =>
+                                              EasyDebounce.debounce(
+                                            'textController2',
+                                            Duration(milliseconds: 2000),
+                                            () => setState(() {}),
+                                          ),
                                           onFieldSubmitted: (_) async {
                                             await Navigator.push(
                                               context,
@@ -397,7 +396,7 @@ class _SearchCustomerWidgetState extends State<SearchCustomerWidget> {
                                           style: FlutterFlowTheme.bodyText1,
                                         ),
                                       ),
-                                    )
+                                    ),
                                   ],
                                 ),
                                 Row(
@@ -519,19 +518,19 @@ class _SearchCustomerWidgetState extends State<SearchCustomerWidget> {
                                         ),
                                         chipSpacing: 20,
                                       ),
-                                    )
+                                    ),
                                   ],
-                                )
+                                ),
                               ],
                             ),
-                          )
+                          ),
                         ],
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),
-              SearchWorkerCompWidget()
+              SearchWorkerCompWidget(),
             ],
           ),
         ),

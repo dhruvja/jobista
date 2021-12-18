@@ -2,6 +2,7 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../worker_3/worker3_widget.dart';
+import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -17,7 +18,6 @@ class _Worker2WidgetState extends State<Worker2Widget> {
   TextEditingController textController1;
   TextEditingController textController2;
   TextEditingController textController3;
-  bool _loadingButton = false;
   final formKey = GlobalKey<FormState>();
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -72,11 +72,15 @@ class _Worker2WidgetState extends State<Worker2Widget> {
                               fit: BoxFit.contain,
                             ),
                           ),
-                        )
+                        ),
                       ],
                     ),
                     TextFormField(
-                      onChanged: (_) => setState(() {}),
+                      onChanged: (_) => EasyDebounce.debounce(
+                        'textController1',
+                        Duration(milliseconds: 2000),
+                        () => setState(() {}),
+                      ),
                       controller: textController1,
                       obscureText: false,
                       decoration: InputDecoration(
@@ -130,7 +134,11 @@ class _Worker2WidgetState extends State<Worker2Widget> {
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
                       child: TextFormField(
-                        onChanged: (_) => setState(() {}),
+                        onChanged: (_) => EasyDebounce.debounce(
+                          'textController2',
+                          Duration(milliseconds: 2000),
+                          () => setState(() {}),
+                        ),
                         controller: textController2,
                         obscureText: false,
                         decoration: InputDecoration(
@@ -188,7 +196,11 @@ class _Worker2WidgetState extends State<Worker2Widget> {
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                       child: TextFormField(
-                        onChanged: (_) => setState(() {}),
+                        onChanged: (_) => EasyDebounce.debounce(
+                          'textController3',
+                          Duration(milliseconds: 2000),
+                          () => setState(() {}),
+                        ),
                         controller: textController3,
                         obscureText: false,
                         decoration: InputDecoration(
@@ -261,17 +273,12 @@ class _Worker2WidgetState extends State<Worker2Widget> {
                                     10, 10, 10, 10),
                                 child: FFButtonWidget(
                                   onPressed: () async {
-                                    setState(() => _loadingButton = true);
-                                    try {
-                                      await Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) => Worker3Widget(),
-                                        ),
-                                      );
-                                    } finally {
-                                      setState(() => _loadingButton = false);
-                                    }
+                                    await Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => Worker3Widget(),
+                                      ),
+                                    );
                                   },
                                   text: 'Next',
                                   icon: Icon(
@@ -296,14 +303,13 @@ class _Worker2WidgetState extends State<Worker2Widget> {
                                     ),
                                     borderRadius: 50,
                                   ),
-                                  loading: _loadingButton,
                                 ),
                               ),
                             ),
-                          )
+                          ),
                         ],
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),

@@ -21,7 +21,6 @@ class _ClientFilterWidgetState extends State<ClientFilterWidget> {
   TextEditingController textController;
   String dropDownValue2;
   int countControllerValue;
-  bool _loadingButton = false;
   final formKey = GlobalKey<FormState>();
 
   @override
@@ -192,17 +191,12 @@ class _ClientFilterWidgetState extends State<ClientFilterWidget> {
                     ),
                     FFButtonWidget(
                       onPressed: () async {
-                        setState(() => _loadingButton = true);
-                        try {
-                          await Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => HomeClientWidget(),
-                            ),
-                          );
-                        } finally {
-                          setState(() => _loadingButton = false);
-                        }
+                        await Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => HomeClientWidget(),
+                          ),
+                        );
                       },
                       text: 'Sort',
                       icon: Icon(
@@ -223,11 +217,10 @@ class _ClientFilterWidgetState extends State<ClientFilterWidget> {
                         ),
                         borderRadius: 12,
                       ),
-                      loading: _loadingButton,
-                    )
+                    ),
                   ],
                 ),
-              )
+              ),
             ],
           ),
         ),

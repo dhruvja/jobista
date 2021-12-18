@@ -14,8 +14,6 @@ class SearchWorkerCompWidget extends StatefulWidget {
 }
 
 class _SearchWorkerCompWidgetState extends State<SearchWorkerCompWidget> {
-  bool _loadingButton = false;
-
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -57,9 +55,9 @@ class _SearchWorkerCompWidgetState extends State<SearchWorkerCompWidget> {
                                   'https://picsum.photos/seed/143/600',
                                 ),
                               ),
-                            )
+                            ),
                           ],
-                        )
+                        ),
                       ],
                     ),
                     Expanded(
@@ -107,7 +105,7 @@ class _SearchWorkerCompWidgetState extends State<SearchWorkerCompWidget> {
                                                   FlutterFlowTheme.background,
                                               size: 24,
                                             ),
-                                          )
+                                          ),
                                         ],
                                       ),
                                     ),
@@ -123,9 +121,9 @@ class _SearchWorkerCompWidgetState extends State<SearchWorkerCompWidget> {
                                           color: FlutterFlowTheme.customColor1,
                                           size: 24,
                                         ),
-                                      )
+                                      ),
                                     ],
-                                  )
+                                  ),
                                 ],
                               ),
                             ),
@@ -138,7 +136,7 @@ class _SearchWorkerCompWidgetState extends State<SearchWorkerCompWidget> {
                                     fontFamily: 'Lexend Deca',
                                     color: FlutterFlowTheme.customColor1,
                                   ),
-                                )
+                                ),
                               ],
                             ),
                             Row(
@@ -157,7 +155,7 @@ class _SearchWorkerCompWidgetState extends State<SearchWorkerCompWidget> {
                                     fontFamily: 'Lexend Deca',
                                     color: FlutterFlowTheme.customColor1,
                                   ),
-                                )
+                                ),
                               ],
                             ),
                             Row(
@@ -186,9 +184,8 @@ class _SearchWorkerCompWidgetState extends State<SearchWorkerCompWidget> {
                                       ),
                                       borderRadius: 12,
                                     ),
-                                    loading: _loadingButton,
                                   ),
-                                )
+                                ),
                               ],
                             ),
                             Padding(
@@ -246,7 +243,7 @@ class _SearchWorkerCompWidgetState extends State<SearchWorkerCompWidget> {
                                                                 FontWeight.w600,
                                                           ),
                                                         ),
-                                                      )
+                                                      ),
                                                     ],
                                                   ),
                                                 ),
@@ -274,27 +271,27 @@ class _SearchWorkerCompWidgetState extends State<SearchWorkerCompWidget> {
                                                                   .bodyText1,
                                                         ),
                                                       ),
-                                                    )
+                                                    ),
                                                   ],
                                                 ),
-                                              )
+                                              ),
                                             ],
-                                          )
+                                          ),
                                         ],
                                       ),
                                     ),
-                                  )
+                                  ),
                                 ],
                               ),
-                            )
+                            ),
                           ],
                         ),
                       ),
-                    )
+                    ),
                   ],
-                )
+                ),
               ],
-            )
+            ),
           ],
         ),
       ),

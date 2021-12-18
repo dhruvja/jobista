@@ -23,7 +23,6 @@ class WorkerInfoWidget extends StatefulWidget {
 }
 
 class _WorkerInfoWidgetState extends State<WorkerInfoWidget> {
-  bool _loadingButton1 = false;
   double ratingBarValue;
   bool _loadingButton2 = false;
   bool _loadingButton3 = false;
@@ -117,7 +116,7 @@ class _WorkerInfoWidgetState extends State<WorkerInfoWidget> {
                                               'https://picsum.photos/seed/702/600',
                                             ),
                                           ),
-                                        )
+                                        ),
                                       ],
                                     ),
                                     Row(
@@ -156,9 +155,9 @@ class _WorkerInfoWidgetState extends State<WorkerInfoWidget> {
                                                         'Location',
                                                         style: FlutterFlowTheme
                                                             .bodyText1,
-                                                      )
+                                                      ),
                                                     ],
-                                                  )
+                                                  ),
                                                 ],
                                               ),
                                               Column(
@@ -199,14 +198,13 @@ class _WorkerInfoWidgetState extends State<WorkerInfoWidget> {
                                                         ),
                                                         borderRadius: 12,
                                                       ),
-                                                      loading: _loadingButton1,
                                                     ),
-                                                  )
+                                                  ),
                                                 ],
-                                              )
+                                              ),
                                             ],
                                           ),
-                                        )
+                                        ),
                                       ],
                                     ),
                                     Padding(
@@ -235,9 +233,9 @@ class _WorkerInfoWidgetState extends State<WorkerInfoWidget> {
                                                   color: FlutterFlowTheme
                                                       .customColor1,
                                                 ),
-                                              )
+                                              ),
                                             ],
-                                          )
+                                          ),
                                         ],
                                       ),
                                     ),
@@ -282,17 +280,17 @@ class _WorkerInfoWidgetState extends State<WorkerInfoWidget> {
                                                       glowColor:
                                                           FlutterFlowTheme
                                                               .customColor1,
-                                                    )
+                                                    ),
                                                   ],
-                                                )
+                                                ),
                                               ],
-                                            )
+                                            ),
                                           ],
-                                        )
+                                        ),
                                       ],
-                                    )
+                                    ),
                                   ],
-                                )
+                                ),
                               ],
                             ),
                           ),
@@ -344,7 +342,7 @@ class _WorkerInfoWidgetState extends State<WorkerInfoWidget> {
                                               fontFamily: 'Lexend Deca',
                                               color: Color(0xC908253E),
                                             ),
-                                          )
+                                          ),
                                         ],
                                       ),
                                     ),
@@ -376,7 +374,7 @@ class _WorkerInfoWidgetState extends State<WorkerInfoWidget> {
                                               fontFamily: 'Lexend Deca',
                                               color: Color(0xFF08253E),
                                             ),
-                                          )
+                                          ),
                                         ],
                                       ),
                                     ),
@@ -419,7 +417,7 @@ class _WorkerInfoWidgetState extends State<WorkerInfoWidget> {
                                                 color: Color(0xFF08253E),
                                               ),
                                             ),
-                                          )
+                                          ),
                                         ],
                                       ),
                                     ),
@@ -462,14 +460,14 @@ class _WorkerInfoWidgetState extends State<WorkerInfoWidget> {
                                                 color: Color(0xFF08253E),
                                               ),
                                             ),
-                                          )
+                                          ),
                                         ],
                                       ),
-                                    )
+                                    ),
                                   ],
                                 ),
                               ),
-                            )
+                            ),
                           ],
                         ),
                         Row(
@@ -486,18 +484,12 @@ class _WorkerInfoWidgetState extends State<WorkerInfoWidget> {
                                       10, 10, 10, 10),
                                   child: FFButtonWidget(
                                     onPressed: () async {
-                                      setState(() => _loadingButton2 = true);
-                                      try {
-                                        await Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) =>
-                                                OnboardWidget(),
-                                          ),
-                                        );
-                                      } finally {
-                                        setState(() => _loadingButton2 = false);
-                                      }
+                                      await Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => OnboardWidget(),
+                                        ),
+                                      );
                                     },
                                     text: 'Book Now',
                                     icon: Icon(
@@ -519,9 +511,8 @@ class _WorkerInfoWidgetState extends State<WorkerInfoWidget> {
                                       ),
                                       borderRadius: 12,
                                     ),
-                                    loading: _loadingButton2,
                                   ),
-                                )
+                                ),
                               ],
                             ),
                             Column(
@@ -534,18 +525,13 @@ class _WorkerInfoWidgetState extends State<WorkerInfoWidget> {
                                       10, 10, 10, 10),
                                   child: FFButtonWidget(
                                     onPressed: () async {
-                                      setState(() => _loadingButton3 = true);
-                                      try {
-                                        await Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) =>
-                                                SearchClientWidget(),
-                                          ),
-                                        );
-                                      } finally {
-                                        setState(() => _loadingButton3 = false);
-                                      }
+                                      await Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) =>
+                                              SearchClientWidget(),
+                                        ),
+                                      );
                                     },
                                     text: 'Wishlist',
                                     icon: Icon(
@@ -567,18 +553,17 @@ class _WorkerInfoWidgetState extends State<WorkerInfoWidget> {
                                       ),
                                       borderRadius: 12,
                                     ),
-                                    loading: _loadingButton3,
                                   ),
-                                )
+                                ),
                               ],
-                            )
+                            ),
                           ],
-                        )
+                        ),
                       ],
                     ),
                   ),
                 ),
-              )
+              ),
             ],
           ),
         ),

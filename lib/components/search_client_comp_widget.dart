@@ -72,7 +72,7 @@ class SearchWidget extends StatelessWidget {
                                         'api/uploads/image_picker_DE922313-6196-4CD1-A279-0CC7FA0DA71F-47079-0000535E5E38284F.jpg',
                                   ),
                                 ),
-                              )
+                              ),
                             ],
                           ),
                           Row(
@@ -86,7 +86,7 @@ class SearchWidget extends StatelessWidget {
                                   fontFamily: 'Lexend Deca',
                                   color: FlutterFlowTheme.customColor1,
                                 ),
-                              )
+                              ),
                             ],
                           ),
                           if (!roles)
@@ -150,10 +150,26 @@ class SearchWidget extends StatelessWidget {
                                                     FlutterFlowTheme.background,
                                                 size: 24,
                                               ),
-                                            )
+                                            ),
                                           ],
                                         ),
                                       ),
+                                    ),
+                                    Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0, 0, 10, 0),
+                                          child: Icon(
+                                            Icons.star_rate,
+                                            color:
+                                                FlutterFlowTheme.customColor1,
+                                            size: 24,
+                                          ),
+                                        ),
+                                      ],
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
@@ -171,7 +187,7 @@ class SearchWidget extends StatelessWidget {
                                                 ? 30
                                                 : 24,
                                       ),
-                                    )
+                                    ),
                                   ],
                                 ),
                               ),
@@ -184,7 +200,7 @@ class SearchWidget extends StatelessWidget {
                                       fontFamily: 'Lexend Deca',
                                       color: FlutterFlowTheme.customColor1,
                                     ),
-                                  )
+                                  ),
                                 ],
                               ),
                               Row(
@@ -203,7 +219,7 @@ class SearchWidget extends StatelessWidget {
                                       fontFamily: 'Lexend Deca',
                                       color: FlutterFlowTheme.customColor1,
                                     ),
-                                  )
+                                  ),
                                 ],
                               ),
                               Row(
@@ -233,9 +249,8 @@ class SearchWidget extends StatelessWidget {
                                         ),
                                         borderRadius: 12,
                                       ),
-                                      loading: _loadingButton,
                                     ),
-                                  )
+                                  ),
                                 ],
                               ),
                               Padding(
@@ -305,7 +320,7 @@ class SearchWidget extends StatelessWidget {
                                                                       .w600,
                                                             ),
                                                           ),
-                                                        )
+                                                        ),
                                                       ],
                                                     ),
                                                   ),
@@ -329,27 +344,27 @@ class SearchWidget extends StatelessWidget {
                                                               FlutterFlowTheme
                                                                   .bodyText1,
                                                         ),
-                                                      )
+                                                      ),
                                                     ],
                                                   ),
-                                                )
+                                                ),
                                               ],
-                                            )
+                                            ),
                                           ],
                                         ),
                                       ),
-                                    )
+                                    ),
                                   ],
                                 ),
-                              )
+                              ),
                             ],
                           ),
                         ),
-                      )
+                      ),
                     ],
-                  )
+                  ),
                 ],
-              )
+              ),
             ],
           ),
         ),

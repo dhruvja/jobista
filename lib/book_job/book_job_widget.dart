@@ -27,7 +27,6 @@ class _BookJobWidgetState extends State<BookJobWidget> {
   TextEditingController textController3;
   int countControllerValue;
   bool checkboxListTileValue;
-  bool _loadingButton = false;
   final formKey = GlobalKey<FormState>();
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -103,9 +102,9 @@ class _BookJobWidgetState extends State<BookJobWidget> {
                                   toggleable: false,
                                   horizontalAlignment: WrapAlignment.start,
                                   verticalAlignment: WrapCrossAlignment.start,
-                                )
+                                ),
                               ],
-                            )
+                            ),
                           ],
                         ),
                       ),
@@ -194,7 +193,7 @@ class _BookJobWidgetState extends State<BookJobWidget> {
                                 color: FlutterFlowTheme.grayDark,
                               ),
                             ),
-                          )
+                          ),
                         ],
                       ),
                     ),
@@ -244,7 +243,7 @@ class _BookJobWidgetState extends State<BookJobWidget> {
                                   color: FlutterFlowTheme.grayDark,
                                 ),
                               ),
-                            )
+                            ),
                           ],
                         ),
                       ),
@@ -377,17 +376,12 @@ class _BookJobWidgetState extends State<BookJobWidget> {
                     ),
                     FFButtonWidget(
                       onPressed: () async {
-                        setState(() => _loadingButton = true);
-                        try {
-                          await Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => BookJobWidget(),
-                            ),
-                          );
-                        } finally {
-                          setState(() => _loadingButton = false);
-                        }
+                        await Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => BookJobWidget(),
+                          ),
+                        );
                       },
                       text: 'BOOK ',
                       options: FFButtonOptions(
@@ -404,10 +398,9 @@ class _BookJobWidgetState extends State<BookJobWidget> {
                         ),
                         borderRadius: 12,
                       ),
-                      loading: _loadingButton,
-                    )
+                    ),
                   ],
-                )
+                ),
               ],
             ),
           ),

@@ -4,6 +4,7 @@ import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../onboard/onboard_widget.dart';
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import '../home_client/home_client_widget.dart';
@@ -30,9 +31,9 @@ class _RegisterClientWidgetState extends State<RegisterClientWidget> {
   TextEditingController textController2;
   TextEditingController passwordController;
   bool passwordVisibility1;
-  bool _loadingButton = false;
   final formKey = GlobalKey<FormState>();
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  bool _loadingButton = true;
   String endpoint = Endpoint();
 
   @override
@@ -139,11 +140,15 @@ class _RegisterClientWidgetState extends State<RegisterClientWidget> {
                               fit: BoxFit.contain,
                             ),
                           ),
-                        )
+                        ),
                       ],
                     ),
                     TextFormField(
-                      onChanged: (_) => setState(() {}),
+                      onChanged: (_) => EasyDebounce.debounce(
+                        'textController1',
+                        Duration(milliseconds: 2000),
+                        () => setState(() {}),
+                      ),
                       controller: textController1,
                       obscureText: false,
                       decoration: InputDecoration(
@@ -197,7 +202,11 @@ class _RegisterClientWidgetState extends State<RegisterClientWidget> {
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
                       child: TextFormField(
-                        onChanged: (_) => setState(() {}),
+                        onChanged: (_) => EasyDebounce.debounce(
+                          'textController2',
+                          Duration(milliseconds: 2000),
+                          () => setState(() {}),
+                        ),
                         controller: textController2,
                         obscureText: false,
                         decoration: InputDecoration(
@@ -258,7 +267,11 @@ class _RegisterClientWidgetState extends State<RegisterClientWidget> {
                         children: [
                           Expanded(
                             child: TextFormField(
-                              onChanged: (_) => setState(() {}),
+                              onChanged: (_) => EasyDebounce.debounce(
+                                'emailAddressController',
+                                Duration(milliseconds: 2000),
+                                () => setState(() {}),
+                              ),
                               controller: emailAddressController,
                               obscureText: false,
                               decoration: InputDecoration(
@@ -316,7 +329,7 @@ class _RegisterClientWidgetState extends State<RegisterClientWidget> {
                                 return null;
                               },
                             ),
-                          )
+                          ),
                         ],
                       ),
                     ),
@@ -379,7 +392,7 @@ class _RegisterClientWidgetState extends State<RegisterClientWidget> {
                                 return null;
                               },
                             ),
-                          )
+                          ),
                         ],
                       ),
                     ),
@@ -500,6 +513,22 @@ class _RegisterClientWidgetState extends State<RegisterClientWidget> {
                                     } finally {
                                       setState(() => _loadingButton = false);
                                     }
+                                    final user = await signInWithEmail(
+                                      context,
+                                      emailAddressController.text,
+                                      passwordController.text,
+                                    );
+                                    if (user == null) {
+                                      return;
+                                    }
+
+                                    await Navigator.pushAndRemoveUntil(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => OnboardWidget(),
+                                      ),
+                                      (r) => false,
+                                    );
                                   },
                                   text: 'Sign Up',
                                   options: FFButtonOptions(
@@ -520,11 +549,10 @@ class _RegisterClientWidgetState extends State<RegisterClientWidget> {
                                     ),
                                     borderRadius: 50,
                                   ),
-                                  loading: _loadingButton,
                                 ),
                               ),
                             ),
-                          )
+                          ),
                         ],
                       ),
                     ),
@@ -615,17 +643,17 @@ class _RegisterClientWidgetState extends State<RegisterClientWidget> {
                                             height: 50,
                                             fit: BoxFit.cover,
                                           ),
-                                        )
+                                        ),
                                       ],
                                     ),
-                                  )
+                                  ),
                                 ],
                               ),
                             ),
-                          )
+                          ),
                         ],
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),

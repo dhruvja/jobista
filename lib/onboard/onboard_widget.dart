@@ -17,8 +17,6 @@ class OnboardWidget extends StatefulWidget {
 
 class _OnboardWidgetState extends State<OnboardWidget> {
   PageController pageViewController;
-  bool _loadingButton1 = false;
-  bool _loadingButton2 = false;
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -42,7 +40,7 @@ class _OnboardWidgetState extends State<OnboardWidget> {
                     width: 200,
                     height: 100,
                     fit: BoxFit.fitHeight,
-                  )
+                  ),
                 ],
               ),
             ),
@@ -88,7 +86,7 @@ class _OnboardWidgetState extends State<OnboardWidget> {
                                                 height: 300,
                                                 fit: BoxFit.fitWidth,
                                               ),
-                                            )
+                                            ),
                                           ],
                                         ),
                                       ),
@@ -110,7 +108,7 @@ class _OnboardWidgetState extends State<OnboardWidget> {
                                                   fontWeight: FontWeight.bold,
                                                 ),
                                               ),
-                                            )
+                                            ),
                                           ],
                                         ),
                                       ),
@@ -133,10 +131,10 @@ class _OnboardWidgetState extends State<OnboardWidget> {
                                                   fontWeight: FontWeight.normal,
                                                 ),
                                               ),
-                                            )
+                                            ),
                                           ],
                                         ),
-                                      )
+                                      ),
                                     ],
                                   ),
                                 ),
@@ -159,7 +157,7 @@ class _OnboardWidgetState extends State<OnboardWidget> {
                                         width: 300,
                                         height: 300,
                                         fit: BoxFit.cover,
-                                      )
+                                      ),
                                     ],
                                   ),
                                   Padding(
@@ -180,7 +178,7 @@ class _OnboardWidgetState extends State<OnboardWidget> {
                                               fontWeight: FontWeight.bold,
                                             ),
                                           ),
-                                        )
+                                        ),
                                       ],
                                     ),
                                   ),
@@ -202,10 +200,10 @@ class _OnboardWidgetState extends State<OnboardWidget> {
                                               fontWeight: FontWeight.normal,
                                             ),
                                           ),
-                                        )
+                                        ),
                                       ],
                                     ),
-                                  )
+                                  ),
                                 ],
                               ),
                             ),
@@ -226,7 +224,7 @@ class _OnboardWidgetState extends State<OnboardWidget> {
                                         width: 300,
                                         height: 250,
                                         fit: BoxFit.contain,
-                                      )
+                                      ),
                                     ],
                                   ),
                                   Padding(
@@ -247,7 +245,7 @@ class _OnboardWidgetState extends State<OnboardWidget> {
                                               fontWeight: FontWeight.bold,
                                             ),
                                           ),
-                                        )
+                                        ),
                                       ],
                                     ),
                                   ),
@@ -269,7 +267,7 @@ class _OnboardWidgetState extends State<OnboardWidget> {
                                               fontWeight: FontWeight.normal,
                                             ),
                                           ),
-                                        )
+                                        ),
                                       ],
                                     ),
                                   ),
@@ -314,24 +312,15 @@ class _OnboardWidgetState extends State<OnboardWidget> {
                                                                 FFButtonWidget(
                                                               onPressed:
                                                                   () async {
-                                                                setState(() =>
-                                                                    _loadingButton1 =
-                                                                        true);
-                                                                try {
-                                                                  await Navigator
-                                                                      .push(
-                                                                    context,
-                                                                    MaterialPageRoute(
-                                                                      builder:
-                                                                          (context) =>
-                                                                              LoginWidget(),
-                                                                    ),
-                                                                  );
-                                                                } finally {
-                                                                  setState(() =>
-                                                                      _loadingButton1 =
-                                                                          false);
-                                                                }
+                                                                await Navigator
+                                                                    .push(
+                                                                  context,
+                                                                  MaterialPageRoute(
+                                                                    builder:
+                                                                        (context) =>
+                                                                            LoginWidget(),
+                                                                  ),
+                                                                );
                                                               },
                                                               text: 'Log-IN',
                                                               options:
@@ -358,10 +347,8 @@ class _OnboardWidgetState extends State<OnboardWidget> {
                                                                 borderRadius:
                                                                     12,
                                                               ),
-                                                              loading:
-                                                                  _loadingButton1,
                                                             ),
-                                                          )
+                                                          ),
                                                         ],
                                                       ),
                                                       Column(
@@ -380,24 +367,15 @@ class _OnboardWidgetState extends State<OnboardWidget> {
                                                                 FFButtonWidget(
                                                               onPressed:
                                                                   () async {
-                                                                setState(() =>
-                                                                    _loadingButton2 =
-                                                                        true);
-                                                                try {
-                                                                  await Navigator
-                                                                      .push(
-                                                                    context,
-                                                                    MaterialPageRoute(
-                                                                      builder:
-                                                                          (context) =>
-                                                                              BaseWidget(),
-                                                                    ),
-                                                                  );
-                                                                } finally {
-                                                                  setState(() =>
-                                                                      _loadingButton2 =
-                                                                          false);
-                                                                }
+                                                                await Navigator
+                                                                    .push(
+                                                                  context,
+                                                                  MaterialPageRoute(
+                                                                    builder:
+                                                                        (context) =>
+                                                                            BaseWidget(),
+                                                                  ),
+                                                                );
                                                               },
                                                               text: 'Sign-UP',
                                                               options:
@@ -424,25 +402,23 @@ class _OnboardWidgetState extends State<OnboardWidget> {
                                                                 borderRadius:
                                                                     12,
                                                               ),
-                                                              loading:
-                                                                  _loadingButton2,
                                                             ),
-                                                          )
+                                                          ),
                                                         ],
-                                                      )
+                                                      ),
                                                     ],
-                                                  )
+                                                  ),
                                                 ],
-                                              )
+                                              ),
                                             ],
                                           ),
-                                        )
+                                        ),
                                       ],
                                     ),
-                                  )
+                                  ),
                                 ],
                               ),
-                            )
+                            ),
                           ],
                         ),
                         Align(
@@ -478,9 +454,9 @@ class _OnboardWidgetState extends State<OnboardWidget> {
                       ],
                     ),
                   ),
-                )
+                ),
               ],
-            )
+            ),
           ],
         ),
       ),

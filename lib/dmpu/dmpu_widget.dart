@@ -22,7 +22,6 @@ class _DmpuWidgetState extends State<DmpuWidget> {
   String uploadedFileUrl = '';
   TextEditingController textController;
   var placePickerValue = FFPlace();
-  bool _loadingButton = false;
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -63,7 +62,7 @@ class _DmpuWidgetState extends State<DmpuWidget> {
                 Navigator.pop(context);
               },
             ),
-          )
+          ),
         ],
         centerTitle: false,
         elevation: 0,
@@ -181,14 +180,14 @@ class _DmpuWidgetState extends State<DmpuWidget> {
                                 textAlign: TextAlign.start,
                                 maxLines: 4,
                               ),
-                            )
+                            ),
                           ],
                         ),
-                      )
+                      ),
                     ],
                   ),
                 ),
-              )
+              ),
             ],
           ),
           Padding(
@@ -247,9 +246,8 @@ class _DmpuWidgetState extends State<DmpuWidget> {
                 ),
                 borderRadius: 8,
               ),
-              loading: _loadingButton,
             ),
-          )
+          ),
         ],
       ),
     );

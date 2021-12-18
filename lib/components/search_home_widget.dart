@@ -17,11 +17,11 @@ class SearchHomeWidget extends StatefulWidget {
 }
 
 class _SearchHomeWidgetState extends State<SearchHomeWidget> {
+  bool _loadingButton = true;
   String dropDownValue1;
   TextEditingController textController;
   String dropDownValue2;
   int countControllerValue;
-  bool _loadingButton = false;
   final formKey = GlobalKey<FormState>();
 
   @override
@@ -242,11 +242,10 @@ class _SearchHomeWidgetState extends State<SearchHomeWidget> {
                         ),
                         borderRadius: 12,
                       ),
-                      loading: _loadingButton,
-                    )
+                    ),
                   ],
                 ),
-              )
+              ),
             ],
           ),
         ),

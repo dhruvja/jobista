@@ -31,12 +31,10 @@ class _LoginWidgetState extends State<LoginWidget> {
   TextEditingController emailAddressController;
   TextEditingController passwordController;
   bool passwordVisibility;
-  bool _loadingButton1 = false;
-  bool _loadingButton2 = false;
-  bool _loadingButton3 = false;
   final formKey = GlobalKey<FormState>();
   final scaffoldKey = GlobalKey<ScaffoldState>();
   final _formKey = GlobalKey<FormState>();
+  bool _loadingButton1 = true;
   String endpoint = Endpoint();
 
   @override
@@ -168,7 +166,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                 fit: BoxFit.contain,
                               ),
                             ),
-                          )
+                          ),
                         ],
                       ),
                     ),
@@ -231,7 +229,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                 return null;
                               },
                             ),
-                          )
+                          ),
                         ],
                       ),
                     ),
@@ -306,7 +304,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                 return null;
                               },
                             ),
-                          )
+                          ),
                         ],
                       ),
                     ),
@@ -353,11 +351,10 @@ class _LoginWidgetState extends State<LoginWidget> {
                                   ),
                                   borderRadius: 0,
                                 ),
-                                loading: _loadingButton1,
                               ),
                             ),
                           ),
-                        )
+                        ),
                       ],
                     ),
                     Row(
@@ -392,10 +389,9 @@ class _LoginWidgetState extends State<LoginWidget> {
                                 ),
                                 borderRadius: 50,
                               ),
-                              loading: _loadingButton2,
                             ),
                           ),
-                        )
+                        ),
                       ],
                     ),
                     Padding(
@@ -408,17 +404,12 @@ class _LoginWidgetState extends State<LoginWidget> {
                               alignment: AlignmentDirectional(-0.1, 0),
                               child: FFButtonWidget(
                                 onPressed: () async {
-                                  setState(() => _loadingButton3 = true);
-                                  try {
-                                    await Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) => BaseWidget(),
-                                      ),
-                                    );
-                                  } finally {
-                                    setState(() => _loadingButton3 = false);
-                                  }
+                                  await Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => BaseWidget(),
+                                    ),
+                                  );
                                 },
                                 text: 'Dont have an Account, Register here',
                                 options: FFButtonOptions(
@@ -439,10 +430,9 @@ class _LoginWidgetState extends State<LoginWidget> {
                                   ),
                                   borderRadius: 0,
                                 ),
-                                loading: _loadingButton3,
                               ),
                             ),
-                          )
+                          ),
                         ],
                       ),
                     ),
@@ -533,17 +523,17 @@ class _LoginWidgetState extends State<LoginWidget> {
                                             height: 50,
                                             fit: BoxFit.cover,
                                           ),
-                                        )
+                                        ),
                                       ],
                                     ),
-                                  )
+                                  ),
                                 ],
                               ),
                             ),
-                          )
+                          ),
                         ],
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),
