@@ -16,8 +16,6 @@ class SearchClientCompWidget extends StatefulWidget {
 }
 
 class _SearchClientCompWidgetState extends State<SearchClientCompWidget> {
-  bool _loadingButton = false;
-
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -68,7 +66,7 @@ class _SearchClientCompWidgetState extends State<SearchClientCompWidget> {
                                     'https://picsum.photos/seed/143/600',
                                   ),
                                 ),
-                              )
+                              ),
                             ],
                           ),
                           Row(
@@ -80,7 +78,7 @@ class _SearchClientCompWidgetState extends State<SearchClientCompWidget> {
                                   fontFamily: 'Lexend Deca',
                                   color: FlutterFlowTheme.customColor1,
                                 ),
-                              )
+                              ),
                             ],
                           ),
                           Row(
@@ -92,9 +90,9 @@ class _SearchClientCompWidgetState extends State<SearchClientCompWidget> {
                                   fontFamily: 'Lexend Deca',
                                   color: FlutterFlowTheme.customColor1,
                                 ),
-                              )
+                              ),
                             ],
-                          )
+                          ),
                         ],
                       ),
                       Expanded(
@@ -141,7 +139,7 @@ class _SearchClientCompWidgetState extends State<SearchClientCompWidget> {
                                                 color: Color(0xFF082C54),
                                                 size: 24,
                                               ),
-                                            )
+                                            ),
                                           ],
                                         ),
                                       ),
@@ -159,7 +157,7 @@ class _SearchClientCompWidgetState extends State<SearchClientCompWidget> {
                                                 FlutterFlowTheme.customColor1,
                                             size: 24,
                                           ),
-                                        )
+                                        ),
                                       ],
                                     ),
                                     Padding(
@@ -170,7 +168,7 @@ class _SearchClientCompWidgetState extends State<SearchClientCompWidget> {
                                         color: FlutterFlowTheme.primaryColor,
                                         size: 30,
                                       ),
-                                    )
+                                    ),
                                   ],
                                 ),
                               ),
@@ -183,7 +181,7 @@ class _SearchClientCompWidgetState extends State<SearchClientCompWidget> {
                                       fontFamily: 'Lexend Deca',
                                       color: FlutterFlowTheme.customColor1,
                                     ),
-                                  )
+                                  ),
                                 ],
                               ),
                               Row(
@@ -202,7 +200,7 @@ class _SearchClientCompWidgetState extends State<SearchClientCompWidget> {
                                       fontFamily: 'Lexend Deca',
                                       color: FlutterFlowTheme.customColor1,
                                     ),
-                                  )
+                                  ),
                                 ],
                               ),
                               Row(
@@ -231,9 +229,8 @@ class _SearchClientCompWidgetState extends State<SearchClientCompWidget> {
                                         ),
                                         borderRadius: 12,
                                       ),
-                                      loading: _loadingButton,
                                     ),
-                                  )
+                                  ),
                                 ],
                               ),
                               Padding(
@@ -303,7 +300,7 @@ class _SearchClientCompWidgetState extends State<SearchClientCompWidget> {
                                                                       .w600,
                                                             ),
                                                           ),
-                                                        )
+                                                        ),
                                                       ],
                                                     ),
                                                   ),
@@ -326,27 +323,27 @@ class _SearchClientCompWidgetState extends State<SearchClientCompWidget> {
                                                               FlutterFlowTheme
                                                                   .bodyText1,
                                                         ),
-                                                      )
+                                                      ),
                                                     ],
                                                   ),
-                                                )
+                                                ),
                                               ],
-                                            )
+                                            ),
                                           ],
                                         ),
                                       ),
-                                    )
+                                    ),
                                   ],
                                 ),
-                              )
+                              ),
                             ],
                           ),
                         ),
-                      )
+                      ),
                     ],
-                  )
+                  ),
                 ],
-              )
+              ),
             ],
           ),
         ),

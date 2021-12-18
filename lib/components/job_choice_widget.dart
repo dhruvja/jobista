@@ -96,15 +96,15 @@ class _JobChoiceWidgetState extends State<JobChoiceWidget> {
                           toggleable: false,
                           horizontalAlignment: WrapAlignment.start,
                           verticalAlignment: WrapCrossAlignment.start,
-                        )
+                        ),
                       ],
-                    )
+                    ),
                   ],
                 ),
               ),
-            )
+            ),
           ],
-        )
+        ),
       ],
     );
   }

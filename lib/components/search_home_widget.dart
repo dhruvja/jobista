@@ -21,7 +21,6 @@ class _SearchHomeWidgetState extends State<SearchHomeWidget> {
   TextEditingController textController;
   String dropDownValue2;
   int countControllerValue;
-  bool _loadingButton = false;
   final formKey = GlobalKey<FormState>();
 
   @override
@@ -192,17 +191,12 @@ class _SearchHomeWidgetState extends State<SearchHomeWidget> {
                     ),
                     FFButtonWidget(
                       onPressed: () async {
-                        setState(() => _loadingButton = true);
-                        try {
-                          await Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => SearchClientWidget(),
-                            ),
-                          );
-                        } finally {
-                          setState(() => _loadingButton = false);
-                        }
+                        await Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => SearchClientWidget(),
+                          ),
+                        );
                       },
                       text: 'Search',
                       icon: Icon(
@@ -223,11 +217,10 @@ class _SearchHomeWidgetState extends State<SearchHomeWidget> {
                         ),
                         borderRadius: 12,
                       ),
-                      loading: _loadingButton,
-                    )
+                    ),
                   ],
                 ),
-              )
+              ),
             ],
           ),
         ),

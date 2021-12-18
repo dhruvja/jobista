@@ -25,7 +25,6 @@ class _Worker3WidgetState extends State<Worker3Widget> {
   String uploadedFileUrl2 = '';
   int countControllerValue;
   bool checkboxListTileValue;
-  bool _loadingButton = false;
   final formKey = GlobalKey<FormState>();
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -292,22 +291,17 @@ class _Worker3WidgetState extends State<Worker3Widget> {
                     ),
                     FFButtonWidget(
                       onPressed: () async {
-                        setState(() => _loadingButton = true);
-                        try {
-                          final user = await signInAnonymously(context);
-                          if (user == null) {
-                            return;
-                          }
-                          await Navigator.pushAndRemoveUntil(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => OnboardWidget(),
-                            ),
-                            (r) => false,
-                          );
-                        } finally {
-                          setState(() => _loadingButton = false);
+                        final user = await signInAnonymously(context);
+                        if (user == null) {
+                          return;
                         }
+                        await Navigator.pushAndRemoveUntil(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => OnboardWidget(),
+                          ),
+                          (r) => false,
+                        );
                       },
                       text: 'Sign UP',
                       icon: FaIcon(
@@ -327,10 +321,9 @@ class _Worker3WidgetState extends State<Worker3Widget> {
                         ),
                         borderRadius: 12,
                       ),
-                      loading: _loadingButton,
-                    )
+                    ),
                   ],
-                )
+                ),
               ],
             ),
           ),

@@ -66,7 +66,7 @@ class _HomeClientWidgetState extends State<HomeClientWidget> {
                               'You may also LIKE',
                               style: FlutterFlowTheme.bodyText1,
                             ),
-                          )
+                          ),
                         ],
                       ),
                       Row(
@@ -94,7 +94,7 @@ class _HomeClientWidgetState extends State<HomeClientWidget> {
                                     borderRadius: BorderRadius.circular(10),
                                   ),
                                 ),
-                              )
+                              ),
                             ],
                           ),
                           Column(
@@ -118,15 +118,15 @@ class _HomeClientWidgetState extends State<HomeClientWidget> {
                                     borderRadius: BorderRadius.circular(10),
                                   ),
                                 ),
-                              )
+                              ),
                             ],
-                          )
+                          ),
                         ],
-                      )
+                      ),
                     ],
                   ),
                 ),
-              )
+              ),
             ],
           ),
         ),

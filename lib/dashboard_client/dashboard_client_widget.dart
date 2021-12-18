@@ -72,7 +72,9 @@ class _DashboardClientWidgetState extends State<DashboardClientWidget> {
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.center,
-                              children: [ClientFilterWidget()],
+                              children: [
+                                ClientFilterWidget(),
+                              ],
                             ),
                           ),
                         ),
@@ -123,7 +125,7 @@ class _DashboardClientWidgetState extends State<DashboardClientWidget> {
                                               fontFamily: 'Lexend Deca',
                                               color: Color(0xC908253E),
                                             ),
-                                          )
+                                          ),
                                         ],
                                       ),
                                     ),
@@ -155,7 +157,7 @@ class _DashboardClientWidgetState extends State<DashboardClientWidget> {
                                               fontFamily: 'Lexend Deca',
                                               color: Color(0xFF08253E),
                                             ),
-                                          )
+                                          ),
                                         ],
                                       ),
                                     ),
@@ -198,7 +200,7 @@ class _DashboardClientWidgetState extends State<DashboardClientWidget> {
                                                 color: Color(0xFF08253E),
                                               ),
                                             ),
-                                          )
+                                          ),
                                         ],
                                       ),
                                     ),
@@ -241,21 +243,21 @@ class _DashboardClientWidgetState extends State<DashboardClientWidget> {
                                                 color: Color(0xFF08253E),
                                               ),
                                             ),
-                                          )
+                                          ),
                                         ],
                                       ),
-                                    )
+                                    ),
                                   ],
                                 ),
                               ),
-                            )
+                            ),
                           ],
-                        )
+                        ),
                       ],
                     ),
                   ),
                 ),
-              )
+              ),
             ],
           ),
         ),

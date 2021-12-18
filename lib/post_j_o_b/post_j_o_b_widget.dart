@@ -29,7 +29,6 @@ class _PostJOBWidgetState extends State<PostJOBWidget> {
   String uploadedFileUrl2 = '';
   int countControllerValue;
   bool checkboxListTileValue;
-  bool _loadingButton = false;
   final formKey = GlobalKey<FormState>();
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -185,7 +184,7 @@ class _PostJOBWidgetState extends State<PostJOBWidget> {
                                 color: FlutterFlowTheme.grayDark,
                               ),
                             ),
-                          )
+                          ),
                         ],
                       ),
                     ),
@@ -399,17 +398,12 @@ class _PostJOBWidgetState extends State<PostJOBWidget> {
                     ),
                     FFButtonWidget(
                       onPressed: () async {
-                        setState(() => _loadingButton = true);
-                        try {
-                          await Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => SearchClientWidget(),
-                            ),
-                          );
-                        } finally {
-                          setState(() => _loadingButton = false);
-                        }
+                        await Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => SearchClientWidget(),
+                          ),
+                        );
                       },
                       text: 'Post JOB',
                       options: FFButtonOptions(
@@ -426,10 +420,9 @@ class _PostJOBWidgetState extends State<PostJOBWidget> {
                         ),
                         borderRadius: 12,
                       ),
-                      loading: _loadingButton,
-                    )
+                    ),
                   ],
-                )
+                ),
               ],
             ),
           ),

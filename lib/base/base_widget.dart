@@ -15,8 +15,6 @@ class BaseWidget extends StatefulWidget {
 }
 
 class _BaseWidgetState extends State<BaseWidget> {
-  bool _loadingButton1 = false;
-  bool _loadingButton2 = false;
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -66,7 +64,7 @@ class _BaseWidgetState extends State<BaseWidget> {
                                     fit: BoxFit.cover,
                                   ),
                                 ),
-                              )
+                              ),
                             ],
                           ),
                           Row(
@@ -78,18 +76,12 @@ class _BaseWidgetState extends State<BaseWidget> {
                                       90, 0, 90, 0),
                                   child: FFButtonWidget(
                                     onPressed: () async {
-                                      setState(() => _loadingButton1 = true);
-                                      try {
-                                        await Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) =>
-                                                Worker1Widget(),
-                                          ),
-                                        );
-                                      } finally {
-                                        setState(() => _loadingButton1 = false);
-                                      }
+                                      await Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => Worker1Widget(),
+                                        ),
+                                      );
                                     },
                                     text: 'WORKER',
                                     options: FFButtonOptions(
@@ -107,10 +99,9 @@ class _BaseWidgetState extends State<BaseWidget> {
                                       ),
                                       borderRadius: 12,
                                     ),
-                                    loading: _loadingButton1,
                                   ),
                                 ),
-                              )
+                              ),
                             ],
                           ),
                           Row(
@@ -121,7 +112,7 @@ class _BaseWidgetState extends State<BaseWidget> {
                                 width: 250,
                                 height: 300,
                                 fit: BoxFit.contain,
-                              )
+                              ),
                             ],
                           ),
                           Row(
@@ -133,18 +124,13 @@ class _BaseWidgetState extends State<BaseWidget> {
                                       90, 0, 90, 0),
                                   child: FFButtonWidget(
                                     onPressed: () async {
-                                      setState(() => _loadingButton2 = true);
-                                      try {
-                                        await Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) =>
-                                                RegisterClientWidget(),
-                                          ),
-                                        );
-                                      } finally {
-                                        setState(() => _loadingButton2 = false);
-                                      }
+                                      await Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) =>
+                                              RegisterClientWidget(),
+                                        ),
+                                      );
                                     },
                                     text: 'CLIENT',
                                     options: FFButtonOptions(
@@ -162,12 +148,11 @@ class _BaseWidgetState extends State<BaseWidget> {
                                       ),
                                       borderRadius: 12,
                                     ),
-                                    loading: _loadingButton2,
                                   ),
                                 ),
-                              )
+                              ),
                             ],
-                          )
+                          ),
                         ],
                       ),
                     ),
@@ -180,12 +165,12 @@ class _BaseWidgetState extends State<BaseWidget> {
                         decoration: BoxDecoration(
                           color: Color(0x00EEEEEE),
                         ),
-                      )
+                      ),
                     ],
-                  )
+                  ),
                 ],
               ),
-            )
+            ),
           ],
         ),
       ),

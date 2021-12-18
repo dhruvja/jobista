@@ -46,9 +46,9 @@ class _Error1WidgetState extends State<Error1Widget> {
                     height: 130,
                     fit: BoxFit.cover,
                     animate: true,
-                  )
+                  ),
                 ],
-              )
+              ),
             ],
           ),
         ),
