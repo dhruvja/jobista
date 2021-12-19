@@ -7,6 +7,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
+import 'package:http/http.dart' as http;
+import 'dart:async';
+import 'dart:convert';
+import '../api_endpoint.dart';
 
 class SelectJobWidget extends StatefulWidget {
   const SelectJobWidget({Key key}) : super(key: key);
@@ -18,6 +22,46 @@ class SelectJobWidget extends StatefulWidget {
 class _SelectJobWidgetState extends State<SelectJobWidget> {
   String dropDownValue;
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  List<String> titles = new List();
+  var dets;
+
+  void initState() {
+    super.initState();
+    getAds();
+  }
+
+  void getAds() async {
+    String endpoint = Endpoint();
+    try {
+      String url = endpoint + "api/client/getads";
+      final response = await http.get(Uri.parse(url));
+      if (response.statusCode == 200) {
+        // print(response.body);
+        var data = json.decode(response.body);
+        // print(data);
+        // setState((){
+        //   dets = data;
+        // });
+        // ignore: deprecated_member_use
+        List<String> tiles = new List();
+        tiles.add('Choose AD');
+        for(var i in data){
+          tiles.add(i['job_title'].toString());
+        }
+        print(tiles.runtimeType);
+        setState((){
+          titles = tiles;
+        });
+      } 
+    } catch (e) {
+      print(e);
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+            content: Text('No Interent Found, try again'),
+            backgroundColor: Colors.redAccent),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +94,7 @@ class _SelectJobWidgetState extends State<SelectJobWidget> {
                     children: [
                       FlutterFlowDropDown(
                         initialOption: dropDownValue ??= 'Choose AD',
-                        options: ['Choose AD', 'AD-1', 'AD-2'].toList(),
+                        options: titles,
                         onChanged: (val) => setState(() => dropDownValue = val),
                         width: 240,
                         height: 40,
@@ -80,13 +124,13 @@ class _SelectJobWidgetState extends State<SelectJobWidget> {
                         padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
                         child: FFButtonWidget(
                           onPressed: () async {
-                                      await Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) => SelectJobWidget(),
-                                        ),
-                                      );
-                                    },
+                            await Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => SelectJobWidget(),
+                              ),
+                            );
+                          },
                           text: 'Go',
                           options: FFButtonOptions(
                             width: 150,
@@ -122,13 +166,13 @@ class _SelectJobWidgetState extends State<SelectJobWidget> {
                   ),
                   FFButtonWidget(
                     onPressed: () async {
-                                      await Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) => PostJOBWidget(),
-                                        ),
-                                      );
-                                    },
+                      await Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => PostJOBWidget(),
+                        ),
+                      );
+                    },
                     text: 'Post add',
                     options: FFButtonOptions(
                       width: 150,
