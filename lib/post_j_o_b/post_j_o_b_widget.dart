@@ -9,6 +9,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:http/http.dart' as http;
+import 'dart:async';
+import 'dart:convert';
 import '../api_endpoint.dart';
 
 
@@ -36,6 +39,65 @@ class _PostJOBWidgetState extends State<PostJOBWidget> {
     textController1 = TextEditingController(text: 'Location');
     textController2 = TextEditingController(text: 'Pincode');
     textController3 = TextEditingController(text: 'Job Description');
+  }
+
+  void Upload() async{
+    print(dropDownValue1);
+    print(dropDownValue2);
+    print(textController1);
+    print(textController2);
+    print(textController2);
+    print(textController2);
+    print(textController2);
+    print(textController2);
+
+    int edulevel = 0;
+
+    if(dropDownValue2 == "studied till 9th")
+      edulevel = 0;
+    else if(dropDownValue2 == "10th pass")
+      edulevel = 1;
+    else if(dropDownValue2 == "12th pass")
+      edulevel = 2;
+    else if(dropDownValue2 == "Bachelors")
+      edulevel = 3;
+    else if(dropDownValue2 == 'Masters')
+      edulevel = 4;
+    else 
+      edulevel = 0;
+
+    try{
+      String endpoint = Endpoint();
+      String url = endpoint + "api/client/postad";
+      final response = await http.post(
+          Uri.parse(url),
+          headers: <String, String>{
+            'Content-Type': 'application/json; charset=UTF-8',
+            'accept': 'application/json'
+          },
+          body: jsonEncode(<String, String>{
+            "designation": dropDownValue1,
+            "edulevel": edulevel.toString(),
+            "exptime": countControllerValue1.toString(),
+            "maxsalary": countControllerValue2.toString(),
+            "address": textController1.text,
+            "pincode": textController2.text,
+            "description": textController3.text
+          }));
+      if(response.statusCode == 200){
+        print(response.body);
+      }
+    }catch(e){
+      print(e);
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+            content: Text('No Interent Found, try again'),
+            backgroundColor: Colors.redAccent),
+      );
+    } 
+
+
+
   }
 
   @override
