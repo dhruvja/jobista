@@ -31,8 +31,8 @@ class _PostJOBWidgetState extends State<PostJOBWidget> {
   @override
   void initState() {
     super.initState();
-    textController1 = TextEditingController(text: 'Location');
-    textController2 = TextEditingController(text: 'Pincode');
+    textController1 = TextEditingController();
+    textController2 = TextEditingController();
     textController3 = TextEditingController(text: 'Job Description');
   }
 
@@ -134,6 +134,8 @@ class _PostJOBWidgetState extends State<PostJOBWidget> {
                             controller: textController1,
                             obscureText: false,
                             decoration: InputDecoration(
+                              hintText: 'Location',
+                              hintStyle: FlutterFlowTheme.bodyText1,
                               enabledBorder: UnderlineInputBorder(
                                 borderSide: BorderSide(
                                   color: Color(0x00000000),
@@ -185,6 +187,8 @@ class _PostJOBWidgetState extends State<PostJOBWidget> {
                             controller: textController2,
                             obscureText: false,
                             decoration: InputDecoration(
+                              hintText: 'Pincode',
+                              hintStyle: FlutterFlowTheme.bodyText1,
                               enabledBorder: UnderlineInputBorder(
                                 borderSide: BorderSide(
                                   color: Color(0x00000000),
