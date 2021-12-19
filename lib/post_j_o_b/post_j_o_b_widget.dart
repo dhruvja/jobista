@@ -2,6 +2,8 @@ import '../flutter_flow/flutter_flow_count_controller.dart';
 import '../flutter_flow/flutter_flow_drop_down.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
+import '../flutter_flow/flutter_flow_widgets.dart';
+import '../worker_sa/worker_sa_widget.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -359,6 +361,31 @@ class _PostJOBWidgetState extends State<PostJOBWidget> {
                           tileColor: Color(0xFFF5F5F5),
                           dense: false,
                           controlAffinity: ListTileControlAffinity.trailing,
+                        ),
+                      ),
+                      FFButtonWidget(
+                        onPressed: () async {
+                          await Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => WorkerSaWidget(),
+                            ),
+                          );
+                        },
+                        text: 'Post JOB',
+                        options: FFButtonOptions(
+                          width: 130,
+                          height: 40,
+                          color: Color(0xFF010524),
+                          textStyle: FlutterFlowTheme.subtitle2.override(
+                            fontFamily: 'Lexend Deca',
+                            color: Colors.white,
+                          ),
+                          borderSide: BorderSide(
+                            color: Colors.transparent,
+                            width: 1,
+                          ),
+                          borderRadius: 12,
                         ),
                       ),
                     ],
