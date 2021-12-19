@@ -38,8 +38,8 @@ app.post('/api/login',(req,res) => {
                             expiresIn: "2h",
                         }
                     )
-                    console.log("Login successfully")
-                    res.json({success: true, msg: "You have logged in successfully", token: token})
+                    console.log("Login successfully for " + rows[0].type )
+                    res.json({success: true, msg: "You have logged in successfully", token: token,type: rows[0].type})
                 }
                 else{
                     console.log("Login failed")
@@ -71,7 +71,7 @@ app.post('/api/register', (req, res) => {
                     if(rows.insertId){
                         console.log("Registration Successful")
                         const token = jwt.sign({
-                                user_id: query.rows[0].id,
+                                user_id: rows.insertId,
                             },
                             "heya", {
                                 expiresIn: "2h",

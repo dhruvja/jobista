@@ -7,6 +7,10 @@ const metaphone = require('metaphone')
 const logger = require('../middleware/logger')
 const authorize = require('../middleware/authorize')
 
+router.route('/registerWork').post(async(req,res) => {
+    
+})
+
 router.route('/search/:query').post(async(req,res) => {
     res.locals.user = 1;
     var params = req.params.query

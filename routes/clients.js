@@ -33,6 +33,7 @@ router.route('/search/:query').post(async (req,res) => {
         pincode = 572101
     
     console.log(params)
+    console.log(req.body)
 
 
     const roles_query = (id) => {
@@ -49,7 +50,7 @@ router.route('/search/:query').post(async (req,res) => {
 
     const search_query = (query) => {
         return new Promise((resolve,reject) => {
-            var order_clause = "ORDER BY CASE WHEN edulevel >= ? THEN -50 ELSE 0 END + CASE WHEN exptime >= ? THEN -40 ELSE 0 END + CASE WHEN account_verification = 1 THEN -200 ELSE 0 END"
+            var order_clause = "ORDER BY CASE WHEN edulevel >= ? THEN -50 ELSE 0 END + CASE WHEN exptime >= ? THEN -40 ELSE 0 END + CASE WHEN account_verification = 1 AND difference < 20 THEN -200 ELSE 0 END"
             var filter_clause = "AND edulevel >= ? AND exptime >= ? AND minsalary <= ? AND work_status = 1 "
             if(designation != ""){
                 pool.query("SELECT *, ABS(pincode - ?) AS difference FROM work_details INNER JOIN designation ON work_details.id = designation.work_id WHERE indexing LIKE CONCAT('%', ? , '%') AND designation = ? " + filter_clause + order_clause + " + difference"  ,[pincode,query,designation,edulevel,exptime,minsalary,edulevel,exptime], async(err, rows) => {
@@ -58,7 +59,6 @@ router.route('/search/:query').post(async (req,res) => {
                         return reject(err)
                     }
                     var data = rows
-                    data.roles = designation;
                     return resolve(data)
                 })
             }
@@ -92,6 +92,11 @@ router.route('/search/:query').post(async (req,res) => {
     
     if(res.locals.user){
         try {
+            var present;
+            if(designation == "")
+                present = false;
+            else 
+                present = true;
             var data = await search_query(meta);
             if(data.length == 0){
                 var single;
@@ -101,13 +106,14 @@ router.route('/search/:query').post(async (req,res) => {
                     if(single.length > 0)
                         data.push(single)
                 }
-                res.json(data[0])
+                res.json({success: true, rows: data[0], role: present})
             }
-            else
-                res.json(data)
+            else{
+                res.json({success:true,rows: data, role: present})
+            }
         } catch (error) {
             console.log(error)
-            res.json(err)
+            res.json({success: false, error: error})
         }
     }
     else{
@@ -226,6 +232,37 @@ router.route('/postad').get( async (req,res) => {
     }
     else{
         console.log("Please enter your credentials")
+    }
+})
+
+router.route('/getads').get(async(req,res) => {
+    res.locals.user = 16;
+
+    const ads = () => {
+        return new Promise((resolve,reject) => {
+            pool.query("SELECT * FROM ads WHERE user_id = ?",[res.locals.user],(err,rows) => {
+                if(err){
+                    console.log(err)
+                    return reject(err)
+                }
+                else{
+                    return resolve(rows)
+                }
+            })
+        })
+    }
+    if(res.locals.user){
+        try {
+            const ad = await ads()
+            res.json(ad)
+        } catch (error) {
+            console.log(error)
+            res.json(error)
+        }
+    }
+    else{
+        console.log(res.locals.error)
+        res.json(res.locals.error)
     }
 })
 
