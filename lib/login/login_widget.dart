@@ -10,6 +10,7 @@ import '../search_client/search_client_widget.dart';
 import '../worker_3/worker3_widget.dart';
 import '../home_client/home_client_widget.dart';
 import '../worker_info/worker_info_widget.dart';
+import '../worker_home/worker_home_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -77,13 +78,21 @@ class _LoginWidgetState extends State<LoginWidget> {
           if (status['success']) {
             final storage = new FlutterSecureStorage();
             await storage.write(key: "jwt", value: status['token']);
-
-            await Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => HomeClientWidget(),
-              ),
-            );
+            if(status['type'] == 'client')
+              await Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => HomeClientWidget(),
+                ),
+              );
+            else{
+              await Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => WorkerHomeWidget(),
+                ),
+              );
+            }
 
             // await Navigator.pushAndRemoveUntil(
             //     context,
