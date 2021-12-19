@@ -118,7 +118,7 @@ class _SelectJobWidgetState extends State<SelectJobWidget> {
                     onPressed: () {
                       print('Button pressed ...');
                     },
-                    text: 'Post add',
+                    text: 'Post AD',
                     options: FFButtonOptions(
                       width: 150,
                       height: 40,
