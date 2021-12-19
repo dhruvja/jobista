@@ -80,7 +80,15 @@ class _PostJOBWidgetState extends State<PostJOBWidget> {
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
                       child: FlutterFlowDropDown(
-                        options: ['JOB Type'].toList(),
+                        options: [
+                          'Select Job',
+                          'maid',
+                          'plumber',
+                          'electrician',
+                          'nurse',
+                          'driver',
+                          'cook'
+                        ].toList(),
                         onChanged: (val) =>
                             setState(() => dropDownValue1 = val),
                         width: 300,
@@ -101,7 +109,14 @@ class _PostJOBWidgetState extends State<PostJOBWidget> {
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
                       child: FlutterFlowDropDown(
-                        options: ['Education '].toList(),
+                        options: [
+                        'Education',
+                        'Studied till 9th',
+                        '10th pass',
+                        '12th pass',
+                        'Bachelors',
+                        'Masters'
+                      ].toList(),
                         onChanged: (val) =>
                             setState(() => dropDownValue2 = val),
                         width: 300,

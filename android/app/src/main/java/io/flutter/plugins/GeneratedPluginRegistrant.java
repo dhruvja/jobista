@@ -51,11 +51,6 @@ public final class GeneratedPluginRegistrant {
       Log.e(TAG, "Error registering plugin google_api_headers, io.github.zeshuaro.google_api_headers.GoogleApiHeadersPlugin", e);
     }
     try {
-      flutterEngine.getPlugins().add(new io.flutter.plugins.googlesignin.GoogleSignInPlugin());
-    } catch(Exception e) {
-      Log.e(TAG, "Error registering plugin google_sign_in, io.flutter.plugins.googlesignin.GoogleSignInPlugin", e);
-    }
-    try {
       flutterEngine.getPlugins().add(new io.flutter.plugins.imagepicker.ImagePickerPlugin());
     } catch(Exception e) {
       Log.e(TAG, "Error registering plugin image_picker, io.flutter.plugins.imagepicker.ImagePickerPlugin", e);

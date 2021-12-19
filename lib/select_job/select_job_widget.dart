@@ -2,6 +2,7 @@ import '../flutter_flow/flutter_flow_drop_down.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
+import '../post_j_o_b/post_j_o_b_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -78,9 +79,14 @@ class _SelectJobWidgetState extends State<SelectJobWidget> {
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
                         child: FFButtonWidget(
-                          onPressed: () {
-                            print('Button pressed ...');
-                          },
+                          onPressed: () async {
+                                      await Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => SelectJobWidget(),
+                                        ),
+                                      );
+                                    },
                           text: 'Go',
                           options: FFButtonOptions(
                             width: 150,
@@ -100,13 +106,13 @@ class _SelectJobWidgetState extends State<SelectJobWidget> {
                       ),
                     ],
                   ),
-                  Lottie.network(
-                    'https://assets7.lottiefiles.com/packages/lf20_iqi2sabx.json',
-                    width: 150,
-                    height: 100,
-                    fit: BoxFit.cover,
-                    animate: true,
-                  ),
+                  // Lottie.network(
+                  //   'https://assets7.lottiefiles.com/packages/lf20_iqi2sabx.json',
+                  //   width: 150,
+                  //   height: 100,
+                  //   fit: BoxFit.cover,
+                  //   animate: true,
+                  // ),
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
                     child: Text(
@@ -115,9 +121,14 @@ class _SelectJobWidgetState extends State<SelectJobWidget> {
                     ),
                   ),
                   FFButtonWidget(
-                    onPressed: () {
-                      print('Button pressed ...');
-                    },
+                    onPressed: () async {
+                                      await Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => PostJOBWidget(),
+                                        ),
+                                      );
+                                    },
                     text: 'Post add',
                     options: FFButtonOptions(
                       width: 150,

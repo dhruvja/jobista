@@ -4,6 +4,7 @@ import '../flutter_flow/flutter_flow_widgets.dart';
 import '../onboard/onboard_widget.dart';
 import '../search_client/search_client_widget.dart';
 import '../worker_2/worker2_widget.dart';
+import '../select_job/select_job_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -487,7 +488,7 @@ class _WorkerInfoWidgetState extends State<WorkerInfoWidget> {
                                       await Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                          builder: (context) => OnboardWidget(),
+                                          builder: (context) => SelectJobWidget(),
                                         ),
                                       );
                                     },
