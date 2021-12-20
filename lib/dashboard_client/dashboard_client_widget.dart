@@ -3,6 +3,7 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../home_client/home_client_widget.dart';
 import '../search_client/search_client_widget.dart';
+import '../search_customer/search_customer_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -104,29 +105,40 @@ class _DashboardClientWidgetState extends State<DashboardClientWidget> {
                                         color: Color(0xFFEEEEEE),
                                         borderRadius: BorderRadius.circular(10),
                                       ),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Icon(
-                                            Icons.group_add,
-                                            color: Colors.black,
-                                            size: 24,
-                                          ),
-                                          Text(
-                                            'All Adds',
-                                            style: FlutterFlowTheme.bodyText1,
-                                          ),
-                                          Text(
-                                            '10+',
-                                            style: FlutterFlowTheme.bodyText1
-                                                .override(
-                                              fontFamily: 'Lexend Deca',
-                                              color: Color(0xC908253E),
+                                      child: InkWell(
+                                        onTap: () async {
+                                          await Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) =>
+                                                  SearchCustomerWidget(),
                                             ),
-                                          ),
-                                        ],
+                                          );
+                                        },
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Icon(
+                                              Icons.group_add,
+                                              color: Colors.black,
+                                              size: 24,
+                                            ),
+                                            Text(
+                                              'All Adds',
+                                              style: FlutterFlowTheme.bodyText1,
+                                            ),
+                                            Text(
+                                              '10+',
+                                              style: FlutterFlowTheme.bodyText1
+                                                  .override(
+                                                fontFamily: 'Lexend Deca',
+                                                color: Color(0xC908253E),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
                                       ),
                                     ),
                                     Container(
