@@ -3,8 +3,10 @@ import '../base/base_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
+import '../home_client/home_client_widget.dart';
 import '../onboard/onboard_widget.dart';
 import '../search_client/search_client_widget.dart';
+import '../worker_home/worker_home_widget.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import '../search_client/search_client_widget.dart';
 import '../worker_3/worker3_widget.dart';
@@ -490,11 +492,22 @@ class _LoginWidgetState extends State<LoginWidget> {
                                               borderRadius:
                                                   BorderRadius.circular(50),
                                             ),
-                                            child: Image.asset(
-                                              'assets/images/Book.png',
-                                              width: 50,
-                                              height: 50,
-                                              fit: BoxFit.cover,
+                                            child: InkWell(
+                                              onTap: () async {
+                                                await Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        HomeClientWidget(),
+                                                  ),
+                                                );
+                                              },
+                                              child: Image.asset(
+                                                'assets/images/Book.png',
+                                                width: 50,
+                                                height: 50,
+                                                fit: BoxFit.cover,
+                                              ),
                                             ),
                                           ),
                                         ),
@@ -510,11 +523,22 @@ class _LoginWidgetState extends State<LoginWidget> {
                                               borderRadius:
                                                   BorderRadius.circular(50),
                                             ),
-                                            child: Image.asset(
-                                              'assets/images/apple.png',
-                                              width: 50,
-                                              height: 50,
-                                              fit: BoxFit.cover,
+                                            child: InkWell(
+                                              onTap: () async {
+                                                await Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        SearchClientWidget(),
+                                                  ),
+                                                );
+                                              },
+                                              child: Image.asset(
+                                                'assets/images/apple.png',
+                                                width: 50,
+                                                height: 50,
+                                                fit: BoxFit.cover,
+                                              ),
                                             ),
                                           ),
                                         ),
@@ -526,11 +550,22 @@ class _LoginWidgetState extends State<LoginWidget> {
                                             borderRadius:
                                                 BorderRadius.circular(50),
                                           ),
-                                          child: Image.asset(
-                                            'assets/images/Book_Copy_2.png',
-                                            width: 50,
-                                            height: 50,
-                                            fit: BoxFit.cover,
+                                          child: InkWell(
+                                            onTap: () async {
+                                              await Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      WorkerHomeWidget(),
+                                                ),
+                                              );
+                                            },
+                                            child: Image.asset(
+                                              'assets/images/Book_Copy_2.png',
+                                              width: 50,
+                                              height: 50,
+                                              fit: BoxFit.cover,
+                                            ),
                                           ),
                                         ),
                                       ],
