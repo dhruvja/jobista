@@ -1,3 +1,4 @@
+import '../components/activities_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
@@ -128,85 +129,90 @@ class _WorkerHomeWidgetState extends State<WorkerHomeWidget> {
                     ),
                     borderRadius: BorderRadius.circular(8),
                   ),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Image.asset(
-                              'assets/images/JOBista.png',
-                              width: 50,
-                              height: 20,
-                              fit: BoxFit.cover,
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(20, 24, 20, 0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Text(
-                              'Cureent Status',
-                              style: FlutterFlowTheme.bodyText1.override(
-                                fontFamily: 'Lexend Deca',
-                                color: Colors.white,
-                                fontSize: 14,
-                                fontWeight: FontWeight.normal,
+                  child: SingleChildScrollView(
+                    child: Column(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Padding(
+                          padding:
+                              EdgeInsetsDirectional.fromSTEB(20, 20, 20, 0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Image.asset(
+                                'assets/images/JOBista.png',
+                                width: 50,
+                                height: 20,
+                                fit: BoxFit.cover,
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(20, 8, 20, 0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Text(
-                              '3',
-                              style: FlutterFlowTheme.title1.override(
-                                fontFamily: 'Lexend Deca',
-                                color: Colors.white,
-                                fontSize: 32,
-                                fontWeight: FontWeight.bold,
+                        Padding(
+                          padding:
+                              EdgeInsetsDirectional.fromSTEB(20, 24, 20, 0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Text(
+                                'Cureent Status',
+                                style: FlutterFlowTheme.bodyText1.override(
+                                  fontFamily: 'Lexend Deca',
+                                  color: Colors.white,
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.normal,
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(20, 12, 20, 16),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              'Active offers',
-                              style: FlutterFlowTheme.bodyText1.override(
-                                fontFamily: 'Roboto Mono',
-                                color: Colors.white,
-                                fontSize: 14,
-                                fontWeight: FontWeight.normal,
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(20, 8, 20, 0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Text(
+                                '3',
+                                style: FlutterFlowTheme.title1.override(
+                                  fontFamily: 'Lexend Deca',
+                                  color: Colors.white,
+                                  fontSize: 32,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
-                            ),
-                            Text(
-                              'Check now',
-                              style: FlutterFlowTheme.bodyText1.override(
-                                fontFamily: 'Roboto Mono',
-                                color: Color(0xFF010524),
-                                fontSize: 14,
-                                fontWeight: FontWeight.normal,
-                              ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
-                      ),
-                    ],
+                        Padding(
+                          padding:
+                              EdgeInsetsDirectional.fromSTEB(20, 12, 20, 16),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                'Active offers',
+                                style: FlutterFlowTheme.bodyText1.override(
+                                  fontFamily: 'Roboto Mono',
+                                  color: Colors.white,
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.normal,
+                                ),
+                              ),
+                              Text(
+                                'Check now',
+                                style: FlutterFlowTheme.bodyText1.override(
+                                  fontFamily: 'Roboto Mono',
+                                  color: Color(0xFF010524),
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.normal,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
@@ -214,6 +220,7 @@ class _WorkerHomeWidgetState extends State<WorkerHomeWidget> {
                 padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
                 child: Container(
                   width: MediaQuery.of(context).size.width,
+                  height: 600,
                   decoration: BoxDecoration(
                     color: Colors.white,
                     image: DecorationImage(
@@ -386,340 +393,7 @@ class _WorkerHomeWidgetState extends State<WorkerHomeWidget> {
                             ],
                           ),
                         ),
-                        Container(
-                          width: MediaQuery.of(context).size.width * 0.92,
-                          height: 70,
-                          decoration: BoxDecoration(
-                            color: Color(0xFFF4F5F7),
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(8, 0, 0, 0),
-                                child: Card(
-                                  clipBehavior: Clip.antiAliasWithSaveLayer,
-                                  color: Color(0x6639D2C0),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(40),
-                                  ),
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        8, 8, 8, 8),
-                                    child: Icon(
-                                      Icons.monetization_on_rounded,
-                                      color: Color(0xFF39D2C0),
-                                      size: 24,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              Expanded(
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      12, 0, 0, 0),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        ' Call for electrician',
-                                        style:
-                                            FlutterFlowTheme.subtitle1.override(
-                                          fontFamily: 'Lexend Deca',
-                                          color: Color(0xFF1E2429),
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 4, 0, 0),
-                                        child: Text(
-                                          'Income',
-                                          style: FlutterFlowTheme.bodyText1
-                                              .override(
-                                            fontFamily: 'Lexend Deca',
-                                            color: Color(0xFF090F13),
-                                            fontSize: 14,
-                                            fontWeight: FontWeight.normal,
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    12, 0, 12, 0),
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.end,
-                                  children: [
-                                    Text(
-                                      '5000 Rs ',
-                                      textAlign: TextAlign.end,
-                                      style:
-                                          FlutterFlowTheme.subtitle2.override(
-                                        fontFamily: 'Lexend Deca',
-                                        color: Color(0xFF010524),
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 4, 0, 0),
-                                      child: Text(
-                                        'Apply',
-                                        textAlign: TextAlign.end,
-                                        style:
-                                            FlutterFlowTheme.bodyText1.override(
-                                          fontFamily: 'Lexend Deca',
-                                          color: Color(0xFF090F13),
-                                          fontSize: 12,
-                                          fontWeight: FontWeight.normal,
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
-                          child: Container(
-                            width: MediaQuery.of(context).size.width * 0.92,
-                            height: 70,
-                            decoration: BoxDecoration(
-                              color: Color(0xFFF4F5F7),
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      8, 0, 0, 0),
-                                  child: Card(
-                                    clipBehavior: Clip.antiAliasWithSaveLayer,
-                                    color: Color(0x6639D2C0),
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(40),
-                                    ),
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          8, 8, 8, 8),
-                                      child: Icon(
-                                        Icons.monetization_on_rounded,
-                                        color: Color(0xFF39D2C0),
-                                        size: 24,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                Expanded(
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        12, 0, 0, 0),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          ' Call for plumber',
-                                          style: FlutterFlowTheme.subtitle1
-                                              .override(
-                                            fontFamily: 'Lexend Deca',
-                                            color: Color(0xFF1E2429),
-                                            fontSize: 18,
-                                            fontWeight: FontWeight.w500,
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0, 4, 0, 0),
-                                          child: Text(
-                                            'Income',
-                                            style: FlutterFlowTheme.bodyText1
-                                                .override(
-                                              fontFamily: 'Lexend Deca',
-                                              color: Color(0xFF090F13),
-                                              fontSize: 14,
-                                              fontWeight: FontWeight.normal,
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      12, 0, 12, 0),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment: CrossAxisAlignment.end,
-                                    children: [
-                                      Text(
-                                        '5000 Rs ',
-                                        textAlign: TextAlign.end,
-                                        style:
-                                            FlutterFlowTheme.subtitle2.override(
-                                          fontFamily: 'Lexend Deca',
-                                          color: Color(0xFF010524),
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 4, 0, 0),
-                                        child: Text(
-                                          'Apply',
-                                          textAlign: TextAlign.end,
-                                          style: FlutterFlowTheme.bodyText1
-                                              .override(
-                                            fontFamily: 'Lexend Deca',
-                                            color: Color(0xFF090F13),
-                                            fontSize: 12,
-                                            fontWeight: FontWeight.normal,
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 12),
-                          child: Container(
-                            width: MediaQuery.of(context).size.width * 0.92,
-                            height: 70,
-                            decoration: BoxDecoration(
-                              color: Color(0xFFF4F5F7),
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      8, 0, 0, 0),
-                                  child: Card(
-                                    clipBehavior: Clip.antiAliasWithSaveLayer,
-                                    color: Color(0x6639D2C0),
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(40),
-                                    ),
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          8, 8, 8, 8),
-                                      child: Icon(
-                                        Icons.monetization_on_rounded,
-                                        color: Color(0xFF39D2C0),
-                                        size: 24,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                Expanded(
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        12, 0, 0, 0),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          ' Call for plumber',
-                                          style: FlutterFlowTheme.subtitle1
-                                              .override(
-                                            fontFamily: 'Lexend Deca',
-                                            color: Color(0xFF1E2429),
-                                            fontSize: 18,
-                                            fontWeight: FontWeight.w500,
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0, 4, 0, 0),
-                                          child: Text(
-                                            'Income',
-                                            style: FlutterFlowTheme.bodyText1
-                                                .override(
-                                              fontFamily: 'Lexend Deca',
-                                              color: Color(0xFF090F13),
-                                              fontSize: 14,
-                                              fontWeight: FontWeight.normal,
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      12, 0, 12, 0),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment: CrossAxisAlignment.end,
-                                    children: [
-                                      Text(
-                                        '5000 Rs ',
-                                        textAlign: TextAlign.end,
-                                        style:
-                                            FlutterFlowTheme.subtitle2.override(
-                                          fontFamily: 'Lexend Deca',
-                                          color: Color(0xFF010524),
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 4, 0, 0),
-                                        child: Text(
-                                          'Apply',
-                                          textAlign: TextAlign.end,
-                                          style: FlutterFlowTheme.bodyText1
-                                              .override(
-                                            fontFamily: 'Lexend Deca',
-                                            color: Color(0xFF090F13),
-                                            fontSize: 12,
-                                            fontWeight: FontWeight.normal,
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
+                        ActivitiesWidget(),
                       ],
                     ),
                   ),
