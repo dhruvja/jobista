@@ -1,8 +1,11 @@
 import '../auth/auth_util.dart';
+import '../book_job/book_job_widget.dart';
+import '../client_sa/client_sa_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../onboard/onboard_widget.dart';
+import '../select_job/select_job_widget.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
@@ -523,11 +526,22 @@ class _RegisterClientWidgetState extends State<RegisterClientWidget> {
                                               borderRadius:
                                                   BorderRadius.circular(50),
                                             ),
-                                            child: Image.asset(
-                                              'assets/images/Book.png',
-                                              width: 50,
-                                              height: 50,
-                                              fit: BoxFit.cover,
+                                            child: InkWell(
+                                              onTap: () async {
+                                                await Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        SelectJobWidget(),
+                                                  ),
+                                                );
+                                              },
+                                              child: Image.asset(
+                                                'assets/images/Book.png',
+                                                width: 50,
+                                                height: 50,
+                                                fit: BoxFit.cover,
+                                              ),
                                             ),
                                           ),
                                         ),
@@ -543,11 +557,22 @@ class _RegisterClientWidgetState extends State<RegisterClientWidget> {
                                               borderRadius:
                                                   BorderRadius.circular(50),
                                             ),
-                                            child: Image.asset(
-                                              'assets/images/apple.png',
-                                              width: 50,
-                                              height: 50,
-                                              fit: BoxFit.cover,
+                                            child: InkWell(
+                                              onTap: () async {
+                                                await Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        BookJobWidget(),
+                                                  ),
+                                                );
+                                              },
+                                              child: Image.asset(
+                                                'assets/images/apple.png',
+                                                width: 50,
+                                                height: 50,
+                                                fit: BoxFit.cover,
+                                              ),
                                             ),
                                           ),
                                         ),
@@ -559,11 +584,22 @@ class _RegisterClientWidgetState extends State<RegisterClientWidget> {
                                             borderRadius:
                                                 BorderRadius.circular(50),
                                           ),
-                                          child: Image.asset(
-                                            'assets/images/Book_Copy_2.png',
-                                            width: 50,
-                                            height: 50,
-                                            fit: BoxFit.cover,
+                                          child: InkWell(
+                                            onTap: () async {
+                                              await Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      ClientSaWidget(),
+                                                ),
+                                              );
+                                            },
+                                            child: Image.asset(
+                                              'assets/images/Book_Copy_2.png',
+                                              width: 50,
+                                              height: 50,
+                                              fit: BoxFit.cover,
+                                            ),
                                           ),
                                         ),
                                       ],
