@@ -36,21 +36,21 @@ class _PostJOBWidgetState extends State<PostJOBWidget> {
   @override
   void initState() {
     super.initState();
-    textController1 = TextEditingController(text: 'Location');
-    textController2 = TextEditingController(text: 'Pincode');
+    textController1 = TextEditingController();
+    textController2 = TextEditingController();
     textController3 = TextEditingController(text: 'Job Description');
   }
 
   void Upload() async{
     print(dropDownValue1);
     print(dropDownValue2);
-    print(textController1);
-    print(textController2);
-    print(textController2);
-    print(textController2);
-    print(textController2);
-    print(textController2);
-
+    print(textController1.text);
+    print(textController2.text);
+    print(textController3.text);
+    print(countControllerValue1);
+    print(countControllerValue2);
+    
+    // ignore: unused_local_variable
     int edulevel = 0;
 
     if(dropDownValue2 == "studied till 9th")
@@ -86,6 +86,14 @@ class _PostJOBWidgetState extends State<PostJOBWidget> {
           }));
       if(response.statusCode == 200){
         print(response.body);
+        ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+            content: Text('Ad posted successfully'),
+            backgroundColor: Colors.green),
+      );
+      }
+      else{
+        print("error code generated");
       }
     }catch(e){
       print(e);
@@ -198,6 +206,8 @@ class _PostJOBWidgetState extends State<PostJOBWidget> {
                             controller: textController1,
                             obscureText: false,
                             decoration: InputDecoration(
+                              hintText: 'Location',
+                              hintStyle: FlutterFlowTheme.bodyText1,
                               enabledBorder: UnderlineInputBorder(
                                 borderSide: BorderSide(
                                   color: Color(0x00000000),
@@ -249,6 +259,8 @@ class _PostJOBWidgetState extends State<PostJOBWidget> {
                             controller: textController2,
                             obscureText: false,
                             decoration: InputDecoration(
+                              hintText: 'Pincode',
+                              hintStyle: FlutterFlowTheme.bodyText1,
                               enabledBorder: UnderlineInputBorder(
                                 borderSide: BorderSide(
                                   color: Color(0x00000000),
@@ -427,12 +439,7 @@ class _PostJOBWidgetState extends State<PostJOBWidget> {
                       ),
                       FFButtonWidget(
                         onPressed: () async {
-                          await Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => WorkerSaWidget(),
-                            ),
-                          );
+                          Upload();
                         },
                         text: 'Post JOB',
                         options: FFButtonOptions(

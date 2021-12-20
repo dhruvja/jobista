@@ -12,6 +12,8 @@ import 'package:google_fonts/google_fonts.dart';
 import '../api_endpoint.dart';
 
 
+//running xcode build can take forever
+
 class WorkerInfoWidget extends StatefulWidget {
 
   var data;
