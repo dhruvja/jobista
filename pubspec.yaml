@@ -33,6 +33,7 @@ dependencies:
   firebase_storage: 10.1.0
   flutter_rating_bar: 4.0.0
   flutter_spinkit: 4.1.2+1
+  flutter_svg: 0.22.0
   font_awesome_flutter: 8.11.0
   google_fonts: 2.1.0
   google_sign_in: 4.5.9
