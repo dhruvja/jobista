@@ -105,29 +105,40 @@ class _DashboardClientWidgetState extends State<DashboardClientWidget> {
                                         color: Color(0xFFEEEEEE),
                                         borderRadius: BorderRadius.circular(10),
                                       ),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Icon(
-                                            Icons.group_add,
-                                            color: Colors.black,
-                                            size: 24,
-                                          ),
-                                          Text(
-                                            'All Adds',
-                                            style: FlutterFlowTheme.bodyText1,
-                                          ),
-                                          Text(
-                                            '10+',
-                                            style: FlutterFlowTheme.bodyText1
-                                                .override(
-                                              fontFamily: 'Lexend Deca',
-                                              color: Color(0xC908253E),
+                                      child: InkWell(
+                                        onTap: () async {
+                                          await Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) =>
+                                                  SearchCustomerWidget(),
                                             ),
-                                          ),
-                                        ],
+                                          );
+                                        },
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Icon(
+                                              Icons.group_add,
+                                              color: Colors.black,
+                                              size: 24,
+                                            ),
+                                            Text(
+                                              'All Adds',
+                                              style: FlutterFlowTheme.bodyText1,
+                                            ),
+                                            Text(
+                                              '10+',
+                                              style: FlutterFlowTheme.bodyText1
+                                                  .override(
+                                                fontFamily: 'Lexend Deca',
+                                                color: Color(0xC908253E),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
                                       ),
                                     ),
                                     Container(
