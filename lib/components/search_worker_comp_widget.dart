@@ -5,15 +5,26 @@ import '../home_client/home_client_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../api_endpoint.dart';
 
-class SearchWorkerCompWidget extends StatefulWidget {
-  const SearchWorkerCompWidget({Key key}) : super(key: key);
+// class SearchWorkerCompWidget extends StatefulWidget {
+//   const SearchWorkerCompWidget({Key key}) : super(key: key);
 
-  @override
-  _SearchWorkerCompWidgetState createState() => _SearchWorkerCompWidgetState();
-}
+//   @override
+//   _SearchWorkerCompWidgetState createState() => _SearchWorkerCompWidgetState();
+// }
 
-class _SearchWorkerCompWidgetState extends State<SearchWorkerCompWidget> {
+// class _SearchWorkerCompWidgetState extends State<SearchWorkerCompWidget> {
+  class SearchWorkerCompWidget extends StatelessWidget {
+
+  var values;
+  String endpoint = Endpoint();
+
+  SearchWorkerCompWidget(this.values);
+
+  void vals() {
+    print(this.values);
+  }
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -75,7 +86,7 @@ class _SearchWorkerCompWidgetState extends State<SearchWorkerCompWidget> {
                                   Align(
                                     alignment: AlignmentDirectional(0.05, 0),
                                     child: Text(
-                                      'Job type',
+                                      values['job_title'],
                                       style:
                                           FlutterFlowTheme.bodyText1.override(
                                         fontFamily: 'Lexend Deca',
@@ -131,7 +142,7 @@ class _SearchWorkerCompWidgetState extends State<SearchWorkerCompWidget> {
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Text(
-                                  'Location',
+                                  values['address_code'],
                                   style: FlutterFlowTheme.bodyText1.override(
                                     fontFamily: 'Lexend Deca',
                                     color: FlutterFlowTheme.customColor1,
@@ -143,14 +154,14 @@ class _SearchWorkerCompWidgetState extends State<SearchWorkerCompWidget> {
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Text(
-                                  'Experience',
+                                  'Experience ',
                                   style: FlutterFlowTheme.bodyText1.override(
                                     fontFamily: 'Lexend Deca',
                                     color: Color(0xFF289CF0),
                                   ),
                                 ),
                                 Text(
-                                  ' 3 Years',
+                                  values['exptime'].toString() + " Years",
                                   style: FlutterFlowTheme.bodyText1.override(
                                     fontFamily: 'Lexend Deca',
                                     color: FlutterFlowTheme.customColor1,
@@ -265,7 +276,7 @@ class _SearchWorkerCompWidgetState extends State<SearchWorkerCompWidget> {
                                                                 .fromSTEB(0, 10,
                                                                     10, 0),
                                                         child: Text(
-                                                          '10+',
+                                                          values['edulevel'].toString(),
                                                           style:
                                                               FlutterFlowTheme
                                                                   .bodyText1,

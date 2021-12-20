@@ -14,6 +14,9 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../api_endpoint.dart';
+import 'package:http/http.dart' as http;
+import 'dart:async';
+import 'dart:convert';
 
 
 class SearchCustomerWidget extends StatefulWidget {
@@ -36,12 +39,39 @@ class _SearchCustomerWidgetState extends State<SearchCustomerWidget> {
   double ratingBarValue;
   final formKey = GlobalKey<FormState>();
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  var ads;
+  bool present = false;
 
   @override
   void initState() {
     super.initState();
     textController1 = TextEditingController();
     textController2 = TextEditingController();
+    getAds();
+  }
+
+  void getAds() async {
+    String endpoint = Endpoint();
+    try {
+      String url = endpoint + "api/client/getads";
+      final response = await http.get(Uri.parse(url));
+      if (response.statusCode == 200) {
+        // print(response.body);
+        var data = json.decode(response.body);
+        print(data);
+        setState(() {
+          ads = data;
+          present = true;
+        });
+      }
+    } catch (e) {
+      print(e);
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+            content: Text('No Interent Found, try again'),
+            backgroundColor: Colors.redAccent),
+      );
+    }
   }
 
   @override
@@ -59,7 +89,7 @@ class _SearchCustomerWidgetState extends State<SearchCustomerWidget> {
             elevation: 6,
           ),
         ),
-        backgroundColor: Color(0x1D255C8F),
+        backgroundColor: Colors.white,
         endDrawer: Container(
           width: 300,
           child: Drawer(
@@ -530,7 +560,10 @@ class _SearchCustomerWidgetState extends State<SearchCustomerWidget> {
                   ],
                 ),
               ),
-              SearchWorkerCompWidget(),
+              if(present)
+                ...(ads).map((ad){
+                  return SearchWorkerCompWidget(ad);
+                }),
             ],
           ),
         ),
