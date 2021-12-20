@@ -662,14 +662,14 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
                     })
                 else if(present && empty)
                   Text('No Results Found')
-                else
-                  Lottie.asset(
-                    'assets/lottie_animations/72785-searching.json',
-                    width: 200,
-                    height: 200,
-                    fit: BoxFit.cover,
-                    animate: true,
-                  )
+                // else
+                //   Lottie.asset(
+                //     'assets/lottie_animations/72785-searching.json',
+                //     width: 200,
+                //     height: 200,
+                //     fit: BoxFit.cover,
+                //     animate: true,
+                //   )
               ],
             ),
           ),
