@@ -5,20 +5,21 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class AdSAWidget extends StatefulWidget {
-  const AdSAWidget({Key key}) : super(key: key);
+class AdInfoSaWidget extends StatefulWidget {
+  const AdInfoSaWidget({Key key}) : super(key: key);
 
   @override
-  _AdSAWidgetState createState() => _AdSAWidgetState();
+  _AdInfoSaWidgetState createState() => _AdInfoSaWidgetState();
 }
 
-class _AdSAWidgetState extends State<AdSAWidget> {
+class _AdInfoSaWidgetState extends State<AdInfoSaWidget> {
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
       child: Row(
         mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Material(
             color: Colors.transparent,
@@ -27,10 +28,9 @@ class _AdSAWidgetState extends State<AdSAWidget> {
               borderRadius: BorderRadius.circular(10),
             ),
             child: Container(
-              width: MediaQuery.of(context).size.width * 0.95,
-              height: 150,
+              width: MediaQuery.of(context).size.width * 0.8,
               decoration: BoxDecoration(
-                color: FlutterFlowTheme.customColor1,
+                color: Color(0x00FFFFFF),
                 borderRadius: BorderRadius.circular(10),
                 border: Border.all(
                   color: Colors.white,
@@ -72,7 +72,7 @@ class _AdSAWidgetState extends State<AdSAWidget> {
                               'Plumber',
                               style: FlutterFlowTheme.subtitle1.override(
                                 fontFamily: 'Lexend Deca',
-                                color: Color(0xFF15212B),
+                                color: FlutterFlowTheme.customColor1,
                                 fontSize: 18,
                                 fontWeight: FontWeight.w500,
                               ),
@@ -84,7 +84,7 @@ class _AdSAWidgetState extends State<AdSAWidget> {
                                   '12-12-21',
                                   textAlign: TextAlign.end,
                                   style: TextStyle(
-                                    color: Color(0xFF57636C),
+                                    color: FlutterFlowTheme.grayLighter,
                                     fontWeight: FontWeight.w500,
                                     fontSize: 10,
                                   ),
@@ -104,7 +104,7 @@ class _AdSAWidgetState extends State<AdSAWidget> {
                                   'Need a plumber for quixk repair',
                                   style: FlutterFlowTheme.bodyText2.override(
                                     fontFamily: 'Lexend Deca',
-                                    color: Color(0xFF8B97A2),
+                                    color: FlutterFlowTheme.customColor1,
                                     fontSize: 12,
                                     fontWeight: FontWeight.normal,
                                   ),

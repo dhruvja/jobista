@@ -1,3 +1,4 @@
+import 'package:j_o_b_ista/applicants/applicants_widget.dart';
 import 'package:j_o_b_ista/dashboard_client/dashboard_client_widget.dart';
 
 import '../flutter_flow/flutter_flow_drop_down.dart';
@@ -90,7 +91,7 @@ class _SelectJobWidgetState extends State<SelectJobWidget> {
           await Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => DashboardClientWidget(),
+              builder: (context) => ApplicantsWidget(),
             ),
           );
         }
@@ -244,7 +245,7 @@ class _SelectJobWidgetState extends State<SelectJobWidget> {
                       await Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => PostJOBWidget(),
+                          builder: (context) => ApplicantsWidget(),
                         ),
                       );
                     },

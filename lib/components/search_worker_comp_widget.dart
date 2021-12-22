@@ -6,15 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../api_endpoint.dart';
-
-// class SearchWorkerCompWidget extends StatefulWidget {
-//   const SearchWorkerCompWidget({Key key}) : super(key: key);
-
-//   @override
-//   _SearchWorkerCompWidgetState createState() => _SearchWorkerCompWidgetState();
-// }
-
-// class _SearchWorkerCompWidgetState extends State<SearchWorkerCompWidget> {
   class SearchWorkerCompWidget extends StatelessWidget {
 
   var values;
