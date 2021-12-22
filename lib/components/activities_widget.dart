@@ -17,7 +17,7 @@ class _ActivitiesWidgetState extends State<ActivitiesWidget> {
     return Padding(
       padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
       child: Container(
-        width: MediaQuery.of(context).size.width * 0.92,
+        width: MediaQuery.of(context).size.width * 0.95,
         height: 70,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.background,
