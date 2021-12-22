@@ -1,3 +1,5 @@
+import 'package:shared_preferences/shared_preferences.dart';
+
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
@@ -487,6 +489,8 @@ class _WorkerInfoWidgetState extends State<WorkerInfoWidget> {
                                       10, 10, 10, 10),
                                   child: FFButtonWidget(
                                     onPressed: () async {
+                                      final prefs = await SharedPreferences.getInstance();
+                                      prefs.setInt('worker_id', values['id']);
                                       await Navigator.push(
                                         context,
                                         MaterialPageRoute(

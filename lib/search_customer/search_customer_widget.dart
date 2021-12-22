@@ -18,7 +18,6 @@ import 'package:http/http.dart' as http;
 import 'dart:async';
 import 'dart:convert';
 
-
 class SearchCustomerWidget extends StatefulWidget {
   const SearchCustomerWidget({Key key}) : super(key: key);
 
@@ -41,28 +40,88 @@ class _SearchCustomerWidgetState extends State<SearchCustomerWidget> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
   var ads;
   bool present = false;
+  bool empty = true;
 
   @override
   void initState() {
     super.initState();
     textController1 = TextEditingController();
     textController2 = TextEditingController();
-    getAds();
+
+    search();
   }
 
-  void getAds() async {
+  void search() async {
+    // print(textController2.text);
+    var data;
     String endpoint = Endpoint();
+    int edulevel = 0;
+    String designation = "";
+
+    designation = dropDownValue1;
+
+    if (dropDownValue2 == "Education") edulevel = 0;
+
+    if (dropDownValue1 == "Select Job") designation = "";
+
+    if (dropDownValue2 == "studied till 9th")
+      edulevel = 0;
+    else if (dropDownValue2 == "10th pass")
+      edulevel = 1;
+    else if (dropDownValue2 == "12th pass")
+      edulevel = 2;
+    else if (dropDownValue2 == "Bachelors")
+      edulevel = 3;
+    else if (dropDownValue2 == 'Masters')
+      edulevel = 4;
+    else
+      edulevel = 0;
+
+    if(textController2.text == "")
+      textController2.text = " ";
+    if(textController2.text == "")
+      textController2.text = " ";
+
+    if (designation == null) designation = "";
+    print(designation);
+
     try {
-      String url = endpoint + "api/client/getads";
-      final response = await http.get(Uri.parse(url));
+      var url = endpoint + "api/worker/search/" + textController2.text;
+      print(url);
+      final response = await http.post(Uri.parse(url),
+          headers: <String, String>{
+            'Content-Type': 'application/json; charset=UTF-8',
+            'accept': 'application/json'
+          },
+          body: jsonEncode(<String, String>{
+            "designation": designation,
+            "edulevel": edulevel.toString(),
+            "exptime": countControllerValue.toString(),
+            "maxsalary": "",
+            "pincode": textController1.text
+          }));
       if (response.statusCode == 200) {
-        // print(response.body);
-        var data = json.decode(response.body);
-        print(data);
-        setState(() {
-          ads = data;
-          present = true;
-        });
+        // If the server did return a 201 CREATED response,
+        // then parse the JSON.
+        print(response.body);
+        data = json.decode(response.body);
+        if (data['success'])
+          setState(() {
+            ads = data['rows'];
+            present = true;
+          });
+        if (ads != null)
+          setState(() {
+            empty = false;
+          });
+      }
+
+      if (!data['success']) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+              content: Text('Could not fetch data'),
+              backgroundColor: Colors.redAccent),
+        );
       }
     } catch (e) {
       print(e);
@@ -72,6 +131,14 @@ class _SearchCustomerWidgetState extends State<SearchCustomerWidget> {
             backgroundColor: Colors.redAccent),
       );
     }
+  }
+
+  void values() {
+    print(dropDownValue1); // role
+    print(dropDownValue2); // education
+    print(textController1.text); // pincode
+    print(textController2.text); // search
+    print(countControllerValue); // experience
   }
 
   @override
@@ -118,9 +185,16 @@ class _SearchCustomerWidgetState extends State<SearchCustomerWidget> {
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         0, 20, 0, 0),
                                     child: FlutterFlowDropDown(
-                                      initialOption: dropDownValue1 ??=
-                                          'Select job',
-                                      options: ['Select job'].toList(),
+                                      initialOption: dropDownValue1 ??= dropDownValue1,
+                                      options: [
+                                        'Select Job',
+                                        'maid',
+                                        'plumber',
+                                        'electrician',
+                                        'nurse',
+                                        'driver',
+                                        'cook'
+                                      ].toList(),
                                       onChanged: (val) =>
                                           setState(() => dropDownValue1 = val),
                                       width: 190,
@@ -130,7 +204,7 @@ class _SearchCustomerWidgetState extends State<SearchCustomerWidget> {
                                         fontFamily: 'Lexend Deca',
                                         color: Colors.black,
                                       ),
-                                      fillColor: Color(0x00FFFFFF),
+                                      fillColor: Colors.white,
                                       elevation: 2,
                                       borderColor: Colors.transparent,
                                       borderWidth: 0,
@@ -186,7 +260,8 @@ class _SearchCustomerWidgetState extends State<SearchCustomerWidget> {
                                     ),
                                   ),
                                   FlutterFlowDropDown(
-                                    options: ['Education'].toList(),
+                                    initialOption: dropDownValue2 ??= dropDownValue2,
+                                    options: ['Education', 'Studied till 9th', '10th pass','12th pass','Bachelors','Masters'].toList(),
                                     onChanged: (val) =>
                                         setState(() => dropDownValue2 = val),
                                     width: 190,
@@ -196,7 +271,7 @@ class _SearchCustomerWidgetState extends State<SearchCustomerWidget> {
                                       fontFamily: 'Lexend Deca',
                                       color: Colors.black,
                                     ),
-                                    fillColor: Color(0x00FFFFFF),
+                                    fillColor: Colors.white,
                                     elevation: 2,
                                     borderColor: Colors.transparent,
                                     borderWidth: 0,
@@ -302,13 +377,7 @@ class _SearchCustomerWidgetState extends State<SearchCustomerWidget> {
                                         0, 10, 0, 0),
                                     child: FFButtonWidget(
                                       onPressed: () async {
-                                        await Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) =>
-                                                SearchClientWidget(),
-                                          ),
-                                        );
+                                        search();
                                       },
                                       text: 'Filter',
                                       options: FFButtonOptions(
@@ -342,112 +411,192 @@ class _SearchCustomerWidgetState extends State<SearchCustomerWidget> {
           ),
         ),
         body: SafeArea(
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              SingleChildScrollView(
-                primary: false,
-                child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    SingleChildScrollView(
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          SingleChildScrollView(
-                            child: Column(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Expanded(
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            10, 10, 10, 10),
-                                        child: TextFormField(
-                                          onChanged: (_) =>
-                                              EasyDebounce.debounce(
-                                            'textController2',
-                                            Duration(milliseconds: 2000),
-                                            () => setState(() {}),
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                SingleChildScrollView(
+                  primary: false,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      SingleChildScrollView(
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            SingleChildScrollView(
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Expanded(
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  10, 10, 10, 10),
+                                          child: TextFormField(
+                                            onChanged: (_) =>
+                                                EasyDebounce.debounce(
+                                              'textController2',
+                                              Duration(milliseconds: 2000),
+                                              () => setState(() {}),
+                                            ),
+                                            onFieldSubmitted: (_) async {
+                                              search();
+                                            },
+                                            controller: textController2,
+                                            obscureText: false,
+                                            decoration: InputDecoration(
+                                              hintText: 'Search JOB',
+                                              hintStyle:
+                                                  FlutterFlowTheme.bodyText1,
+                                              enabledBorder: OutlineInputBorder(
+                                                borderSide: BorderSide(
+                                                  color: Color(0xFF022747),
+                                                  width: 1,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(10),
+                                              ),
+                                              focusedBorder: OutlineInputBorder(
+                                                borderSide: BorderSide(
+                                                  color: Color(0xFF022747),
+                                                  width: 1,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(10),
+                                              ),
+                                              contentPadding:
+                                                  EdgeInsetsDirectional
+                                                      .fromSTEB(10, 10, 10, 10),
+                                              prefixIcon: Icon(
+                                                Icons.search,
+                                                color: FlutterFlowTheme
+                                                    .tertiaryColor,
+                                              ),
+                                              suffixIcon: textController2
+                                                      .text.isNotEmpty
+                                                  ? InkWell(
+                                                      onTap: () => setState(
+                                                        () => textController2
+                                                            .clear(),
+                                                      ),
+                                                      child: Icon(
+                                                        Icons.clear,
+                                                        color:
+                                                            Color(0xFF757575),
+                                                        size: 22,
+                                                      ),
+                                                    )
+                                                  : null,
+                                            ),
+                                            style: FlutterFlowTheme.bodyText1,
                                           ),
-                                          onFieldSubmitted: (_) async {
-                                            await Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                builder: (context) =>
-                                                    OnboardWidget(),
-                                              ),
-                                            );
-                                          },
-                                          controller: textController2,
-                                          obscureText: false,
-                                          decoration: InputDecoration(
-                                            hintText: 'Search JOB',
-                                            hintStyle:
-                                                FlutterFlowTheme.bodyText1,
-                                            enabledBorder: OutlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color: Color(0xFF022747),
-                                                width: 1,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(10),
-                                            ),
-                                            focusedBorder: OutlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color: Color(0xFF022747),
-                                                width: 1,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(10),
-                                            ),
-                                            contentPadding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    10, 10, 10, 10),
-                                            prefixIcon: Icon(
-                                              Icons.search,
-                                              color: FlutterFlowTheme
-                                                  .tertiaryColor,
-                                            ),
-                                            suffixIcon: textController2
-                                                    .text.isNotEmpty
-                                                ? InkWell(
-                                                    onTap: () => setState(
-                                                      () => textController2
-                                                          .clear(),
-                                                    ),
-                                                    child: Icon(
-                                                      Icons.clear,
-                                                      color: Color(0xFF757575),
-                                                      size: 22,
-                                                    ),
-                                                  )
-                                                : null,
-                                          ),
-                                          style: FlutterFlowTheme.bodyText1,
                                         ),
                                       ),
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Expanded(
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            10, 0, 0, 0),
+                                    ],
+                                  ),
+                                  Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Expanded(
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  10, 0, 0, 0),
+                                          child: FlutterFlowChoiceChips(
+                                            initialOption: choiceChipsValue1 ??=
+                                                'Job Type',
+                                            options: [
+                                              ChipData('Job Type',
+                                                  FontAwesomeIcons.robot)
+                                            ],
+                                            onChanged: (val) => setState(
+                                                () => choiceChipsValue1 = val),
+                                            selectedChipStyle: ChipStyle(
+                                              backgroundColor:
+                                                  Color(0xFF262D34),
+                                              textStyle: FlutterFlowTheme
+                                                  .bodyText1
+                                                  .override(
+                                                fontFamily: 'Lexend Deca',
+                                                color: Colors.white,
+                                              ),
+                                              iconColor: Colors.white,
+                                              iconSize: 18,
+                                              elevation: 4,
+                                            ),
+                                            unselectedChipStyle: ChipStyle(
+                                              backgroundColor: Colors.white,
+                                              textStyle: FlutterFlowTheme
+                                                  .bodyText2
+                                                  .override(
+                                                fontFamily: 'Lexend Deca',
+                                                color: Color(0xFF262D34),
+                                              ),
+                                              iconColor: Color(0xFF262D34),
+                                              iconSize: 18,
+                                              elevation: 4,
+                                            ),
+                                            chipSpacing: 20,
+                                          ),
+                                        ),
+                                      ),
+                                      Expanded(
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  10, 0, 0, 0),
+                                          child: FlutterFlowChoiceChips(
+                                            initialOption: choiceChipsValue2 ??=
+                                                'Location',
+                                            options: [
+                                              ChipData(
+                                                  'Location', Icons.location_on)
+                                            ],
+                                            onChanged: (val) => setState(
+                                                () => choiceChipsValue2 = val),
+                                            selectedChipStyle: ChipStyle(
+                                              backgroundColor:
+                                                  Color(0xFF262D34),
+                                              textStyle: FlutterFlowTheme
+                                                  .bodyText1
+                                                  .override(
+                                                fontFamily: 'Lexend Deca',
+                                                color: Colors.white,
+                                              ),
+                                              iconColor: Colors.white,
+                                              iconSize: 18,
+                                              elevation: 4,
+                                            ),
+                                            unselectedChipStyle: ChipStyle(
+                                              backgroundColor: Colors.white,
+                                              textStyle: FlutterFlowTheme
+                                                  .bodyText2
+                                                  .override(
+                                                fontFamily: 'Lexend Deca',
+                                                color: Color(0xFF262D34),
+                                              ),
+                                              iconColor: Color(0xFF262D34),
+                                              iconSize: 18,
+                                              elevation: 4,
+                                            ),
+                                            chipSpacing: 20,
+                                          ),
+                                        ),
+                                      ),
+                                      Expanded(
                                         child: FlutterFlowChoiceChips(
-                                          initialOption: choiceChipsValue1 ??=
-                                              'Job Type',
+                                          initialOption: choiceChipsValue3 ??=
+                                              'Education',
                                           options: [
-                                            ChipData('Job Type',
-                                                FontAwesomeIcons.robot)
+                                            ChipData('Education',
+                                                Icons.cast_for_education)
                                           ],
                                           onChanged: (val) => setState(
-                                              () => choiceChipsValue1 = val),
+                                              () => choiceChipsValue3 = val),
                                           selectedChipStyle: ChipStyle(
                                             backgroundColor: Color(0xFF262D34),
                                             textStyle: FlutterFlowTheme
@@ -475,99 +624,23 @@ class _SearchCustomerWidgetState extends State<SearchCustomerWidget> {
                                           chipSpacing: 20,
                                         ),
                                       ),
-                                    ),
-                                    Expanded(
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            10, 0, 0, 0),
-                                        child: FlutterFlowChoiceChips(
-                                          initialOption: choiceChipsValue2 ??=
-                                              'Location',
-                                          options: [
-                                            ChipData(
-                                                'Location', Icons.location_on)
-                                          ],
-                                          onChanged: (val) => setState(
-                                              () => choiceChipsValue2 = val),
-                                          selectedChipStyle: ChipStyle(
-                                            backgroundColor: Color(0xFF262D34),
-                                            textStyle: FlutterFlowTheme
-                                                .bodyText1
-                                                .override(
-                                              fontFamily: 'Lexend Deca',
-                                              color: Colors.white,
-                                            ),
-                                            iconColor: Colors.white,
-                                            iconSize: 18,
-                                            elevation: 4,
-                                          ),
-                                          unselectedChipStyle: ChipStyle(
-                                            backgroundColor: Colors.white,
-                                            textStyle: FlutterFlowTheme
-                                                .bodyText2
-                                                .override(
-                                              fontFamily: 'Lexend Deca',
-                                              color: Color(0xFF262D34),
-                                            ),
-                                            iconColor: Color(0xFF262D34),
-                                            iconSize: 18,
-                                            elevation: 4,
-                                          ),
-                                          chipSpacing: 20,
-                                        ),
-                                      ),
-                                    ),
-                                    Expanded(
-                                      child: FlutterFlowChoiceChips(
-                                        initialOption: choiceChipsValue3 ??=
-                                            'Education',
-                                        options: [
-                                          ChipData('Education',
-                                              Icons.cast_for_education)
-                                        ],
-                                        onChanged: (val) => setState(
-                                            () => choiceChipsValue3 = val),
-                                        selectedChipStyle: ChipStyle(
-                                          backgroundColor: Color(0xFF262D34),
-                                          textStyle: FlutterFlowTheme.bodyText1
-                                              .override(
-                                            fontFamily: 'Lexend Deca',
-                                            color: Colors.white,
-                                          ),
-                                          iconColor: Colors.white,
-                                          iconSize: 18,
-                                          elevation: 4,
-                                        ),
-                                        unselectedChipStyle: ChipStyle(
-                                          backgroundColor: Colors.white,
-                                          textStyle: FlutterFlowTheme.bodyText2
-                                              .override(
-                                            fontFamily: 'Lexend Deca',
-                                            color: Color(0xFF262D34),
-                                          ),
-                                          iconColor: Color(0xFF262D34),
-                                          iconSize: 18,
-                                          elevation: 4,
-                                        ),
-                                        chipSpacing: 20,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ],
+                                    ],
+                                  ),
+                                ],
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-              if(present)
-                ...(ads).map((ad){
-                  return SearchWorkerCompWidget(ad);
-                }),
-            ],
+                if (present)
+                  ...(ads).map((ad) {
+                    return SearchWorkerCompWidget(ad);
+                  }),
+              ],
+            ),
           ),
         ),
       ),
