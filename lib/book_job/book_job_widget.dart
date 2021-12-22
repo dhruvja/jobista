@@ -4,6 +4,7 @@ import '../flutter_flow/flutter_flow_radio_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
+import '../main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -377,7 +378,8 @@ class _BookJobWidgetState extends State<BookJobWidget> {
                         await Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => BookJobWidget(),
+                            builder: (context) =>
+                                NavBarPage(initialPage: 'BookJob'),
                           ),
                         );
                       },

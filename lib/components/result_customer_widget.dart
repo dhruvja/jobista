@@ -26,8 +26,8 @@ class _ResultCustomerWidgetState extends State<ResultCustomerWidget> {
             borderRadius: BorderRadius.circular(10),
           ),
           child: Container(
-            width: 330,
-            height: 150,
+            width: MediaQuery.of(context).size.width * 0.95,
+            height: 160,
             decoration: BoxDecoration(
               color: Color(0xFF012A55),
               borderRadius: BorderRadius.circular(10),
@@ -117,6 +117,19 @@ class _ResultCustomerWidgetState extends State<ResultCustomerWidget> {
                                   children: [
                                     Text(
                                       'Location',
+                                      style:
+                                          FlutterFlowTheme.bodyText1.override(
+                                        fontFamily: 'Lexend Deca',
+                                        color: FlutterFlowTheme.customColor1,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Text(
+                                      'AD-1',
                                       style:
                                           FlutterFlowTheme.bodyText1.override(
                                         fontFamily: 'Lexend Deca',

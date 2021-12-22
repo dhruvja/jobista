@@ -1,9 +1,8 @@
 import '../auth/auth_util.dart';
-import '../book_job/book_job_widget.dart';
-import '../client_sa/client_sa_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
+import '../main.dart';
 import '../onboard/onboard_widget.dart';
 import '../select_job/select_job_widget.dart';
 import 'package:auto_size_text/auto_size_text.dart';
@@ -563,7 +562,9 @@ class _RegisterClientWidgetState extends State<RegisterClientWidget> {
                                                   context,
                                                   MaterialPageRoute(
                                                     builder: (context) =>
-                                                        BookJobWidget(),
+                                                        NavBarPage(
+                                                            initialPage:
+                                                                'BookJob'),
                                                   ),
                                                 );
                                               },
@@ -590,7 +591,9 @@ class _RegisterClientWidgetState extends State<RegisterClientWidget> {
                                                 context,
                                                 MaterialPageRoute(
                                                   builder: (context) =>
-                                                      ClientSaWidget(),
+                                                      NavBarPage(
+                                                          initialPage:
+                                                              'client_sa'),
                                                 ),
                                               );
                                             },

@@ -1,3 +1,4 @@
+import '../ad_info/ad_info_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
@@ -37,86 +38,96 @@ class _AdInfoSaWidgetState extends State<AdInfoSaWidget> {
                   width: 1,
                 ),
               ),
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                          width: 60,
-                          height: 60,
-                          clipBehavior: Clip.antiAlias,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                          ),
-                          child: SvgPicture.asset(
-                            'assets/images/credit.svg',
-                          ),
-                        ),
-                      ],
+              child: InkWell(
+                onTap: () async {
+                  await Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => AdInfoWidget(),
                     ),
-                  ),
-                  Expanded(
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Text(
-                              'Plumber',
-                              style: FlutterFlowTheme.subtitle1.override(
-                                fontFamily: 'Lexend Deca',
-                                color: FlutterFlowTheme.customColor1,
-                                fontSize: 18,
-                                fontWeight: FontWeight.w500,
-                              ),
+                  );
+                },
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+                            width: 60,
+                            height: 60,
+                            clipBehavior: Clip.antiAlias,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
                             ),
-                            Expanded(
-                              child: Align(
-                                alignment: AlignmentDirectional(0.7, 0),
-                                child: Text(
-                                  '12-12-21',
-                                  textAlign: TextAlign.end,
-                                  style: TextStyle(
-                                    color: FlutterFlowTheme.grayLighter,
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 10,
+                            child: SvgPicture.asset(
+                              'assets/images/credit.svg',
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Expanded(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Text(
+                                'Plumber',
+                                style: FlutterFlowTheme.subtitle1.override(
+                                  fontFamily: 'Lexend Deca',
+                                  color: FlutterFlowTheme.customColor1,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              Expanded(
+                                child: Align(
+                                  alignment: AlignmentDirectional(0.7, 0),
+                                  child: Text(
+                                    '12-12-21',
+                                    textAlign: TextAlign.end,
+                                    style: TextStyle(
+                                      color: FlutterFlowTheme.grayLighter,
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 10,
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
-                          ],
-                        ),
-                        Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Expanded(
-                              child: Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 4, 4, 0),
-                                child: Text(
-                                  'Need a plumber for quixk repair',
-                                  style: FlutterFlowTheme.bodyText2.override(
-                                    fontFamily: 'Lexend Deca',
-                                    color: FlutterFlowTheme.customColor1,
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.normal,
+                            ],
+                          ),
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Expanded(
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0, 4, 4, 0),
+                                  child: Text(
+                                    'Need a plumber for quixk repair',
+                                    style: FlutterFlowTheme.bodyText2.override(
+                                      fontFamily: 'Lexend Deca',
+                                      color: FlutterFlowTheme.customColor1,
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.normal,
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
-                          ],
-                        ),
-                      ],
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ),

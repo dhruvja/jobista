@@ -6,8 +6,13 @@ import 'auth/firebase_user_provider.dart';
 
 import '../flutter_flow/flutter_flow_theme.dart';
 import 'package:j_o_b_ista/login/login_widget.dart';
-import 'package:j_o_b_ista/onboard/onboard_widget.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'home_client/home_client_widget.dart';
+import 'book_job/book_job_widget.dart';
+import 'client_sa/client_sa_widget.dart';
+import 'applicants/applicants_widget.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -59,8 +64,93 @@ class _MyAppState extends State<MyApp> {
               ),
             )
           : currentUser.loggedIn
-              ? OnboardWidget()
+              ? NavBarPage()
               : LoginWidget(),
+    );
+  }
+}
+
+class NavBarPage extends StatefulWidget {
+  NavBarPage({Key key, this.initialPage}) : super(key: key);
+
+  final String initialPage;
+
+  @override
+  _NavBarPageState createState() => _NavBarPageState();
+}
+
+/// This is the private State class that goes with NavBarPage.
+class _NavBarPageState extends State<NavBarPage> {
+  String _currentPage = 'onboard';
+
+  @override
+  void initState() {
+    super.initState();
+    _currentPage = widget.initialPage ?? _currentPage;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final tabs = {
+      'home_client': HomeClientWidget(),
+      'BookJob': BookJobWidget(),
+      'client_sa': ClientSaWidget(),
+      'applicants': ApplicantsWidget(),
+    };
+    return Scaffold(
+      body: tabs[_currentPage],
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.home_outlined,
+              size: 24,
+            ),
+            activeIcon: Icon(
+              Icons.home,
+              size: 24,
+            ),
+            label: 'Home',
+            tooltip: '',
+          ),
+          BottomNavigationBarItem(
+            icon: FaIcon(
+              FontAwesomeIcons.bomb,
+              size: 24,
+            ),
+            label: 'post job',
+            tooltip: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.notifications_active,
+              size: 24,
+            ),
+            label: 'Activity',
+            tooltip: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.monetization_on_outlined,
+              size: 24,
+            ),
+            activeIcon: Icon(
+              Icons.monetization_on,
+              size: 24,
+            ),
+            label: 'Home',
+            tooltip: '',
+          )
+        ],
+        backgroundColor: FlutterFlowTheme.customColor1,
+        currentIndex: tabs.keys.toList().indexOf(_currentPage),
+        selectedItemColor: FlutterFlowTheme.primaryColor,
+        unselectedItemColor: FlutterFlowTheme.grayLight,
+        onTap: (i) => setState(() => _currentPage = tabs.keys.toList()[i]),
+        showSelectedLabels: true,
+        showUnselectedLabels: false,
+        type: BottomNavigationBarType.fixed,
+      ),
     );
   }
 }
