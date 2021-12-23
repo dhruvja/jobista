@@ -1,3 +1,4 @@
+import '../ad_info/ad_info_widget.dart';
 import '../components/search_worker_comp_widget.dart';
 import '../flutter_flow/flutter_flow_choice_chips.dart';
 import '../flutter_flow/flutter_flow_count_controller.dart';
@@ -540,7 +541,17 @@ class _SearchCustomerWidgetState extends State<SearchCustomerWidget> {
                     ],
                   ),
                 ),
-                SearchWorkerCompWidget(),
+                InkWell(
+                  onTap: () async {
+                    await Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => AdInfoWidget(),
+                      ),
+                    );
+                  },
+                  child: SearchWorkerCompWidget(),
+                ),
               ],
             ),
           ),

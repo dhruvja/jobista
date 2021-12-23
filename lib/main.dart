@@ -5,7 +5,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'auth/firebase_user_provider.dart';
 
 import '../flutter_flow/flutter_flow_theme.dart';
-import 'package:j_o_b_ista/login/login_widget.dart';
+import 'package:j_o_b_ista/allinone/allinone_widget.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -13,6 +13,7 @@ import 'home_client/home_client_widget.dart';
 import 'book_job/book_job_widget.dart';
 import 'client_sa/client_sa_widget.dart';
 import 'applicants/applicants_widget.dart';
+import 'allinone/allinone_widget.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -53,19 +54,18 @@ class _MyAppState extends State<MyApp> {
       supportedLocales: const [Locale('en', '')],
       theme: ThemeData(primarySwatch: Colors.blue),
       home: initialUser == null || displaySplashImage
-          ? const Center(
-              child: SizedBox(
-                width: 50,
-                height: 50,
-                child: SpinKitFadingCube(
-                  color: Color(0xFF1976D2),
-                  size: 50,
+          ? Container(
+              color: Colors.transparent,
+              child: Builder(
+                builder: (context) => Image.asset(
+                  'assets/images/JOBista.png',
+                  fit: BoxFit.cover,
                 ),
               ),
             )
           : currentUser.loggedIn
               ? NavBarPage()
-              : LoginWidget(),
+              : AllinoneWidget(),
     );
   }
 }
@@ -96,6 +96,7 @@ class _NavBarPageState extends State<NavBarPage> {
       'BookJob': BookJobWidget(),
       'client_sa': ClientSaWidget(),
       'applicants': ApplicantsWidget(),
+      'allinone': AllinoneWidget(),
     };
     return Scaffold(
       body: tabs[_currentPage],
@@ -140,11 +141,19 @@ class _NavBarPageState extends State<NavBarPage> {
             ),
             label: 'Home',
             tooltip: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.link,
+              size: 24,
+            ),
+            label: 'Links',
+            tooltip: '',
           )
         ],
         backgroundColor: FlutterFlowTheme.customColor1,
         currentIndex: tabs.keys.toList().indexOf(_currentPage),
-        selectedItemColor: FlutterFlowTheme.primaryColor,
+        selectedItemColor: Color(0xFF000957),
         unselectedItemColor: FlutterFlowTheme.grayLight,
         onTap: (i) => setState(() => _currentPage = tabs.keys.toList()[i]),
         showSelectedLabels: true,
