@@ -3,7 +3,7 @@ import '../base/base_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
-import '../home_client/home_client_widget.dart';
+import '../main.dart';
 import '../onboard/onboard_widget.dart';
 import '../search_client/search_client_widget.dart';
 import '../worker_home/worker_home_widget.dart';
@@ -498,7 +498,9 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                   context,
                                                   MaterialPageRoute(
                                                     builder: (context) =>
-                                                        HomeClientWidget(),
+                                                        NavBarPage(
+                                                            initialPage:
+                                                                'home_client'),
                                                   ),
                                                 );
                                               },

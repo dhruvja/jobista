@@ -1,9 +1,15 @@
+import 'package:j_o_b_ista/post_j_o_b/post_j_o_b_widget.dart';
+
 import '../components/ad_s_a_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:http/http.dart' as http;
+import 'dart:async';
+import 'dart:convert';
+import '../api_endpoint.dart';
 
 class AdStandaloneWidget extends StatefulWidget {
   const AdStandaloneWidget({Key key}) : super(key: key);
@@ -15,14 +21,52 @@ class AdStandaloneWidget extends StatefulWidget {
 class _AdStandaloneWidgetState extends State<AdStandaloneWidget> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
+  bool present = false;
+  var ads;
+
+  void initState() {
+    super.initState();
+    getAds();
+  }
+
+  void getAds() async {
+    String endpoint = Endpoint();
+    try {
+      String url = endpoint + "api/client/getads";
+      final response = await http.get(Uri.parse(url));
+      if (response.statusCode == 200) {
+        // print(response.body);
+        var data = json.decode(response.body);
+        print(data);
+        setState(() {
+          ads = data;
+          present = true;
+        });
+      }
+    } catch (e) {
+      print(e);
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+            content: Text('No Interent Found, try again'),
+            backgroundColor: Colors.redAccent),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: Color(0xFFDBE2E7),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          print('FloatingActionButton pressed ...');
+        onPressed: () async{
+          await Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) =>
+                  PostJOBWidget(),
+            ),
+          );
         },
         backgroundColor: Color(0xFF4B39EF),
         elevation: 8,
@@ -269,14 +313,11 @@ class _AdStandaloneWidgetState extends State<AdStandaloneWidget> {
                         ),
                       ],
                     ),
-                    Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Expanded(
-                          child: AdSAWidget(),
-                        ),
-                      ],
-                    ),
+                    if(present)
+                      ...(ads).map((ad){
+                        return AdSAWidget(ad);
+                      })
+                    
                   ],
                 ),
               ),

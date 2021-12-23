@@ -1,18 +1,23 @@
+import '../ad_info/ad_info_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../api_endpoint.dart';
 
-class AdSAWidget extends StatefulWidget {
-  const AdSAWidget({Key key}) : super(key: key);
+class AdSAWidget extends StatelessWidget {
 
-  @override
-  _AdSAWidgetState createState() => _AdSAWidgetState();
-}
+  var values;
+  String endpoint = Endpoint();
 
-class _AdSAWidgetState extends State<AdSAWidget> {
+  AdSAWidget(this.values);
+
+  void vals() {
+    print(this.values);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -37,86 +42,96 @@ class _AdSAWidgetState extends State<AdSAWidget> {
                   width: 1,
                 ),
               ),
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                          width: 60,
-                          height: 60,
-                          clipBehavior: Clip.antiAlias,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                          ),
-                          child: SvgPicture.asset(
-                            'assets/images/credit.svg',
-                          ),
-                        ),
-                      ],
+              child: InkWell(
+                onTap: () async {
+                  await Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => AdInfoWidget(),
                     ),
-                  ),
-                  Expanded(
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Text(
-                              'Plumber',
-                              style: FlutterFlowTheme.subtitle1.override(
-                                fontFamily: 'Lexend Deca',
-                                color: Color(0xFF15212B),
-                                fontSize: 18,
-                                fontWeight: FontWeight.w500,
-                              ),
+                  );
+                },
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+                            width: 60,
+                            height: 60,
+                            clipBehavior: Clip.antiAlias,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
                             ),
-                            Expanded(
-                              child: Align(
-                                alignment: AlignmentDirectional(0.7, 0),
-                                child: Text(
-                                  '12-12-21',
-                                  textAlign: TextAlign.end,
-                                  style: TextStyle(
-                                    color: Color(0xFF57636C),
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 10,
+                            child: SvgPicture.asset(
+                              'assets/images/credit.svg',
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Expanded(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Text(
+                                values['designation'],
+                                style: FlutterFlowTheme.subtitle1.override(
+                                  fontFamily: 'Lexend Deca',
+                                  color: Color(0xFF15212B),
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              Expanded(
+                                child: Align(
+                                  alignment: AlignmentDirectional(0.7, 0),
+                                  child: Text(
+                                    '12-12-21',
+                                    textAlign: TextAlign.end,
+                                    style: TextStyle(
+                                      color: Color(0xFF57636C),
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 10,
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
-                          ],
-                        ),
-                        Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Expanded(
-                              child: Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 4, 4, 0),
-                                child: Text(
-                                  'Need a plumber for quixk repair',
-                                  style: FlutterFlowTheme.bodyText2.override(
-                                    fontFamily: 'Lexend Deca',
-                                    color: Color(0xFF8B97A2),
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.normal,
+                            ],
+                          ),
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Expanded(
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0, 4, 4, 0),
+                                  child: Text(
+                                    values['job_title'],
+                                    style: FlutterFlowTheme.bodyText2.override(
+                                      fontFamily: 'Lexend Deca',
+                                      color: Color(0xFF8B97A2),
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.normal,
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
-                          ],
-                        ),
-                      ],
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ),

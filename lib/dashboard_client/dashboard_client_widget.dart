@@ -1,7 +1,9 @@
+import 'package:j_o_b_ista/ad_standalone/ad_standalone_widget.dart';
+
 import '../components/client_filter_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
-import '../home_client/home_client_widget.dart';
+import '../main.dart';
 import '../search_client/search_client_widget.dart';
 import '../search_customer/search_customer_widget.dart';
 import 'package:flutter/material.dart';
@@ -111,7 +113,7 @@ class _DashboardClientWidgetState extends State<DashboardClientWidget> {
                                             context,
                                             MaterialPageRoute(
                                               builder: (context) =>
-                                                  SearchCustomerWidget(),
+                                                  AdStandaloneWidget(),
                                             ),
                                           );
                                         },
@@ -200,7 +202,9 @@ class _DashboardClientWidgetState extends State<DashboardClientWidget> {
                                                 context,
                                                 MaterialPageRoute(
                                                   builder: (context) =>
-                                                      HomeClientWidget(),
+                                                      NavBarPage(
+                                                          initialPage:
+                                                              'home_client'),
                                                 ),
                                               );
                                             },
