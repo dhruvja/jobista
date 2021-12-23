@@ -1,5 +1,6 @@
 import 'package:j_o_b_ista/ad_standalone/ad_standalone_widget.dart';
 
+import '../ad_info/ad_info_widget.dart';
 import '../components/client_filter_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
@@ -150,29 +151,40 @@ class _DashboardClientWidgetState extends State<DashboardClientWidget> {
                                         color: Color(0xFFEEEEEE),
                                         borderRadius: BorderRadius.circular(10),
                                       ),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Icon(
-                                            Icons.exposure,
-                                            color: Colors.black,
-                                            size: 24,
-                                          ),
-                                          Text(
-                                            'Applied Candidates',
-                                            style: FlutterFlowTheme.bodyText1,
-                                          ),
-                                          Text(
-                                            '22',
-                                            style: FlutterFlowTheme.bodyText1
-                                                .override(
-                                              fontFamily: 'Lexend Deca',
-                                              color: Color(0xFF08253E),
+                                      child: InkWell(
+                                        onTap: () async {
+                                          await Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) => NavBarPage(
+                                                  initialPage: 'applicants'),
                                             ),
-                                          ),
-                                        ],
+                                          );
+                                        },
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Icon(
+                                              Icons.exposure,
+                                              color: Colors.black,
+                                              size: 24,
+                                            ),
+                                            Text(
+                                              'Applied Candidates',
+                                              style: FlutterFlowTheme.bodyText1,
+                                            ),
+                                            Text(
+                                              '22',
+                                              style: FlutterFlowTheme.bodyText1
+                                                  .override(
+                                                fontFamily: 'Lexend Deca',
+                                                color: Color(0xFF08253E),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
                                       ),
                                     ),
                                     Container(
@@ -182,42 +194,54 @@ class _DashboardClientWidgetState extends State<DashboardClientWidget> {
                                         color: Color(0xFFEEEEEE),
                                         borderRadius: BorderRadius.circular(10),
                                       ),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Icon(
-                                            Icons.alarm_add,
-                                            color: Colors.black,
-                                            size: 24,
-                                          ),
-                                          Text(
-                                            'Shortlisted',
-                                            style: FlutterFlowTheme.bodyText1,
-                                          ),
-                                          InkWell(
-                                            onTap: () async {
-                                              await Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      NavBarPage(
-                                                          initialPage:
-                                                              'home_client'),
+                                      child: InkWell(
+                                        onTap: () async {
+                                          await Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) => NavBarPage(
+                                                  initialPage: 'allinone'),
+                                            ),
+                                          );
+                                        },
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Icon(
+                                              Icons.alarm_add,
+                                              color: Colors.black,
+                                              size: 24,
+                                            ),
+                                            Text(
+                                              'Shortlisted',
+                                              style: FlutterFlowTheme.bodyText1,
+                                            ),
+                                            InkWell(
+                                              onTap: () async {
+                                                await Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        NavBarPage(
+                                                            initialPage:
+                                                                'home_client'),
+                                                  ),
+                                                );
+                                              },
+                                              child: Text(
+                                                'Call now',
+                                                style: FlutterFlowTheme
+                                                    .bodyText1
+                                                    .override(
+                                                  fontFamily: 'Lexend Deca',
+                                                  color: Color(0xFF08253E),
                                                 ),
-                                              );
-                                            },
-                                            child: Text(
-                                              'Call now',
-                                              style: FlutterFlowTheme.bodyText1
-                                                  .override(
-                                                fontFamily: 'Lexend Deca',
-                                                color: Color(0xFF08253E),
                                               ),
                                             ),
-                                          ),
-                                        ],
+                                          ],
+                                        ),
                                       ),
                                     ),
                                     Container(
@@ -227,40 +251,52 @@ class _DashboardClientWidgetState extends State<DashboardClientWidget> {
                                         color: Color(0xFFEEEEEE),
                                         borderRadius: BorderRadius.circular(10),
                                       ),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Icon(
-                                            Icons.wb_incandescent,
-                                            color: Colors.black,
-                                            size: 24,
-                                          ),
-                                          Text(
-                                            'Wishlist',
-                                            style: FlutterFlowTheme.bodyText1,
-                                          ),
-                                          InkWell(
-                                            onTap: () async {
-                                              await Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      SearchClientWidget(),
+                                      child: InkWell(
+                                        onTap: () async {
+                                          await Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) =>
+                                                  AdInfoWidget(),
+                                            ),
+                                          );
+                                        },
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Icon(
+                                              Icons.wb_incandescent,
+                                              color: Colors.black,
+                                              size: 24,
+                                            ),
+                                            Text(
+                                              'Wishlist',
+                                              style: FlutterFlowTheme.bodyText1,
+                                            ),
+                                            InkWell(
+                                              onTap: () async {
+                                                await Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        SearchClientWidget(),
+                                                  ),
+                                                );
+                                              },
+                                              child: Text(
+                                                'Check now',
+                                                style: FlutterFlowTheme
+                                                    .bodyText1
+                                                    .override(
+                                                  fontFamily: 'Lexend Deca',
+                                                  color: Color(0xFF08253E),
                                                 ),
-                                              );
-                                            },
-                                            child: Text(
-                                              'Check now',
-                                              style: FlutterFlowTheme.bodyText1
-                                                  .override(
-                                                fontFamily: 'Lexend Deca',
-                                                color: Color(0xFF08253E),
                                               ),
                                             ),
-                                          ),
-                                        ],
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ],
