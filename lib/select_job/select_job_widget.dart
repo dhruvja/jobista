@@ -102,8 +102,8 @@ class _SelectJobWidgetState extends State<SelectJobWidget> {
                   ),
                   Lottie.network(
                     'https://assets7.lottiefiles.com/packages/lf20_iqi2sabx.json',
-                    width: 150,
-                    height: 100,
+                    width: MediaQuery.of(context).size.width,
+                    height: 30,
                     fit: BoxFit.cover,
                     animate: true,
                   ),

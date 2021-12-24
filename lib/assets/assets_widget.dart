@@ -64,6 +64,12 @@ class _AssetsWidgetState extends State<AssetsWidget> {
                   fit: BoxFit.cover,
                   animate: true,
                 ),
+                Image.asset(
+                  'assets/images/Want_to_(6).png',
+                  width: 100,
+                  height: 100,
+                  fit: BoxFit.cover,
+                ),
               ],
             ),
           ],
