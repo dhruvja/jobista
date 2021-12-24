@@ -10,6 +10,7 @@ import 'package:http/http.dart' as http;
 import 'dart:async';
 import 'dart:convert';
 import '../api_endpoint.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class WorkerHomeWidget extends StatefulWidget {
   const WorkerHomeWidget({Key key}) : super(key: key);
@@ -22,10 +23,20 @@ class _WorkerHomeWidgetState extends State<WorkerHomeWidget> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
   bool present = false;
   var ads;
+  String username = " ";
+  String endpoint;
+  var offers = -1;
 
-  void initState() {
+  void initState(){
     super.initState();
+    endpoint = Endpoint();
+    getUsername();
     getAds();
+  }
+
+  void getUsername() async {
+    final storage = new FlutterSecureStorage();
+    username = await storage.read(key: "username");
   }
 
   void getAds() async {
@@ -37,8 +48,10 @@ class _WorkerHomeWidgetState extends State<WorkerHomeWidget> {
         // print(response.body);
         var data = json.decode(response.body);
         print(data);
+        print(data['activeOffers'][0]['COUNT(*)']);
         setState(() {
-          ads = data;
+          ads = data['ads'];
+          offers = data['activeOffers'][0]['COUNT(*)'];
           present = true;
         });
       }
@@ -86,9 +99,10 @@ class _WorkerHomeWidgetState extends State<WorkerHomeWidget> {
                               decoration: BoxDecoration(
                                 shape: BoxShape.circle,
                               ),
-                              child: Image.asset(
-                                'assets/images/avatar.png',
-                              ),
+                              child: Image.network(
+                                    endpoint +
+                                        'api/uploads/image_picker_DE922313-6196-4CD1-A279-0CC7FA0DA71F-47079-0000535E5E38284F.jpg',
+                                  ),
                             ),
                           ),
                         ),
@@ -117,7 +131,7 @@ class _WorkerHomeWidgetState extends State<WorkerHomeWidget> {
                                 padding:
                                     EdgeInsetsDirectional.fromSTEB(4, 0, 0, 0),
                                 child: Text(
-                                  'Andrew',
+                                  username,
                                   style: FlutterFlowTheme.title3.override(
                                     fontFamily: 'Lexend Deca',
                                     color: Color(0xFF00968A),
@@ -192,7 +206,7 @@ class _WorkerHomeWidgetState extends State<WorkerHomeWidget> {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Text(
-                                'Cureent Status',
+                                'Current Status',
                                 style: FlutterFlowTheme.bodyText1.override(
                                   fontFamily: 'Lexend Deca',
                                   color: Colors.white,
@@ -209,7 +223,7 @@ class _WorkerHomeWidgetState extends State<WorkerHomeWidget> {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Text(
-                                '3',
+                                offers.toString(),
                                 style: FlutterFlowTheme.title1.override(
                                   fontFamily: 'Lexend Deca',
                                   color: Colors.white,

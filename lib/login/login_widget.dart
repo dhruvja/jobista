@@ -22,7 +22,6 @@ import 'dart:convert';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import '../api_endpoint.dart';
 
-
 class LoginWidget extends StatefulWidget {
   const LoginWidget({Key key}) : super(key: key);
 
@@ -54,8 +53,7 @@ class _LoginWidgetState extends State<LoginWidget> {
   void authorize() async {
     print(emailAddressController.text);
     try {
-      final response = await http.post(
-          Uri.parse(endpoint + "api/login"),
+      final response = await http.post(Uri.parse(endpoint + "api/login"),
           headers: <String, String>{
             'Content-Type': 'application/json; charset=UTF-8',
             'accept': 'application/json'
@@ -80,14 +78,15 @@ class _LoginWidgetState extends State<LoginWidget> {
           if (status['success']) {
             final storage = new FlutterSecureStorage();
             await storage.write(key: "jwt", value: status['token']);
-            if(status['type'] == 'client')
+            await storage.write(key : "username", value: status['username']);
+            if (status['type'] == 'client')
               await Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => HomeClientWidget(),
+                  builder: (context) => NavBarPage(initialPage: 'home_client'),
                 ),
               );
-            else{
+            else {
               await Navigator.push(
                 context,
                 MaterialPageRoute(

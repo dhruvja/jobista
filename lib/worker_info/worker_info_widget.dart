@@ -148,7 +148,7 @@ class _WorkerInfoWidgetState extends State<WorkerInfoWidget> {
                                                     CrossAxisAlignment.start,
                                                 children: [
                                                   Text(
-                                                    'Name',
+                                                    values['username'],
                                                     style: FlutterFlowTheme
                                                         .bodyText1,
                                                   ),
@@ -157,7 +157,7 @@ class _WorkerInfoWidgetState extends State<WorkerInfoWidget> {
                                                         MainAxisSize.max,
                                                     children: [
                                                       Text(
-                                                        'Location',
+                                                        values['pincode'],
                                                         style: FlutterFlowTheme
                                                             .bodyText1,
                                                       ),
@@ -341,7 +341,7 @@ class _WorkerInfoWidgetState extends State<WorkerInfoWidget> {
                                             style: FlutterFlowTheme.bodyText1,
                                           ),
                                           Text(
-                                            '10+',
+                                            values['eduname'],
                                             style: FlutterFlowTheme.bodyText1
                                                 .override(
                                               fontFamily: 'Lexend Deca',
@@ -373,7 +373,7 @@ class _WorkerInfoWidgetState extends State<WorkerInfoWidget> {
                                             style: FlutterFlowTheme.bodyText1,
                                           ),
                                           Text(
-                                            '2 Years',
+                                            values['exptime'].toString() + " Years",
                                             style: FlutterFlowTheme.bodyText1
                                                 .override(
                                               fontFamily: 'Lexend Deca',
@@ -444,7 +444,7 @@ class _WorkerInfoWidgetState extends State<WorkerInfoWidget> {
                                             size: 24,
                                           ),
                                           Text(
-                                            'Verified',
+                                            values['account_verification'] == 1 ? 'Verified' : "Not Verified" ,
                                             style: FlutterFlowTheme.bodyText1,
                                           ),
                                           InkWell(
