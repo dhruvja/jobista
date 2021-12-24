@@ -8,7 +8,9 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AdInfoWidget extends StatefulWidget {
-  const AdInfoWidget({Key key}) : super(key: key);
+  var data;
+
+  AdInfoWidget({Key key, @required this.data}) : super(key: key);
 
   @override
   _AdInfoWidgetState createState() => _AdInfoWidgetState();
@@ -17,11 +19,14 @@ class AdInfoWidget extends StatefulWidget {
 class _AdInfoWidgetState extends State<AdInfoWidget> {
   TextEditingController textController;
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  var values;
 
   @override
   void initState() {
     super.initState();
     textController = TextEditingController();
+    values = widget.data;
+    print(values);
   }
 
   @override
@@ -143,7 +148,7 @@ class _AdInfoWidgetState extends State<AdInfoWidget> {
                                                       size: 24,
                                                     ),
                                                     Text(
-                                                      'Open',
+                                                      values['username'],
                                                       style: FlutterFlowTheme
                                                           .bodyText1,
                                                     ),
@@ -171,7 +176,7 @@ class _AdInfoWidgetState extends State<AdInfoWidget> {
                                                       size: 24,
                                                     ),
                                                     Text(
-                                                      'Verified',
+                                                      values['maxsalary'].toString(),
                                                       style: FlutterFlowTheme
                                                           .bodyText1,
                                                     ),
@@ -188,6 +193,7 @@ class _AdInfoWidgetState extends State<AdInfoWidget> {
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         10, 10, 10, 10),
                                     child: TextFormField(
+                                      // initialValue: "hi",
                                       controller: textController,
                                       obscureText: false,
                                       decoration: InputDecoration(
