@@ -21,7 +21,7 @@ class _AdInfoWidgetState extends State<AdInfoWidget> {
   @override
   void initState() {
     super.initState();
-    textController = TextEditingController();
+    textController = TextEditingController(text: 'hey');
   }
 
   @override
