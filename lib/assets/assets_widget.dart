@@ -24,8 +24,8 @@ class _AssetsWidgetState extends State<AssetsWidget> {
         child: Row(
           mainAxisSize: MainAxisSize.max,
           children: [
-            Image.network(
-              'https://picsum.photos/seed/196/600',
+            Image.asset(
+              'assets/images/JOBista.png',
               width: 100,
               height: 100,
               fit: BoxFit.cover,
