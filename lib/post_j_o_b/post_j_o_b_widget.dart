@@ -14,7 +14,6 @@ import 'dart:async';
 import 'dart:convert';
 import '../api_endpoint.dart';
 
-
 class PostJOBWidget extends StatefulWidget {
   const PostJOBWidget({Key key}) : super(key: key);
 
@@ -32,6 +31,8 @@ class _PostJOBWidgetState extends State<PostJOBWidget> {
   int countControllerValue2;
   bool checkboxListTileValue;
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  String endpoint;
+  var roles;
 
   @override
   void initState() {
@@ -39,9 +40,42 @@ class _PostJOBWidgetState extends State<PostJOBWidget> {
     textController1 = TextEditingController();
     textController2 = TextEditingController();
     textController3 = TextEditingController(text: 'Job Description');
+    endpoint = Endpoint();
+    getRoles();
   }
 
-  void Upload() async{
+  void getRoles() async {
+    String url = endpoint + "api/getroles";
+    print(url);
+    try {
+      final response = await http.get(Uri.parse(url));
+      if (response.statusCode == 200) {
+        // print(response.body);
+        var data = json.decode(response.body);
+        print(data);
+        if (data['success']) {
+          setState(() {
+            roles = data['roles'];
+          });
+        } else {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+                content: Text('Error occured at the server'),
+                backgroundColor: Colors.redAccent),
+          );
+        }
+      }
+    } catch (e) {
+      print(e);
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+            content: Text('No Interent Found, try again'),
+            backgroundColor: Colors.redAccent),
+      );
+    }
+  }
+
+  void Upload() async {
     print(dropDownValue1);
     print(dropDownValue2);
     print(textController1.text);
@@ -49,28 +83,26 @@ class _PostJOBWidgetState extends State<PostJOBWidget> {
     print(textController3.text);
     print(countControllerValue1);
     print(countControllerValue2);
-    
+
     // ignore: unused_local_variable
     int edulevel = 0;
 
-    if(dropDownValue2 == "studied till 9th")
+    if (dropDownValue2 == "studied till 9th")
       edulevel = 0;
-    else if(dropDownValue2 == "10th pass")
+    else if (dropDownValue2 == "10th pass")
       edulevel = 1;
-    else if(dropDownValue2 == "12th pass")
+    else if (dropDownValue2 == "12th pass")
       edulevel = 2;
-    else if(dropDownValue2 == "Bachelors")
+    else if (dropDownValue2 == "Bachelors")
       edulevel = 3;
-    else if(dropDownValue2 == 'Masters')
+    else if (dropDownValue2 == 'Masters')
       edulevel = 4;
-    else 
+    else
       edulevel = 0;
 
-    try{
-      String endpoint = Endpoint();
+    try {
       String url = endpoint + "api/client/postad";
-      final response = await http.post(
-          Uri.parse(url),
+      final response = await http.post(Uri.parse(url),
           headers: <String, String>{
             'Content-Type': 'application/json; charset=UTF-8',
             'accept': 'application/json'
@@ -84,28 +116,24 @@ class _PostJOBWidgetState extends State<PostJOBWidget> {
             "pincode": textController2.text,
             "description": textController3.text
           }));
-      if(response.statusCode == 200){
+      if (response.statusCode == 200) {
         print(response.body);
         ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-            content: Text('Ad posted successfully'),
-            backgroundColor: Colors.green),
-      );
-      }
-      else{
+          const SnackBar(
+              content: Text('Ad posted successfully'),
+              backgroundColor: Colors.green),
+        );
+      } else {
         print("error code generated");
       }
-    }catch(e){
+    } catch (e) {
       print(e);
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
             content: Text('No Interent Found, try again'),
             backgroundColor: Colors.redAccent),
       );
-    } 
-
-
-
+    }
   }
 
   @override

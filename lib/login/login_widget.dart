@@ -87,12 +87,18 @@ class _LoginWidgetState extends State<LoginWidget> {
                 ),
               );
             else {
+              // await Navigator.push(
+              //   context,
+              //   MaterialPageRoute(
+              //     builder: (context) => WorkerNavBarPage(initialPage: 'home_client'),
+              //   ),
+              // );
               await Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => WorkerHomeWidget(),
-                ),
-              );
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => WorkerHomeWidget(),
+                            ),
+                          );
             }
 
             // await Navigator.pushAndRemoveUntil(

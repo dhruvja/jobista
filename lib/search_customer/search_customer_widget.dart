@@ -1,3 +1,5 @@
+import 'package:lottie/lottie.dart';
+
 import '../components/search_worker_comp_widget.dart';
 import '../flutter_flow/flutter_flow_choice_chips.dart';
 import '../flutter_flow/flutter_flow_count_controller.dart';
@@ -638,7 +640,15 @@ class _SearchCustomerWidgetState extends State<SearchCustomerWidget> {
                 if (present)
                   ...(ads).map((ad) {
                     return SearchWorkerCompWidget(ad);
-                  }),
+                  })
+                else
+                  Lottie.asset(
+                    'assets/lottie_animations/72785-searching.json',
+                    width: 200,
+                    height: 200,
+                    fit: BoxFit.cover,
+                    animate: true,
+                  )
               ],
             ),
           ),
