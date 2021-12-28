@@ -145,6 +145,59 @@ CREATE TABLE `jobify`.`client_details` (
     FOREIGN KEY (`user_id`)
     REFERENCES `jobify`.`accounts` (`id`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION);
+    ON UPDATE NO ACTION
+);
+  
+CREATE TABLE `jobify`.`contract_jobs` (
+  `id` INT NOT NULL,
+  `designation` VARCHAR(45) NOT NULL,
+  `description` VARCHAR(45) NULL,
+  `latitude` VARCHAR(45) NULL,
+  `longitude` VARCHAR(45) NULL,
+  `address` VARCHAR(45) NULL,
+  `status` TINYINT NULL,
+  `rating` VARCHAR(45) NULL,
+  `worker_id` INT NULL,
+  `review` VARCHAR(45) NULL,
+  `created_date` VARCHAR(45) NULL,
+  `completed_date` VARCHAR(45) NULL,
+  `amount` VARCHAR(45) NULL,
+  `user_id` INT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `worker_idx` (`worker_id` ASC) VISIBLE,
+  INDEX `client_idx` (`user_id` ASC) VISIBLE,
+  CONSTRAINT `worker`
+    FOREIGN KEY (`worker_id`)
+    REFERENCES `jobify`.`contract_workers` (`user_id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE;
+  CONSTRAINT `client`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `jobify`.`accounts` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
+);
 
-
+CREATE TABLE `jobify`.`contract_workers` (
+  `id` INT NOT NULL,
+  `user_id` INT NULL,
+  `username` VARCHAR(45) NOT NULL,
+  `phone` VARCHAR(45) NOT NULL,
+  `edulevel` VARCHAR(45) NULL,
+  `eduname` VARCHAR(45) NULL,
+  `profile_pic` VARCHAR(45) NULL,
+  `address` VARCHAR(300) NULL,
+  `account_verification` VARCHAR(45) NULL,
+  `minimum_amount` VARCHAR(45) NULL,
+  `description` VARCHAR(45) NULL,
+  `total_works` VARCHAR(45) NULL,
+  `total_amount` VARCHAR(45) NULL,
+  `rating` VARCHAR(45) NULL,
+  PRIMARY KEY (`id`),
+  INDEX `user_idx` (`user_id` ASC) VISIBLE,
+  CONSTRAINT `user`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `jobify`.`accounts` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
+);

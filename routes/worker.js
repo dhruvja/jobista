@@ -24,28 +24,33 @@ router.route('/search/:query').post(async(req,res) => {
     var designation = req.body.designation
     var edulevel = req.body.edulevel
     var exptime = req.body.exptime
-    var minsalary = req.body.minsalary
+    var maxsalary = req.body.maxsalary
     var pincode = req.body.pincode
 
+    // console.log(edulevel);
 
-    if(edulevel == "")
+
+    if(edulevel == "" || edulevel == 0)
         edulevel = 4;
-    if(exptime == "")
+    if(exptime == "" || exptime == 0)
         exptime = 50;
-    if(minsalary == "")
-        minsalary = 0;
+    if(maxsalary == "" )
+        maxsalary = 0;
     if(pincode == "")
         pincode = 572101
+    
+    console.log(designation,edulevel,exptime,maxsalary,pincode);
 
     const search_query = (index) => {
         return new Promise((resolve,reject) => {
             var order_clause = "ORDER BY CASE WHEN edulevel <= ? THEN -50 ELSE 0 END + CASE WHEN exptime <= ? THEN -40 ELSE 0 END "
-            var filter_clause = "WHERE indexing LIKE CONCAT('%', ? , '%') AND designation LIKE CONCAT('%', ? , '%') AND edulevel <= ? AND exptime <= ? AND minsalary > ? "
-            pool.query("SELECT *,ABS(pincode - ?) AS difference FROM ads INNER JOIN ads_address ON ads.address_code = ads_address.address_code " + filter_clause + order_clause + " + difference",[pincode,index,designation,edulevel,exptime,minsalary,edulevel,exptime], (err,rows) => {
+            var filter_clause = "WHERE indexing LIKE CONCAT('%', ? , '%') AND designation LIKE CONCAT('%', ? , '%') AND edulevel <= ? AND exptime <= ? AND maxsalary > ? "
+            pool.query("SELECT *,ABS(address_code - ?) AS difference FROM ads " + filter_clause + order_clause + " + difference",[pincode,index,designation,edulevel,exptime,maxsalary,edulevel,exptime], (err,rows) => {
                 if(err){
                     console.log(err)
                     return reject(err)
                 }
+                // console.log(rows)
                 return resolve(rows)
             })
         })
@@ -62,13 +67,63 @@ router.route('/search/:query').post(async(req,res) => {
                     data.push(single)
                 }
             }
-            res.json(data[0])
+            res.json({success: true, rows: data[0]})
         }
         else
-            res.json(data)
+            res.json({success: true, rows: data})
     } catch (error) {
         console.log(error)
         res.json(error)
+    }
+})
+
+router.route('/getrecentads').get(async(req,res) => {
+    res.locals.user = 1;
+
+    const getAds = () =>{
+        return new Promise((resolve,reject) => {
+            pool.query("SELECT * FROM ads WHERE designation IN (SELECT designation FROM designation WHERE work_id = ? ) ORDER BY created_date DESC LIMIT 3",[res.locals.user],(err,rows) => {
+                if(err){
+                    console.log(err)
+                    return reject(err);
+                }
+                else{
+                    console.log(rows)
+                    return resolve(rows)
+                }
+            })
+        })
+    }
+
+    const activeOffers = () => {
+        return new Promise((resolve, reject) => {
+            pool.query("SELECT COUNT(*) FROM pinged_workers WHERE worker_id = ?", [res.locals.user],(err,rows) => {
+                if(err){
+                    console.log(err)
+                    return reject(err);
+                }
+                else{
+                    console.log(rows)
+                    return resolve(rows)
+                }
+            })
+        })
+    }
+
+    if(res.locals.user){
+        try {
+            var ads = await getAds();
+            var count = await activeOffers();
+            res.json({ads: ads, activeOffers: count});
+
+        } catch (error) {
+            console.log(error)
+            res.json(error);
+        }
+    }
+    else{
+        console.log("Please enter ur credentials");
+        res.json("Authentication is not provided");
     }
 })
 
@@ -119,6 +174,41 @@ router.route('/indexing').get((req,res) => {
     } catch (error) {
         console.log(error)
         res.json(error)
+    }
+})
+
+router.route('/apply').post(async(req,res) => {
+    res.locals.user = 1;
+    
+    var details = req.body
+
+    apply_query = () => {
+        return new Promise((resolve,reject) => {
+            pool.query("INSERT INTO applied_ads(client_id,worker_id,ad_id) VALUES(?,?,?)",[details.client_id,res.locals.user,details.worker_id],(err,rows) => {
+                if(err){
+                    console.log(err)
+                    return reject(err)
+                }
+                else{
+                    console.log(rows)
+                    return resolve(rows)
+                }
+            })
+        })
+    }
+
+    if(res.locals.user){
+        try {
+            const apply = await apply_query()
+            res.json(apply)
+        } catch (error) {
+            console.log(error)
+            res.json(error)
+        }
+    }
+    else{
+        console.log(res.locals.error)
+        res.json(res.locals.error)
     }
 })
 

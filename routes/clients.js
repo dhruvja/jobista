@@ -156,9 +156,12 @@ router.route('/indexing').get((req,res) => {
     }
 })
 
-router.route('/postad').get( async (req,res) => {
-    res.locals.user = 1;
+router.route('/postad').post( async (req,res) => {
+    res.locals.user = 16;
     var details = req.body;
+    console.log(req.body)
+    var job_title = "Need Urgent " + details.designation;
+    var job_type = "permanent";
 
     const personal_query = () => {
         return new Promise((resolve,reject) => {
@@ -174,30 +177,30 @@ router.route('/postad').get( async (req,res) => {
         })
     }
 
-    const address_query = () => {
-        return new Promise((resolve, reject) => {
-            var code = Math.floor(Math.random*100000 + 1)
-            pool.query(
-                "INSERT INTO ads_address(user_id,address_code,housename,streetname,area,city,pincode) VALUES(?,?,?,?,?,?,?)",
-                [res.locals.user,code,details.address.housename,details.address.streetname,details.address.area,details.address.city,details.address.pincode],
-                (err,rows) => {
-                    if(err){
-                        console.log(err)
-                        return reject(err)
-                    }
-                    else{
-                        return resolve(rows)
-                    }
-                }
-            )
-        })
-    }
+    // const address_query = () => {
+    //     return new Promise((resolve, reject) => {
+    //         var code = Math.floor(Math.random*100000 + 1)
+    //         pool.query(
+    //             "INSERT INTO ads_address(user_id,address_code,housename,streetname,area,city,pincode) VALUES(?,?,?,?,?,?,?)",
+    //             [res.locals.user,code,details.address.housename,details.address.streetname,details.address.area,details.address.city,details.address.pincode],
+    //             (err,rows) => {
+    //                 if(err){
+    //                     console.log(err)
+    //                     return reject(err)
+    //                 }
+    //                 else{
+    //                     return resolve(rows)
+    //                 }
+    //             }
+    //         )
+    //     })
+    // }
 
     const postad_query = () => {
         return new Promise((resolve,reject) => {
             pool.query(
-                "INSERT INTO ads(user_id,job_title,designation,jobtype,exptime,edulevel,address_code,description,username,minsalary,maxsalary,indexing) VALUES(?,?,?,?,?,?,?,?,?,?,?) ",
-                [res.locals.user,details.job_title,details.designation,details.jobtype,details.exptime,details.edulevel,details.address_code,details.description,username,details.minsalary,details.maxsalary,index],
+                "INSERT INTO ads(user_id,job_title,designation,jobtype,exptime,edulevel,address_code,description,username,maxsalary,indexing,created_date) VALUES(?,?,?,?,?,?,?,?,?,?,?,?) ",
+                [res.locals.user,job_title,details.designation,job_type,details.exptime,details.edulevel,details.pincode,details.description,username,details.maxsalary,index,now],
                 (err,rows) => {
                     if(err){
                         console.log(err)
@@ -214,20 +217,22 @@ router.route('/postad').get( async (req,res) => {
     if(res.locals.user){
         try {
             var username = await personal_query();
-            if(!details.address_code){
-                details.address_code = await address_query();
-            }
+            // if(!details.address_code){
+            //     details.address_code = await address_query();
+            // }
+            var now = new Date();
             var index = ""
-            index += metaphone(details.job_title) + " " 
+            index += metaphone(job_title) + " " 
             index += metaphone(details.designation) + " "
             index += metaphone(details.description) + " "
             index += metaphone(username)
+
 
             var data = await postad_query();
 
             res.json(data)
         } catch (error) {
-            
+            console.log(error);
         }
     }
     else{
@@ -267,7 +272,7 @@ router.route('/getads').get(async(req,res) => {
 })
 
 router.route('/getaddress').get(async(req,res) => {
-    res.locals.user = 18;
+    res.locals.user = 16;
 
     const address_query = () => {
         return new Promise((resolve, reject) => {
@@ -287,6 +292,74 @@ router.route('/getaddress').get(async(req,res) => {
         try {
             const address = await address_query()
             res.json(address)
+        } catch (error) {
+            console.log(error)
+            res.json(error)
+        }
+    }
+    else{
+        console.log(res.locals.error)
+        res.json(res.locals.error)
+    }
+})
+
+router.route('/bookedworkers').get(async(req,res) => {
+    res.locals.user = 16;
+
+    const get_pinged_query = () => {
+        return new Promise((resolve,reject) => {
+            pool.query("SELECT * FROM pinged_workers INNER JOIN work_details ON pinged_workers.worker_id = work_details.user_id INNER JOIN designation ON work_details.user_id = designation.work_id WHERE client_id = ? ORDER BY pinged_workers.id DESC;",[res.locals.user], (err,rows) => {
+                if(err){
+                    console.log(err)
+                    return reject(err)
+                }
+                else{
+                    console.log(rows)
+                    return resolve(rows)
+                }
+            })
+        })
+    }
+
+    if(res.locals.user){
+        try {
+            const ping = await get_pinged_query()
+            res.json(ping)
+        } catch (error) {
+            console.log(error)
+            res.json(error)
+        }
+    }
+    else{
+        console.log(res.locals.error)
+        res.json(res.locals.error)
+    }
+})
+
+router.route('/bookjob').post(async(req,res) => {
+    res.locals.user = 16;
+
+    var details = req.body;
+    console.log(details);
+
+    const ping_query = () => {
+        return new Promise((resolve, reject) => {
+            pool.query("INSERT INTO pinged_workers(client_id,worker_id,ad_id) VALUES(?,?,?);",[res.locals.user,details.worker_id,details.ad_id],(err,rows)=>{
+                if(err){
+                    console.log(err)
+                    return reject(err)
+                }
+                else{
+                    console.log(rows)
+                    return resolve(rows)
+                }
+            })
+        })
+    }
+    if(res.locals.user){
+        try {
+            const ping = await ping_query()
+            res.json(ping)
         } catch (error) {
             console.log(error)
             res.json(error)

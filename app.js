@@ -39,7 +39,7 @@ app.post('/api/login',(req,res) => {
                         }
                     )
                     console.log("Login successfully for " + rows[0].type )
-                    res.json({success: true, msg: "You have logged in successfully", token: token,type: rows[0].type})
+                    res.json({success: true, msg: "You have logged in successfully", token: token,type: rows[0].type, username: rows[0].username})
                 }
                 else{
                     console.log("Login failed")
@@ -141,6 +141,25 @@ app.get('/api/allusers', (req, res) => {
         res.json({success: false, msg: error})
     }
 })
+
+app.get('/api/getroles', (req,res) => {
+    try {
+        var query = "SELECT * FROM designation";
+        pool.query(query, (err,rows) => {
+            if(err){
+                console.log(err)
+                res.json({success: false})
+            }
+            else{
+                console.log(rows)
+                res.json({success: true, rows: rows})
+            }
+        })
+    } catch (error) {
+        console.log(error)
+        res.json({success: true})
+    }
+} )
 
 
 
