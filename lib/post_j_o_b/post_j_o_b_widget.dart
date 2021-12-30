@@ -180,32 +180,35 @@ class _PostJOBWidgetState extends State<PostJOBWidget> {
                           ),
                         ),
                       ),
-                      FlutterFlowDropDown(
-                        options: ['Jobtype', 'Electrician', 'Plumber'].toList(),
-                        onChanged: (val) =>
-                            setState(() => dropDownValue1 = val),
-                        width: 200,
-                        height: 50,
-                        textStyle: FlutterFlowTheme.bodyText1.override(
-                          fontFamily: 'Lexend Deca',
-                          color: Colors.black,
-                        ),
-                        fillColor: Colors.white,
-                        elevation: 2,
-                        borderColor: Colors.transparent,
-                        borderWidth: 0,
-                        borderRadius: 10,
-                        margin: EdgeInsetsDirectional.fromSTEB(12, 4, 12, 4),
-                        hidesUnderline: true,
-                      ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
                         child: FlutterFlowDropDown(
                           options:
-                              ['Education', '10th pass', 'PUC passed'].toList(),
+                              ['Jobtype', 'Electrician', 'Plumber'].toList(),
+                          onChanged: (val) =>
+                              setState(() => dropDownValue1 = val),
+                          width: MediaQuery.of(context).size.width * 0.85,
+                          height: 50,
+                          textStyle: FlutterFlowTheme.bodyText1.override(
+                            fontFamily: 'Lexend Deca',
+                            color: Colors.black,
+                          ),
+                          fillColor: Colors.white,
+                          elevation: 2,
+                          borderColor: Colors.transparent,
+                          borderWidth: 0,
+                          borderRadius: 10,
+                          margin: EdgeInsetsDirectional.fromSTEB(12, 4, 12, 4),
+                          hidesUnderline: true,
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
+                        child: FlutterFlowDropDown(
+                          options: ['Education', '10th', '12th'].toList(),
                           onChanged: (val) =>
                               setState(() => dropDownValue2 = val),
-                          width: 200,
+                          width: MediaQuery.of(context).size.width * 0.85,
                           height: 50,
                           textStyle: FlutterFlowTheme.bodyText1.override(
                             fontFamily: 'Lexend Deca',
@@ -221,7 +224,7 @@ class _PostJOBWidgetState extends State<PostJOBWidget> {
                         ),
                       ),
                       Container(
-                        width: 200,
+                        width: MediaQuery.of(context).size.width * 0.85,
                         decoration: BoxDecoration(),
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
@@ -274,7 +277,7 @@ class _PostJOBWidgetState extends State<PostJOBWidget> {
                         ),
                       ),
                       Container(
-                        width: 200,
+                        width: MediaQuery.of(context).size.width * 0.85,
                         decoration: BoxDecoration(),
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
@@ -327,7 +330,11 @@ class _PostJOBWidgetState extends State<PostJOBWidget> {
                         ),
                       ),
                       Container(
-                        width: 200,
+                        width: MediaQuery.of(context).size.width * 0.85,
+                        decoration: BoxDecoration(),
+                      ),
+                      Container(
+                        width: MediaQuery.of(context).size.width * 0.85,
                         decoration: BoxDecoration(),
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
@@ -357,9 +364,12 @@ class _PostJOBWidgetState extends State<PostJOBWidget> {
                           ),
                         ),
                       ),
-                      Text(
-                        'Experience',
-                        style: FlutterFlowTheme.bodyText1,
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 50, 0),
+                        child: Text(
+                          'Experience',
+                          style: FlutterFlowTheme.bodyText1,
+                        ),
                       ),
                       Container(
                         width: 160,
@@ -399,12 +409,15 @@ class _PostJOBWidgetState extends State<PostJOBWidget> {
                               setState(() => countControllerValue1 = count),
                           stepSize: 1,
                           minimum: 0,
-                          maximum: 20,
+                          maximum: 15,
                         ),
                       ),
-                      Text(
-                        'Salary stake',
-                        style: FlutterFlowTheme.bodyText1,
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(0, 10, 50, 0),
+                        child: Text(
+                          'Salary',
+                          style: FlutterFlowTheme.bodyText1,
+                        ),
                       ),
                       Container(
                         width: 160,
