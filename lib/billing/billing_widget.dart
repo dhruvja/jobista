@@ -1,3 +1,4 @@
+import '../components/experience_widget.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
@@ -20,7 +21,7 @@ class _BillingWidgetState extends State<BillingWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: Color(0xFF090F13),
+      backgroundColor: Color(0x73002F88),
       body: SafeArea(
         child: Column(
           mainAxisSize: MainAxisSize.max,
@@ -80,7 +81,7 @@ class _BillingWidgetState extends State<BillingWidget> {
                 'Payment Confirmed!',
                 style: FlutterFlowTheme.title1.override(
                   fontFamily: 'Lexend Deca',
-                  color: Color(0xFF4B39EF),
+                  color: Color(0xFF93CFF8),
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
                 ),
@@ -105,7 +106,7 @@ class _BillingWidgetState extends State<BillingWidget> {
                 textAlign: TextAlign.center,
                 style: FlutterFlowTheme.bodyText2.override(
                   fontFamily: 'Lexend Deca',
-                  color: Color(0xFF8B97A2),
+                  color: FlutterFlowTheme.customColor1,
                   fontSize: 14,
                   fontWeight: FontWeight.normal,
                 ),
@@ -129,7 +130,7 @@ class _BillingWidgetState extends State<BillingWidget> {
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
                       child: Image.asset(
-                        'assets/images/masterCard@2x.png',
+                        'assets/images/Want_to_(3).png',
                         width: 40,
                         height: 40,
                         fit: BoxFit.fitWidth,
@@ -145,7 +146,7 @@ class _BillingWidgetState extends State<BillingWidget> {
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 4),
                             child: Text(
-                              'Mastercard Ending in 4021',
+                              'Total Billing',
                               style: FlutterFlowTheme.bodyText2.override(
                                 fontFamily: 'Lexend Deca',
                                 color: Color(0xFF8B97A2),
@@ -175,10 +176,10 @@ class _BillingWidgetState extends State<BillingWidget> {
             ),
             Expanded(
               child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 32),
+                padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     FFButtonWidget(
                       onPressed: () {
@@ -202,6 +203,9 @@ class _BillingWidgetState extends State<BillingWidget> {
                         ),
                         borderRadius: 40,
                       ),
+                    ),
+                    Expanded(
+                      child: ExperienceWidget(),
                     ),
                   ],
                 ),
