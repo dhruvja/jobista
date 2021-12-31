@@ -1,7 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:j_o_b_ista/components/activities_widget.dart';
 import 'package:j_o_b_ista/post_j_o_b/post_j_o_b_widget.dart';
 import 'package:j_o_b_ista/worker_home/worker_home_widget.dart';
 import 'auth/firebase_user_provider.dart';
@@ -11,26 +13,61 @@ import 'package:j_o_b_ista/allinone/allinone_widget.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'home_client/home_client_widget.dart';
 import 'book_job/book_job_widget.dart';
 import 'client_sa/client_sa_widget.dart';
 import 'applicants/applicants_widget.dart';
 import 'allinone/allinone_widget.dart';
+import 'login/login_widget.dart';
+import 'services/LocalNotification.dart';
 
-void main() async {
+Future<void> backgroundHandler(RemoteMessage message) async {
+  // If you're going to use other Firebase services in the background, such as Firestore,
+  // make sure you call `initializeApp` before using other Firebase services.
+  // await Firebase.initializeApp();
+  print('Handling a background message ${message.messageId}');
+  if (message != null) {
+    print(message.notification.title);
+    print(message.notification.body);
+    print(message.data.toString());
+  }
+
+  // Create a notification for this
+}
+
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-
+  FirebaseMessaging.onBackgroundMessage(backgroundHandler);
   runApp(MyApp());
 }
 
-class MyApp extends StatefulWidget {
+class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
-  _MyAppState createState() => _MyAppState();
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: MyHomePage(),
+      routes: {
+        "client": (_) => HomeClientWidget(),
+        "worker": (_) => WorkerHomeWidget(),
+      },
+    );
+  }
 }
 
-class _MyAppState extends State<MyApp> {
+class MyHomePage extends StatefulWidget {
+  // This widget is the root of your application.
+  @override
+  _MyHomePageState createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
   Stream<JOBIstaFirebaseUser> userStream;
   JOBIstaFirebaseUser initialUser;
   bool displaySplashImage = true;
@@ -38,10 +75,46 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
+    LocalNotification.initialize(context);
+
+    getToken();
+
+
+    FirebaseMessaging.instance.getInitialMessage().then((message) {
+      if (message != null) {
+        print(message.data['route']);
+        var route = message.data['route'].toString();
+        Navigator.of(context).pushNamed(route);
+      }
+    });
+
+    //foreground work
+    FirebaseMessaging.onMessage.listen((message) {
+      if (message.notification != null) {
+        print(message.notification.body);
+        print(message.notification.title);
+      }
+      LocalNotification.display(message);
+    });
+
+    //When the app is in background but opened in the background
+    FirebaseMessaging.onMessageOpenedApp.listen((message) async {
+      if (message.data != null) {
+        print(message.data['route']);
+        var route = message.data['route'].toString();
+        Navigator.of(context).pushNamed(route);
+      }
+    });
+
     userStream = jOBIstaFirebaseUserStream()
       ..listen((user) => initialUser ?? setState(() => initialUser = user));
     Future.delayed(
         Duration(seconds: 1), () => setState(() => displaySplashImage = false));
+  }
+
+  void getToken() async{
+    var token = await FirebaseMessaging.instance.getToken();
+    print(token);
   }
 
   @override
@@ -67,7 +140,11 @@ class _MyAppState extends State<MyApp> {
             )
           : currentUser.loggedIn
               ? NavBarPage()
-              : AllinoneWidget(),
+              : LoginWidget(),
+      routes: {
+        "client": (_) => HomeClientWidget(),
+        "worker": (_) => WorkerHomeWidget(),
+      },
     );
   }
 }

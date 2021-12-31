@@ -38,7 +38,12 @@ class _WorkerHomeWidgetState extends State<WorkerHomeWidget> {
 
   void getUsername() async {
     final storage = new FlutterSecureStorage();
-    username = await storage.read(key: "username");
+    try{
+      username = await storage.read(key: "username");
+    }
+    catch(e){
+      username = "Person";
+    }
   }
 
   void getAds() async {
