@@ -4,8 +4,37 @@ const router = express.Router();
 const pool = require('../db')
 const metaphone = require('metaphone')
 
+var admin = require("firebase-admin");
+var serviceAccount = require("../serviceAccount.json");
+
 const logger = require('../middleware/logger')
 const authorize = require('../middleware/authorize')
+
+
+// admin.initializeApp({
+//     credential: admin.credential.cert(serviceAccount),
+//   });
+
+const sendNotification = (device,payload) => {
+    // const device = "eXNbzI-tSfavGCgv_YJiDZ:APA91bGipEddhF3a47mR_E8RdNuKHzqpU_SQFMMuXyf4bUIs3fSbMIQKTINnCRP3qoaZ5GG4KMDh2pLC1_CrsYQZQuqk45VQ2qaMIwKK_TkCznJNe_9-SJJJ5_HglEtQ8enStn-L30cF"
+    // const payload = {
+    //     notification: {
+    //         title: "This is a notification from node js",
+    //         body: "Yo i have sent it"
+    //     },
+    //     data:{
+    //         route: "client"
+    //     }
+    // };
+    const option = {priority: 'high', timeToLive: 60*60*24};
+    try {
+        admin.messaging().sendToDevice(device,payload,option)
+        return true
+    } catch (error) {
+        console.log(error)
+        return false
+    }
+}
 
 router.route('/registerWork').post(async(req,res) => {
     
