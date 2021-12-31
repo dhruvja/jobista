@@ -156,4 +156,69 @@ router.route("/showworkers/:id").post(async (req, res) => {
     }
 });
 
+router.route('/activejobs').get((req,res) => {
+    res.locals.user = 1;
+
+    const active_query = () => {
+        return new Promise(async(resolve,reject) => {
+            pool.query("SELECT * FROM contract_jobs WHERE status = 0 AND worker_id IS NOT NULL",(err,rows) => {
+                if(err){
+                    console.log(err)
+                    return reject(err)
+                }
+                else{
+                    console.log(rows)
+                    return resolve(rows)
+                }
+            })
+        })
+    }
+
+    if (res.locals.user) {
+        try {
+            const active_jobs = await active_query();
+            res.json(active_jobs);
+        } catch (error) {
+            console.log(error);
+            res.json(error);
+        }
+    } else {
+        console.log(res.locals.error);
+        res.json(res.locals.error);
+    }
+})
+
+router.route('/completedjobs').get((req,res) => {
+    res.locals.user = 1;
+
+    const completed_query = () => {
+        return new Promise(async(resolve,reject) => {
+            pool.query("SELECT * FROM contract_jobs WHERE status = 1",(err,rows) => {
+                if(err){
+                    console.log(err)
+                    return reject(err)
+                }
+                else{
+                    console.log(rows)
+                    return resolve(rows)
+                }
+            })
+        })
+    }
+
+    if (res.locals.user) {
+        try {
+            const completed_jobs = await completed_query();
+            res.json(completed_jobs);
+        } catch (error) {
+            console.log(error);
+            res.json(error);
+        }
+    } else {
+        console.log(res.locals.error);
+        res.json(res.locals.error);
+    }
+})
+
+
 module.exports = router;
