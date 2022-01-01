@@ -236,7 +236,7 @@ class _GenerateBillWidgetState extends State<GenerateBillWidget> {
                             count: countControllerValue ??= 100,
                             updateCount: (count) =>
                                 setState(() => countControllerValue = count),
-                            stepSize: 100,
+                            stepSize: 50,
                             minimum: 100,
                             maximum: 150000,
                           ),

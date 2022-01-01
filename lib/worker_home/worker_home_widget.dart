@@ -139,21 +139,6 @@ class _WorkerHomeWidgetState extends State<WorkerHomeWidget> {
                       children: [
                         Padding(
                           padding:
-                              EdgeInsetsDirectional.fromSTEB(20, 20, 20, 0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Image.asset(
-                                'assets/images/JOBista.png',
-                                width: 50,
-                                height: 20,
-                                fit: BoxFit.cover,
-                              ),
-                            ],
-                          ),
-                        ),
-                        Padding(
-                          padding:
                               EdgeInsetsDirectional.fromSTEB(20, 24, 20, 0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
@@ -176,12 +161,12 @@ class _WorkerHomeWidgetState extends State<WorkerHomeWidget> {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Text(
-                                '3',
+                                '1',
                                 style: FlutterFlowTheme.title1.override(
                                   fontFamily: 'Lexend Deca',
                                   color: Colors.white,
-                                  fontSize: 32,
-                                  fontWeight: FontWeight.bold,
+                                  fontSize: 30,
+                                  fontWeight: FontWeight.normal,
                                 ),
                               ),
                             ],
@@ -194,23 +179,46 @@ class _WorkerHomeWidgetState extends State<WorkerHomeWidget> {
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text(
-                                'Active offers',
-                                style: FlutterFlowTheme.bodyText1.override(
-                                  fontFamily: 'Roboto Mono',
-                                  color: Colors.white,
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.normal,
-                                ),
+                              Column(
+                                mainAxisSize: MainAxisSize.max,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'Customer name',
+                                    style: FlutterFlowTheme.bodyText1.override(
+                                      fontFamily: 'Roboto Mono',
+                                      color: FlutterFlowTheme.dark400,
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.normal,
+                                    ),
+                                  ),
+                                ],
                               ),
-                              Text(
-                                'Check now',
-                                style: FlutterFlowTheme.bodyText1.override(
-                                  fontFamily: 'Roboto Mono',
-                                  color: Color(0xFF010524),
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.normal,
-                                ),
+                              Column(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        90, 0, 0, 0),
+                                    child: Icon(
+                                      Icons.call,
+                                      color: FlutterFlowTheme.customColor1,
+                                      size: 24,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Column(
+                                mainAxisSize: MainAxisSize.max,
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                children: [
+                                  Icon(
+                                    Icons.location_on,
+                                    color: FlutterFlowTheme.customColor1,
+                                    size: 24,
+                                  ),
+                                ],
                               ),
                             ],
                           ),
