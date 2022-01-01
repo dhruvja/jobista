@@ -1,3 +1,5 @@
+import 'package:j_o_b_ista/temp_job_post/temp_job_post_widget.dart';
+
 import '../components/activities_widget.dart';
 import '../components/search_home_widget.dart';
 import '../components/worker_entry_widget.dart';
@@ -193,7 +195,7 @@ class _HomeClientWidgetState extends State<HomeClientWidget> {
                                       context,
                                       MaterialPageRoute(
                                         builder: (context) =>
-                                            DashboardClientWidget(),
+                                            TempJobPostWidget(),
                                       ),
                                     );
                                   },
@@ -367,10 +369,10 @@ class _HomeClientWidgetState extends State<HomeClientWidget> {
                         ),
                       ),
                       WorkerEntryWidget(),
-                      if (present)
-                      ...(ads).map((ad) {
-                        return ActivitiesWidget(ad);
-                      })
+                      // if (present)
+                      // ...(ads).map((ad) {
+                      //   return ActivitiesWidget(ad);
+                      // })
                     ],
                   ),
                 ),

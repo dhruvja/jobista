@@ -1,3 +1,5 @@
+import 'package:j_o_b_ista/worker_confirmation/worker_confirmation_widget.dart';
+
 import '../ad_info/ad_info_widget.dart';
 import '../ad_standalone/ad_standalone_widget.dart';
 import '../dashboard_client/dashboard_client_widget.dart';
@@ -164,8 +166,7 @@ class _AllinoneWidgetState extends State<AllinoneWidget> {
                             await Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) =>
-                                    NavBarPage(initialPage: 'BookJob'),
+                                builder: (context) => WorkerConfirmationWidget(),
                               ),
                             );
                           },

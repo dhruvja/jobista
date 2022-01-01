@@ -5,7 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:j_o_b_ista/components/activities_widget.dart';
 import 'package:j_o_b_ista/post_j_o_b/post_j_o_b_widget.dart';
+import 'package:j_o_b_ista/worker_confirmation/worker_confirmation_widget.dart';
 import 'package:j_o_b_ista/worker_home/worker_home_widget.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'auth/firebase_user_provider.dart';
 
 import '../flutter_flow/flutter_flow_theme.dart';
@@ -56,6 +58,7 @@ class MyApp extends StatelessWidget {
       routes: {
         "client": (_) => HomeClientWidget(),
         "worker": (_) => WorkerHomeWidget(),
+        "worker_confirmation": (_) => WorkerConfirmationWidget(),
       },
     );
   }
@@ -79,12 +82,22 @@ class _MyHomePageState extends State<MyHomePage> {
 
     getToken();
 
-
-    FirebaseMessaging.instance.getInitialMessage().then((message) {
+    FirebaseMessaging.instance.getInitialMessage().then((message) async {
       if (message != null) {
         print(message.data['route']);
         var route = message.data['route'].toString();
-        Navigator.of(context).pushNamed(route);
+        try {
+          print(message.data['worker']);
+          if (message.data['worker']) {
+            final prefs = await SharedPreferences.getInstance();
+            prefs.setInt('worker_id', int.parse(message.data['worker']));
+
+            Navigator.of(context).pushNamed(route);
+          }
+        } catch (e) {
+          print(e);
+          Navigator.of(context).pushNamed(route);
+        }
       }
     });
 
@@ -102,7 +115,17 @@ class _MyHomePageState extends State<MyHomePage> {
       if (message.data != null) {
         print(message.data['route']);
         var route = message.data['route'].toString();
-        Navigator.of(context).pushNamed(route);
+        try {
+          print(message.data['worker']);
+          if (message.data['worker']) {
+            final prefs = await SharedPreferences.getInstance();
+            prefs.setInt('worker_id', int.parse(message.data['worker']));
+            Navigator.of(context).pushNamed(route);
+          }
+        } catch (e) {
+          print(e);
+          Navigator.of(context).pushNamed(route);
+        }
       }
     });
 
@@ -112,7 +135,7 @@ class _MyHomePageState extends State<MyHomePage> {
         Duration(seconds: 1), () => setState(() => displaySplashImage = false));
   }
 
-  void getToken() async{
+  void getToken() async {
     var token = await FirebaseMessaging.instance.getToken();
     print(token);
   }
@@ -141,10 +164,6 @@ class _MyHomePageState extends State<MyHomePage> {
           : currentUser.loggedIn
               ? NavBarPage()
               : LoginWidget(),
-      routes: {
-        "client": (_) => HomeClientWidget(),
-        "worker": (_) => WorkerHomeWidget(),
-      },
     );
   }
 }

@@ -7,6 +7,10 @@ import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:http/http.dart' as http;
+import 'dart:async';
+import 'dart:convert';
+import '../api_endpoint.dart';
 
 class TempJobPostWidget extends StatefulWidget {
   const TempJobPostWidget({Key key}) : super(key: key);
@@ -20,13 +24,81 @@ class _TempJobPostWidgetState extends State<TempJobPostWidget> {
   TextEditingController textController1;
   TextEditingController textController2;
   bool checkboxListTileValue;
+  bool present;
+  List<String> roles = ["Select Job"];
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  String endpoint;
 
   @override
   void initState() {
     super.initState();
     textController1 = TextEditingController();
-    textController2 = TextEditingController(text: 'Job Description');
+    textController2 = TextEditingController();
+    endpoint = Endpoint();
+    getRoles();
+  }
+
+  void getRoles() async {
+    try {
+      String url = endpoint + "api/getroles";
+      final response = await http.get(Uri.parse(url));
+      if (response.statusCode == 200) {
+        // print(response.body);
+        var data = json.decode(response.body);
+        print(data['rows'][0]);
+        var det = data['rows'];
+        print(det.runtimeType);
+        List<String> desig = ['Select Job'];
+        det.forEach((var role) => {desig.add(role['designation'].toString())});
+        print(desig);
+        setState(() {
+          roles = desig;
+          present = true;
+        });
+      }
+    } catch (e) {
+      print(e);
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+            content: Text('No Interent Found, try again'),
+            backgroundColor: Colors.redAccent),
+      );
+    }
+  }
+
+  void submitJob() async{
+    try {
+      String url = endpoint + "api/client/bookcontractjob";
+      print(url);
+      final response = await http.post(Uri.parse(url),
+          headers: <String, String>{
+            'Content-Type': 'application/json; charset=UTF-8',
+            'accept': 'application/json'
+          },
+          body: jsonEncode(<String, String>{
+            "designation": dropDownValue,
+            "description": textController2.text,
+            "latitude": "98.76",
+            "longitude": "89.78"
+          }));
+      if (response.statusCode == 200) {
+        print(response.body);
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+              content: Text('Ad posted successfully'),
+              backgroundColor: Colors.green),
+        );
+      } else {
+        print("error code generated");
+      }
+    } catch (e) {
+      print(e);
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+            content: Text('No Interent Found, try again'),
+            backgroundColor: Colors.redAccent),
+      );
+    }
   }
 
   @override
@@ -76,8 +148,7 @@ class _TempJobPostWidgetState extends State<TempJobPostWidget> {
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
                         child: FlutterFlowDropDown(
-                          options:
-                              ['Jobtype', 'Electrician', 'Plumber'].toList(),
+                          options: roles,
                           onChanged: (val) =>
                               setState(() => dropDownValue = val),
                           width: MediaQuery.of(context).size.width * 0.85,
@@ -207,12 +278,7 @@ class _TempJobPostWidgetState extends State<TempJobPostWidget> {
                       ),
                       FFButtonWidget(
                         onPressed: () async {
-                          await Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => WorkerSaWidget(),
-                            ),
-                          );
+                          submitJob();
                         },
                         text: 'Post JOB',
                         options: FFButtonOptions(
