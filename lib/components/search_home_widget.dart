@@ -17,9 +17,8 @@ class SearchHomeWidget extends StatefulWidget {
 }
 
 class _SearchHomeWidgetState extends State<SearchHomeWidget> {
-  String dropDownValue1;
+  String dropDownValue;
   TextEditingController textController;
-  String dropDownValue2;
   int countControllerValue;
   final formKey = GlobalKey<FormState>();
 
@@ -55,8 +54,7 @@ class _SearchHomeWidgetState extends State<SearchHomeWidget> {
                       padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
                       child: FlutterFlowDropDown(
                         options: ['Job Type', 'Electrician'].toList(),
-                        onChanged: (val) =>
-                            setState(() => dropDownValue1 = val),
+                        onChanged: (val) => setState(() => dropDownValue = val),
                         width: 180,
                         height: 40,
                         textStyle: FlutterFlowTheme.bodyText1.override(
@@ -123,22 +121,6 @@ class _SearchHomeWidgetState extends State<SearchHomeWidget> {
                           },
                         ),
                       ),
-                    ),
-                    FlutterFlowDropDown(
-                      options: ['Education', '10th Pass'].toList(),
-                      onChanged: (val) => setState(() => dropDownValue2 = val),
-                      width: 180,
-                      height: 40,
-                      textStyle: FlutterFlowTheme.bodyText1.override(
-                        fontFamily: 'Lexend Deca',
-                        color: FlutterFlowTheme.grayDark,
-                      ),
-                      fillColor: Colors.white,
-                      elevation: 2,
-                      borderColor: Colors.transparent,
-                      borderWidth: 0,
-                      borderRadius: 0,
-                      margin: EdgeInsetsDirectional.fromSTEB(8, 4, 8, 4),
                     ),
                     Align(
                       alignment: AlignmentDirectional(-0.45, 0),

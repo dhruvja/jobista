@@ -1,4 +1,4 @@
-# j_o_b_ista
+# JOBIsta
 
 A new Flutter project.
 
