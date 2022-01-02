@@ -158,7 +158,7 @@ class _MyHomePageState extends State<MyHomePage> {
               color: Colors.transparent,
               child: Builder(
                 builder: (context) => Image.asset(
-                  'assets/images/JOBista.png',
+                  'assets/images/3thqu_J.png',
                   fit: BoxFit.cover,
                 ),
               ),
