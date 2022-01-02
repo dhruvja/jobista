@@ -2,13 +2,13 @@ import 'package:j_o_b_ista/worker_confirmation/worker_confirmation_widget.dart';
 
 import '../ad_info/ad_info_widget.dart';
 import '../ad_standalone/ad_standalone_widget.dart';
+import '../billing/billing_widget.dart';
 import '../dashboard_client/dashboard_client_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../main.dart';
 import '../onboard/onboard_widget.dart';
-import '../post_j_o_b/post_j_o_b_widget.dart';
 import '../worker_home/worker_home_widget.dart';
 import '../worker_info/worker_info_widget.dart';
 import '../worker_sa/worker_sa_widget.dart';
@@ -138,7 +138,7 @@ class _AllinoneWidgetState extends State<AllinoneWidget> {
                             await Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => PostJOBWidget(),
+                                builder: (context) => BillingWidget(),
                               ),
                             );
                           },

@@ -17,11 +17,10 @@ class SearchHomeWidget extends StatefulWidget {
 }
 
 class _SearchHomeWidgetState extends State<SearchHomeWidget> {
-  bool _loadingButton = true;
-  String dropDownValue1;
+  String dropDownValue;
   TextEditingController textController;
-  String dropDownValue2;
   int countControllerValue;
+  bool _loadingButton = true;
   final formKey = GlobalKey<FormState>();
 
   @override
@@ -64,8 +63,7 @@ class _SearchHomeWidgetState extends State<SearchHomeWidget> {
                           'driver',
                           'cook'
                         ].toList(),
-                        onChanged: (val) =>
-                            setState(() => dropDownValue1 = val),
+                        onChanged: (val) => setState(() => dropDownValue = val),
                         width: 180,
                         height: 40,
                         textStyle: FlutterFlowTheme.bodyText1.override(
@@ -133,29 +131,6 @@ class _SearchHomeWidgetState extends State<SearchHomeWidget> {
                         ),
                       ),
                     ),
-                    FlutterFlowDropDown(
-                      options: [
-                        'Education',
-                        'Studied till 9th',
-                        '10th pass',
-                        '12th pass',
-                        'Bachelors',
-                        'Masters'
-                      ].toList(),
-                      onChanged: (val) => setState(() => dropDownValue2 = val),
-                      width: 180,
-                      height: 40,
-                      textStyle: FlutterFlowTheme.bodyText1.override(
-                        fontFamily: 'Lexend Deca',
-                        color: FlutterFlowTheme.grayDark,
-                      ),
-                      fillColor: Colors.white,
-                      elevation: 2,
-                      borderColor: Colors.transparent,
-                      borderWidth: 0,
-                      borderRadius: 0,
-                      margin: EdgeInsetsDirectional.fromSTEB(8, 4, 8, 4),
-                    ),
                     Align(
                       alignment: AlignmentDirectional(-0.45, 0),
                       child: Text(
@@ -215,9 +190,9 @@ class _SearchHomeWidgetState extends State<SearchHomeWidget> {
                         try {
                           await Navigator.of(context).push(MaterialPageRoute(
                               builder: (context) => SearchClientWidget(
-                                  designation: dropDownValue1,
+                                  designation: dropDownValue,
                                   pincode: textController.text,
-                                  education: dropDownValue2,
+                                  education: 0,
                                   experience: countControllerValue)));
                         } finally {
                           setState(() => _loadingButton = false);
