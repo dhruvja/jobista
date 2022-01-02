@@ -13,6 +13,7 @@ import 'auth/firebase_user_provider.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import 'package:j_o_b_ista/allinone/allinone_widget.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'billing/billing_widget.dart';
 import 'flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -59,6 +60,7 @@ class MyApp extends StatelessWidget {
         "client": (_) => HomeClientWidget(),
         "worker": (_) => WorkerHomeWidget(),
         "worker_confirmation": (_) => WorkerConfirmationWidget(),
+        "bill_generation": (_) => BillingWidget()
       },
     );
   }

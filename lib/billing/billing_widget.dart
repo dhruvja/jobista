@@ -1,3 +1,5 @@
+import 'package:shared_preferences/shared_preferences.dart';
+
 import '../components/experience_widget.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
@@ -6,6 +8,10 @@ import '../flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:http/http.dart' as http;
+import 'dart:async';
+import 'dart:convert';
+import '../api_endpoint.dart';
 
 class BillingWidget extends StatefulWidget {
   const BillingWidget({Key key}) : super(key: key);
@@ -16,6 +22,40 @@ class BillingWidget extends StatefulWidget {
 
 class _BillingWidgetState extends State<BillingWidget> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  var values;
+  bool present = false;
+
+  void initState() {
+    super.initState();
+    getId();
+  }
+
+  void getId() async {
+    final prefs = await SharedPreferences.getInstance();
+    int id = prefs.getInt('worker_id');
+    print(id);
+    String endpoint = Endpoint();
+    try {
+      String url = endpoint + "api/client/getamount/" + id.toString();
+      final response = await http.get(Uri.parse(url));
+      if (response.statusCode == 200) {
+        // print(response.body);
+        var data = json.decode(response.body);
+        print(data);
+        setState(() {
+          values = data[0];
+          present = true;
+        });
+      }
+    } catch (e) {
+      print(e);
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+            content: Text('No Interent Found, try again'),
+            backgroundColor: Colors.redAccent),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -87,18 +127,19 @@ class _BillingWidgetState extends State<BillingWidget> {
                 ),
               ),
             ),
-            Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
-              child: Text(
-                '\$425.24',
-                style: GoogleFonts.getFont(
-                  'Overpass',
-                  color: Colors.white,
-                  fontWeight: FontWeight.w100,
-                  fontSize: 72,
+            if (present)
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
+                child: Text(
+                  values['amount'].toString(),
+                  style: GoogleFonts.getFont(
+                    'Overpass',
+                    color: Colors.white,
+                    fontWeight: FontWeight.w100,
+                    fontSize: 72,
+                  ),
                 ),
               ),
-            ),
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(24, 8, 24, 0),
               child: Text(
@@ -155,18 +196,20 @@ class _BillingWidgetState extends State<BillingWidget> {
                               ),
                             ),
                           ),
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 4),
-                            child: Text(
-                              '\$425.24',
-                              style: FlutterFlowTheme.subtitle2.override(
-                                fontFamily: 'Lexend Deca',
-                                color: Colors.white,
-                                fontSize: 16,
-                                fontWeight: FontWeight.w500,
+                          if (present)
+                            Padding(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 0, 0, 4),
+                              child: Text(
+                                '\₹' + values['amount'].toString(),
+                                style: FlutterFlowTheme.subtitle2.override(
+                                  fontFamily: 'Lexend Deca',
+                                  color: Colors.white,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500,
+                                ),
                               ),
                             ),
-                          ),
                         ],
                       ),
                     ),

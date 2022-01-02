@@ -8,9 +8,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
+import 'package:http/http.dart' as http;
+import 'dart:async';
+import 'dart:convert';
+import '../api_endpoint.dart';
 
 class GenerateBillWidget extends StatefulWidget {
-  const GenerateBillWidget({Key key}) : super(key: key);
+  var data;
+  GenerateBillWidget({Key key, @required this.data}) : super(key: key);
 
   @override
   _GenerateBillWidgetState createState() => _GenerateBillWidgetState();
@@ -20,6 +26,57 @@ class _GenerateBillWidgetState extends State<GenerateBillWidget> {
   String dropDownValue;
   int countControllerValue;
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  var values;
+  String today;
+  List<String> name = ['Select'];
+  String endpoint;
+
+  void initState() {
+    super.initState();
+    values = widget.data;
+    final DateTime now = DateTime.now();
+    final DateFormat formatter = DateFormat('yyyy-MM-dd');
+    today = formatter.format(now);
+    endpoint = Endpoint();
+    // name[0] = values['username'];
+  }
+
+  void generateBill() async{
+    try {
+      String url = endpoint + "api/contractworker/generatebill";
+      final response = await http.post(Uri.parse(url),
+          headers: <String, String>{
+            'Content-Type': 'application/json; charset=UTF-8',
+            'accept': 'application/json'
+          },
+          body: jsonEncode(<String, String>{
+            "amount": countControllerValue.toString(),
+            "id": values['job_id'].toString(),
+            "device_id": values['device_id'].toString(),
+            "username": values['username'],
+            "designation": values['designation'],
+            "worker_id": values['worker_id'].toString()
+          }));
+      if (response.statusCode == 200) {
+        print(response.body);
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+              content: Text('Bill generated successfully'),
+              backgroundColor: Colors.green),
+        );
+      } else {
+        print("error code generated");
+      }
+    } catch (e) {
+      print(e);
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+            content: Text('No Interent Found, try again'),
+            backgroundColor: Colors.redAccent),
+      );
+    }
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -101,7 +158,7 @@ class _GenerateBillWidgetState extends State<GenerateBillWidget> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Text(
-                          'Plumber work',
+                          values['designation'] + " Work",
                           style: FlutterFlowTheme.title1.override(
                             fontFamily: 'Playfair Display',
                             color: Color(0xFF090F13),
@@ -134,7 +191,7 @@ class _GenerateBillWidgetState extends State<GenerateBillWidget> {
                             padding:
                                 EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
                             child: Text(
-                              'Date: 31/12/2021',
+                              'Date: ' + today,
                               style: FlutterFlowTheme.bodyText2.override(
                                 fontFamily: 'Lexend Deca',
                                 color: Color(0xFF8B97A2),
@@ -163,7 +220,7 @@ class _GenerateBillWidgetState extends State<GenerateBillWidget> {
                           child: Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
                             child: FlutterFlowDropDown(
-                              options: ['Small', 'Medium', 'Large'].toList(),
+                              options: name,
                               onChanged: (val) =>
                                   setState(() => dropDownValue = val),
                               width: 130,
@@ -271,7 +328,7 @@ class _GenerateBillWidgetState extends State<GenerateBillWidget> {
                         padding: EdgeInsetsDirectional.fromSTEB(0, 1, 0, 0),
                         child: FFButtonWidget(
                           onPressed: () {
-                            print('Button pressed ...');
+                            generateBill();
                           },
                           text: 'Add Bill',
                           options: FFButtonOptions(

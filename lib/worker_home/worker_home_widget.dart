@@ -1,3 +1,5 @@
+import 'package:j_o_b_ista/generate_bill/generate_bill_widget.dart';
+
 import '../components/activities_widget.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
@@ -29,12 +31,45 @@ class _WorkerHomeWidgetState extends State<WorkerHomeWidget> {
   String username = " ";
   String endpoint;
   var offers = -1;
+  var id = 0;
+  bool available = false;
+  var current;
 
   void initState(){
     super.initState();
     endpoint = Endpoint();
     getUsername();
     getAds();
+    getStatus();
+  }
+
+  void getStatus()async{
+    String endpoint = Endpoint();
+    try {
+      String url = endpoint + "api/contractworker/getstatus";
+      final response = await http.get(Uri.parse(url));
+      if (response.statusCode == 200) {
+        // print(response.body);
+        var data = json.decode(response.body);
+        print(data);
+        if(!data['available']){
+          setState((){
+            available = false;
+          });
+        }
+        else{
+            available = true;
+            current = data['status'][0];
+        }
+      }
+    } catch (e) {
+      print(e);
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+            content: Text('No Interent Found, try again'),
+            backgroundColor: Colors.redAccent),
+      );
+    }
   }
 
   void getUsername() async {
@@ -168,6 +203,7 @@ class _WorkerHomeWidgetState extends State<WorkerHomeWidget> {
                   ],
                 ),
               ),
+              if(present && available)
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
                 child: Container(
@@ -194,7 +230,7 @@ class _WorkerHomeWidgetState extends State<WorkerHomeWidget> {
                         context,
                         MaterialPageRoute(
                           builder: (context) =>
-                              NavBarPage(initialPage: 'home_client'),
+                              GenerateBillWidget(data: current),
                         ),
                       );
                     },
@@ -209,7 +245,7 @@ class _WorkerHomeWidgetState extends State<WorkerHomeWidget> {
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Text(
-                                  'Cureent Status',
+                                  'Current Status',
                                   style: FlutterFlowTheme.bodyText1.override(
                                     fontFamily: 'Lexend Deca',
                                     color: Colors.white,
@@ -250,7 +286,7 @@ class _WorkerHomeWidgetState extends State<WorkerHomeWidget> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      'Customer name',
+                                      current['username'].toString(),
                                       style:
                                           FlutterFlowTheme.bodyText1.override(
                                         fontFamily: 'Roboto Mono',
