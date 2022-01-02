@@ -159,7 +159,7 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Builder(
                 builder: (context) => Image.asset(
                   'assets/images/3thqu_J.png',
-                  fit: BoxFit.cover,
+                  fit: BoxFit.contain,
                 ),
               ),
             )
