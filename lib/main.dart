@@ -59,7 +59,7 @@ class _MyAppState extends State<MyApp> {
               child: Builder(
                 builder: (context) => Image.asset(
                   'assets/images/3thqu_J.png',
-                  fit: BoxFit.cover,
+                  fit: BoxFit.contain,
                 ),
               ),
             )
