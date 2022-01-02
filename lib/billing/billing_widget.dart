@@ -131,7 +131,7 @@ class _BillingWidgetState extends State<BillingWidget> {
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
                 child: Text(
-                  values['amount'].toString(),
+                  '\₹' + values['amount'].toString(),
                   style: GoogleFonts.getFont(
                     'Overpass',
                     color: Colors.white,

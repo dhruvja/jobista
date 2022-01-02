@@ -39,8 +39,8 @@ class _WorkerHomeWidgetState extends State<WorkerHomeWidget> {
     super.initState();
     endpoint = Endpoint();
     getUsername();
-    getAds();
     getStatus();
+    getAds();
   }
 
   void getStatus()async{

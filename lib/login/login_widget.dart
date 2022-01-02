@@ -1,3 +1,5 @@
+import 'package:firebase_messaging/firebase_messaging.dart';
+
 import '../auth/auth_util.dart';
 import '../base/base_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
@@ -51,7 +53,8 @@ class _LoginWidgetState extends State<LoginWidget> {
   var present = false;
 
   void authorize() async {
-    print(emailAddressController.text);
+    print(emailAddressController.text + endpoint);
+    print(endpoint);
     try {
       final response = await http.post(Uri.parse(endpoint + "api/login"),
           headers: <String, String>{
@@ -78,27 +81,43 @@ class _LoginWidgetState extends State<LoginWidget> {
           if (status['success']) {
             final storage = new FlutterSecureStorage();
             await storage.write(key: "jwt", value: status['token']);
-            await storage.write(key : "username", value: status['username']);
-            if (status['type'] == 'client')
-              await Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => NavBarPage(initialPage: 'home_client'),
-                ),
-              );
-            else {
-              // await Navigator.push(
-              //   context,
-              //   MaterialPageRoute(
-              //     builder: (context) => WorkerNavBarPage(initialPage: 'home_client'),
-              //   ),
-              // );
-              await Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => WorkerHomeWidget(),
-                            ),
-                          );
+            await storage.write(key: "username", value: status['username']);
+            var token = await FirebaseMessaging.instance.getToken();
+            print(token);
+            final response = await http.post(Uri.parse(endpoint + "api/deviceid"),
+                headers: <String, String>{
+                  'Content-Type': 'application/json; charset=UTF-8',
+                  'accept': 'application/json'
+                },
+                body: jsonEncode(<String, String>{
+                  'device_id': token,
+                  'id': status['id'].toString(),
+                }));
+            print(response.statusCode);
+            if (response.statusCode == 200) {
+              print(response.body);
+              if (status['type'] == 'client')
+                await Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) =>
+                        NavBarPage(initialPage: 'home_client'),
+                  ),
+                );
+              else {
+                // await Navigator.push(
+                //   context,
+                //   MaterialPageRoute(
+                //     builder: (context) => WorkerNavBarPage(initialPage: 'home_client'),
+                //   ),
+                // );
+                await Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => WorkerHomeWidget(),
+                  ),
+                );
+              }
             }
 
             // await Navigator.pushAndRemoveUntil(
