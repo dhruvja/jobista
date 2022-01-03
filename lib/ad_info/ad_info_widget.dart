@@ -1,3 +1,5 @@
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+
 import '../components/ad_info_sa_widget.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
@@ -21,12 +23,29 @@ class _AdInfoWidgetState extends State<AdInfoWidget> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
   var values;
 
+
   @override
   void initState() {
     super.initState();
     textController = TextEditingController();
     values = widget.data;
     print(values);
+    authorize();
+  }
+
+    var token;
+  void authorize() async{
+    try{
+      final storage = new FlutterSecureStorage();
+      var x = await storage.read(key: "jwt");
+      setState((){
+        token = x;
+      });
+    }
+    catch(e) {
+      print(e);
+      Navigator.pop(context);
+    }
   }
 
   @override

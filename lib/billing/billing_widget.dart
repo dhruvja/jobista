@@ -1,3 +1,4 @@
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../components/experience_widget.dart';
@@ -27,7 +28,23 @@ class _BillingWidgetState extends State<BillingWidget> {
 
   void initState() {
     super.initState();
+    authorize();
     getId();
+  }
+
+    var token;
+  void authorize() async{
+    try{
+      final storage = new FlutterSecureStorage();
+      var x = await storage.read(key: "jwt");
+      setState((){
+        token = x;
+      });
+    }
+    catch(e) {
+      print(e);
+      Navigator.pop(context);
+    }
   }
 
   void getId() async {

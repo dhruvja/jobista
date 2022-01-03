@@ -1,3 +1,4 @@
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:j_o_b_ista/search_client/search_client_widget.dart';
 
 import '../components/result_customer_widget.dart';
@@ -25,7 +26,23 @@ class _ApplicantsWidgetState extends State<ApplicantsWidget> {
 
   void initState() {
     super.initState();
+    authorize();
     getWorkers();
+  }
+
+    var token;
+  void authorize() async{
+    try{
+      final storage = new FlutterSecureStorage();
+      var x = await storage.read(key: "jwt");
+      setState((){
+        token = x;
+      });
+    }
+    catch(e) {
+      print(e);
+      Navigator.pop(context);
+    }
   }
 
   void getWorkers() async {

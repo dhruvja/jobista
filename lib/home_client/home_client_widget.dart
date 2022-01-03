@@ -1,3 +1,4 @@
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:j_o_b_ista/temp_job_post/temp_job_post_widget.dart';
 
 import '../components/activities_widget.dart';
@@ -29,7 +30,23 @@ class _HomeClientWidgetState extends State<HomeClientWidget> {
 
   void initState() {
     super.initState();
+    authorize();
     getAds();
+  }
+
+    var token;
+  void authorize() async{
+    try{
+      final storage = new FlutterSecureStorage();
+      var x = await storage.read(key: "jwt");
+      setState((){
+        token = x;
+      });
+    }
+    catch(e) {
+      print(e);
+      Navigator.pop(context);
+    }
   }
 
   void getAds() async {

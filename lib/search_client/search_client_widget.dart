@@ -78,10 +78,26 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
       countControllerValue = widget.experience;
       textController1.text = widget.pincode;
       textController2.text = " ";
+      authorize();
       search();
     }
     catch(e){
       print(e);
+    }
+  }
+
+    var token;
+  void authorize() async{
+    try{
+      final storage = new FlutterSecureStorage();
+      var x = await storage.read(key: "jwt");
+      setState((){
+        token = x;
+      });
+    }
+    catch(e) {
+      print(e);
+      Navigator.pop(context);
     }
   }
 

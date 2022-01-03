@@ -1,3 +1,5 @@
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+
 import '../flutter_flow/flutter_flow_count_controller.dart';
 import '../flutter_flow/flutter_flow_drop_down.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
@@ -41,7 +43,23 @@ class _PostJOBWidgetState extends State<PostJOBWidget> {
     textController2 = TextEditingController();
     textController3 = TextEditingController(text: 'Job Description');
     endpoint = Endpoint();
+    authorize();
     getRoles();
+  }
+
+    var token;
+  void authorize() async{
+    try{
+      final storage = new FlutterSecureStorage();
+      var x = await storage.read(key: "jwt");
+      setState((){
+        token = x;
+      });
+    }
+    catch(e) {
+      print(e);
+      Navigator.pop(context);
+    }
   }
 
   void getRoles() async {

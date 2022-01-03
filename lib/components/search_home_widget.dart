@@ -192,7 +192,7 @@ class _SearchHomeWidgetState extends State<SearchHomeWidget> {
                               builder: (context) => SearchClientWidget(
                                   designation: dropDownValue,
                                   pincode: textController.text,
-                                  education: 0,
+                                  education: "0",
                                   experience: countControllerValue)));
                         } finally {
                           setState(() => _loadingButton = false);

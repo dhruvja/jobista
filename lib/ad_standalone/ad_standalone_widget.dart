@@ -1,3 +1,4 @@
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:j_o_b_ista/post_j_o_b/post_j_o_b_widget.dart';
 
 import '../components/ad_s_a_widget.dart';
@@ -26,7 +27,23 @@ class _AdStandaloneWidgetState extends State<AdStandaloneWidget> {
 
   void initState() {
     super.initState();
+    authorize();
     getAds();
+  }
+
+    var token;
+  void authorize() async{
+    try{
+      final storage = new FlutterSecureStorage();
+      var x = await storage.read(key: "jwt");
+      setState((){
+        token = x;
+      });
+    }
+    catch(e) {
+      print(e);
+      Navigator.pop(context);
+    }
   }
 
   void getAds() async {

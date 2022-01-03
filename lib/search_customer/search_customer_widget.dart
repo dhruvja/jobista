@@ -1,3 +1,4 @@
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:lottie/lottie.dart';
 
 import '../components/search_worker_comp_widget.dart';
@@ -49,8 +50,23 @@ class _SearchCustomerWidgetState extends State<SearchCustomerWidget> {
     super.initState();
     textController1 = TextEditingController();
     textController2 = TextEditingController();
-
+    authorize();
     search();
+  }
+
+    var token;
+  void authorize() async{
+    try{
+      final storage = new FlutterSecureStorage();
+      var x = await storage.read(key: "jwt");
+      setState((){
+        token = x;
+      });
+    }
+    catch(e) {
+      print(e);
+      Navigator.pop(context);
+    }
   }
 
   void search() async {

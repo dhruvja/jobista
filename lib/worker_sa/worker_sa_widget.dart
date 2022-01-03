@@ -1,3 +1,5 @@
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
@@ -15,6 +17,26 @@ class WorkerSaWidget extends StatefulWidget {
 
 class _WorkerSaWidgetState extends State<WorkerSaWidget> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  void initState() {
+    super.initState();
+    authorize();
+  }
+
+    var token;
+  void authorize() async{
+    try{
+      final storage = new FlutterSecureStorage();
+      var x = await storage.read(key: "jwt");
+      setState((){
+        token = x;
+      });
+    }
+    catch(e) {
+      print(e);
+      Navigator.pop(context);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {

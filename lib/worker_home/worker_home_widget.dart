@@ -34,13 +34,30 @@ class _WorkerHomeWidgetState extends State<WorkerHomeWidget> {
   var id = 0;
   bool available = false;
   var current;
+  
 
   void initState(){
     super.initState();
     endpoint = Endpoint();
+    authorize();
     getUsername();
     getStatus();
     getAds();
+  }
+
+  var token;
+  void authorize() async{
+    try{
+      final storage = new FlutterSecureStorage();
+      var x = await storage.read(key: "jwt");
+      setState((){
+        token = x;
+      });
+    }
+    catch(e) {
+      print(e);
+      Navigator.pop(context);
+    }
   }
 
   void getStatus()async{

@@ -1,3 +1,4 @@
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:j_o_b_ista/applicants/applicants_widget.dart';
 import 'package:j_o_b_ista/dashboard_client/dashboard_client_widget.dart';
 
@@ -35,7 +36,23 @@ class _SelectJobWidgetState extends State<SelectJobWidget> {
 
   void initState() {
     super.initState();
+    authorize();
     getAds();
+  }
+
+    var token;
+  void authorize() async{
+    try{
+      final storage = new FlutterSecureStorage();
+      var x = await storage.read(key: "jwt");
+      setState((){
+        token = x;
+      });
+    }
+    catch(e) {
+      print(e);
+      Navigator.pop(context);
+    }
   }
 
   void getAds() async {

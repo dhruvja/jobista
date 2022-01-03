@@ -1,3 +1,4 @@
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:j_o_b_ista/ad_standalone/ad_standalone_widget.dart';
 
 import '../ad_info/ad_info_widget.dart';
@@ -20,6 +21,26 @@ class DashboardClientWidget extends StatefulWidget {
 
 class _DashboardClientWidgetState extends State<DashboardClientWidget> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  void initState(){
+    super.initState();
+    authorize();
+  }
+
+    var token;
+  void authorize() async{
+    try{
+      final storage = new FlutterSecureStorage();
+      var x = await storage.read(key: "jwt");
+      setState((){
+        token = x;
+      });
+    }
+    catch(e) {
+      print(e);
+      Navigator.pop(context);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
