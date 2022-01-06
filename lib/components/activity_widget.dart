@@ -27,7 +27,7 @@ class ActivityWidget extends StatelessWidget {
             padding: EdgeInsetsDirectional.fromSTEB(0, 0, 12, 0),
             child: Column(
               mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Container(
                   width: 16,
@@ -39,7 +39,7 @@ class ActivityWidget extends StatelessWidget {
                 ),
                 Container(
                   width: 2,
-                  height: 130,
+                  height: 160,
                   decoration: BoxDecoration(
                     color: Color(0xFFDBE2E7),
                   ),
