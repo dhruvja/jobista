@@ -1,4 +1,5 @@
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:j_o_b_ista/components/activity_widget.dart';
 
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
@@ -7,6 +8,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:http/http.dart' as http;
+import 'dart:async';
+import 'dart:convert';
+import '../api_endpoint.dart';
 
 class ClientSaWidget extends StatefulWidget {
   const ClientSaWidget({Key key}) : super(key: key);
@@ -17,6 +22,8 @@ class ClientSaWidget extends StatefulWidget {
 
 class _ClientSaWidgetState extends State<ClientSaWidget> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  var activities;
+  bool present = false;
 
   void initState(){
     super.initState();
@@ -37,6 +44,30 @@ class _ClientSaWidgetState extends State<ClientSaWidget> {
     catch(e) {
       print(e);
       Navigator.pop(context);
+    }
+  }
+
+  void getActivities() async {
+    String endpoint = Endpoint();
+    try {
+      String url = endpoint + "api/client/getads";
+      final response = await http.get(Uri.parse(url));
+      if (response.statusCode == 200) {
+        // print(response.body);
+        var data = json.decode(response.body);
+        print(data);
+        setState(() {
+          activities = data;
+          present = true;
+        });
+      }
+    } catch (e) {
+      print(e);
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+            content: Text('No Interent Found, try again'),
+            backgroundColor: Colors.redAccent),
+      );
     }
   }
 
@@ -84,154 +115,9 @@ class _ClientSaWidgetState extends State<ClientSaWidget> {
                   ],
                 ),
               ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16, 0, 0, 0),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 12, 0),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Container(
-                            width: 16,
-                            height: 16,
-                            decoration: BoxDecoration(
-                              color: Color(0xFFDBE2E7),
-                              shape: BoxShape.circle,
-                            ),
-                          ),
-                          Container(
-                            width: 2,
-                            height: 110,
-                            decoration: BoxDecoration(
-                              color: Color(0xFFDBE2E7),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
-                      child: Container(
-                        width: MediaQuery.of(context).size.width * 0.85,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  '14, Sept. 2021',
-                                  style: FlutterFlowTheme.bodyText1.override(
-                                    fontFamily: 'Lexend Deca',
-                                    color: Color(0xFF95A1AC),
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.normal,
-                                  ),
-                                ),
-                                FaIcon(
-                                  FontAwesomeIcons.check,
-                                  color: Color(0xFF34C108),
-                                  size: 24,
-                                ),
-                              ],
-                            ),
-                            Row(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Text(
-                                  'New job',
-                                  style: FlutterFlowTheme.subtitle2.override(
-                                    fontFamily: 'Lexend Deca',
-                                    color: Color(0xFF151B1E),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      4, 0, 0, 0),
-                                  child: Text(
-                                    'posted',
-                                    style: FlutterFlowTheme.subtitle1.override(
-                                      fontFamily: 'Lexend Deca',
-                                      color: Color(0xFF4B39EF),
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        8, 0, 0, 0),
-                                    child: Text(
-                                      'Andrew F.',
-                                      style:
-                                          FlutterFlowTheme.bodyText1.override(
-                                        fontFamily: 'Lexend Deca',
-                                        color: Color(0xFF95A1AC),
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.normal,
-                                      ),
-                                    ),
-                                  ),
-                                  Expanded(
-                                    child: Align(
-                                      alignment: AlignmentDirectional(1, 0),
-                                      child: FFButtonWidget(
-                                        onPressed: () {
-                                          print('Button pressed ...');
-                                        },
-                                        text: 'Details',
-                                        options: FFButtonOptions(
-                                          width: 130,
-                                          height: 40,
-                                          color: Color(0xFF010524),
-                                          textStyle: FlutterFlowTheme.subtitle2
-                                              .override(
-                                            fontFamily: 'Lexend Deca',
-                                            color: Colors.white,
-                                          ),
-                                          borderSide: BorderSide(
-                                            color: Colors.transparent,
-                                            width: 1,
-                                          ),
-                                          borderRadius: 12,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-
+              ...(test).map((ele){
+                return ActivityWidget();
+              }),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(16, 0, 0, 0),
                 child: Row(
