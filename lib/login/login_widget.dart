@@ -114,7 +114,8 @@ class _LoginWidgetState extends State<LoginWidget> {
                 await Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => WorkerHomeWidget(),
+                    builder: (context) =>
+                        WorkerNavBarPage(initialPage: 'home_client'),
                   ),
                 );
               }
