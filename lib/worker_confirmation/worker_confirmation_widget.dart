@@ -2,7 +2,6 @@ import '../components/client_db_widget.dart';
 import '../flutter_flow/flutter_flow_animations.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -17,6 +16,8 @@ class WorkerConfirmationWidget extends StatefulWidget {
 
 class _WorkerConfirmationWidgetState extends State<WorkerConfirmationWidget>
     with TickerProviderStateMixin {
+  TextEditingController textController;
+  final scaffoldKey = GlobalKey<ScaffoldState>();
   final animationsMap = {
     'rowOnPageLoadAnimation': AnimationInfo(
       curve: Curves.bounceOut,
@@ -25,7 +26,6 @@ class _WorkerConfirmationWidgetState extends State<WorkerConfirmationWidget>
       fadeIn: true,
     ),
   };
-  final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
@@ -35,6 +35,8 @@ class _WorkerConfirmationWidgetState extends State<WorkerConfirmationWidget>
           .where((anim) => anim.trigger == AnimationTrigger.onPageLoad),
       this,
     );
+
+    textController = TextEditingController();
   }
 
   @override
@@ -80,7 +82,7 @@ class _WorkerConfirmationWidgetState extends State<WorkerConfirmationWidget>
                       padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
                       child: Container(
                         width: MediaQuery.of(context).size.width * 0.9,
-                        height: MediaQuery.of(context).size.height * 0.35,
+                        height: MediaQuery.of(context).size.height * 0.4,
                         decoration: BoxDecoration(
                           color: FlutterFlowTheme.customColor1,
                           borderRadius: BorderRadius.circular(0),
@@ -207,17 +209,53 @@ class _WorkerConfirmationWidgetState extends State<WorkerConfirmationWidget>
                                     Column(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  10, 0, 0, 0),
-                                          child: AutoSizeText(
-                                            'Hello World',
-                                            style: FlutterFlowTheme.bodyText1
-                                                .override(
-                                              fontFamily: 'Lexend Deca',
-                                              fontWeight: FontWeight.bold,
-                                              lineHeight: 1,
+                                        Container(
+                                          width: 200,
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    10, 0, 0, 0),
+                                            child: TextFormField(
+                                              controller: textController,
+                                              obscureText: false,
+                                              decoration: InputDecoration(
+                                                hintText: '[Some hint text...]',
+                                                hintStyle:
+                                                    FlutterFlowTheme.bodyText1,
+                                                enabledBorder:
+                                                    UnderlineInputBorder(
+                                                  borderSide: BorderSide(
+                                                    color: Color(0x00000000),
+                                                    width: 1,
+                                                  ),
+                                                  borderRadius:
+                                                      const BorderRadius.only(
+                                                    topLeft:
+                                                        Radius.circular(4.0),
+                                                    topRight:
+                                                        Radius.circular(4.0),
+                                                  ),
+                                                ),
+                                                focusedBorder:
+                                                    UnderlineInputBorder(
+                                                  borderSide: BorderSide(
+                                                    color: Color(0x00000000),
+                                                    width: 1,
+                                                  ),
+                                                  borderRadius:
+                                                      const BorderRadius.only(
+                                                    topLeft:
+                                                        Radius.circular(4.0),
+                                                    topRight:
+                                                        Radius.circular(4.0),
+                                                  ),
+                                                ),
+                                                filled: true,
+                                                fillColor: FlutterFlowTheme
+                                                    .customColor1,
+                                              ),
+                                              style: FlutterFlowTheme.bodyText1,
+                                              maxLines: 2,
                                             ),
                                           ),
                                         ),
