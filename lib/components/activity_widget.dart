@@ -38,7 +38,7 @@ class _ActivityWidgetState extends State<ActivityWidget> {
                 ),
                 Container(
                   width: 2,
-                  height: 110,
+                  height: 130,
                   decoration: BoxDecoration(
                     color: Color(0xFFDBE2E7),
                   ),
