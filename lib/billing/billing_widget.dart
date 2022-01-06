@@ -181,11 +181,14 @@ class _BillingWidgetState extends State<BillingWidget> {
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
+                    Expanded(
+                      child: ExperienceWidget(),
+                    ),
                     FFButtonWidget(
                       onPressed: () {
                         print('Button pressed ...');
                       },
-                      text: 'Generate Bill',
+                      text: 'Submit',
                       options: FFButtonOptions(
                         width: 230,
                         height: 50,
@@ -203,9 +206,6 @@ class _BillingWidgetState extends State<BillingWidget> {
                         ),
                         borderRadius: 40,
                       ),
-                    ),
-                    Expanded(
-                      child: ExperienceWidget(),
                     ),
                   ],
                 ),
