@@ -1,3 +1,4 @@
+import '../api_endpoint.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
@@ -6,14 +7,14 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class ActivityWidget extends StatefulWidget {
-  const ActivityWidget({Key key}) : super(key: key);
+class ActivityWidget extends StatelessWidget {
 
-  @override
-  _ActivityWidgetState createState() => _ActivityWidgetState();
-}
+  bool _loadingButton = false;
+  var values;
+  String endpoint = Endpoint();
 
-class _ActivityWidgetState extends State<ActivityWidget> {
+  ActivityWidget(this.values);
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -65,7 +66,7 @@ class _ActivityWidgetState extends State<ActivityWidget> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        '14, Sept. 2021',
+                        values['job_status'] == 0 ? values['created_date'] : values['completed_date'] ,
                         style: FlutterFlowTheme.bodyText1.override(
                           fontFamily: 'Lexend Deca',
                           color: Color(0xFF95A1AC),
@@ -84,7 +85,7 @@ class _ActivityWidgetState extends State<ActivityWidget> {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Text(
-                        'New job',
+                        values['designation'] + " Work",
                         style: FlutterFlowTheme.subtitle2.override(
                           fontFamily: 'Lexend Deca',
                           color: Color(0xFF151B1E),
@@ -95,7 +96,7 @@ class _ActivityWidgetState extends State<ActivityWidget> {
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(4, 0, 0, 0),
                         child: Text(
-                          'posted',
+                          values['job_status'] == 0 ? "Pending" : "Completed" ,
                           style: FlutterFlowTheme.subtitle1.override(
                             fontFamily: 'Lexend Deca',
                             color: Color(0xFF4B39EF),
@@ -115,7 +116,7 @@ class _ActivityWidgetState extends State<ActivityWidget> {
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(8, 0, 0, 0),
                           child: Text(
-                            'Andrew F.',
+                            values['username'],
                             style: FlutterFlowTheme.bodyText1.override(
                               fontFamily: 'Lexend Deca',
                               color: Color(0xFF95A1AC),
@@ -131,11 +132,11 @@ class _ActivityWidgetState extends State<ActivityWidget> {
                               onPressed: () {
                                 print('Button pressed ...');
                               },
-                              text: 'Details',
+                              text: values['job_status'] == 0 ? "Worker Info" : "View Bill" ,
                               options: FFButtonOptions(
                                 width: 130,
                                 height: 40,
-                                color: Color(0xFF010524),
+                                color: values['job_status'] == 0 ? Colors.blue : Colors.green ,
                                 textStyle: FlutterFlowTheme.subtitle2.override(
                                   fontFamily: 'Lexend Deca',
                                   color: Colors.white,
