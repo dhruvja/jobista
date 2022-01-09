@@ -14,6 +14,7 @@ import 'book_job/book_job_widget.dart';
 import 'client_sa/client_sa_widget.dart';
 import 'applicants/applicants_widget.dart';
 import 'allinone/allinone_widget.dart';
+import 'home_client_copy/home_client_copy_widget.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -101,6 +102,7 @@ class _NavBarPageState extends State<NavBarPage> {
       'client_sa': ClientSaWidget(),
       'applicants': ApplicantsWidget(),
       'allinone': AllinoneWidget(),
+      'home_clientCopy': HomeClientCopyWidget(),
     };
     return Scaffold(
       body: tabs[_currentPage],
@@ -152,6 +154,18 @@ class _NavBarPageState extends State<NavBarPage> {
               size: 24,
             ),
             label: 'Links',
+            tooltip: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.home_outlined,
+              size: 24,
+            ),
+            activeIcon: Icon(
+              Icons.home,
+              size: 24,
+            ),
+            label: 'Home',
             tooltip: '',
           )
         ],

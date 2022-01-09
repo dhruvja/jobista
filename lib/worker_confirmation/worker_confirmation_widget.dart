@@ -54,12 +54,22 @@ class _WorkerConfirmationWidgetState extends State<WorkerConfirmationWidget> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 30, 0, 0),
+                        padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                        child: Image.asset(
+                          'assets/images/JOBista.png',
+                          width: MediaQuery.of(context).size.width * 0.8,
+                          height: 80,
+                          fit: BoxFit.contain,
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
                         child: Container(
                           width: MediaQuery.of(context).size.width * 0.9,
                           height: 400,
                           decoration: BoxDecoration(
-                            color: Color(0xFFEEEEEE),
+                            color: FlutterFlowTheme.customColor1,
+                            borderRadius: BorderRadius.circular(10),
                           ),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
