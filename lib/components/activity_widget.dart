@@ -136,7 +136,7 @@ class ActivityWidget extends StatelessWidget {
                               options: FFButtonOptions(
                                 width: 130,
                                 height: 40,
-                                color: values['job_status'] == 0 ? Colors.blue : Colors.green ,
+                                color: values['job_status'] == 0 ? Colors.red : Color(0xFF1B4F72) ,
                                 textStyle: FlutterFlowTheme.subtitle2.override(
                                   fontFamily: 'Lexend Deca',
                                   color: Colors.white,

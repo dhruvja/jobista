@@ -34,16 +34,15 @@ class _HomeClientWidgetState extends State<HomeClientWidget> {
     getAds();
   }
 
-    var token;
-  void authorize() async{
-    try{
+  var token;
+  void authorize() async {
+    try {
       final storage = new FlutterSecureStorage();
       var x = await storage.read(key: "jwt");
-      setState((){
+      setState(() {
         token = x;
       });
-    }
-    catch(e) {
+    } catch (e) {
       print(e);
       Navigator.pop(context);
     }
@@ -52,7 +51,7 @@ class _HomeClientWidgetState extends State<HomeClientWidget> {
   void getAds() async {
     String endpoint = Endpoint();
     try {
-      String url = endpoint + "api/client/getads";
+      String url = endpoint + "api/client/getpresentworks";
       final response = await http.get(Uri.parse(url));
       if (response.statusCode == 200) {
         // print(response.body);
@@ -162,11 +161,22 @@ class _HomeClientWidgetState extends State<HomeClientWidget> {
                           ],
                         ),
                       ),
-                      WorkerEntryWidget(),
-                      // if (present)
-                      // ...(ads).map((ad) {
-                      //   return ActivitiesWidget(ad);
-                      // })
+                      if (present)
+                        ...(ads).map((ad) {
+                          var eta;
+                          try {
+                            var now = DateTime.now().millisecondsSinceEpoch;
+                            var parsedDate = DateTime.parse(ad['created_date']);
+                            var prev = parsedDate.millisecondsSinceEpoch;
+                            eta = ((now-prev)/(1000*60*60));
+                            eta = eta.round();
+                          } catch (e) {
+                            eta = 0;
+                            print(e);
+                          }
+
+                          return WorkerEntryWidget(ad, eta);
+                        })
                     ],
                   ),
                 ),

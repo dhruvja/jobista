@@ -1,17 +1,20 @@
+import '../api_endpoint.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class WorkerEntryWidget extends StatefulWidget {
-  const WorkerEntryWidget({Key key}) : super(key: key);
+class WorkerEntryWidget extends StatelessWidget {
 
-  @override
-  _WorkerEntryWidgetState createState() => _WorkerEntryWidgetState();
-}
+  bool _loadingButton = false;
+  var values;
+  var roles;
+  var eta;
+  String endpoint = Endpoint();
 
-class _WorkerEntryWidgetState extends State<WorkerEntryWidget> {
+  WorkerEntryWidget(this.values, this.eta);
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -40,9 +43,9 @@ class _WorkerEntryWidgetState extends State<WorkerEntryWidget> {
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
                       ),
-                      child: Image.network(
-                        'https://picsum.photos/seed/486/600',
-                      ),
+                      // child: Image.network(
+                      //   'https://picsum.photos/seed/486/600',
+                      // ),
                     ),
                   ),
                 ],
@@ -56,7 +59,7 @@ class _WorkerEntryWidgetState extends State<WorkerEntryWidget> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Name',
+                        values['username'],
                         style: FlutterFlowTheme.subtitle1.override(
                           fontFamily: 'Lexend Deca',
                           color: Color(0xFF1E2429),
@@ -67,7 +70,7 @@ class _WorkerEntryWidgetState extends State<WorkerEntryWidget> {
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
                         child: Text(
-                          'Service',
+                          values['designation'],
                           style: FlutterFlowTheme.bodyText1.override(
                             fontFamily: 'Lexend Deca',
                             color: Color(0xFF090F13),
@@ -93,7 +96,7 @@ class _WorkerEntryWidgetState extends State<WorkerEntryWidget> {
                       size: 30,
                     ),
                     Text(
-                      '15 mins',
+                      eta.toString() + " mins ago",
                       textAlign: TextAlign.end,
                       style: FlutterFlowTheme.subtitle2.override(
                         fontFamily: 'Lexend Deca',
