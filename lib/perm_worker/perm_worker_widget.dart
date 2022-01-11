@@ -2,6 +2,7 @@ import '../components/activities_widget.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
+import '../main.dart';
 import '../search_client/search_client_widget.dart';
 import '../search_customer/search_customer_widget.dart';
 import '../worker_1/worker1_widget.dart';
@@ -231,101 +232,16 @@ class _PermWorkerWidgetState extends State<PermWorkerWidget> {
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8),
                           ),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(8, 8, 8, 8),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Expanded(
-                                      child: Text(
-                                        'Jobs \nOffered',
-                                        style:
-                                            FlutterFlowTheme.bodyText2.override(
-                                          fontFamily: 'Lexend Deca',
-                                          color: Color(0xFF8B97A2),
-                                          fontSize: 14,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                      ),
-                                    ),
-                                    Card(
-                                      clipBehavior: Clip.antiAliasWithSaveLayer,
-                                      color: Color(0x734B39EF),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            2, 2, 2, 2),
-                                        child: Text(
-                                          '^ 25%',
-                                          style: TextStyle(
-                                            color: Color(0xFF4B39EF),
-                                            fontWeight: FontWeight.w500,
-                                            fontSize: 10,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ],
+                          child: InkWell(
+                            onTap: () async {
+                              await Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      NavBarPage(initialPage: 'home_client'),
                                 ),
-                              ),
-                              Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        8, 0, 0, 8),
-                                    child: Text(
-                                      '4',
-                                      style: FlutterFlowTheme.title2.override(
-                                        fontFamily: 'Lexend Deca',
-                                        color: Color(0xFF4B39EF),
-                                        fontSize: 22,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 0, 5, 0),
-                                    child: InkWell(
-                                      onTap: () async {
-                                        await Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) =>
-                                                SearchClientWidget(),
-                                          ),
-                                        );
-                                      },
-                                      child: Text(
-                                        'click here',
-                                        style: FlutterFlowTheme.bodyText1,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(2, 4, 0, 4),
-                        child: Card(
-                          clipBehavior: Clip.antiAliasWithSaveLayer,
-                          color: Color(0xFFF5F5F5),
-                          elevation: 2,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                          child: SingleChildScrollView(
+                              );
+                            },
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               children: [
@@ -337,7 +253,7 @@ class _PermWorkerWidgetState extends State<PermWorkerWidget> {
                                     children: [
                                       Expanded(
                                         child: Text(
-                                          'Profit',
+                                          'Jobs \nOffered',
                                           style: FlutterFlowTheme.bodyText2
                                               .override(
                                             fontFamily: 'Lexend Deca',
@@ -350,7 +266,7 @@ class _PermWorkerWidgetState extends State<PermWorkerWidget> {
                                       Card(
                                         clipBehavior:
                                             Clip.antiAliasWithSaveLayer,
-                                        color: Color(0x4D3BC821),
+                                        color: Color(0x734B39EF),
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
@@ -358,7 +274,7 @@ class _PermWorkerWidgetState extends State<PermWorkerWidget> {
                                           child: Text(
                                             '^ 25%',
                                             style: TextStyle(
-                                              color: Color(0xFF3BC821),
+                                              color: Color(0xFF4B39EF),
                                               fontWeight: FontWeight.w500,
                                               fontSize: 10,
                                             ),
@@ -377,10 +293,10 @@ class _PermWorkerWidgetState extends State<PermWorkerWidget> {
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           8, 0, 0, 8),
                                       child: Text(
-                                        '20',
+                                        '4',
                                         style: FlutterFlowTheme.title2.override(
                                           fontFamily: 'Lexend Deca',
-                                          color: Color(0xFF3BC821),
+                                          color: Color(0xFF4B39EF),
                                           fontSize: 22,
                                           fontWeight: FontWeight.w500,
                                         ),
@@ -395,7 +311,7 @@ class _PermWorkerWidgetState extends State<PermWorkerWidget> {
                                             context,
                                             MaterialPageRoute(
                                               builder: (context) =>
-                                                  Worker1Widget(),
+                                                  SearchClientWidget(),
                                             ),
                                           );
                                         },
@@ -408,6 +324,115 @@ class _PermWorkerWidgetState extends State<PermWorkerWidget> {
                                   ],
                                 ),
                               ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(2, 4, 0, 4),
+                        child: Card(
+                          clipBehavior: Clip.antiAliasWithSaveLayer,
+                          color: Color(0xFFF5F5F5),
+                          elevation: 2,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: InkWell(
+                            onTap: () async {
+                              await Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => Worker1Widget(),
+                                ),
+                              );
+                            },
+                            child: SingleChildScrollView(
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        8, 8, 8, 8),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Expanded(
+                                          child: Text(
+                                            'Profit',
+                                            style: FlutterFlowTheme.bodyText2
+                                                .override(
+                                              fontFamily: 'Lexend Deca',
+                                              color: Color(0xFF8B97A2),
+                                              fontSize: 14,
+                                              fontWeight: FontWeight.w500,
+                                            ),
+                                          ),
+                                        ),
+                                        Card(
+                                          clipBehavior:
+                                              Clip.antiAliasWithSaveLayer,
+                                          color: Color(0x4D3BC821),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    2, 2, 2, 2),
+                                            child: Text(
+                                              '^ 25%',
+                                              style: TextStyle(
+                                                color: Color(0xFF3BC821),
+                                                fontWeight: FontWeight.w500,
+                                                fontSize: 10,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            8, 0, 0, 8),
+                                        child: Text(
+                                          '20',
+                                          style:
+                                              FlutterFlowTheme.title2.override(
+                                            fontFamily: 'Lexend Deca',
+                                            color: Color(0xFF3BC821),
+                                            fontSize: 22,
+                                            fontWeight: FontWeight.w500,
+                                          ),
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0, 0, 5, 0),
+                                        child: InkWell(
+                                          onTap: () async {
+                                            await Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                builder: (context) =>
+                                                    Worker1Widget(),
+                                              ),
+                                            );
+                                          },
+                                          child: Text(
+                                            'click here',
+                                            style: FlutterFlowTheme.bodyText1,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),
