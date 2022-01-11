@@ -15,6 +15,14 @@ class WorkerAdWidget extends StatefulWidget {
 }
 
 class _WorkerAdWidgetState extends State<WorkerAdWidget> {
+  TextEditingController textController;
+
+  @override
+  void initState() {
+    super.initState();
+    textController = TextEditingController();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -30,7 +38,7 @@ class _WorkerAdWidgetState extends State<WorkerAdWidget> {
             ),
             child: Container(
               width: MediaQuery.of(context).size.width * 0.95,
-              height: 150,
+              height: 200,
               decoration: BoxDecoration(
                 color: FlutterFlowTheme.customColor1,
                 borderRadius: BorderRadius.circular(10),
@@ -76,6 +84,17 @@ class _WorkerAdWidgetState extends State<WorkerAdWidget> {
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
+                          Align(
+                            alignment: AlignmentDirectional(0.9, 0),
+                            child: Text(
+                              'OFFERED',
+                              style: FlutterFlowTheme.bodyText1.override(
+                                fontFamily: 'Lexend Deca',
+                                color: Color(0xFF307F07),
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
                           Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -120,6 +139,55 @@ class _WorkerAdWidgetState extends State<WorkerAdWidget> {
                                       fontWeight: FontWeight.normal,
                                     ),
                                   ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Expanded(
+                                child: TextFormField(
+                                  controller: textController,
+                                  obscureText: false,
+                                  decoration: InputDecoration(
+                                    hintText: 'Address',
+                                    hintStyle:
+                                        FlutterFlowTheme.bodyText1.override(
+                                      fontFamily: 'Lexend Deca',
+                                      lineHeight: 1,
+                                    ),
+                                    enabledBorder: UnderlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Color(0x00000000),
+                                        width: 1,
+                                      ),
+                                      borderRadius: const BorderRadius.only(
+                                        topLeft: Radius.circular(4.0),
+                                        topRight: Radius.circular(4.0),
+                                      ),
+                                    ),
+                                    focusedBorder: UnderlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Color(0x00000000),
+                                        width: 1,
+                                      ),
+                                      borderRadius: const BorderRadius.only(
+                                        topLeft: Radius.circular(4.0),
+                                        topRight: Radius.circular(4.0),
+                                      ),
+                                    ),
+                                    filled: true,
+                                    fillColor: FlutterFlowTheme.customColor1,
+                                    contentPadding:
+                                        EdgeInsetsDirectional.fromSTEB(
+                                            10, 10, 10, 10),
+                                  ),
+                                  style: FlutterFlowTheme.bodyText1.override(
+                                    fontFamily: 'Lexend Deca',
+                                    lineHeight: 1,
+                                  ),
+                                  maxLines: 3,
                                 ),
                               ),
                             ],

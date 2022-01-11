@@ -33,24 +33,24 @@ class _AdStandaloneCopyWidgetState extends State<AdStandaloneCopyWidget> {
           size: 28,
         ),
       ),
-      endDrawer: Drawer(
-        elevation: 16,
-        child: Column(
-          mainAxisSize: MainAxisSize.max,
-          children: [
-            Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(1, 0, 0, 0),
-                    child: ClientFilterWidget(),
-                  ),
-                ],
-              ),
+      endDrawer: Container(
+        width: MediaQuery.of(context).size.width * 0.8,
+        child: Drawer(
+          elevation: 16,
+          child: Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Row(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    ClientFilterWidget(),
+                  ],
+                ),
+              ],
             ),
-          ],
+          ),
         ),
       ),
       body: SafeArea(

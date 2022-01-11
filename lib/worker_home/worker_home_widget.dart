@@ -8,6 +8,7 @@ import '../worker_2/worker2_widget.dart';
 import '../worker_sa/worker_sa_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class WorkerHomeWidget extends StatefulWidget {
@@ -441,6 +442,148 @@ class _WorkerHomeWidgetState extends State<WorkerHomeWidget> {
                                                       .override(
                                                     fontFamily: 'Lexend Deca',
                                                     color: Color(0xFF090F13),
+                                                    fontSize: 14,
+                                                    fontWeight:
+                                                        FontWeight.normal,
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Padding(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(16, 12, 16, 0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        10, 0, 10, 0),
+                                    child: InkWell(
+                                      onTap: () async {
+                                        await Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => NavBarPage(
+                                                initialPage: 'applicants'),
+                                          ),
+                                        );
+                                      },
+                                      child: Container(
+                                        width: 150,
+                                        height: 70,
+                                        decoration: BoxDecoration(
+                                          color: Color(0xC4050E6A),
+                                          boxShadow: [
+                                            BoxShadow(
+                                              blurRadius: 5,
+                                              color: Color(0x3B000000),
+                                              offset: Offset(0, 2),
+                                            )
+                                          ],
+                                          borderRadius:
+                                              BorderRadius.circular(1),
+                                        ),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  4, 4, 4, 4),
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Icon(
+                                                Icons.local_offer,
+                                                color: FlutterFlowTheme
+                                                    .customColor1,
+                                                size: 40,
+                                              ),
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(0, 1, 0, 0),
+                                                child: Text(
+                                                  'Job offered',
+                                                  style: FlutterFlowTheme
+                                                      .bodyText1
+                                                      .override(
+                                                    fontFamily: 'Lexend Deca',
+                                                    color: FlutterFlowTheme
+                                                        .customColor1,
+                                                    fontSize: 14,
+                                                    fontWeight:
+                                                        FontWeight.normal,
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        10, 0, 10, 0),
+                                    child: InkWell(
+                                      onTap: () async {
+                                        await Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                WorkerSaWidget(),
+                                          ),
+                                        );
+                                      },
+                                      child: Container(
+                                        width: 150,
+                                        height: 70,
+                                        decoration: BoxDecoration(
+                                          color: Color(0xC4050E6A),
+                                          boxShadow: [
+                                            BoxShadow(
+                                              blurRadius: 5,
+                                              color: Color(0x3A000000),
+                                              offset: Offset(0, 2),
+                                            )
+                                          ],
+                                          borderRadius:
+                                              BorderRadius.circular(1),
+                                        ),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  4, 4, 4, 4),
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              FaIcon(
+                                                FontAwesomeIcons.accusoft,
+                                                color: Color(0xFFFEFEFE),
+                                                size: 35,
+                                              ),
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(0, 1, 0, 0),
+                                                child: Text(
+                                                  'Accepted',
+                                                  style: FlutterFlowTheme
+                                                      .bodyText1
+                                                      .override(
+                                                    fontFamily: 'Lexend Deca',
+                                                    color: FlutterFlowTheme
+                                                        .customColor1,
                                                     fontSize: 14,
                                                     fontWeight:
                                                         FontWeight.normal,
