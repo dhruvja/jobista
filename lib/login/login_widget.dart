@@ -1,4 +1,5 @@
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:j_o_b_ista/perm_worker/perm_worker_widget.dart';
 
 import '../auth/auth_util.dart';
 import '../base/base_widget.dart';
@@ -104,13 +105,22 @@ class _LoginWidgetState extends State<LoginWidget> {
                         NavBarPage(initialPage: 'home_client'),
                   ),
                 );
-              else {
+              else if(status['type'].toLowerCase() == "worker") {
                 // await Navigator.push(
                 //   context,
                 //   MaterialPageRoute(
                 //     builder: (context) => WorkerNavBarPage(initialPage: 'home_client'),
                 //   ),
                 // );
+                await Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) =>
+                        PermWorkerWidget(),
+                  ),
+                );
+              }
+              else{
                 await Navigator.push(
                   context,
                   MaterialPageRoute(

@@ -24,6 +24,7 @@ import 'applicants/applicants_widget.dart';
 import 'allinone/allinone_widget.dart';
 import 'login/login_widget.dart';
 import 'services/LocalNotification.dart';
+import 'home_client_copy/home_client_copy_widget.dart';
 
 Future<void> backgroundHandler(RemoteMessage message) async {
   // If you're going to use other Firebase services in the background, such as Firestore,
@@ -201,6 +202,7 @@ class _NavBarPageState extends State<NavBarPage> {
       'client_sa': ClientSaWidget(),
       'applicants': ApplicantsWidget(),
       'allinone': AllinoneWidget(),
+      'home_clientCopy': HomeClientCopyWidget(),
     };
     return Scaffold(
       body: tabs[_currentPage],
@@ -252,6 +254,18 @@ class _NavBarPageState extends State<NavBarPage> {
               size: 24,
             ),
             label: 'Links',
+            tooltip: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.home_outlined,
+              size: 24,
+            ),
+            activeIcon: Icon(
+              Icons.home,
+              size: 24,
+            ),
+            label: 'Home',
             tooltip: '',
           )
         ],

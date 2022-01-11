@@ -9,6 +9,7 @@ import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../main.dart';
 import '../onboard/onboard_widget.dart';
+import '../worker_confirmation/worker_confirmation_widget.dart';
 import '../worker_home/worker_home_widget.dart';
 import '../worker_info/worker_info_widget.dart';
 import '../worker_sa/worker_sa_widget.dart';
@@ -302,29 +303,40 @@ class _AllinoneWidgetState extends State<AllinoneWidget> {
                       ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
-                        child: FFButtonWidget(
-                          onPressed: () async {
+                        child: InkWell(
+                          onDoubleTap: () async {
                             await Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => AdStandaloneWidget(),
+                                builder: (context) =>
+                                    WorkerConfirmationWidget(),
                               ),
                             );
                           },
-                          text: 'AD SA',
-                          options: FFButtonOptions(
-                            width: 130,
-                            height: 40,
-                            color: FlutterFlowTheme.primaryColor,
-                            textStyle: FlutterFlowTheme.subtitle2.override(
-                              fontFamily: 'Lexend Deca',
-                              color: Colors.white,
+                          child: FFButtonWidget(
+                            onPressed: () async {
+                              await Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => AdStandaloneWidget(),
+                                ),
+                              );
+                            },
+                            text: 'AD SA/worker confirmation',
+                            options: FFButtonOptions(
+                              width: 130,
+                              height: 40,
+                              color: FlutterFlowTheme.primaryColor,
+                              textStyle: FlutterFlowTheme.subtitle2.override(
+                                fontFamily: 'Lexend Deca',
+                                color: Colors.white,
+                              ),
+                              borderSide: BorderSide(
+                                color: Colors.transparent,
+                                width: 1,
+                              ),
+                              borderRadius: 12,
                             ),
-                            borderSide: BorderSide(
-                              color: Colors.transparent,
-                              width: 1,
-                            ),
-                            borderRadius: 12,
                           ),
                         ),
                       ),
