@@ -40,12 +40,7 @@ class _AdInfoSaWidgetState extends State<AdInfoSaWidget> {
               ),
               child: InkWell(
                 onTap: () async {
-                  await Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => AdInfoWidget(),
-                    ),
-                  );
+                  
                 },
                 child: Row(
                   mainAxisSize: MainAxisSize.max,

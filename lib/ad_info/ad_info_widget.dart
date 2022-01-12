@@ -1,4 +1,5 @@
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:j_o_b_ista/components/confirm_widget.dart';
 
 import '../components/ad_info_sa_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
@@ -23,7 +24,6 @@ class _AdInfoWidgetState extends State<AdInfoWidget> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
   var values;
 
-
   @override
   void initState() {
     super.initState();
@@ -33,16 +33,15 @@ class _AdInfoWidgetState extends State<AdInfoWidget> {
     authorize();
   }
 
-    var token;
-  void authorize() async{
-    try{
+  var token;
+  void authorize() async {
+    try {
       final storage = new FlutterSecureStorage();
       var x = await storage.read(key: "jwt");
-      setState((){
+      setState(() {
         token = x;
       });
-    }
-    catch(e) {
+    } catch (e) {
       print(e);
       Navigator.pop(context);
     }
@@ -118,164 +117,222 @@ class _AdInfoWidgetState extends State<AdInfoWidget> {
                         color: FlutterFlowTheme.customColor1,
                         borderRadius: BorderRadius.circular(20),
                       ),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(10, 20, 10, 20),
-                            child: Row(
+                      child: SingleChildScrollView(
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  10, 20, 10, 20),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Icon(
+                                        Icons.person,
+                                        color: Colors.black,
+                                        size: 24,
+                                      ),
+                                    ],
+                                  ),
+                                  Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0, 0, 0, 5),
+                                        child: Text(
+                                          'Name',
+                                          style: FlutterFlowTheme.bodyText1
+                                              .override(
+                                            fontFamily: 'Lexend Deca',
+                                            fontSize: 10,
+                                            fontWeight: FontWeight.w300,
+                                          ),
+                                        ),
+                                      ),
+                                      Text(
+                                        values['username'],
+                                        style: FlutterFlowTheme.bodyText1,
+                                      ),
+                                    ],
+                                  ),
+                                  Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Icon(
+                                        Icons.attach_money_outlined,
+                                        color: Colors.black,
+                                        size: 24,
+                                      ),
+                                    ],
+                                  ),
+                                  Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0, 0, 0, 5),
+                                        child: Text(
+                                          'Salary',
+                                          style: FlutterFlowTheme.bodyText1
+                                              .override(
+                                            fontFamily: 'Lexend Deca',
+                                            fontSize: 10,
+                                          ),
+                                        ),
+                                      ),
+                                      Text(
+                                        values['maxsalary'].toString(),
+                                        style: FlutterFlowTheme.bodyText1,
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Padding(
+                            //   padding: EdgeInsetsDirectional.fromSTEB(
+                            //       10, 20, 10, 20),
+                            //   child: Row(
+                            //     mainAxisSize: MainAxisSize.max,
+                            //     mainAxisAlignment:
+                            //         MainAxisAlignment.spaceEvenly,
+                            //     children: [
+                            //       Column(
+                            //         mainAxisSize: MainAxisSize.max,
+                            //         children: [
+                            //           Icon(
+                            //             Icons.settings_outlined,
+                            //             color: Colors.black,
+                            //             size: 24,
+                            //           ),
+                            //         ],
+                            //       ),
+                            //       Column(
+                            //         mainAxisSize: MainAxisSize.max,
+                            //         crossAxisAlignment:
+                            //             CrossAxisAlignment.start,
+                            //         children: [
+                            //           Padding(
+                            //             padding: EdgeInsetsDirectional.fromSTEB(
+                            //                 0, 0, 0, 5),
+                            //             child: Text(
+                            //               'Hello World',
+                            //               style: FlutterFlowTheme.bodyText1
+                            //                   .override(
+                            //                 fontFamily: 'Lexend Deca',
+                            //                 fontSize: 10,
+                            //                 fontWeight: FontWeight.w300,
+                            //               ),
+                            //             ),
+                            //           ),
+                            //           Text(
+                            //             'Hello World',
+                            //             style: FlutterFlowTheme.bodyText1,
+                            //           ),
+                            //         ],
+                            //       ),
+                            //       Column(
+                            //         mainAxisSize: MainAxisSize.max,
+                            //         children: [
+                            //           Icon(
+                            //             Icons.settings_outlined,
+                            //             color: Colors.black,
+                            //             size: 24,
+                            //           ),
+                            //         ],
+                            //       ),
+                            //       Column(
+                            //         mainAxisSize: MainAxisSize.max,
+                            //         crossAxisAlignment:
+                            //             CrossAxisAlignment.start,
+                            //         children: [
+                            //           Padding(
+                            //             padding: EdgeInsetsDirectional.fromSTEB(
+                            //                 0, 0, 0, 5),
+                            //             child: Text(
+                            //               'Hello World',
+                            //               style: FlutterFlowTheme.bodyText1
+                            //                   .override(
+                            //                 fontFamily: 'Lexend Deca',
+                            //                 fontSize: 10,
+                            //               ),
+                            //             ),
+                            //           ),
+                            //           Text(
+                            //             'Hello World',
+                            //             style: FlutterFlowTheme.bodyText1,
+                            //           ),
+                            //         ],
+                            //       ),
+                            //     ],
+                            //   ),
+                            // ),
+                            Row(
                               mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Icon(
-                                      Icons.settings_outlined,
-                                      color: Colors.black,
-                                      size: 24,
-                                    ),
-                                  ],
-                                ),
-                                Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 0, 0, 5),
-                                      child: Text(
-                                        'Name',
-                                        style:
-                                            FlutterFlowTheme.bodyText1.override(
-                                          fontFamily: 'Lexend Deca',
-                                          fontSize: 10,
-                                          fontWeight: FontWeight.w300,
+                                Container(
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.85,
+                                  height: 100,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.primaryColor,
+                                  ),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        10, 10, 10, 10),
+                                    child: TextFormField(
+                                      readOnly: true,
+                                      controller: textController1,
+                                      obscureText: false,
+                                      decoration: InputDecoration(
+                                        hintText: values['address_code'],
+                                        hintStyle: FlutterFlowTheme.bodyText1,
+                                        enabledBorder: UnderlineInputBorder(
+                                          borderSide: BorderSide(
+                                            color: Color(0x00000000),
+                                            width: 1,
+                                          ),
+                                          borderRadius: const BorderRadius.only(
+                                            topLeft: Radius.circular(4.0),
+                                            topRight: Radius.circular(4.0),
+                                          ),
                                         ),
-                                      ),
-                                    ),
-                                    Text(
-                                      'Hello World',
-                                      style: FlutterFlowTheme.bodyText1,
-                                    ),
-                                  ],
-                                ),
-                                Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Icon(
-                                      Icons.settings_outlined,
-                                      color: Colors.black,
-                                      size: 24,
-                                    ),
-                                  ],
-                                ),
-                                Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 0, 0, 5),
-                                      child: Text(
-                                        'Address',
-                                        style:
-                                            FlutterFlowTheme.bodyText1.override(
-                                          fontFamily: 'Lexend Deca',
-                                          fontSize: 10,
+                                        focusedBorder: UnderlineInputBorder(
+                                          borderSide: BorderSide(
+                                            color: Color(0x00000000),
+                                            width: 1,
+                                          ),
+                                          borderRadius: const BorderRadius.only(
+                                            topLeft: Radius.circular(4.0),
+                                            topRight: Radius.circular(4.0),
+                                          ),
                                         ),
+                                        filled: true,
+                                        fillColor:
+                                            FlutterFlowTheme.customColor1,
                                       ),
-                                    ),
-                                    Text(
-                                      'Hello World',
                                       style: FlutterFlowTheme.bodyText1,
+                                      maxLines: 4,
                                     ),
-                                  ],
+                                  ),
                                 ),
                               ],
                             ),
-                          ),
-                          Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(10, 20, 10, 20),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Icon(
-                                      Icons.settings_outlined,
-                                      color: Colors.black,
-                                      size: 24,
-                                    ),
-                                  ],
-                                ),
-                                Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 0, 0, 5),
-                                      child: Text(
-                                        'Hello World',
-                                        style:
-                                            FlutterFlowTheme.bodyText1.override(
-                                          fontFamily: 'Lexend Deca',
-                                          fontSize: 10,
-                                          fontWeight: FontWeight.w300,
-                                        ),
-                                      ),
-                                    ),
-                                    Text(
-                                      'Hello World',
-                                      style: FlutterFlowTheme.bodyText1,
-                                    ),
-                                  ],
-                                ),
-                                Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Icon(
-                                      Icons.settings_outlined,
-                                      color: Colors.black,
-                                      size: 24,
-                                    ),
-                                  ],
-                                ),
-                                Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 0, 0, 5),
-                                      child: Text(
-                                        'Hello World',
-                                        style:
-                                            FlutterFlowTheme.bodyText1.override(
-                                          fontFamily: 'Lexend Deca',
-                                          fontSize: 10,
-                                        ),
-                                      ),
-                                    ),
-                                    Text(
-                                      'Hello World',
-                                      style: FlutterFlowTheme.bodyText1,
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
-                          Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Container(
+                            Padding(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                              child: Container(
                                 width: MediaQuery.of(context).size.width * 0.85,
                                 height: 100,
                                 decoration: BoxDecoration(
@@ -319,87 +376,68 @@ class _AdInfoWidgetState extends State<AdInfoWidget> {
                                   ),
                                 ),
                               ),
-                            ],
-                          ),
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
-                            child: Container(
-                              width: MediaQuery.of(context).size.width * 0.85,
-                              height: 100,
-                              decoration: BoxDecoration(
-                                color: FlutterFlowTheme.primaryColor,
-                              ),
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    10, 10, 10, 10),
-                                child: TextFormField(
-                                  readOnly: true,
-                                  controller: textController2,
-                                  obscureText: false,
-                                  decoration: InputDecoration(
-                                    hintText: 'location',
-                                    hintStyle: FlutterFlowTheme.bodyText1,
-                                    enabledBorder: UnderlineInputBorder(
+                            ),
+                            Padding(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  FFButtonWidget(
+                                    onPressed: () {
+                                      return showDialog(
+                                        context: context,
+                                        builder: (ctx) => AlertDialog(
+                                          title: Text("Confirmation"),
+                                          content: Text(
+                                              "Do you really want to apply for the job. This action cannot be undone."),
+                                          actions: <Widget>[
+                                            ElevatedButton(
+                                              onPressed: () {
+                                                Navigator.of(ctx).pop();
+                                                return showDialog(
+                                                  context: context,
+                                                  builder: (ctx) => AlertDialog(
+                                                    title: Text("Job Applied Successfully"),
+                                                    content: ConfirmWidget()
+                                                  ),
+                                                );
+                                              },
+                                              child: Text("okay"),
+                                            ),
+                                            ElevatedButton(
+                                              onPressed: () {
+                                                Navigator.of(ctx).pop();
+                                              },
+                                              child: Text("cancel"),
+                                            )
+                                          ],
+                                        ),
+                                      );
+                                    },
+                                    text: 'Accept',
+                                    options: FFButtonOptions(
+                                      width: 300,
+                                      height: 40,
+                                      color: Color(0xFF307F07),
+                                      textStyle:
+                                          FlutterFlowTheme.subtitle2.override(
+                                        fontFamily: 'Lexend Deca',
+                                        color: Colors.white,
+                                      ),
                                       borderSide: BorderSide(
-                                        color: Color(0x00000000),
+                                        color: Colors.transparent,
                                         width: 1,
                                       ),
-                                      borderRadius: const BorderRadius.only(
-                                        topLeft: Radius.circular(4.0),
-                                        topRight: Radius.circular(4.0),
-                                      ),
+                                      borderRadius: 12,
                                     ),
-                                    focusedBorder: UnderlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: Color(0x00000000),
-                                        width: 1,
-                                      ),
-                                      borderRadius: const BorderRadius.only(
-                                        topLeft: Radius.circular(4.0),
-                                        topRight: Radius.circular(4.0),
-                                      ),
-                                    ),
-                                    filled: true,
-                                    fillColor: FlutterFlowTheme.customColor1,
                                   ),
-                                  style: FlutterFlowTheme.bodyText1,
-                                  maxLines: 4,
-                                ),
+                                ],
                               ),
                             ),
-                          ),
-                          Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                FFButtonWidget(
-                                  onPressed: () {
-                                    print('Button pressed ...');
-                                  },
-                                  text: 'Accept',
-                                  options: FFButtonOptions(
-                                    width: 300,
-                                    height: 40,
-                                    color: Color(0xFF307F07),
-                                    textStyle:
-                                        FlutterFlowTheme.subtitle2.override(
-                                      fontFamily: 'Lexend Deca',
-                                      color: Colors.white,
-                                    ),
-                                    borderSide: BorderSide(
-                                      color: Colors.transparent,
-                                      width: 1,
-                                    ),
-                                    borderRadius: 12,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                   ),
