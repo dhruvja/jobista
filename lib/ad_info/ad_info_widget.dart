@@ -18,7 +18,8 @@ class AdInfoWidget extends StatefulWidget {
 }
 
 class _AdInfoWidgetState extends State<AdInfoWidget> {
-  TextEditingController textController;
+  TextEditingController textController1;
+  TextEditingController textController2;
   final scaffoldKey = GlobalKey<ScaffoldState>();
   var values;
 
@@ -26,7 +27,7 @@ class _AdInfoWidgetState extends State<AdInfoWidget> {
   @override
   void initState() {
     super.initState();
-    textController = TextEditingController();
+    textController1 = TextEditingController();
     values = widget.data;
     print(values);
     authorize();
@@ -45,6 +46,8 @@ class _AdInfoWidgetState extends State<AdInfoWidget> {
       print(e);
       Navigator.pop(context);
     }
+    textController1 = TextEditingController();
+    textController2 = TextEditingController();
   }
 
   @override
@@ -101,57 +104,6 @@ class _AdInfoWidgetState extends State<AdInfoWidget> {
                     ),
                   ],
                 ),
-              ),
-              Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    width: MediaQuery.of(context).size.width * 0.95,
-                    height: 120,
-                    decoration: BoxDecoration(
-                      color: FlutterFlowTheme.customColor1,
-                    ),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 20, 0),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Container(
-                                width: 100,
-                                height: 100,
-                                decoration: BoxDecoration(
-                                  color: Color(0x184192E1),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Container(
-                                width: 100,
-                                height: 100,
-                                decoration: BoxDecoration(
-                                  color: Color(0x8661A7F8),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
               ),
               Row(
                 mainAxisSize: MainAxisSize.max,
@@ -334,7 +286,7 @@ class _AdInfoWidgetState extends State<AdInfoWidget> {
                                       10, 10, 10, 10),
                                   child: TextFormField(
                                     readOnly: true,
-                                    controller: textController,
+                                    controller: textController1,
                                     obscureText: false,
                                     decoration: InputDecoration(
                                       hintText: values['description'],
@@ -370,60 +322,78 @@ class _AdInfoWidgetState extends State<AdInfoWidget> {
                             ],
                           ),
                           Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                            child: Container(
+                              width: MediaQuery.of(context).size.width * 0.85,
+                              height: 100,
+                              decoration: BoxDecoration(
+                                color: FlutterFlowTheme.primaryColor,
+                              ),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    10, 10, 10, 10),
+                                child: TextFormField(
+                                  readOnly: true,
+                                  controller: textController2,
+                                  obscureText: false,
+                                  decoration: InputDecoration(
+                                    hintText: 'location',
+                                    hintStyle: FlutterFlowTheme.bodyText1,
+                                    enabledBorder: UnderlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Color(0x00000000),
+                                        width: 1,
+                                      ),
+                                      borderRadius: const BorderRadius.only(
+                                        topLeft: Radius.circular(4.0),
+                                        topRight: Radius.circular(4.0),
+                                      ),
+                                    ),
+                                    focusedBorder: UnderlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Color(0x00000000),
+                                        width: 1,
+                                      ),
+                                      borderRadius: const BorderRadius.only(
+                                        topLeft: Radius.circular(4.0),
+                                        topRight: Radius.circular(4.0),
+                                      ),
+                                    ),
+                                    filled: true,
+                                    fillColor: FlutterFlowTheme.customColor1,
+                                  ),
+                                  style: FlutterFlowTheme.bodyText1,
+                                  maxLines: 4,
+                                ),
+                              ),
+                            ),
+                          ),
+                          Padding(
                             padding:
                                 EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 0, 10, 0),
-                                  child: FFButtonWidget(
-                                    onPressed: () {
-                                      print('Button pressed ...');
-                                    },
-                                    text: 'Accept',
-                                    options: FFButtonOptions(
-                                      width: 130,
-                                      height: 40,
-                                      color: Color(0xFF307F07),
-                                      textStyle:
-                                          FlutterFlowTheme.subtitle2.override(
-                                        fontFamily: 'Lexend Deca',
-                                        color: Colors.white,
-                                      ),
-                                      borderSide: BorderSide(
-                                        color: Colors.transparent,
-                                        width: 1,
-                                      ),
-                                      borderRadius: 12,
+                                FFButtonWidget(
+                                  onPressed: () {
+                                    print('Button pressed ...');
+                                  },
+                                  text: 'Accept',
+                                  options: FFButtonOptions(
+                                    width: 300,
+                                    height: 40,
+                                    color: Color(0xFF307F07),
+                                    textStyle:
+                                        FlutterFlowTheme.subtitle2.override(
+                                      fontFamily: 'Lexend Deca',
+                                      color: Colors.white,
                                     ),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      10, 0, 0, 0),
-                                  child: FFButtonWidget(
-                                    onPressed: () {
-                                      print('Button pressed ...');
-                                    },
-                                    text: 'Decline',
-                                    options: FFButtonOptions(
-                                      width: 130,
-                                      height: 40,
-                                      color: Color(0xFFEF1013),
-                                      textStyle:
-                                          FlutterFlowTheme.subtitle2.override(
-                                        fontFamily: 'Lexend Deca',
-                                        color: Colors.white,
-                                      ),
-                                      borderSide: BorderSide(
-                                        color: Colors.transparent,
-                                        width: 1,
-                                      ),
-                                      borderRadius: 12,
+                                    borderSide: BorderSide(
+                                      color: Colors.transparent,
+                                      width: 1,
                                     ),
+                                    borderRadius: 12,
                                   ),
                                 ),
                               ],
