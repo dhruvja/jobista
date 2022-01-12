@@ -1,5 +1,4 @@
 import '../components/search_worker_comp_widget.dart';
-import '../flutter_flow/flutter_flow_choice_chips.dart';
 import '../flutter_flow/flutter_flow_count_controller.dart';
 import '../flutter_flow/flutter_flow_drop_down.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
@@ -7,6 +6,7 @@ import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../onboard/onboard_widget.dart';
 import '../search_client/search_client_widget.dart';
+import '../worker_2/worker2_widget.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -22,10 +22,6 @@ class SearchCustomerWidget extends StatefulWidget {
 }
 
 class _SearchCustomerWidgetState extends State<SearchCustomerWidget> {
-  String choiceChipsValue1;
-  String choiceChipsValue2;
-  String choiceChipsValue3;
-  TextEditingController textController2;
   String dropDownValue1;
   TextEditingController textController1;
   String dropDownValue2;
@@ -34,6 +30,7 @@ class _SearchCustomerWidgetState extends State<SearchCustomerWidget> {
   double ratingBarValue;
   final formKey = GlobalKey<FormState>();
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  TextEditingController textController2;
 
   @override
   void initState() {
@@ -403,133 +400,129 @@ class _SearchCustomerWidgetState extends State<SearchCustomerWidget> {
                                       ),
                                     ],
                                   ),
-                                  Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      Expanded(
-                                        child: Padding(
+                                  SingleChildScrollView(
+                                    scrollDirection: Axis.horizontal,
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  10, 0, 0, 0),
-                                          child: FlutterFlowChoiceChips(
-                                            initialOption: choiceChipsValue1 ??=
-                                                'Job Type',
-                                            options: [
-                                              ChipData('Job Type',
-                                                  FontAwesomeIcons.robot)
-                                            ],
-                                            onChanged: (val) => setState(
-                                                () => choiceChipsValue1 = val),
-                                            selectedChipStyle: ChipStyle(
-                                              backgroundColor:
-                                                  Color(0xFF262D34),
+                                                  10, 10, 10, 10),
+                                          child: FFButtonWidget(
+                                            onPressed: () async {
+                                              await Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      Worker2Widget(),
+                                                ),
+                                              );
+                                            },
+                                            text: 'Job type',
+                                            icon: FaIcon(
+                                              FontAwesomeIcons.robot,
+                                            ),
+                                            options: FFButtonOptions(
+                                              width: 130,
+                                              height: 35,
+                                              color: FlutterFlowTheme
+                                                  .tertiaryColor,
                                               textStyle: FlutterFlowTheme
-                                                  .bodyText1
+                                                  .subtitle2
                                                   .override(
                                                 fontFamily: 'Lexend Deca',
                                                 color: Colors.white,
+                                                fontSize: 12,
                                               ),
-                                              iconColor: Colors.white,
-                                              iconSize: 18,
-                                              elevation: 4,
-                                            ),
-                                            unselectedChipStyle: ChipStyle(
-                                              backgroundColor: Colors.white,
-                                              textStyle: FlutterFlowTheme
-                                                  .bodyText2
-                                                  .override(
-                                                fontFamily: 'Lexend Deca',
-                                                color: Color(0xFF262D34),
+                                              borderSide: BorderSide(
+                                                color: Colors.transparent,
+                                                width: 1,
                                               ),
-                                              iconColor: Color(0xFF262D34),
-                                              iconSize: 18,
-                                              elevation: 4,
+                                              borderRadius: 60,
                                             ),
-                                            chipSpacing: 20,
                                           ),
                                         ),
-                                      ),
-                                      Expanded(
-                                        child: Padding(
+                                        Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  10, 0, 0, 0),
-                                          child: FlutterFlowChoiceChips(
-                                            initialOption: choiceChipsValue2 ??=
-                                                'Location',
-                                            options: [
-                                              ChipData(
-                                                  'Location', Icons.location_on)
-                                            ],
-                                            onChanged: (val) => setState(
-                                                () => choiceChipsValue2 = val),
-                                            selectedChipStyle: ChipStyle(
-                                              backgroundColor:
-                                                  Color(0xFF262D34),
+                                                  10, 10, 10, 10),
+                                          child: FFButtonWidget(
+                                            onPressed: () async {
+                                              await Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      SearchCustomerWidget(),
+                                                ),
+                                              );
+                                            },
+                                            text: 'Location',
+                                            icon: Icon(
+                                              Icons.location_on,
+                                              size: 15,
+                                            ),
+                                            options: FFButtonOptions(
+                                              width: 130,
+                                              height: 35,
+                                              color: FlutterFlowTheme
+                                                  .tertiaryColor,
                                               textStyle: FlutterFlowTheme
-                                                  .bodyText1
+                                                  .subtitle2
                                                   .override(
                                                 fontFamily: 'Lexend Deca',
                                                 color: Colors.white,
+                                                fontSize: 12,
                                               ),
-                                              iconColor: Colors.white,
-                                              iconSize: 18,
-                                              elevation: 4,
+                                              borderSide: BorderSide(
+                                                color: Colors.transparent,
+                                                width: 1,
+                                              ),
+                                              borderRadius: 60,
                                             ),
-                                            unselectedChipStyle: ChipStyle(
-                                              backgroundColor: Colors.white,
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  10, 10, 10, 10),
+                                          child: FFButtonWidget(
+                                            onPressed: () async {
+                                              await Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      SearchCustomerWidget(),
+                                                ),
+                                              );
+                                            },
+                                            text: 'Education',
+                                            icon: Icon(
+                                              Icons.history_edu,
+                                              size: 15,
+                                            ),
+                                            options: FFButtonOptions(
+                                              width: 130,
+                                              height: 35,
+                                              color: FlutterFlowTheme
+                                                  .tertiaryColor,
                                               textStyle: FlutterFlowTheme
-                                                  .bodyText2
+                                                  .subtitle2
                                                   .override(
                                                 fontFamily: 'Lexend Deca',
-                                                color: Color(0xFF262D34),
+                                                color: Colors.white,
+                                                fontSize: 12,
                                               ),
-                                              iconColor: Color(0xFF262D34),
-                                              iconSize: 18,
-                                              elevation: 4,
+                                              borderSide: BorderSide(
+                                                color: Colors.transparent,
+                                                width: 1,
+                                              ),
+                                              borderRadius: 60,
                                             ),
-                                            chipSpacing: 20,
                                           ),
                                         ),
-                                      ),
-                                      Expanded(
-                                        child: FlutterFlowChoiceChips(
-                                          initialOption: choiceChipsValue3 ??=
-                                              'Education',
-                                          options: [
-                                            ChipData('Education',
-                                                Icons.cast_for_education)
-                                          ],
-                                          onChanged: (val) => setState(
-                                              () => choiceChipsValue3 = val),
-                                          selectedChipStyle: ChipStyle(
-                                            backgroundColor: Color(0xFF262D34),
-                                            textStyle: FlutterFlowTheme
-                                                .bodyText1
-                                                .override(
-                                              fontFamily: 'Lexend Deca',
-                                              color: Colors.white,
-                                            ),
-                                            iconColor: Colors.white,
-                                            iconSize: 18,
-                                            elevation: 4,
-                                          ),
-                                          unselectedChipStyle: ChipStyle(
-                                            backgroundColor: Colors.white,
-                                            textStyle: FlutterFlowTheme
-                                                .bodyText2
-                                                .override(
-                                              fontFamily: 'Lexend Deca',
-                                              color: Color(0xFF262D34),
-                                            ),
-                                            iconColor: Color(0xFF262D34),
-                                            iconSize: 18,
-                                            elevation: 4,
-                                          ),
-                                          chipSpacing: 20,
-                                        ),
-                                      ),
-                                    ],
+                                      ],
+                                    ),
                                   ),
                                 ],
                               ),
