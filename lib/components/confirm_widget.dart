@@ -16,16 +16,16 @@ class _ConfirmWidgetState extends State<ConfirmWidget> {
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisSize: MainAxisSize.max,
-      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisSize: MainAxisSize.min,
+      mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Row(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
-              width: 250,
-              height: 250,
+              width: 200,
+              height: 200,
               decoration: BoxDecoration(
                 color: Color(0xFFEEEEEE),
               ),
