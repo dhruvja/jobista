@@ -348,29 +348,25 @@ class _AdInfoWidgetState extends State<AdInfoWidget> {
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 0, 10, 0),
-                                  child: FFButtonWidget(
-                                    onPressed: () {
-                                      print('Button pressed ...');
-                                    },
-                                    text: 'Accept',
-                                    options: FFButtonOptions(
-                                      width: 130,
-                                      height: 40,
-                                      color: Color(0xFF307F07),
-                                      textStyle:
-                                          FlutterFlowTheme.subtitle2.override(
-                                        fontFamily: 'Lexend Deca',
-                                        color: Colors.white,
-                                      ),
-                                      borderSide: BorderSide(
-                                        color: Colors.transparent,
-                                        width: 1,
-                                      ),
-                                      borderRadius: 12,
+                                FFButtonWidget(
+                                  onPressed: () {
+                                    print('Button pressed ...');
+                                  },
+                                  text: 'Accept',
+                                  options: FFButtonOptions(
+                                    width: 300,
+                                    height: 40,
+                                    color: Color(0xFF307F07),
+                                    textStyle:
+                                        FlutterFlowTheme.subtitle2.override(
+                                      fontFamily: 'Lexend Deca',
+                                      color: Colors.white,
                                     ),
+                                    borderSide: BorderSide(
+                                      color: Colors.transparent,
+                                      width: 1,
+                                    ),
+                                    borderRadius: 12,
                                   ),
                                 ),
                               ],
