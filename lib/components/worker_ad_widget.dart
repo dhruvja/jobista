@@ -16,6 +16,7 @@ class WorkerAdWidget extends StatefulWidget {
 
 class _WorkerAdWidgetState extends State<WorkerAdWidget> {
   TextEditingController textController;
+  var scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {

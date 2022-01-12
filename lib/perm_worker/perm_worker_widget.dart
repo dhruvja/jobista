@@ -1,3 +1,5 @@
+import 'package:j_o_b_ista/ad_standalone_copy/ad_standalone_copy_widget.dart';
+
 import '../components/activities_widget.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
@@ -238,7 +240,7 @@ class _PermWorkerWidgetState extends State<PermWorkerWidget> {
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) =>
-                                      NavBarPage(initialPage: 'home_client'),
+                                  AdStandaloneCopyWidget(),
                                 ),
                               );
                             },

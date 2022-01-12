@@ -462,6 +462,7 @@ class _SearchCustomerWidgetState extends State<SearchCustomerWidget> {
                                               () => setState(() {}),
                                             ),
                                             onFieldSubmitted: (_) async {
+                                              // scaffoldKey.currentState.openEndDrawer();
                                               search();
                                             },
                                             controller: textController2,

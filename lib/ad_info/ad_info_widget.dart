@@ -194,7 +194,7 @@ class _AdInfoWidgetState extends State<AdInfoWidget> {
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0, 0, 0, 5),
                                       child: Text(
-                                        'Hello World',
+                                        'Name',
                                         style:
                                             FlutterFlowTheme.bodyText1.override(
                                           fontFamily: 'Lexend Deca',
@@ -227,7 +227,7 @@ class _AdInfoWidgetState extends State<AdInfoWidget> {
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0, 0, 0, 5),
                                       child: Text(
-                                        'Hello World',
+                                        'Address',
                                         style:
                                             FlutterFlowTheme.bodyText1.override(
                                           fontFamily: 'Lexend Deca',
@@ -333,10 +333,11 @@ class _AdInfoWidgetState extends State<AdInfoWidget> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       10, 10, 10, 10),
                                   child: TextFormField(
+                                    readOnly: true,
                                     controller: textController,
                                     obscureText: false,
                                     decoration: InputDecoration(
-                                      hintText: '[Some hint text...]',
+                                      hintText: values['description'],
                                       hintStyle: FlutterFlowTheme.bodyText1,
                                       enabledBorder: UnderlineInputBorder(
                                         borderSide: BorderSide(
