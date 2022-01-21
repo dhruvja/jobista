@@ -117,7 +117,7 @@ class _ApplicantsWidgetState extends State<ApplicantsWidget> {
                                               'Selected \ncandidates',
                                               style: FlutterFlowTheme.bodyText2
                                                   .override(
-                                                fontFamily: 'Lexend Deca',
+                                                fontFamily: 'Poppins',
                                                 color: Color(0xFF8B97A2),
                                                 fontSize: 14,
                                                 fontWeight: FontWeight.w500,
@@ -196,7 +196,7 @@ class _ApplicantsWidgetState extends State<ApplicantsWidget> {
                                                 style: FlutterFlowTheme
                                                     .bodyText2
                                                     .override(
-                                                  fontFamily: 'Lexend Deca',
+                                                  fontFamily: 'Poppins',
                                                   color: Color(0xFF8B97A2),
                                                   fontSize: 14,
                                                   fontWeight: FontWeight.w500,

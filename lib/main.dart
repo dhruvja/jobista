@@ -8,6 +8,7 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import 'package:j_o_b_ista/allinone/allinone_widget.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'flutter_flow/flutter_flow_theme.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'home_client/home_client_widget.dart';
 import 'book_job/book_job_widget.dart';
@@ -104,9 +105,18 @@ class _NavBarPageState extends State<NavBarPage> {
       'allinone': AllinoneWidget(),
       'home_clientCopy': HomeClientCopyWidget(),
     };
+    final currentIndex = tabs.keys.toList().indexOf(_currentPage);
     return Scaffold(
       body: tabs[_currentPage],
       bottomNavigationBar: BottomNavigationBar(
+        currentIndex: currentIndex,
+        onTap: (i) => setState(() => _currentPage = tabs.keys.toList()[i]),
+        backgroundColor: FlutterFlowTheme.customColor1,
+        selectedItemColor: Color(0xFF000957),
+        unselectedItemColor: FlutterFlowTheme.grayLight,
+        showSelectedLabels: true,
+        showUnselectedLabels: false,
+        type: BottomNavigationBarType.fixed,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(
@@ -169,14 +179,6 @@ class _NavBarPageState extends State<NavBarPage> {
             tooltip: '',
           )
         ],
-        backgroundColor: FlutterFlowTheme.customColor1,
-        currentIndex: tabs.keys.toList().indexOf(_currentPage),
-        selectedItemColor: Color(0xFF000957),
-        unselectedItemColor: FlutterFlowTheme.grayLight,
-        onTap: (i) => setState(() => _currentPage = tabs.keys.toList()[i]),
-        showSelectedLabels: true,
-        showUnselectedLabels: false,
-        type: BottomNavigationBarType.fixed,
       ),
     );
   }
