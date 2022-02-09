@@ -16,6 +16,7 @@ import 'dart:async';
 import 'dart:convert';
 import '../api_endpoint.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:translator/translator.dart';
 
 class PermWorkerWidget extends StatefulWidget {
   const PermWorkerWidget({Key key}) : super(key: key);
@@ -25,6 +26,7 @@ class PermWorkerWidget extends StatefulWidget {
 }
 
 class _PermWorkerWidgetState extends State<PermWorkerWidget> {
+  GoogleTranslator translator = GoogleTranslator();
   final scaffoldKey = GlobalKey<ScaffoldState>();
   bool present = false;
   var ads;
@@ -39,11 +41,25 @@ class _PermWorkerWidgetState extends State<PermWorkerWidget> {
   void initState(){
     super.initState();
     endpoint = Endpoint();
+    // texting("who");
     authorize();
     getUsername();
     getStatus();
     getAds();
   }
+
+//   Future.delayed(Duration(milliseconds: 10), (String te) {
+//     String texting(String te) {
+//       print(te);
+//       te = "welcome";
+//       var x = translator.translate(te, from: 'en', to: 'kn');
+//       print(x);
+//       // te += " yo";
+//       return te;
+//     }
+// });
+
+  
 
   var token;
   void authorize() async{
@@ -68,7 +84,7 @@ class _PermWorkerWidgetState extends State<PermWorkerWidget> {
       if (response.statusCode == 200) {
         // print(response.body);
         var data = json.decode(response.body);
-        print(data);
+        // print(data);
         if(!data['available']){
           setState((){
             available = false;
@@ -178,7 +194,7 @@ class _PermWorkerWidgetState extends State<PermWorkerWidget> {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Text(
-                                'Welcome,',
+                                "Welcome",
                                 style: FlutterFlowTheme.title3.override(
                                   fontFamily: 'Lexend Deca',
                                   color: Color(0xFF1E2429),
@@ -240,7 +256,7 @@ class _PermWorkerWidgetState extends State<PermWorkerWidget> {
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) =>
-                                  AdStandaloneCopyWidget(),
+                                  WorkerNavBarPage(initialPage: 'offers'),
                                 ),
                               );
                             },

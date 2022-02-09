@@ -1,4 +1,5 @@
 import '../ad_info/ad_info_widget.dart';
+import '../api_endpoint.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
@@ -6,23 +7,107 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../api_endpoint.dart';
+import 'package:http/http.dart' as http;
+import 'dart:async';
+import 'dart:convert';
+
+import 'confirm_widget.dart';
 
 class WorkerAdWidget extends StatefulWidget {
-  const WorkerAdWidget({Key key}) : super(key: key);
+  final values;
+  const WorkerAdWidget({Key key, @required this.values})
+      : super(key: key);
 
   @override
   _WorkerAdWidgetState createState() => _WorkerAdWidgetState();
 }
 
 class _WorkerAdWidgetState extends State<WorkerAdWidget> {
-  TextEditingController textController;
-  var scaffoldKey = GlobalKey<ScaffoldState>();
+  var values;
+  String endpoint = Endpoint();
 
-  @override
+  TextEditingController textController;
+
+  bool confirmState = false;
+  bool declineState = false;
+
   void initState() {
     super.initState();
-    textController = TextEditingController();
+    values = widget.values;
   }
+
+  void vals() {
+    print(this.values);
+  }
+
+  void process(String status) async {
+    try {
+      String endpoint = Endpoint();
+      var url = endpoint + "api/worker/updateoffer";
+      print(url);
+      final response = await http.post(Uri.parse(url),
+          headers: <String, String>{
+            'Content-Type': 'application/json; charset=UTF-8',
+            'accept': 'application/json'
+          },
+          body: jsonEncode(<String, String>{
+            "id": values['ping_id'].toString(),
+            "status": status,
+          }));
+      if (response.statusCode == 200) {
+        // If the server did return a 201 CREATED response,
+        // then parse the JSON.
+        print(response.body);
+        var data = json.decode(response.body);
+        if (data['success']) {
+          if (status == "1") {
+            setState(() {
+              confirmState = true;
+              declineState = false;
+            });
+          } else {
+            setState(() {
+              confirmState = false;
+              declineState = true;
+            });
+          }
+          return showDialog(
+            context: context,
+            builder: (ctx) => AlertDialog(
+                title: status == "1"
+                    ? Text("Job Confirmed Successfully")
+                    : Text("Job Declined Successfully"),
+                content: ConfirmWidget(),
+                actions: <Widget>[
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.of(ctx).pop();
+                    },
+                    child: Text("cancel"),
+                  )
+                ]),
+          );
+        }
+
+        else if (!data['success']) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+                content: Text('Could not update the status'),
+                backgroundColor: Colors.redAccent),
+          );
+        }
+      }
+    } catch (e) {
+      print(e);
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+            content: Text('No Interent Found, try again'),
+            backgroundColor: Colors.redAccent),
+      );
+    }
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +123,7 @@ class _WorkerAdWidgetState extends State<WorkerAdWidget> {
               borderRadius: BorderRadius.circular(10),
             ),
             child: Container(
-              width: MediaQuery.of(context).size.width * 0.95,
+              width: MediaQuery.of(context).size.width * 0.93,
               height: 200,
               decoration: BoxDecoration(
                 color: FlutterFlowTheme.customColor1,
@@ -50,12 +135,12 @@ class _WorkerAdWidgetState extends State<WorkerAdWidget> {
               ),
               child: InkWell(
                 onTap: () async {
-                  await Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => AdInfoWidget(),
-                    ),
-                  );
+                  // await Navigator.push(
+                  //   context,
+                  //   MaterialPageRoute(
+                  //     builder: (context) => AdInfoWidget(),
+                  //   ),
+                  // );
                 },
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
@@ -100,7 +185,7 @@ class _WorkerAdWidgetState extends State<WorkerAdWidget> {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Text(
-                                'Plumber',
+                                values['job_title'],
                                 style: FlutterFlowTheme.subtitle1.override(
                                   fontFamily: 'Lexend Deca',
                                   color: Color(0xFF15212B),
@@ -112,7 +197,7 @@ class _WorkerAdWidgetState extends State<WorkerAdWidget> {
                                 child: Align(
                                   alignment: AlignmentDirectional(0.7, 0),
                                   child: Text(
-                                    '12-12-21',
+                                    values['created_date'].toString(),
                                     textAlign: TextAlign.end,
                                     style: TextStyle(
                                       color: Color(0xFF57636C),
@@ -132,7 +217,7 @@ class _WorkerAdWidgetState extends State<WorkerAdWidget> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0, 4, 4, 0),
                                   child: Text(
-                                    'Need a plumber for quixk repair',
+                                    values['description'],
                                     style: FlutterFlowTheme.bodyText2.override(
                                       fontFamily: 'Lexend Deca',
                                       color: Color(0xFF8B97A2),
@@ -149,10 +234,11 @@ class _WorkerAdWidgetState extends State<WorkerAdWidget> {
                             children: [
                               Expanded(
                                 child: TextFormField(
+                                  readOnly: true,
                                   controller: textController,
                                   obscureText: false,
                                   decoration: InputDecoration(
-                                    hintText: 'Address',
+                                    hintText: values['address_code'],
                                     hintStyle:
                                         FlutterFlowTheme.bodyText1.override(
                                       fontFamily: 'Lexend Deca',
@@ -200,15 +286,48 @@ class _WorkerAdWidgetState extends State<WorkerAdWidget> {
                               children: [
                                 FFButtonWidget(
                                   onPressed: () {
-                                    print('Button pressed ...');
+                                    if (confirmState) {
+                                            ScaffoldMessenger.of(context)
+                                                .showSnackBar(
+                                              const SnackBar(
+                                                  content: Text(
+                                                      'You have already Accepted the offer'),
+                                                  backgroundColor:
+                                                      Colors.green),
+                                            );
+                                          } else {
+                                            return showDialog(
+                                              context: context,
+                                              builder: (ctx) => AlertDialog(
+                                                title: Text("Confirmation"),
+                                                content: Text(
+                                                    "Do you really want to accept the person for the job. This action cannot be undone."),
+                                                actions: <Widget>[
+                                                  ElevatedButton(
+                                                    onPressed: () {
+                                                      Navigator.of(ctx).pop();
+                                                      process("1");
+                                                    },
+                                                    child: Text("okay"),
+                                                  ),
+                                                  ElevatedButton(
+                                                    onPressed: () {
+                                                      Navigator.of(ctx).pop();
+                                                    },
+                                                    child: Text("cancel"),
+                                                  )
+                                                ],
+                                              ),
+                                            );
+                                          }
                                   },
-                                  text: '',
+                                  text: confirmState ? "Accepted" : "Accept",
                                   icon: Icon(
                                     Icons.thumb_up,
                                     size: 15,
                                   ),
                                   options: FFButtonOptions(
-                                    width: 100,
+                                    width: 120,
                                     height: 30,
                                     color: Color(0xFF307F07),
                                     textStyle:
@@ -228,15 +347,48 @@ class _WorkerAdWidgetState extends State<WorkerAdWidget> {
                                       10, 0, 0, 0),
                                   child: FFButtonWidget(
                                     onPressed: () {
-                                      print('Button pressed ...');
+                                      if (declineState) {
+                                            ScaffoldMessenger.of(context)
+                                                .showSnackBar(
+                                              const SnackBar(
+                                                  content: Text(
+                                                      'You have already Declined the offer'),
+                                                  backgroundColor:
+                                                      Colors.redAccent),
+                                            );
+                                          } else {
+                                            return showDialog(
+                                              context: context,
+                                              builder: (ctx) => AlertDialog(
+                                                title: Text("Confirmation"),
+                                                content: Text(
+                                                    "Do you really want to decline the person for the job. This action cannot be undone."),
+                                                actions: <Widget>[
+                                                  ElevatedButton(
+                                                    onPressed: () {
+                                                      Navigator.of(ctx).pop();
+                                                      process("0");
+                                                    },
+                                                    child: Text("okay"),
+                                                  ),
+                                                  ElevatedButton(
+                                                    onPressed: () {
+                                                      Navigator.of(ctx).pop();
+                                                    },
+                                                    child: Text("cancel"),
+                                                  )
+                                                ],
+                                              ),
+                                            );
+                                          }
                                     },
-                                    text: '',
+                                    text: declineState ? "Declined" : "Decline",
                                     icon: Icon(
                                       Icons.thumb_down,
                                       size: 15,
                                     ),
                                     options: FFButtonOptions(
-                                      width: 100,
+                                      width: 120,
                                       height: 30,
                                       color: Color(0xFFEF1013),
                                       textStyle:

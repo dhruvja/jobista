@@ -24,15 +24,15 @@ class _ConfirmWidgetState extends State<ConfirmWidget> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
-              width: 200,
-              height: 200,
+              width: 225,
+              height: 225,
               decoration: BoxDecoration(
-                color: Color(0xFFEEEEEE),
+                color: Colors.white,
               ),
               child: Lottie.asset(
                 'assets/lottie_animations/2309-check-animation.json',
-                width: 200,
-                height: 200,
+                width: 300,
+                height: 300,
                 fit: BoxFit.cover,
                 repeat: false,
                 animate: true,

@@ -26,7 +26,6 @@ class SelectJobWidget extends StatefulWidget {
 
 class _SelectJobWidgetState extends State<SelectJobWidget> {
   String dropDownValue;
-  String dropDownValues;
 
   String endpoint = Endpoint();
   final scaffoldKey = GlobalKey<ScaffoldState>();
@@ -161,7 +160,7 @@ class _SelectJobWidgetState extends State<SelectJobWidget> {
                     children: [
                       if(present)
                        DropdownButton<String>(
-                          value: dropDownValues,
+                          value: dropDownValue,
                           icon: const Icon(Icons.ac_unit,
                           color: Color(0xFF22FFE3),
                           size: 15,),
@@ -174,7 +173,7 @@ class _SelectJobWidgetState extends State<SelectJobWidget> {
                           onChanged: (String newValue) {
                             print(newValue);
                             setState(() {
-                              dropDownValues = newValue;
+                              dropDownValue = newValue;
                             });
                           },
                           items: dets.map<DropdownMenuItem<String>>((value) {
@@ -221,8 +220,8 @@ class _SelectJobWidgetState extends State<SelectJobWidget> {
                         padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
                         child: FFButtonWidget(
                           onPressed: () async {
-                            pingWorker();
                             print(dropDownValue);
+                            pingWorker();
                           },
                           text: 'Go',
                           options: FFButtonOptions(
@@ -243,13 +242,13 @@ class _SelectJobWidgetState extends State<SelectJobWidget> {
                       ),
                     ],
                   ),
-                  Lottie.network(
-                    'https://assets7.lottiefiles.com/packages/lf20_iqi2sabx.json',
-                    width: MediaQuery.of(context).size.width,
-                    height: 30,
-                    fit: BoxFit.cover,
-                    animate: true,
-                  ),
+                  // Lottie.network(
+                  //   'https://assets7.lottiefiles.com/packages/lf20_iqi2sabx.json',
+                  //   width: MediaQuery.of(context).size.width,
+                  //   height: 30,
+                  //   fit: BoxFit.cover,
+                  //   animate: true,
+                  // ),
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
                     child: Text(

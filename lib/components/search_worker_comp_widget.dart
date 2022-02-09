@@ -8,8 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../api_endpoint.dart';
-  class SearchWorkerCompWidget extends StatelessWidget {
 
+class SearchWorkerCompWidget extends StatelessWidget {
   var values;
   String endpoint = Endpoint();
 
@@ -18,6 +18,7 @@ import '../api_endpoint.dart';
   void vals() {
     print(this.values);
   }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -33,8 +34,7 @@ import '../api_endpoint.dart';
         child: InkWell(
           onTap: () async {
             await Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) =>
-                    AdInfoWidget(data: values)));
+                builder: (context) => AdInfoWidget(data: values)));
           },
           child: Column(
             mainAxisSize: MainAxisSize.max,
@@ -92,51 +92,6 @@ import '../api_endpoint.dart';
                                           color: FlutterFlowTheme.customColor1,
                                         ),
                                       ),
-                                    ),
-                                    Expanded(
-                                      child: Align(
-                                        alignment: AlignmentDirectional(0.7, 0),
-                                        child: Column(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            InkWell(
-                                              onTap: () async {
-                                                await Navigator.push(
-                                                  context,
-                                                  MaterialPageRoute(
-                                                    builder: (context) =>
-                                                        NavBarPage(
-                                                            initialPage:
-                                                                'home_client'),
-                                                  ),
-                                                );
-                                              },
-                                              child: Icon(
-                                                Icons.star_outline,
-                                                color:
-                                                    FlutterFlowTheme.background,
-                                                size: 24,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                    Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0, 0, 10, 0),
-                                          child: Icon(
-                                            Icons.star_rate,
-                                            color:
-                                                FlutterFlowTheme.customColor1,
-                                            size: 24,
-                                          ),
-                                        ),
-                                      ],
                                     ),
                                   ],
                                 ),
@@ -229,84 +184,89 @@ import '../api_endpoint.dart';
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
-                                            Row(
-                                              mainAxisSize: MainAxisSize.min,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                              children: [
-                                                Expanded(
-                                                  child: Padding(
+                                            SingleChildScrollView(
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.min,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  Expanded(
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0, 0, 0, 0),
+                                                      child: Column(
+                                                        mainAxisSize:
+                                                            MainAxisSize.min,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .start,
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        5,
+                                                                        10,
+                                                                        0,
+                                                                        5),
+                                                            child: Text(
+                                                              'Education',
+                                                              style:
+                                                                  FlutterFlowTheme
+                                                                      .bodyText1
+                                                                      .override(
+                                                                fontFamily:
+                                                                    'Lexend Deca',
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w600,
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
                                                             .fromSTEB(
-                                                                0, 0, 30, 0),
+                                                                0, 0, 0, 0),
                                                     child: Column(
                                                       mainAxisSize:
                                                           MainAxisSize.min,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .start,
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .start,
                                                       children: [
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      5,
-                                                                      10,
-                                                                      0,
-                                                                      10),
-                                                          child: Text(
-                                                            'Education',
-                                                            style:
-                                                                FlutterFlowTheme
-                                                                    .bodyText1
-                                                                    .override(
-                                                              fontFamily:
-                                                                  'Lexend Deca',
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w600,
+                                                        Align(
+                                                          alignment:
+                                                              AlignmentDirectional(
+                                                                  0, 0),
+                                                          child: Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        0,
+                                                                        0,
+                                                                        0,
+                                                                        0),
+                                                            child: Text(
+                                                              values['edulevel']
+                                                                  .toString(),
+                                                              style:
+                                                                  FlutterFlowTheme
+                                                                      .bodyText1,
                                                             ),
                                                           ),
                                                         ),
                                                       ],
                                                     ),
                                                   ),
-                                                ),
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(0, 0, 0, 10),
-                                                  child: Column(
-                                                    mainAxisSize:
-                                                        MainAxisSize.min,
-                                                    children: [
-                                                      Align(
-                                                        alignment:
-                                                            AlignmentDirectional(
-                                                                0, 0),
-                                                        child: Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0,
-                                                                      10,
-                                                                      10,
-                                                                      0),
-                                                          child: Text(
-                                                            values['edulevel'].toString(),
-                                                            style:
-                                                                FlutterFlowTheme
-                                                                    .bodyText1,
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                              ],
+                                                ],
+                                              ),
                                             ),
                                           ],
                                         ),

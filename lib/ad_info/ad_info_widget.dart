@@ -8,6 +8,10 @@ import '../flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../api_endpoint.dart';
+import 'package:http/http.dart' as http;
+import 'dart:async';
+import 'dart:convert';
 
 class AdInfoWidget extends StatefulWidget {
   var data;
@@ -23,17 +27,41 @@ class _AdInfoWidgetState extends State<AdInfoWidget> {
   TextEditingController textController2;
   final scaffoldKey = GlobalKey<ScaffoldState>();
   var values;
+  bool applyState = false;
 
   @override
   void initState() {
     super.initState();
-    textController1 = TextEditingController();
     values = widget.data;
     print(values);
     authorize();
+    getApplyState();
+    textController1 = TextEditingController();
+    textController2 = TextEditingController();
   }
 
   var token;
+  var data;
+
+  void getApplyState() async{
+try {
+      final storage = new FlutterSecureStorage();
+      var x = await storage.read(key: "applied");
+      print(x);
+      if(x != null){
+        var applied = json.decode(x);
+        if(applied.contains(values['id']))
+        setState(() {
+          applyState = true;
+        });
+      }
+      
+    } catch (e) {
+      print(e);
+      // Navigator.pop(context);
+    }
+  }
+
   void authorize() async {
     try {
       final storage = new FlutterSecureStorage();
@@ -45,8 +73,77 @@ class _AdInfoWidgetState extends State<AdInfoWidget> {
       print(e);
       Navigator.pop(context);
     }
-    textController1 = TextEditingController();
-    textController2 = TextEditingController();
+  }
+
+
+  void apply() async {
+    try {
+      String endpoint = Endpoint();
+      var url = endpoint + "api/worker/apply";
+      print(url);
+      final response = await http.post(Uri.parse(url),
+          headers: <String, String>{
+            'Content-Type': 'application/json; charset=UTF-8',
+            'accept': 'application/json'
+          },
+          body: jsonEncode(<String, String>{
+            "client_id": values['user_id'].toString(),
+            "ad_id": values['id'].toString(),
+          }));
+      if (response.statusCode == 200) {
+        // If the server did return a 201 CREATED response,
+        // then parse the JSON.
+        print(response.body);
+        data = json.decode(response.body);
+        if (data['success'])
+          setState(() {
+            applyState = true;
+          });
+        final storage = new FlutterSecureStorage();
+        var x = await storage.read(key: "applied");
+        if(x == null){
+          List list = [];
+          list.add(values['id']);
+          await storage.write(key: "applied", value: json.encode(list));
+        }
+        else{
+          var apply = json.decode(x);
+          apply.add(values['id']);
+          await storage.write(key: "applied", value: json.encode(apply));
+          print(apply);
+        }
+        print(x);
+        return showDialog(
+          context: context,
+          builder: (ctx) => AlertDialog(
+              title: Text("Job Applied Successfully"),
+              content: ConfirmWidget(),
+              actions: <Widget>[
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(ctx).pop();
+                  },
+                  child: Text("cancel"),
+                )
+              ]),
+        );
+      }
+
+      if (!data['success']) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+              content: Text('Could not apply'),
+              backgroundColor: Colors.redAccent),
+        );
+      }
+    } catch (e) {
+      print(e);
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+            content: Text('No Interent Found, try again'),
+            backgroundColor: Colors.redAccent),
+      );
+    }
   }
 
   @override
@@ -112,7 +209,7 @@ class _AdInfoWidgetState extends State<AdInfoWidget> {
                     padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
                     child: Container(
                       width: MediaQuery.of(context).size.width * 0.95,
-                      height: MediaQuery.of(context).size.height * 0.5,
+                      height: MediaQuery.of(context).size.height * 0.6,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.customColor1,
                         borderRadius: BorderRadius.circular(20),
@@ -386,37 +483,42 @@ class _AdInfoWidgetState extends State<AdInfoWidget> {
                                 children: [
                                   FFButtonWidget(
                                     onPressed: () {
-                                      return showDialog(
-                                        context: context,
-                                        builder: (ctx) => AlertDialog(
-                                          title: Text("Confirmation"),
-                                          content: Text(
-                                              "Do you really want to apply for the job. This action cannot be undone."),
-                                          actions: <Widget>[
-                                            ElevatedButton(
-                                              onPressed: () {
-                                                Navigator.of(ctx).pop();
-                                                return showDialog(
-                                                  context: context,
-                                                  builder: (ctx) => AlertDialog(
-                                                    title: Text("Job Applied Successfully"),
-                                                    content: ConfirmWidget()
-                                                  ),
-                                                );
-                                              },
-                                              child: Text("okay"),
-                                            ),
-                                            ElevatedButton(
-                                              onPressed: () {
-                                                Navigator.of(ctx).pop();
-                                              },
-                                              child: Text("cancel"),
-                                            )
-                                          ],
-                                        ),
-                                      );
+                                      if (applyState) {
+                                        ScaffoldMessenger.of(context)
+                                            .showSnackBar(
+                                          const SnackBar(
+                                              content: Text(
+                                                  'You have already Applied'),
+                                              backgroundColor:
+                                                  Colors.green),
+                                        );
+                                      } else {
+                                        return showDialog(
+                                          context: context,
+                                          builder: (ctx) => AlertDialog(
+                                            title: Text("Confirmation"),
+                                            content: Text(
+                                                "Do you really want to apply for the job. This action cannot be undone."),
+                                            actions: <Widget>[
+                                              ElevatedButton(
+                                                onPressed: () {
+                                                  Navigator.of(ctx).pop();
+                                                  apply();
+                                                },
+                                                child: Text("okay"),
+                                              ),
+                                              ElevatedButton(
+                                                onPressed: () {
+                                                  Navigator.of(ctx).pop();
+                                                },
+                                                child: Text("cancel"),
+                                              )
+                                            ],
+                                          ),
+                                        );
+                                      }
                                     },
-                                    text: 'Accept',
+                                    text: applyState ? 'Applied' : 'Apply',
                                     options: FFButtonOptions(
                                       width: 300,
                                       height: 40,

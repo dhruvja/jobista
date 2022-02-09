@@ -5,26 +5,104 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../api_endpoint.dart';
+import 'package:http/http.dart' as http;
+import 'dart:async';
+import 'dart:convert';
 
+import 'confirm_widget.dart';
 
-// class ResultCustomerWidget extends StatefulWidget {
-//   const ResultCustomerWidget({Key key}) : super(key: key);
+class ResultCustomerWidget extends StatefulWidget {
+  final values;
+  const ResultCustomerWidget({Key key, @required this.values})
+      : super(key: key);
 
-//   @override
-//   _ResultCustomerWidgetState createState() => _ResultCustomerWidgetState();
-// }
+  @override
+  _ResultCustomerWidgetState createState() => _ResultCustomerWidgetState();
+}
 
-// class _ResultCustomerWidgetState extends State<ResultCustomerWidget> {
-  class ResultCustomerWidget extends StatelessWidget {
-
+class _ResultCustomerWidgetState extends State<ResultCustomerWidget> {
   var values;
   String endpoint = Endpoint();
 
-  ResultCustomerWidget(this.values);
+  bool confirmState = false;
+  bool declineState = false;
+
+  void initState() {
+    super.initState();
+    values = widget.values;
+  }
 
   void vals() {
     print(this.values);
   }
+
+  void process(String status) async {
+    try {
+      String endpoint = Endpoint();
+      var url = endpoint + "api/client/updatestatus";
+      print(url);
+      final response = await http.post(Uri.parse(url),
+          headers: <String, String>{
+            'Content-Type': 'application/json; charset=UTF-8',
+            'accept': 'application/json'
+          },
+          body: jsonEncode(<String, String>{
+            "id": values['apply_id'].toString(),
+            "status": status,
+          }));
+      if (response.statusCode == 200) {
+        // If the server did return a 201 CREATED response,
+        // then parse the JSON.
+        print(response.body);
+        var data = json.decode(response.body);
+        if (data['success']) {
+          if (status == "1") {
+            setState(() {
+              confirmState = true;
+              declineState = false;
+            });
+          } else {
+            setState(() {
+              confirmState = false;
+              declineState = true;
+            });
+          }
+          return showDialog(
+            context: context,
+            builder: (ctx) => AlertDialog(
+                title: status == "1"
+                    ? Text("Job Confirmed Successfully")
+                    : Text("Job Declined Successfully"),
+                content: ConfirmWidget(),
+                actions: <Widget>[
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.of(ctx).pop();
+                    },
+                    child: Text("cancel"),
+                  )
+                ]),
+          );
+        }
+
+        else if (!data['success']) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+                content: Text('Could not update the status'),
+                backgroundColor: Colors.redAccent),
+          );
+        }
+      }
+    } catch (e) {
+      print(e);
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+            content: Text('No Interent Found, try again'),
+            backgroundColor: Colors.redAccent),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Align(
@@ -141,7 +219,7 @@ import '../api_endpoint.dart';
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Text(
-                                      'AD-1',
+                                      values['job_title'],
                                       style:
                                           FlutterFlowTheme.bodyText1.override(
                                         fontFamily: 'Lexend Deca',
@@ -162,7 +240,7 @@ import '../api_endpoint.dart';
                                       ),
                                     ),
                                     Text(
-                                      values['exptime'].toString() + " Years" ,
+                                      values['exptime'].toString() + " Years",
                                       style:
                                           FlutterFlowTheme.bodyText1.override(
                                         fontFamily: 'Lexend Deca',
@@ -179,9 +257,44 @@ import '../api_endpoint.dart';
                                           0, 10, 0, 0),
                                       child: FFButtonWidget(
                                         onPressed: () {
-                                          print('Button pressed ...');
+                                          if (confirmState) {
+                                            ScaffoldMessenger.of(context)
+                                                .showSnackBar(
+                                              const SnackBar(
+                                                  content: Text(
+                                                      'You have already Accepted the offer'),
+                                                  backgroundColor:
+                                                      Colors.green),
+                                            );
+                                          } else {
+                                            return showDialog(
+                                              context: context,
+                                              builder: (ctx) => AlertDialog(
+                                                title: Text("Confirmation"),
+                                                content: Text(
+                                                    "Do you really want to accept the person for the job. This action cannot be undone."),
+                                                actions: <Widget>[
+                                                  ElevatedButton(
+                                                    onPressed: () {
+                                                      Navigator.of(ctx).pop();
+                                                      process("1");
+                                                    },
+                                                    child: Text("okay"),
+                                                  ),
+                                                  ElevatedButton(
+                                                    onPressed: () {
+                                                      Navigator.of(ctx).pop();
+                                                    },
+                                                    child: Text("cancel"),
+                                                  )
+                                                ],
+                                              ),
+                                            );
+                                          }
                                         },
-                                        text: 'Booked',
+                                        text: confirmState
+                                            ? 'Confirmed'
+                                            : 'Confirm',
                                         options: FFButtonOptions(
                                           width: 80,
                                           height: 40,
@@ -206,9 +319,44 @@ import '../api_endpoint.dart';
                                           10, 10, 0, 0),
                                       child: FFButtonWidget(
                                         onPressed: () {
-                                          print('Button pressed ...');
+                                          if (declineState) {
+                                            ScaffoldMessenger.of(context)
+                                                .showSnackBar(
+                                              const SnackBar(
+                                                  content: Text(
+                                                      'You have already Declined the offer'),
+                                                  backgroundColor:
+                                                      Colors.redAccent),
+                                            );
+                                          } else {
+                                            return showDialog(
+                                              context: context,
+                                              builder: (ctx) => AlertDialog(
+                                                title: Text("Confirmation"),
+                                                content: Text(
+                                                    "Do you really want to decline the person for the job. This action cannot be undone."),
+                                                actions: <Widget>[
+                                                  ElevatedButton(
+                                                    onPressed: () {
+                                                      Navigator.of(ctx).pop();
+                                                      process("0");
+                                                    },
+                                                    child: Text("okay"),
+                                                  ),
+                                                  ElevatedButton(
+                                                    onPressed: () {
+                                                      Navigator.of(ctx).pop();
+                                                    },
+                                                    child: Text("cancel"),
+                                                  )
+                                                ],
+                                              ),
+                                            );
+                                          }
                                         },
-                                        text: 'waitlisted',
+                                        text: declineState
+                                            ? 'Declined'
+                                            : 'Decline',
                                         options: FFButtonOptions(
                                           width: 100,
                                           height: 40,

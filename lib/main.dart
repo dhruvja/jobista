@@ -3,11 +3,16 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:j_o_b_ista/ad_standalone_copy/ad_standalone_copy_widget.dart';
 import 'package:j_o_b_ista/components/activities_widget.dart';
+import 'package:j_o_b_ista/perm_worker/perm_worker_widget.dart';
 import 'package:j_o_b_ista/post_j_o_b/post_j_o_b_widget.dart';
+import 'package:j_o_b_ista/search_customer/search_customer_widget.dart';
+import 'package:j_o_b_ista/services/L10n.dart';
 import 'package:j_o_b_ista/worker_confirmation/worker_confirmation_widget.dart';
 import 'package:j_o_b_ista/worker_home/worker_home_widget.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'ad_worker_apply/ad_worker_apply_widget.dart';
 import 'auth/firebase_user_provider.dart';
 
 import '../flutter_flow/flutter_flow_theme.dart';
@@ -152,7 +157,7 @@ class _MyHomePageState extends State<MyHomePage> {
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
-      supportedLocales: const [Locale('en', '')],
+      supportedLocales: L10n.all,
       theme: ThemeData(primarySwatch: Colors.blue),
       home: initialUser == null || displaySplashImage
           ? Container(
@@ -303,11 +308,11 @@ class _WorkerNavBarPageState extends State<WorkerNavBarPage> {
   @override
   Widget build(BuildContext context) {
     final tabs = {
-      'home_client': WorkerHomeWidget(),
-      'BookJob': PostJOBWidget(),
-      'client_sa': ClientSaWidget(),
-      'applicants': ApplicantsWidget(),
-      'allinone': AllinoneWidget(),
+      'home_worker': PermWorkerWidget(),
+      'search': SearchCustomerWidget(),
+      'activity': ClientSaWidget(),
+      'offers': AdStandaloneCopyWidget(),
+      'applied': AdWorkerApplyWidget(),
     };
     return Scaffold(
       body: tabs[_currentPage],

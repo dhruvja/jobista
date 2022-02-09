@@ -116,7 +116,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                   context,
                   MaterialPageRoute(
                     builder: (context) =>
-                        PermWorkerWidget(),
+                        WorkerNavBarPage(initialPage: 'home_worker'),
                   ),
                 );
               }
@@ -125,7 +125,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                   context,
                   MaterialPageRoute(
                     builder: (context) =>
-                        WorkerNavBarPage(initialPage: 'home_client'),
+                        WorkerHomeWidget(),
                   ),
                 );
               }

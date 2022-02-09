@@ -48,7 +48,7 @@ class _ApplicantsWidgetState extends State<ApplicantsWidget> {
   void getWorkers() async {
     String endpoint = Endpoint();
     try {
-      String url = endpoint + "api/client/bookedworkers";
+      String url = endpoint + "api/client/appliedworkers";
       final response = await http.get(Uri.parse(url));
       if (response.statusCode == 200) {
         // print(response.body);
@@ -330,7 +330,7 @@ class _ApplicantsWidgetState extends State<ApplicantsWidget> {
                     ),
                     if(present)
                       ...(workers).map((worker){
-                        return ResultCustomerWidget(worker);
+                        return ResultCustomerWidget(values: worker);
                       })
                   ],
                 ),

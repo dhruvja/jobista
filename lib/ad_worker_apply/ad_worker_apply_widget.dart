@@ -1,3 +1,5 @@
+import 'package:j_o_b_ista/components/worker_apply_widget.dart';
+
 import '../components/client_filter_widget.dart';
 import '../components/worker_ad_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
@@ -11,19 +13,18 @@ import 'dart:convert';
 import '../api_endpoint.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
-class AdStandaloneCopyWidget extends StatefulWidget {
-  const AdStandaloneCopyWidget({Key key}) : super(key: key);
+class AdWorkerApplyWidget extends StatefulWidget {
+  const AdWorkerApplyWidget({Key key}) : super(key: key);
 
   @override
-  _AdStandaloneCopyWidgetState createState() => _AdStandaloneCopyWidgetState();
+  _AdWorkerApplyWidgetState createState() => _AdWorkerApplyWidgetState();
 }
 
-class _AdStandaloneCopyWidgetState extends State<AdStandaloneCopyWidget> {
+class _AdWorkerApplyWidgetState extends State<AdWorkerApplyWidget> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   bool present = false;
   var ads;
-  int rows;
 
   void initState() {
     super.initState();
@@ -48,7 +49,7 @@ class _AdStandaloneCopyWidgetState extends State<AdStandaloneCopyWidget> {
   void getAds() async {
     String endpoint = Endpoint();
     try {
-      String url = endpoint + "api/worker/getoffers";
+      String url = endpoint + "api/worker/getappliedads";
       final response = await http.get(Uri.parse(url));
       if (response.statusCode == 200) {
         // print(response.body);
@@ -56,10 +57,9 @@ class _AdStandaloneCopyWidgetState extends State<AdStandaloneCopyWidget> {
         print(data);
         if (data['success'])
           setState(() {
-            ads = data['offer'];
+            ads = data['apply'];
             present = true;
           });
-
         else {
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(
@@ -360,7 +360,6 @@ class _AdStandaloneCopyWidgetState extends State<AdStandaloneCopyWidget> {
                       ],
                     ),
                     if (present)
-                      if(ads.length > 0)
                       ...(ads).map((ad) {
                         try {
                           var parsedDate = DateTime.parse(ad['created_date']);
@@ -371,7 +370,7 @@ class _AdStandaloneCopyWidgetState extends State<AdStandaloneCopyWidget> {
                         } catch (e) {
                           print(e);
                         }
-                        return WorkerAdWidget(values: ad);  
+                        return WorkerApplyWidget(ad);
                       })
                   ],
                 ),
