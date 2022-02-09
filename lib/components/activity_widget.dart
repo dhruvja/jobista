@@ -1,3 +1,6 @@
+import 'package:j_o_b_ista/billing/billing_widget.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
 import '../api_endpoint.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
@@ -8,7 +11,6 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ActivityWidget extends StatelessWidget {
-
   bool _loadingButton = false;
   var values;
   String endpoint = Endpoint();
@@ -66,7 +68,9 @@ class ActivityWidget extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        values['job_status'] == 0 ? values['created_date'] : values['completed_date'] ,
+                        values['job_status'] == 0
+                            ? values['created_date']
+                            : values['completed_date'],
                         style: FlutterFlowTheme.bodyText1.override(
                           fontFamily: 'Lexend Deca',
                           color: Color(0xFF95A1AC),
@@ -96,7 +100,7 @@ class ActivityWidget extends StatelessWidget {
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(4, 0, 0, 0),
                         child: Text(
-                          values['job_status'] == 0 ? "Pending" : "Completed" ,
+                          values['job_status'] == 0 ? "Pending" : "Completed",
                           style: FlutterFlowTheme.subtitle1.override(
                             fontFamily: 'Lexend Deca',
                             color: Color(0xFF4B39EF),
@@ -129,14 +133,28 @@ class ActivityWidget extends StatelessWidget {
                           child: Align(
                             alignment: AlignmentDirectional(1, 0),
                             child: FFButtonWidget(
-                              onPressed: () {
-                                print('Button pressed ...');
+                              onPressed: () async {
+                                if (values['job_status'] == 0) {
+                                } else {
+                                  final prefs =
+                                      await SharedPreferences.getInstance();
+                                  prefs.setInt(
+                                      "worker_id", values['job_id']);
+                                  await Navigator.of(context).push(
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              BillingWidget()));
+                                }
                               },
-                              text: values['job_status'] == 0 ? "Worker Info" : "View Bill" ,
+                              text: values['job_status'] == 0
+                                  ? "Worker Info"
+                                  : "View Bill",
                               options: FFButtonOptions(
                                 width: 130,
                                 height: 40,
-                                color: values['job_status'] == 0 ? Colors.red : Color(0xFF1B4F72) ,
+                                color: values['job_status'] == 0
+                                    ? Colors.red
+                                    : Color(0xFF1B4F72),
                                 textStyle: FlutterFlowTheme.subtitle2.override(
                                   fontFamily: 'Lexend Deca',
                                   color: Colors.white,

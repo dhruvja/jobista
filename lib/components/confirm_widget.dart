@@ -31,8 +31,8 @@ class _ConfirmWidgetState extends State<ConfirmWidget> {
               ),
               child: Lottie.asset(
                 'assets/lottie_animations/2309-check-animation.json',
-                width: 300,
-                height: 300,
+                width: 250,
+                height: 250,
                 fit: BoxFit.cover,
                 repeat: false,
                 animate: true,

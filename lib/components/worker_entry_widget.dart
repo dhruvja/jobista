@@ -21,7 +21,7 @@ class WorkerEntryWidget extends StatelessWidget {
       padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
       child: Container(
         width: MediaQuery.of(context).size.width * 0.95,
-        height: 80,
+        height: 100,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.background,
           borderRadius: BorderRadius.circular(8),
@@ -43,9 +43,9 @@ class WorkerEntryWidget extends StatelessWidget {
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
                       ),
-                      // child: Image.network(
-                      //   'https://picsum.photos/seed/486/600',
-                      // ),
+                      child: Image.network(
+                        'https://picsum.photos/seed/486/600',
+                      ),
                     ),
                   ),
                 ],

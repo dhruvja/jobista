@@ -36,8 +36,8 @@ class _SearchHomeWidgetState extends State<SearchHomeWidget> {
       child: Padding(
         padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
         child: Container(
-          width: 280,
-          height: 300,
+          width: 250,
+          height: 250,
           decoration: BoxDecoration(
             color: FlutterFlowTheme.customColor1,
             borderRadius: BorderRadius.circular(20),
@@ -192,7 +192,7 @@ class _SearchHomeWidgetState extends State<SearchHomeWidget> {
                               builder: (context) => SearchClientWidget(
                                   designation: dropDownValue,
                                   pincode: textController.text,
-                                  education: "0",
+                                  education: "Education",
                                   experience: countControllerValue)));
                         } finally {
                           setState(() => _loadingButton = false);

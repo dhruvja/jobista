@@ -131,6 +131,9 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
     if(designation == null)
       designation = "";
     
+    if(textController2.text == "")
+      textController2.text = " ";
+    
     try {
       var url = endpoint + "api/client/search/" + textController2.text;
       print(url);
@@ -560,14 +563,9 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
                         padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
                         child: FFButtonWidget(
                           onPressed: () async {
-                            await Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => Worker2Widget(),
-                              ),
-                            );
+                            scaffoldKey.currentState.openEndDrawer();
                           },
-                          text: 'Job type',
+                          text: dropDownValue1 == null ? 'Job type' : dropDownValue1,
                           icon: FaIcon(
                             FontAwesomeIcons.robot,
                           ),
@@ -592,14 +590,9 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
                         padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
                         child: FFButtonWidget(
                           onPressed: () async {
-                            await Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => SearchCustomerWidget(),
-                              ),
-                            );
+                            scaffoldKey.currentState.openEndDrawer();
                           },
-                          text: 'Location',
+                          text: dropDownValue2 == "0" ? 'Education' : dropDownValue2,
                           icon: Icon(
                             Icons.location_on,
                             size: 15,
@@ -625,14 +618,9 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
                         padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
                         child: FFButtonWidget(
                           onPressed: () async {
-                            await Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => SearchCustomerWidget(),
-                              ),
-                            );
+                            scaffoldKey.currentState.openEndDrawer();
                           },
-                          text: 'Education',
+                          text: countControllerValue == 0 ? "Experience" : countControllerValue.toString() + " Years" ,
                           icon: Icon(
                             Icons.history_edu,
                             size: 15,

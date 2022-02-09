@@ -9,6 +9,7 @@ import 'package:j_o_b_ista/perm_worker/perm_worker_widget.dart';
 import 'package:j_o_b_ista/post_j_o_b/post_j_o_b_widget.dart';
 import 'package:j_o_b_ista/search_customer/search_customer_widget.dart';
 import 'package:j_o_b_ista/services/L10n.dart';
+import 'package:j_o_b_ista/setting/setting_widget.dart';
 import 'package:j_o_b_ista/worker_confirmation/worker_confirmation_widget.dart';
 import 'package:j_o_b_ista/worker_home/worker_home_widget.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -20,6 +21,7 @@ import 'package:j_o_b_ista/allinone/allinone_widget.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'billing/billing_widget.dart';
 import 'flutter_flow/flutter_flow_theme.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'home_client/home_client_widget.dart';
@@ -206,12 +208,21 @@ class _NavBarPageState extends State<NavBarPage> {
       'BookJob': PostJOBWidget(),
       'client_sa': ClientSaWidget(),
       'applicants': ApplicantsWidget(),
-      'allinone': AllinoneWidget(),
-      'home_clientCopy': HomeClientCopyWidget(),
+      // 'allinone': AllinoneWidget(),
+      'settings': SettingWidget(),
     };
+    final currentIndex = tabs.keys.toList().indexOf(_currentPage);
     return Scaffold(
       body: tabs[_currentPage],
       bottomNavigationBar: BottomNavigationBar(
+        currentIndex: currentIndex,
+        onTap: (i) => setState(() => _currentPage = tabs.keys.toList()[i]),
+        backgroundColor: FlutterFlowTheme.customColor1,
+        selectedItemColor: Color(0xFF000957),
+        unselectedItemColor: FlutterFlowTheme.grayLight,
+        showSelectedLabels: true,
+        showUnselectedLabels: false,
+        type: BottomNavigationBarType.fixed,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(
@@ -227,10 +238,10 @@ class _NavBarPageState extends State<NavBarPage> {
           ),
           BottomNavigationBarItem(
             icon: FaIcon(
-              FontAwesomeIcons.bomb,
+              Icons.upload,
               size: 24,
             ),
-            label: 'post job',
+            label: 'Post Job',
             tooltip: '',
           ),
           BottomNavigationBarItem(
@@ -250,38 +261,18 @@ class _NavBarPageState extends State<NavBarPage> {
               Icons.monetization_on,
               size: 24,
             ),
-            label: 'Home',
+            label: 'Applicants',
             tooltip: '',
           ),
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.link,
+              Icons.settings,
               size: 24,
             ),
-            label: 'Links',
+            label: 'Settings',
             tooltip: '',
           ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.home_outlined,
-              size: 24,
-            ),
-            activeIcon: Icon(
-              Icons.home,
-              size: 24,
-            ),
-            label: 'Home',
-            tooltip: '',
-          )
         ],
-        backgroundColor: FlutterFlowTheme.customColor1,
-        currentIndex: tabs.keys.toList().indexOf(_currentPage),
-        selectedItemColor: Color(0xFF000957),
-        unselectedItemColor: FlutterFlowTheme.grayLight,
-        onTap: (i) => setState(() => _currentPage = tabs.keys.toList()[i]),
-        showSelectedLabels: true,
-        showUnselectedLabels: false,
-        type: BottomNavigationBarType.fixed,
       ),
     );
   }
@@ -312,7 +303,7 @@ class _WorkerNavBarPageState extends State<WorkerNavBarPage> {
       'search': SearchCustomerWidget(),
       'activity': ClientSaWidget(),
       'offers': AdStandaloneCopyWidget(),
-      'applied': AdWorkerApplyWidget(),
+      'settings': SettingWidget(),
     };
     return Scaffold(
       body: tabs[_currentPage],
@@ -332,7 +323,7 @@ class _WorkerNavBarPageState extends State<WorkerNavBarPage> {
           ),
           BottomNavigationBarItem(
             icon: FaIcon(
-              FontAwesomeIcons.bomb,
+              FontAwesomeIcons.search,
               size: 24,
             ),
             label: 'search',
@@ -355,15 +346,15 @@ class _WorkerNavBarPageState extends State<WorkerNavBarPage> {
               Icons.monetization_on,
               size: 24,
             ),
-            label: 'Home',
+            label: 'Offers',
             tooltip: '',
           ),
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.link,
+              Icons.settings,
               size: 24,
             ),
-            label: 'Links',
+            label: 'Settings',
             tooltip: '',
           )
         ],
