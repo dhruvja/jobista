@@ -4,6 +4,7 @@ var cors = require('cors')
 const jwt = require('jsonwebtoken')
 var pool = require('./db')
 var fileupload = require('express-fileupload')
+const logger = require('./middleware/logger')
 const authorize = require('./middleware/authorize')
 var easyinvoice = require('easyinvoice')
 const fs = require('fs')
@@ -24,6 +25,8 @@ const io = require("socket.io")(http, {
     },
 });
 const { database } = require("./config/helpers");
+
+// app.use(authorize)
 
 
 const worker = require('./routes/worker')
@@ -56,7 +59,6 @@ admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
 });
 
-
 app.post('/api/login',(req,res) => {
     try {
         console.log(req.body)
@@ -76,7 +78,7 @@ app.post('/api/login',(req,res) => {
                         }
                     )
                     console.log("Login successfully for " + rows[0].type )
-                    res.json({success: true, msg: "You have logged in successfully", token: token,type: rows[0].type, username: rows[0].username})
+                    res.json({success: true, msg: "You have logged in successfully", token: token,type: rows[0].type, username: rows[0].username, id: rows[0].id})
                 }
                 else{
                     console.log("Login failed")
@@ -181,7 +183,7 @@ app.get('/api/allusers', (req, res) => {
 
 app.get('/api/getroles', (req,res) => {
     try {
-        var query = "SELECT * FROM designation";
+        var query = "SELECT designation FROM roles";
         pool.query(query, (err,rows) => {
             if(err){
                 console.log(err)
@@ -203,7 +205,8 @@ app.get('/api/sendNotification', (req,res) => {
     const payload = {
         notification: {
             title: "This is a notification from node js",
-            body: "Yo i have sent it"
+            body: "Yo i have sent it",
+            android_channel_id: "jobista"
         },
         data:{
             route: "client"
@@ -211,11 +214,32 @@ app.get('/api/sendNotification', (req,res) => {
     };
     const option = {priority: 'high', timeToLive: 60*60*24};
     try {
-        admin.messaging().sendToDevice([],payload,option)
+        admin.messaging().sendToDevice(device,payload,option)
         res.json("Notification sent")
     } catch (error) {
         console.log(error)
         res.json(error)
+    }
+})
+
+app.post('/api/deviceid',(req, res) => {
+    // res.locals.user = 16;
+    const details = req.body;
+    try {
+        var query = "UPDATE accounts SET device_id = ? WHERE id = ?";
+        pool.query(query, [details.device_id,details.id] , (err,rows) => {
+            if(err){
+                console.log(err)
+                res.json({success: false})
+            }
+            else{
+                console.log(rows)
+                res.json({success: true, rows: rows})
+            }
+        })
+    } catch (error) {
+        console.log(error)
+        res.json({success: false})
     }
 })
 
@@ -337,123 +361,123 @@ app.get('/api/generatebill', (req, res) => {
     
 })
 
-let data = [];
-let currentData = [];
+// let data = [];
+// let currentData = [];
 
-// console.log(database)
+// // console.log(database)
 
-// use sockets to setup connection
+// // use sockets to setup connection
 
-io.sockets.on("connection", (socket) => {
-    console.log(socket.id);
-    database
-        .table("contract_jobs")
-        // .withFields(["id"])
-        .filter({ status: { $sql: "= 0" } })
-        .sort({ id: -1 })
-        .getAll()
-        .then((works) => {
-            // console.log(works);
-            data = works;
-            io.sockets.emit("initial", { works: [...data] });
-        })
-        .catch((err) => console.log(err));
-});
+// io.sockets.on("connection", (socket) => {
+//     console.log(socket.id);
+//     database
+//         .table("contract_jobs")
+//         // .withFields(["id"])
+//         .filter({ status: { $sql: "= 0" } })
+//         .sort({ id: -1 })
+//         .getAll()
+//         .then((works) => {
+//             // console.log(works);
+//             data = works;
+//             io.sockets.emit("initial", { works: [...data] });
+//         })
+//         .catch((err) => console.log(err));
+// });
 
-const program = async () => {
-    const connection = mysql.createConnection({
-        host: "localhost",
-        user: "root",
-        password: "password",
-    });
+// const program = async () => {
+//     const connection = mysql.createConnection({
+//         host: "localhost",
+//         user: "root",
+//         password: "password",
+//     });
 
-    const instance = new MySqlEvents(connection, {
-        startAtEnd: true,
-    });
+//     const instance = new MySqlEvents(connection, {
+//         startAtEnd: true,
+//     });
 
-    await instance.start();
+//     await instance.start();
 
-    instance.addTrigger({
-        name: "Monitor all the statements",
-        expression: "jobify.*",
-        statement: MySqlEvents.STATEMENTS.ALL,
-        onEvent: (e) => {
-            currentData = e.affectedRows;
-            let newData;
+//     instance.addTrigger({
+//         name: "Monitor all the statements",
+//         expression: "jobify.*",
+//         statement: MySqlEvents.STATEMENTS.ALL,
+//         onEvent: (e) => {
+//             currentData = e.affectedRows;
+//             let newData;
 
-            switch (e.type) {
-                case "DELETE":
-                    newData = currentData[0].before;
-                    let index = data.findIndex((p) => p.id === newData.id);
+//             switch (e.type) {
+//                 case "DELETE":
+//                     newData = currentData[0].before;
+//                     let index = data.findIndex((p) => p.id === newData.id);
 
-                    if (index > -1) {
-                        data = data.filter((p) => p.id !== newData.id);
-                        console.log(data);
-                        io.sockets.emit("update", {
-                            works: [...data],
-                        });
-                    } else {
-                        return;
-                    }
-                    break;
-                case "UPDATE":
-                    newData = currentData[0].after;
-                    if (newData.status == 0) {
-                        let index = data.findIndex((p) => p.id === newData.id);
+//                     if (index > -1) {
+//                         data = data.filter((p) => p.id !== newData.id);
+//                         console.log(data);
+//                         io.sockets.emit("update", {
+//                             works: [...data],
+//                         });
+//                     } else {
+//                         return;
+//                     }
+//                     break;
+//                 case "UPDATE":
+//                     newData = currentData[0].after;
+//                     if (newData.status == 0) {
+//                         let index = data.findIndex((p) => p.id === newData.id);
 
-                        if (index > -1) {
-                            data[index] = newData;
-                            console.log(data);
-                        } else {
-                            data.push(newData);
-                        }
-                        io.sockets.emit("update", {
-                            works: [...data],
-                        });
-                    } else {
-                        let index = data.findIndex((p) => p.id === newData.id);
+//                         if (index > -1) {
+//                             data[index] = newData;
+//                             console.log(data);
+//                         } else {
+//                             data.push(newData);
+//                         }
+//                         io.sockets.emit("update", {
+//                             works: [...data],
+//                         });
+//                     } else {
+//                         let index = data.findIndex((p) => p.id === newData.id);
 
-                        if (index > -1) {
-                            data = data.filter((p) => p.id !== newData.id);
-                            console.log(data);
-                            io.sockets.emit("update", {
-                                works: [...data],
-                            });
-                        } else {
-                            return;
-                        }
-                    }
+//                         if (index > -1) {
+//                             data = data.filter((p) => p.id !== newData.id);
+//                             console.log(data);
+//                             io.sockets.emit("update", {
+//                                 works: [...data],
+//                             });
+//                         } else {
+//                             return;
+//                         }
+//                     }
 
-                    break;
-                case "INSERT":
-                    database
-                        .table("contract_jobs")
-                        // .withFields(["id"])
-                        .filter({ status: { $sql: "= 0" } })
-                        .sort({ id: -1 })
-                        .getAll()
-                        .then((works) => {
-                            console.log(works);
-                            data = works;
-                            io.sockets.emit("update", { works: [...data] });
-                        })
-                        .catch((err) => console.log(err));
-                default:
-                    console.log(e.type);
-                    break;
-            }
-        },
-    });
+//                     break;
+//                 case "INSERT":
+//                     database
+//                         .table("contract_jobs")
+//                         // .withFields(["id"])
+//                         .filter({ status: { $sql: "= 0" } })
+//                         .sort({ id: -1 })
+//                         .getAll()
+//                         .then((works) => {
+//                             console.log(works);
+//                             data = works;
+//                             io.sockets.emit("update", { works: [...data] });
+//                         })
+//                         .catch((err) => console.log(err));
+//                 default:
+//                     console.log(e.type);
+//                     break;
+//             }
+//         },
+//     });
 
-    instance.on(MySqlEvents.EVENTS.CONNECTION_ERROR, console.error);
-    instance.on(MySqlEvents.EVENTS.ZONGJI_ERROR, console.error);
-};
+//     instance.on(MySqlEvents.EVENTS.CONNECTION_ERROR, console.error);
+//     instance.on(MySqlEvents.EVENTS.ZONGJI_ERROR, console.error);
+// };
 
-program().then();
+// program().then();
 
-http.listen(3001, () => {
-    console.log("The socket is open on port 3001");
-});
+// http.listen(3001, () => {
+//     console.log("The socket is open on port 3001");
+// });
 
 
 

@@ -13,6 +13,7 @@
   "dependencies": {
     "@rodrigogs/mysql-events": "^0.6.0",
     "cors": "^2.8.5",
+    "diet": "^0.16.0",
     "easyinvoice": "^2.2.3",
     "express": "^4.17.1",
     "express-fileupload": "^1.2.1",

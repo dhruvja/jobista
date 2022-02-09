@@ -33,14 +33,15 @@ const sendNotification = (device, payload) => {
     }
 };
 
-router.route("/bookworker").get(async (req, res) => {
+router.route("/bookworker").post(async (req, res) => {
     res.locals.user = 1;
 
-    // var details = req.body;
-    details = {
-        id: 4,
-        worker_id: 2,
-    };
+    var details = req.body;
+    console.log(details);
+    // details = {
+    //     id: 4,
+    //     worker_id: 2,
+    // };
 
     book_query = () => {
         return new Promise((resolve, reject) => {
@@ -75,29 +76,28 @@ router.route("/bookworker").get(async (req, res) => {
     notify_query = () => {
         return new Promise((resolve, reject) => {
             pool.query(
-                "SELECT device_id,worker_id FROM accounts INNER JOIN contract_jobs ON accounts.id = contract_jobs.user_id WHERE contract_jobs.id = ?",
+                "SELECT device_id FROM accounts INNER JOIN contract_jobs ON accounts.id = contract_jobs.user_id WHERE contract_jobs.id = ?",
                 [details.id],
                 (err, rows) => {
-                    if(err){
-                        console.log(err)
-                        return reject(err)
-                    }
-                    else{
-                        console.log(rows[0])
+                    if (err) {
+                        console.log(err);
+                        return reject(err);
+                    } else {
+                        console.log(rows);
                         const payload = {
-                                notification: {
-                                    title: "Worker has been confirmed",
-                                    body: "Please click to view the details"
-                                },
-                                data:{
-                                    route: "client",
-                                    worker: rows[0].worker_id
-                                }
-                            };
-                        if(sendNotification(rows[0].device_id,payload))
-                            return resolve(true)
-                        else
-                            return resolve(false)
+                            notification: {
+                                title: "Worker has been confirmed",
+                                body: "Please click to view the details",
+                                android_channel_id: "jobista",
+                            },
+                            data: {
+                                route: "worker_confirmation",
+                                worker: String(details.worker_id),
+                            },
+                        };
+                        if (sendNotification(rows[0].device_id, payload))
+                            return resolve(true);
+                        else return resolve(false);
                     }
                 }
             );
@@ -108,7 +108,7 @@ router.route("/bookworker").get(async (req, res) => {
         try {
             const book = await book_query();
             const notify = await notify_query();
-            res.json({status: 'success', notification: notify});
+            res.json({ status: "success", notification: notify });
         } catch (error) {
             console.log(error);
             res.json(error);
@@ -119,16 +119,17 @@ router.route("/bookworker").get(async (req, res) => {
     }
 });
 
-router.route("/showworkers/:id").post(async (req, res) => {
+router.route("/showworkers/:role").get(async (req, res) => {
     res.locals.user = 1;
 
-    var details = req.body;
+    var details = req.params.role;
+    console.log(details);
 
     book_query = () => {
         return new Promise((resolve, reject) => {
             pool.query(
                 "SELECT * FROM contract_workers WHERE designation = ? AND status = 0 ",
-                [details.worker_id, details.id],
+                [details],
                 (err, rows) => {
                     if (err) {
                         console.log(err);
@@ -144,7 +145,7 @@ router.route("/showworkers/:id").post(async (req, res) => {
 
     if (res.locals.user) {
         try {
-            const workers = await get_workers_query();
+            const workers = await book_query();
             res.json(workers);
         } catch (error) {
             console.log(error);
@@ -156,23 +157,25 @@ router.route("/showworkers/:id").post(async (req, res) => {
     }
 });
 
-router.route('/activejobs').get((req,res) => {
+router.route("/activejobs").get(async (req, res) => {
     res.locals.user = 1;
 
     const active_query = () => {
-        return new Promise(async(resolve,reject) => {
-            pool.query("SELECT * FROM contract_jobs WHERE status = 0 AND worker_id IS NOT NULL",(err,rows) => {
-                if(err){
-                    console.log(err)
-                    return reject(err)
+        return new Promise(async (resolve, reject) => {
+            pool.query(
+                "SELECT *, contract_jobs.created_date AS job_creation ,contract_jobs.id AS job_id, contract_jobs.user_id AS client_id, accounts.username AS client_name, contract_workers.username AS worker_name FROM contract_jobs INNER JOIN accounts ON contract_jobs.user_id = accounts.id INNER JOIN contract_workers ON contract_jobs.worker_id = contract_workers.user_id WHERE contract_jobs.status = 0 AND contract_jobs.worker_id IS NOT NULL ORDER BY contract_jobs.created_date DESC",
+                (err, rows) => {
+                    if (err) {
+                        console.log(err);
+                        return reject(err);
+                    } else {
+                        console.log(rows);
+                        return resolve(rows);
+                    }
                 }
-                else{
-                    console.log(rows)
-                    return resolve(rows)
-                }
-            })
-        })
-    }
+            );
+        });
+    };
 
     if (res.locals.user) {
         try {
@@ -186,25 +189,27 @@ router.route('/activejobs').get((req,res) => {
         console.log(res.locals.error);
         res.json(res.locals.error);
     }
-})
+});
 
-router.route('/completedjobs').get((req,res) => {
+router.route("/completedjobs").get(async (req, res) => {
     res.locals.user = 1;
 
     const completed_query = () => {
-        return new Promise(async(resolve,reject) => {
-            pool.query("SELECT * FROM contract_jobs WHERE status = 1",(err,rows) => {
-                if(err){
-                    console.log(err)
-                    return reject(err)
+        return new Promise(async (resolve, reject) => {
+            pool.query(
+                "SELECT *, contract_jobs.description AS job_description ,contract_jobs.id AS job_id, contract_jobs.user_id AS client_id, accounts.username AS client_name, contract_workers.username AS worker_name FROM contract_jobs INNER JOIN accounts ON contract_jobs.user_id = accounts.id INNER JOIN contract_workers ON contract_jobs.worker_id = contract_workers.user_id WHERE contract_jobs.status = 1 ORDER BY completed_date DESC",
+                (err, rows) => {
+                    if (err) {
+                        console.log(err);
+                        return reject(err);
+                    } else {
+                        console.log(rows);
+                        return resolve(rows);
+                    }
                 }
-                else{
-                    console.log(rows)
-                    return resolve(rows)
-                }
-            })
-        })
-    }
+            );
+        });
+    };
 
     if (res.locals.user) {
         try {
@@ -218,7 +223,63 @@ router.route('/completedjobs').get((req,res) => {
         console.log(res.locals.error);
         res.json(res.locals.error);
     }
-})
+});
+
+router.route("/dashboard").get(async (req, res) => {
+    res.locals.user = 1;
+
+    
+
+    total_workers = () => {
+        return new Promise(async (resolve, reject) => {
+            pool.query(
+                "SELECT COUNT(*) FROM accounts WHERE type = 'worker'",
+                (err, rows) => {
+                    if (err) {
+                        console.log(err);
+                        return reject(err);
+                    } else {
+                        console.log(rows);
+                        return resolve(rows[0]['COUNT(*)']);
+                    }
+                }
+            );
+        });
+    };
+
+
+    const active_jobs = () => {
+        return new Promise(async (resolve, reject) => {
+            pool.query(
+                "SELECT COUNT(*) FROM contract_jobs WHERE status = 0 AND worker_id IS NOT NULL",
+                (err, rows) => {
+                    if (err) {
+                        console.log(err);
+                        return reject(err);
+                    } else {
+                        console.log(rows);
+                        return resolve(rows[0]['COUNT(*)']);
+                    }
+                }
+            );
+        });
+    };
+
+    if (res.locals.user) {
+        try {
+            const total_worker = await total_workers();
+            const active_job = await active_jobs();
+            res.json({workers: total_worker, active_jobs: active_job});
+        } catch (error) {
+            console.log(error);
+            res.json(error);
+        }
+    } else {
+        console.log(res.locals.error);
+        res.json(res.locals.error);
+    }
+});
+
 
 
 module.exports = router;

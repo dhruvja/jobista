@@ -1,5 +1,5 @@
 const fs = require('fs');
-const changeData = (client,date,sender,id) => {
+const changeData = (client,date,sender,id,designation,amount) => {
     var file = fs.readFileSync('logo1.jpg','base64')
     var data = {
         // Customize enables you to provide your own templates
@@ -48,10 +48,10 @@ const changeData = (client,date,sender,id) => {
         // Total values are being calculated automatically
         products: [
             {
-                quantity: 2,
-                description: "Electric works",
+                quantity: 1,
+                description: designation,
                 "tax-rate": 3,
-                price: 500,
+                price: amount,
             },
             // {
             //     "quantity": 4.1,
