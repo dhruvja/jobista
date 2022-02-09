@@ -33,7 +33,10 @@ class _PostJOBWidgetState extends State<PostJOBWidget> {
     super.initState();
     textController1 = TextEditingController();
     textController2 = TextEditingController();
-    textController3 = TextEditingController(text: 'Job Description');
+    textController3 = TextEditingController(
+        text: FFLocalizations.of(context).getText(
+      '0zd8hogj' /* Job Description */,
+    ));
   }
 
   @override
@@ -83,8 +86,17 @@ class _PostJOBWidgetState extends State<PostJOBWidget> {
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
                         child: FlutterFlowDropDown(
-                          options:
-                              ['Jobtype', 'Electrician', 'Plumber'].toList(),
+                          options: [
+                            FFLocalizations.of(context).getText(
+                              '21822noc' /* Jobtype */,
+                            ),
+                            FFLocalizations.of(context).getText(
+                              'ut03bwlc' /* Electrician */,
+                            ),
+                            FFLocalizations.of(context).getText(
+                              'mbe3n7jb' /* Plumber */,
+                            )
+                          ].toList(),
                           onChanged: (val) =>
                               setState(() => dropDownValue1 = val),
                           width: MediaQuery.of(context).size.width * 0.85,
@@ -105,7 +117,17 @@ class _PostJOBWidgetState extends State<PostJOBWidget> {
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
                         child: FlutterFlowDropDown(
-                          options: ['Education', '10th', '12th'].toList(),
+                          options: [
+                            FFLocalizations.of(context).getText(
+                              'ys5cvmd2' /* Education */,
+                            ),
+                            FFLocalizations.of(context).getText(
+                              'c501wbye' /* 10th */,
+                            ),
+                            FFLocalizations.of(context).getText(
+                              'cnmui9sh' /* 12th */,
+                            )
+                          ].toList(),
                           onChanged: (val) =>
                               setState(() => dropDownValue2 = val),
                           width: MediaQuery.of(context).size.width * 0.85,
@@ -137,8 +159,9 @@ class _PostJOBWidgetState extends State<PostJOBWidget> {
                             controller: textController1,
                             obscureText: false,
                             decoration: InputDecoration(
-                              hintText: 'Location',
-                              hintStyle: FlutterFlowTheme.bodyText1,
+                              hintText: FFLocalizations.of(context).getText(
+                                'edlmp780' /* Location */,
+                              ),
                               enabledBorder: UnderlineInputBorder(
                                 borderSide: BorderSide(
                                   color: Color(0x00000000),
@@ -190,8 +213,9 @@ class _PostJOBWidgetState extends State<PostJOBWidget> {
                             controller: textController2,
                             obscureText: false,
                             decoration: InputDecoration(
-                              hintText: 'Pincode',
-                              hintStyle: FlutterFlowTheme.bodyText1,
+                              hintText: FFLocalizations.of(context).getText(
+                                'kcpd61v7' /* Pincode */,
+                              ),
                               enabledBorder: UnderlineInputBorder(
                                 borderSide: BorderSide(
                                   color: Color(0x00000000),
@@ -267,7 +291,9 @@ class _PostJOBWidgetState extends State<PostJOBWidget> {
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(0, 0, 50, 0),
                         child: Text(
-                          'Experience',
+                          FFLocalizations.of(context).getText(
+                            'judqx35i' /* Experience */,
+                          ),
                           style: FlutterFlowTheme.bodyText1,
                         ),
                       ),
@@ -315,7 +341,9 @@ class _PostJOBWidgetState extends State<PostJOBWidget> {
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(0, 10, 50, 0),
                         child: Text(
-                          'Salary',
+                          FFLocalizations.of(context).getText(
+                            'vs91m0gl' /* Salary */,
+                          ),
                           style: FlutterFlowTheme.bodyText1,
                         ),
                       ),
@@ -367,7 +395,9 @@ class _PostJOBWidgetState extends State<PostJOBWidget> {
                           onChanged: (newValue) =>
                               setState(() => checkboxListTileValue = newValue),
                           title: Text(
-                            'I  accept for all terms and conditions',
+                            FFLocalizations.of(context).getText(
+                              '5ar4lbj6' /* I  accept for all terms and co... */,
+                            ),
                             style: TextStyle(
                               color: Color(0xFF010524),
                               fontSize: 12,
@@ -387,7 +417,9 @@ class _PostJOBWidgetState extends State<PostJOBWidget> {
                             ),
                           );
                         },
-                        text: 'Post JOB',
+                        text: FFLocalizations.of(context).getText(
+                          '4vxxddcu' /* Post JOB */,
+                        ),
                         options: FFButtonOptions(
                           width: 130,
                           height: 40,

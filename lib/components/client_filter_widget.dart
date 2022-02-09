@@ -54,7 +54,14 @@ class _ClientFilterWidgetState extends State<ClientFilterWidget> {
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
                       child: FlutterFlowDropDown(
-                        options: ['Select AD', 'Electrician'].toList(),
+                        options: [
+                          FFLocalizations.of(context).getText(
+                            'jjnxlxar' /* Select AD */,
+                          ),
+                          FFLocalizations.of(context).getText(
+                            '25hetqpe' /* Electrician */,
+                          )
+                        ].toList(),
                         onChanged: (val) =>
                             setState(() => dropDownValue1 = val),
                         width: 180,
@@ -79,10 +86,8 @@ class _ClientFilterWidgetState extends State<ClientFilterWidget> {
                           controller: textController,
                           obscureText: false,
                           decoration: InputDecoration(
-                            hintText: 'Pincode',
-                            hintStyle: FlutterFlowTheme.bodyText1.override(
-                              fontFamily: 'Lexend Deca',
-                              color: FlutterFlowTheme.grayDark,
+                            hintText: FFLocalizations.of(context).getText(
+                              'op8wniii' /* Pincode */,
                             ),
                             enabledBorder: UnderlineInputBorder(
                               borderSide: BorderSide(
@@ -116,7 +121,9 @@ class _ClientFilterWidgetState extends State<ClientFilterWidget> {
                           ),
                           validator: (val) {
                             if (val.isEmpty) {
-                              return 'Please Enter the pincode before proceeding';
+                              return FFLocalizations.of(context).getText(
+                                'migzux8o' /* Please Enter the pincode befor... */,
+                              );
                             }
 
                             return null;
@@ -125,7 +132,14 @@ class _ClientFilterWidgetState extends State<ClientFilterWidget> {
                       ),
                     ),
                     FlutterFlowDropDown(
-                      options: ['Education', '10th Pass'].toList(),
+                      options: [
+                        FFLocalizations.of(context).getText(
+                          '4h0ulreu' /* Education */,
+                        ),
+                        FFLocalizations.of(context).getText(
+                          't8wvnmr9' /* 10th Pass */,
+                        )
+                      ].toList(),
                       onChanged: (val) => setState(() => dropDownValue2 = val),
                       width: 180,
                       height: 40,
@@ -143,7 +157,9 @@ class _ClientFilterWidgetState extends State<ClientFilterWidget> {
                     Align(
                       alignment: AlignmentDirectional(-0.45, 0),
                       child: Text(
-                        'Expereince',
+                        FFLocalizations.of(context).getText(
+                          'qwlrsh1d' /* Expereince */,
+                        ),
                         style: FlutterFlowTheme.bodyText1,
                       ),
                     ),
@@ -199,7 +215,9 @@ class _ClientFilterWidgetState extends State<ClientFilterWidget> {
                           ),
                         );
                       },
-                      text: 'Sort',
+                      text: FFLocalizations.of(context).getText(
+                        'zg7vauo5' /* Sort */,
+                      ),
                       icon: Icon(
                         Icons.person_search,
                         size: 15,

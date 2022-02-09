@@ -92,7 +92,13 @@ class _Worker1WidgetState extends State<Worker1Widget> {
                       controller: emailTextController,
                       obscureText: false,
                       decoration: InputDecoration(
-                        hintText: 'Your Name',
+                        labelStyle: FlutterFlowTheme.bodyText1.override(
+                          fontFamily: 'Lexend Deca',
+                          color: Color(0xFF2B343A),
+                        ),
+                        hintText: FFLocalizations.of(context).getText(
+                          'nuo5mcm8' /* Your Name */,
+                        ),
                         hintStyle: FlutterFlowTheme.bodyText2,
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
@@ -133,7 +139,9 @@ class _Worker1WidgetState extends State<Worker1Widget> {
                       keyboardType: TextInputType.name,
                       validator: (val) {
                         if (val.isEmpty) {
-                          return 'Please enter a valid Name';
+                          return FFLocalizations.of(context).getText(
+                            'fm27td5k' /* Please enter a valid Name */,
+                          );
                         }
 
                         return null;
@@ -150,7 +158,13 @@ class _Worker1WidgetState extends State<Worker1Widget> {
                         controller: textController1,
                         obscureText: false,
                         decoration: InputDecoration(
-                          hintText: 'Mobile Number',
+                          labelStyle: FlutterFlowTheme.bodyText1.override(
+                            fontFamily: 'Lexend Deca',
+                            color: FlutterFlowTheme.dark400,
+                          ),
+                          hintText: FFLocalizations.of(context).getText(
+                            'o0r19cud' /* Mobile Number */,
+                          ),
                           hintStyle: FlutterFlowTheme.bodyText2,
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
@@ -190,10 +204,14 @@ class _Worker1WidgetState extends State<Worker1Widget> {
                         keyboardType: TextInputType.phone,
                         validator: (val) {
                           if (val.isEmpty) {
-                            return 'Please  Provide your Mobile number';
+                            return FFLocalizations.of(context).getText(
+                              '2gpb7s9c' /* Please  Provide your Mobile nu... */,
+                            );
                           }
                           if (val.length < 10) {
-                            return 'Number is incomplete';
+                            return FFLocalizations.of(context).getText(
+                              'lfw67hik' /* Number is incomplete */,
+                            );
                           }
                           return null;
                         },
@@ -210,7 +228,15 @@ class _Worker1WidgetState extends State<Worker1Widget> {
                               controller: passwordController,
                               obscureText: !passwordVisibility1,
                               decoration: InputDecoration(
-                                hintText: 'Password',
+                                labelStyle: FlutterFlowTheme.bodyText1.override(
+                                  fontFamily: 'Lexend Deca',
+                                  color: Color(0xFF95A1AC),
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.normal,
+                                ),
+                                hintText: FFLocalizations.of(context).getText(
+                                  '5l0erm8k' /* Password */,
+                                ),
                                 hintStyle: FlutterFlowTheme.bodyText1.override(
                                   fontFamily: 'Lexend Deca',
                                   color: Color(0xFF95A1AC),
@@ -252,7 +278,9 @@ class _Worker1WidgetState extends State<Worker1Widget> {
                               style: FlutterFlowTheme.bodyText1,
                               validator: (val) {
                                 if (val.isEmpty) {
-                                  return 'Please Enter your password';
+                                  return FFLocalizations.of(context).getText(
+                                    'ctr67f4k' /* Please Enter your password */,
+                                  );
                                 }
 
                                 return null;
@@ -284,10 +312,8 @@ class _Worker1WidgetState extends State<Worker1Widget> {
                         controller: confirmPasswordTextController,
                         obscureText: !passwordVisibility2,
                         decoration: InputDecoration(
-                          hintText: 'Confirm Password',
-                          hintStyle: FlutterFlowTheme.bodyText1.override(
-                            fontFamily: 'Lexend Deca',
-                            color: FlutterFlowTheme.grayLight,
+                          hintText: FFLocalizations.of(context).getText(
+                            'pc2aw0w3' /* Confirm Password */,
                           ),
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
@@ -347,7 +373,9 @@ class _Worker1WidgetState extends State<Worker1Widget> {
                                       ),
                                     );
                                   },
-                                  text: 'Next',
+                                  text: FFLocalizations.of(context).getText(
+                                    'sx97rhnh' /* Next */,
+                                  ),
                                   icon: Icon(
                                     Icons.play_arrow,
                                     size: 15,

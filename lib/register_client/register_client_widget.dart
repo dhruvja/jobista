@@ -95,7 +95,13 @@ class _RegisterClientWidgetState extends State<RegisterClientWidget> {
                       controller: textController1,
                       obscureText: false,
                       decoration: InputDecoration(
-                        hintText: 'Your Name',
+                        labelStyle: FlutterFlowTheme.bodyText1.override(
+                          fontFamily: 'Lexend Deca',
+                          color: Color(0xFF2B343A),
+                        ),
+                        hintText: FFLocalizations.of(context).getText(
+                          '8hko1ko8' /* Your Name */,
+                        ),
                         hintStyle: FlutterFlowTheme.bodyText2,
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
@@ -136,7 +142,9 @@ class _RegisterClientWidgetState extends State<RegisterClientWidget> {
                       keyboardType: TextInputType.name,
                       validator: (val) {
                         if (val.isEmpty) {
-                          return 'Please enter a valid Name';
+                          return FFLocalizations.of(context).getText(
+                            '7b8ym083' /* Please enter a valid Name */,
+                          );
                         }
 
                         return null;
@@ -153,7 +161,13 @@ class _RegisterClientWidgetState extends State<RegisterClientWidget> {
                         controller: textController2,
                         obscureText: false,
                         decoration: InputDecoration(
-                          hintText: 'Mobile Number',
+                          labelStyle: FlutterFlowTheme.bodyText1.override(
+                            fontFamily: 'Lexend Deca',
+                            color: FlutterFlowTheme.dark400,
+                          ),
+                          hintText: FFLocalizations.of(context).getText(
+                            'lkwj53ja' /* Mobile Number */,
+                          ),
                           hintStyle: FlutterFlowTheme.bodyText2,
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
@@ -193,10 +207,14 @@ class _RegisterClientWidgetState extends State<RegisterClientWidget> {
                         keyboardType: TextInputType.phone,
                         validator: (val) {
                           if (val.isEmpty) {
-                            return 'Please  Provide your Mobile number';
+                            return FFLocalizations.of(context).getText(
+                              'ktndmazq' /* Please  Provide your Mobile nu... */,
+                            );
                           }
                           if (val.length < 10) {
-                            return 'Number is incomplete';
+                            return FFLocalizations.of(context).getText(
+                              'f9z6qz26' /* Number is incomplete */,
+                            );
                           }
                           return null;
                         },
@@ -218,7 +236,15 @@ class _RegisterClientWidgetState extends State<RegisterClientWidget> {
                               controller: emailAddressController,
                               obscureText: false,
                               decoration: InputDecoration(
-                                hintText: 'Email Address',
+                                labelStyle: FlutterFlowTheme.bodyText1.override(
+                                  fontFamily: 'Lexend Deca',
+                                  color: Color(0xFF95A1AC),
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.normal,
+                                ),
+                                hintText: FFLocalizations.of(context).getText(
+                                  'kbec75gr' /* Email Address */,
+                                ),
                                 hintStyle: FlutterFlowTheme.bodyText1.override(
                                   fontFamily: 'Lexend Deca',
                                   color: Color(0xFF95A1AC),
@@ -266,7 +292,9 @@ class _RegisterClientWidgetState extends State<RegisterClientWidget> {
                               keyboardType: TextInputType.emailAddress,
                               validator: (val) {
                                 if (val.isEmpty) {
-                                  return 'Please Enter  a valid email address';
+                                  return FFLocalizations.of(context).getText(
+                                    'awtzqw31' /* Please Enter  a valid email ad... */,
+                                  );
                                 }
 
                                 return null;
@@ -287,7 +315,15 @@ class _RegisterClientWidgetState extends State<RegisterClientWidget> {
                               controller: passwordController,
                               obscureText: !passwordVisibility1,
                               decoration: InputDecoration(
-                                hintText: 'Password',
+                                labelStyle: FlutterFlowTheme.bodyText1.override(
+                                  fontFamily: 'Lexend Deca',
+                                  color: Color(0xFF95A1AC),
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.normal,
+                                ),
+                                hintText: FFLocalizations.of(context).getText(
+                                  'fywdqati' /* Password */,
+                                ),
                                 hintStyle: FlutterFlowTheme.bodyText1.override(
                                   fontFamily: 'Lexend Deca',
                                   color: Color(0xFF95A1AC),
@@ -329,7 +365,9 @@ class _RegisterClientWidgetState extends State<RegisterClientWidget> {
                               style: FlutterFlowTheme.bodyText1,
                               validator: (val) {
                                 if (val.isEmpty) {
-                                  return 'Please Enter your password';
+                                  return FFLocalizations.of(context).getText(
+                                    'ue6pn6lm' /* Please Enter your password */,
+                                  );
                                 }
 
                                 return null;
@@ -351,7 +389,7 @@ class _RegisterClientWidgetState extends State<RegisterClientWidget> {
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
                                 content: Text(
-                                  "Passwords don't match!",
+                                  'Passwords don\'t match!',
                                 ),
                               ),
                             );
@@ -378,10 +416,8 @@ class _RegisterClientWidgetState extends State<RegisterClientWidget> {
                         controller: confirmPasswordTextController,
                         obscureText: !passwordVisibility2,
                         decoration: InputDecoration(
-                          hintText: 'Confirm Password',
-                          hintStyle: FlutterFlowTheme.bodyText1.override(
-                            fontFamily: 'Lexend Deca',
-                            color: FlutterFlowTheme.grayLight,
+                          hintText: FFLocalizations.of(context).getText(
+                            'dp3wbmwk' /* Confirm Password */,
                           ),
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
@@ -454,7 +490,9 @@ class _RegisterClientWidgetState extends State<RegisterClientWidget> {
                                       (r) => false,
                                     );
                                   },
-                                  text: 'Sign Up',
+                                  text: FFLocalizations.of(context).getText(
+                                    'k5h9brav' /* Sign Up */,
+                                  ),
                                   options: FFButtonOptions(
                                     width: 130,
                                     height: 50,
@@ -494,7 +532,9 @@ class _RegisterClientWidgetState extends State<RegisterClientWidget> {
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   AutoSizeText(
-                                    'Use a Social Platform to Login',
+                                    FFLocalizations.of(context).getText(
+                                      't30nnymt' /* Use a Social Platform to Login */,
+                                    ),
                                     textAlign: TextAlign.center,
                                     style: GoogleFonts.getFont(
                                       'Lexend Deca',

@@ -78,7 +78,9 @@ class _SettingWidgetState extends State<SettingWidget> {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Text(
-                                '[User Name]',
+                                FFLocalizations.of(context).getText(
+                                  'hg87mb4a' /* [User Name] */,
+                                ),
                                 style: FlutterFlowTheme.title3.override(
                                   fontFamily: 'Lexend Deca',
                                   color: Colors.white,
@@ -95,7 +97,9 @@ class _SettingWidgetState extends State<SettingWidget> {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Text(
-                                '[username@domain.com]',
+                                FFLocalizations.of(context).getText(
+                                  'xrrytm66' /* [username@domain.com] */,
+                                ),
                                 style: FlutterFlowTheme.subtitle2.override(
                                   fontFamily: 'Lexend Deca',
                                   color: Color(0xFFEE8B60),
@@ -176,7 +180,9 @@ class _SettingWidgetState extends State<SettingWidget> {
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
                             child: Text(
-                              '[User Name Here]',
+                              FFLocalizations.of(context).getText(
+                                'je4y4mto' /* [User Name Here] */,
+                              ),
                               style: FlutterFlowTheme.title1.override(
                                 fontFamily: 'Lexend Deca',
                                 color: Colors.white,
@@ -194,7 +200,9 @@ class _SettingWidgetState extends State<SettingWidget> {
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
                             child: Text(
-                              'User.name@domainname.com',
+                              FFLocalizations.of(context).getText(
+                                'cxfx7nxm' /* User.name@domainname.com */,
+                              ),
                               style: FlutterFlowTheme.bodyText1.override(
                                 fontFamily: 'Lexend Deca',
                                 color: Color(0xFFEE8B60),
@@ -216,7 +224,9 @@ class _SettingWidgetState extends State<SettingWidget> {
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(24, 12, 0, 12),
                   child: Text(
-                    'Account Settings',
+                    FFLocalizations.of(context).getText(
+                      'hiomhfqc' /* Account Settings */,
+                    ),
                     style: FlutterFlowTheme.bodyText1.override(
                       fontFamily: 'Lexend Deca',
                       color: Color(0xFF090F13),
@@ -262,7 +272,9 @@ class _SettingWidgetState extends State<SettingWidget> {
                             padding:
                                 EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
                             child: Text(
-                              'Order History',
+                              FFLocalizations.of(context).getText(
+                                'e36iomud' /* Order History */,
+                              ),
                               style: FlutterFlowTheme.bodyText1.override(
                                 fontFamily: 'Lexend Deca',
                                 color: Color(0xFF090F13),
@@ -316,7 +328,9 @@ class _SettingWidgetState extends State<SettingWidget> {
                             padding:
                                 EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
                             child: Text(
-                              'My Settings',
+                              FFLocalizations.of(context).getText(
+                                '6lgevfo9' /* My Settings */,
+                              ),
                               style: FlutterFlowTheme.bodyText1.override(
                                 fontFamily: 'Lexend Deca',
                                 color: Color(0xFF090F13),
@@ -370,7 +384,9 @@ class _SettingWidgetState extends State<SettingWidget> {
                             padding:
                                 EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
                             child: Text(
-                              'My Notifications',
+                              FFLocalizations.of(context).getText(
+                                'rg6d9dmr' /* My Notifications */,
+                              ),
                               style: FlutterFlowTheme.bodyText1.override(
                                 fontFamily: 'Lexend Deca',
                                 color: Color(0xFF090F13),
@@ -424,7 +440,9 @@ class _SettingWidgetState extends State<SettingWidget> {
                             padding:
                                 EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
                             child: Text(
-                              'Terms of Service',
+                              FFLocalizations.of(context).getText(
+                                '5f4pqxpf' /* Terms of Service */,
+                              ),
                               style: FlutterFlowTheme.bodyText1.override(
                                 fontFamily: 'Lexend Deca',
                                 color: Color(0xFF090F13),
@@ -460,7 +478,9 @@ class _SettingWidgetState extends State<SettingWidget> {
                     onPressed: () {
                       print('Button pressed ...');
                     },
-                    text: 'Log Out',
+                    text: FFLocalizations.of(context).getText(
+                      'j4mktw6i' /* Log Out */,
+                    ),
                     options: FFButtonOptions(
                       width: 90,
                       height: 40,

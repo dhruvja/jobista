@@ -114,14 +114,18 @@ class _LoginWidgetState extends State<LoginWidget> {
                               controller: emailAddressController,
                               obscureText: false,
                               decoration: InputDecoration(
-                                labelText: 'Email Address',
+                                labelText: FFLocalizations.of(context).getText(
+                                  'vwllsest' /* Email Address */,
+                                ),
                                 labelStyle: FlutterFlowTheme.bodyText1.override(
                                   fontFamily: 'Lexend Deca',
                                   color: Color(0xFF95A1AC),
                                   fontSize: 14,
                                   fontWeight: FontWeight.normal,
                                 ),
-                                hintText: 'Enter your email here...',
+                                hintText: FFLocalizations.of(context).getText(
+                                  '2yd6fm57' /* Enter your email here... */,
+                                ),
                                 hintStyle: FlutterFlowTheme.bodyText1.override(
                                   fontFamily: 'Lexend Deca',
                                   color: Color(0xFF95A1AC),
@@ -156,7 +160,9 @@ class _LoginWidgetState extends State<LoginWidget> {
                               keyboardType: TextInputType.emailAddress,
                               validator: (val) {
                                 if (val.isEmpty) {
-                                  return 'Enter a valid email address';
+                                  return FFLocalizations.of(context).getText(
+                                    'dnlp1030' /* Enter a valid email address */,
+                                  );
                                 }
 
                                 return null;
@@ -198,14 +204,18 @@ class _LoginWidgetState extends State<LoginWidget> {
                               controller: passwordController,
                               obscureText: !passwordVisibility,
                               decoration: InputDecoration(
-                                labelText: 'Password',
+                                labelText: FFLocalizations.of(context).getText(
+                                  '9wjt11gv' /* Password */,
+                                ),
                                 labelStyle: FlutterFlowTheme.bodyText1.override(
                                   fontFamily: 'Lexend Deca',
                                   color: Color(0xFF95A1AC),
                                   fontSize: 14,
                                   fontWeight: FontWeight.normal,
                                 ),
-                                hintText: 'Enter your email here...',
+                                hintText: FFLocalizations.of(context).getText(
+                                  'x8dgp2je' /* Enter your email here... */,
+                                ),
                                 hintStyle: FlutterFlowTheme.bodyText1.override(
                                   fontFamily: 'Lexend Deca',
                                   color: Color(0xFF95A1AC),
@@ -252,7 +262,9 @@ class _LoginWidgetState extends State<LoginWidget> {
                               ),
                               validator: (val) {
                                 if (val.isEmpty) {
-                                  return 'enter a valid password';
+                                  return FFLocalizations.of(context).getText(
+                                    '8ezefndp' /* enter a valid password */,
+                                  );
                                 }
 
                                 return null;
@@ -281,7 +293,9 @@ class _LoginWidgetState extends State<LoginWidget> {
                                     ),
                                   );
                                 },
-                                text: 'Forgot Password?',
+                                text: FFLocalizations.of(context).getText(
+                                  'itv2kiem' /* Forgot Password? */,
+                                ),
                                 options: FFButtonOptions(
                                   width: 170,
                                   height: 30,
@@ -317,7 +331,9 @@ class _LoginWidgetState extends State<LoginWidget> {
                               onPressed: () {
                                 print('Button-Login pressed ...');
                               },
-                              text: 'Login',
+                              text: FFLocalizations.of(context).getText(
+                                'm71606y3' /* Login */,
+                              ),
                               options: FFButtonOptions(
                                 width: 130,
                                 height: 50,
@@ -357,7 +373,9 @@ class _LoginWidgetState extends State<LoginWidget> {
                                     ),
                                   );
                                 },
-                                text: 'Dont have an Account, Register here',
+                                text: FFLocalizations.of(context).getText(
+                                  'ivzlonz9' /* Dont have an Account, Register... */,
+                                ),
                                 options: FFButtonOptions(
                                   width: double.infinity,
                                   height: 30,
@@ -396,7 +414,9 @@ class _LoginWidgetState extends State<LoginWidget> {
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   AutoSizeText(
-                                    'Use a Social Platform to Login',
+                                    FFLocalizations.of(context).getText(
+                                      'h739prhu' /* Use a Social Platform to Login */,
+                                    ),
                                     textAlign: TextAlign.center,
                                     style: GoogleFonts.getFont(
                                       'Lexend Deca',

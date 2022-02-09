@@ -22,8 +22,14 @@ class _ProfileWidgetState extends State<ProfileWidget> {
   @override
   void initState() {
     super.initState();
-    textController1 = TextEditingController(text: '[User Name]');
-    textController2 = TextEditingController(text: '[User Email]');
+    textController1 = TextEditingController(
+        text: FFLocalizations.of(context).getText(
+      'q534ab74' /* [User Name] */,
+    ));
+    textController2 = TextEditingController(
+        text: FFLocalizations.of(context).getText(
+      'xokut03u' /* [User Email] */,
+    ));
   }
 
   @override
@@ -44,7 +50,9 @@ class _ProfileWidgetState extends State<ProfileWidget> {
           ),
         ),
         title: Text(
-          'Edit Profile',
+          FFLocalizations.of(context).getText(
+            'cwplrgd9' /* Edit Profile */,
+          ),
           style: FlutterFlowTheme.subtitle1.override(
             fontFamily: 'Lexend Deca',
             color: Color(0xFF8B97A2),
@@ -118,7 +126,9 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                           },
                                         ),
                                         Text(
-                                          'Change Cover Photo',
+                                          FFLocalizations.of(context).getText(
+                                            '01vjuzj8' /* Change Cover Photo */,
+                                          ),
                                           style: GoogleFonts.getFont(
                                             'DM Sans',
                                             color: Colors.white,
@@ -155,7 +165,9 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
                         child: Text(
-                          'Edit Image',
+                          FFLocalizations.of(context).getText(
+                            'dyf26l56' /* Edit Image */,
+                          ),
                           style: GoogleFonts.getFont(
                             'DM Sans',
                             color: Color(0xFF4B39EF),
@@ -193,15 +205,13 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                 controller: textController1,
                                 obscureText: false,
                                 decoration: InputDecoration(
-                                  labelText: 'Your Nam',
-                                  labelStyle:
-                                      FlutterFlowTheme.bodyText1.override(
-                                    fontFamily: 'Lexend Deca',
-                                    color: Color(0xFF090F13),
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.normal,
+                                  labelText:
+                                      FFLocalizations.of(context).getText(
+                                    'ye71l1xo' /* Your Nam */,
                                   ),
-                                  hintText: 'What do people call you...?',
+                                  hintText: FFLocalizations.of(context).getText(
+                                    '4dcz1xqi' /* What do people call you...? */,
+                                  ),
                                   hintStyle:
                                       FlutterFlowTheme.bodyText1.override(
                                     fontFamily: 'Lexend Deca',
@@ -245,15 +255,13 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                 controller: textController2,
                                 obscureText: false,
                                 decoration: InputDecoration(
-                                  labelText: 'Email Address',
-                                  labelStyle:
-                                      FlutterFlowTheme.bodyText1.override(
-                                    fontFamily: 'Lexend Deca',
-                                    color: Color(0xFF090F13),
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.normal,
+                                  labelText:
+                                      FFLocalizations.of(context).getText(
+                                    '4rngeeqs' /* Email Address */,
                                   ),
-                                  hintText: 'Enter a new email',
+                                  hintText: FFLocalizations.of(context).getText(
+                                    'e1okvbi1' /* Enter a new email */,
+                                  ),
                                   hintStyle:
                                       FlutterFlowTheme.bodyText1.override(
                                     fontFamily: 'Lexend Deca',
@@ -292,7 +300,9 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                         onChanged: (newValue) =>
                             setState(() => switchListTileValue = newValue),
                         title: Text(
-                          'Recieve Notifications',
+                          FFLocalizations.of(context).getText(
+                            'tck6o6yz' /* Recieve Notifications */,
+                          ),
                           style: FlutterFlowTheme.subtitle2.override(
                             fontFamily: 'Lexend Deca',
                             color: Color(0xFF151B1E),
@@ -301,7 +311,9 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                           ),
                         ),
                         subtitle: Text(
-                          'Turn on notifications.',
+                          FFLocalizations.of(context).getText(
+                            'w3rhkj5j' /* Turn on notifications. */,
+                          ),
                           style: FlutterFlowTheme.bodyText2.override(
                             fontFamily: 'Lexend Deca',
                             color: Color(0xFF8B97A2),
@@ -325,7 +337,9 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                               onPressed: () {
                                 print('Button_Secondary pressed ...');
                               },
-                              text: 'Save Changes',
+                              text: FFLocalizations.of(context).getText(
+                                'ja0fj5uq' /* Save Changes */,
+                              ),
                               options: FFButtonOptions(
                                 width: 230,
                                 height: 50,

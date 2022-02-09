@@ -78,7 +78,9 @@ class _BillingWidgetState extends State<BillingWidget> {
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
               child: Text(
-                'Payment Confirmed!',
+                FFLocalizations.of(context).getText(
+                  'sd6ayysb' /* Payment Confirmed! */,
+                ),
                 style: FlutterFlowTheme.title1.override(
                   fontFamily: 'Lexend Deca',
                   color: Color(0xFF93CFF8),
@@ -90,7 +92,9 @@ class _BillingWidgetState extends State<BillingWidget> {
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
               child: Text(
-                '\$425.24',
+                FFLocalizations.of(context).getText(
+                  'i57qyqa8' /* $425.24 */,
+                ),
                 style: GoogleFonts.getFont(
                   'Overpass',
                   color: Colors.white,
@@ -102,7 +106,9 @@ class _BillingWidgetState extends State<BillingWidget> {
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(24, 8, 24, 0),
               child: Text(
-                'Your payment has been confirmed, it may take 1-2 hours in order for your payment to go through and show up in your transation list.',
+                FFLocalizations.of(context).getText(
+                  'ylzqk663' /* Your payment has been confirme... */,
+                ),
                 textAlign: TextAlign.center,
                 style: FlutterFlowTheme.bodyText2.override(
                   fontFamily: 'Lexend Deca',
@@ -146,7 +152,9 @@ class _BillingWidgetState extends State<BillingWidget> {
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 4),
                             child: Text(
-                              'Total Billing',
+                              FFLocalizations.of(context).getText(
+                                '4fevrgsj' /* Total Billing */,
+                              ),
                               style: FlutterFlowTheme.bodyText2.override(
                                 fontFamily: 'Lexend Deca',
                                 color: Color(0xFF8B97A2),
@@ -158,7 +166,9 @@ class _BillingWidgetState extends State<BillingWidget> {
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 4),
                             child: Text(
-                              '\$425.24',
+                              FFLocalizations.of(context).getText(
+                                'b7dfzp3f' /* $425.24 */,
+                              ),
                               style: FlutterFlowTheme.subtitle2.override(
                                 fontFamily: 'Lexend Deca',
                                 color: Colors.white,
@@ -188,7 +198,9 @@ class _BillingWidgetState extends State<BillingWidget> {
                       onPressed: () {
                         print('Button pressed ...');
                       },
-                      text: 'Submit',
+                      text: FFLocalizations.of(context).getText(
+                        'drmjedni' /* Submit */,
+                      ),
                       options: FFButtonOptions(
                         width: 230,
                         height: 50,

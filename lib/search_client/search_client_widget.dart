@@ -91,8 +91,15 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
                                             0, 20, 0, 0),
                                         child: FlutterFlowDropDown(
                                           initialOption: dropDownValue1 ??=
-                                              'Select job',
-                                          options: ['Select job'].toList(),
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                            'tzeomyng' /* Select job */,
+                                          ),
+                                          options: [
+                                            FFLocalizations.of(context).getText(
+                                              '9nnov7qp' /* Select job */,
+                                            )
+                                          ].toList(),
                                           onChanged: (val) => setState(
                                               () => dropDownValue1 = val),
                                           width: 190,
@@ -125,9 +132,11 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
                                               controller: textController1,
                                               obscureText: false,
                                               decoration: InputDecoration(
-                                                hintText: 'Pincode',
-                                                hintStyle:
-                                                    FlutterFlowTheme.bodyText1,
+                                                hintText:
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                  'xsnb97td' /* Pincode */,
+                                                ),
                                                 enabledBorder:
                                                     UnderlineInputBorder(
                                                   borderSide: BorderSide(
@@ -164,7 +173,11 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
                                       FlutterFlowDropDown(
                                         initialOption: dropDownValue2 ??=
                                             textController1.text,
-                                        options: ['Education'].toList(),
+                                        options: [
+                                          FFLocalizations.of(context).getText(
+                                            'fdq51rio' /* Education */,
+                                          )
+                                        ].toList(),
                                         onChanged: (val) => setState(
                                             () => dropDownValue2 = val),
                                         width: 190,
@@ -187,7 +200,9 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             10, 10, 10, 10),
                                         child: Text(
-                                          'Experience',
+                                          FFLocalizations.of(context).getText(
+                                            '8767v2ig' /* Experience */,
+                                          ),
                                           textAlign: TextAlign.center,
                                           style: FlutterFlowTheme.bodyText1,
                                         ),
@@ -241,7 +256,9 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0, 10, 0, 0),
                                         child: Text(
-                                          'Salary Range',
+                                          FFLocalizations.of(context).getText(
+                                            '0f0ze5o9' /* Salary Range */,
+                                          ),
                                           style: FlutterFlowTheme.bodyText1,
                                         ),
                                       ),
@@ -261,7 +278,9 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             10, 0, 10, 10),
                                         child: Text(
-                                          'Rating',
+                                          FFLocalizations.of(context).getText(
+                                            'x830aihf' /* Rating */,
+                                          ),
                                           style: FlutterFlowTheme.bodyText1,
                                         ),
                                       ),
@@ -292,7 +311,10 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
                                               ),
                                             );
                                           },
-                                          text: 'Filter',
+                                          text: FFLocalizations.of(context)
+                                              .getText(
+                                            'iu8vggle' /* Filter */,
+                                          ),
                                           options: FFButtonOptions(
                                             width: 130,
                                             height: 40,
@@ -365,8 +387,10 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
                                       controller: textController2,
                                       obscureText: false,
                                       decoration: InputDecoration(
-                                        hintText: 'Search JOB',
-                                        hintStyle: FlutterFlowTheme.bodyText1,
+                                        hintText:
+                                            FFLocalizations.of(context).getText(
+                                          'uybv4ztb' /* Search JOB */,
+                                        ),
                                         enabledBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
                                             color: Color(0xFF022747),
@@ -432,7 +456,9 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
                               ),
                             );
                           },
-                          text: 'Job type',
+                          text: FFLocalizations.of(context).getText(
+                            'cjmx3hfn' /* Job type */,
+                          ),
                           icon: FaIcon(
                             FontAwesomeIcons.robot,
                           ),
@@ -464,7 +490,9 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
                               ),
                             );
                           },
-                          text: 'Location',
+                          text: FFLocalizations.of(context).getText(
+                            '7ai0esfd' /* Location */,
+                          ),
                           icon: Icon(
                             Icons.location_on,
                             size: 15,
@@ -497,7 +525,9 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
                               ),
                             );
                           },
-                          text: 'Education',
+                          text: FFLocalizations.of(context).getText(
+                            'l4nzh0g6' /* Education */,
+                          ),
                           icon: Icon(
                             Icons.history_edu,
                             size: 15,

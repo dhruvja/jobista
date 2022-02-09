@@ -1,8 +1,7 @@
-import '../auth/auth_util.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
-import '../worker_home/worker_home_widget.dart';
+import '../search_client/search_client_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -130,7 +129,9 @@ class _PhoneAuthWidgetState extends State<PhoneAuthWidget> {
                           ),
                           Expanded(
                             child: Text(
-                              'Phone Sign In',
+                              FFLocalizations.of(context).getText(
+                                'xigfr14o' /* Phone Sign In */,
+                              ),
                               style: FlutterFlowTheme.title1.override(
                                 fontFamily: 'Lexend Deca',
                                 color: Color(0xFF090F13),
@@ -153,14 +154,18 @@ class _PhoneAuthWidgetState extends State<PhoneAuthWidget> {
                               controller: phoneNumberController1,
                               obscureText: false,
                               decoration: InputDecoration(
-                                labelText: 'Your Phone Number...',
+                                labelText: FFLocalizations.of(context).getText(
+                                  'd1a1tceh' /* Your Phone Number... */,
+                                ),
                                 labelStyle: FlutterFlowTheme.bodyText1.override(
                                   fontFamily: 'Lexend Deca',
                                   color: Color(0xFF95A1AC),
                                   fontSize: 14,
                                   fontWeight: FontWeight.normal,
                                 ),
-                                hintText: '+1 (204) 204-2056',
+                                hintText: FFLocalizations.of(context).getText(
+                                  'za35p7us' /* +1 (204) 204-2056 */,
+                                ),
                                 hintStyle: FlutterFlowTheme.bodyText1.override(
                                   fontFamily: 'Lexend Deca',
                                   color: Color(0xFF95A1AC),
@@ -207,14 +212,18 @@ class _PhoneAuthWidgetState extends State<PhoneAuthWidget> {
                               controller: phoneNumberController2,
                               obscureText: false,
                               decoration: InputDecoration(
-                                labelText: 'Your Phone Number...',
+                                labelText: FFLocalizations.of(context).getText(
+                                  '4x6ycyuc' /* Your Phone Number... */,
+                                ),
                                 labelStyle: FlutterFlowTheme.bodyText1.override(
                                   fontFamily: 'Lexend Deca',
                                   color: Color(0xFF95A1AC),
                                   fontSize: 14,
                                   fontWeight: FontWeight.normal,
                                 ),
-                                hintText: '+1 (204) 204-2056',
+                                hintText: FFLocalizations.of(context).getText(
+                                  'dlex86ic' /* +1 (204) 204-2056 */,
+                                ),
                                 hintStyle: FlutterFlowTheme.bodyText1.override(
                                   fontFamily: 'Lexend Deca',
                                   color: Color(0xFF95A1AC),
@@ -259,32 +268,16 @@ class _PhoneAuthWidgetState extends State<PhoneAuthWidget> {
                         children: [
                           FFButtonWidget(
                             onPressed: () async {
-                              if (phoneNumberController1.text.isEmpty ||
-                                  !phoneNumberController1.text
-                                      .startsWith('+')) {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(
-                                    content: Text(
-                                        'Phone Number is required and has to start with +.'),
-                                  ),
-                                );
-                                return;
-                              }
-                              await beginPhoneAuth(
-                                context: context,
-                                phoneNumber: phoneNumberController1.text,
-                                onCodeSent: () async {
-                                  await Navigator.pushAndRemoveUntil(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => WorkerHomeWidget(),
-                                    ),
-                                    (r) => false,
-                                  );
-                                },
+                              await Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => SearchClientWidget(),
+                                ),
                               );
                             },
-                            text: 'Sign In',
+                            text: FFLocalizations.of(context).getText(
+                              'w74prsxr' /* Sign In */,
+                            ),
                             options: FFButtonOptions(
                               width: 130,
                               height: 50,

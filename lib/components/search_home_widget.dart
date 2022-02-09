@@ -53,7 +53,14 @@ class _SearchHomeWidgetState extends State<SearchHomeWidget> {
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
                       child: FlutterFlowDropDown(
-                        options: ['Job Type', 'Electrician'].toList(),
+                        options: [
+                          FFLocalizations.of(context).getText(
+                            'p7risnqg' /* Job Type */,
+                          ),
+                          FFLocalizations.of(context).getText(
+                            '5n7wazc9' /* Electrician */,
+                          )
+                        ].toList(),
                         onChanged: (val) => setState(() => dropDownValue = val),
                         width: 180,
                         height: 40,
@@ -77,10 +84,8 @@ class _SearchHomeWidgetState extends State<SearchHomeWidget> {
                           controller: textController,
                           obscureText: false,
                           decoration: InputDecoration(
-                            hintText: 'Pincode',
-                            hintStyle: FlutterFlowTheme.bodyText1.override(
-                              fontFamily: 'Lexend Deca',
-                              color: FlutterFlowTheme.grayDark,
+                            hintText: FFLocalizations.of(context).getText(
+                              'm8bkzuho' /* Pincode */,
                             ),
                             enabledBorder: UnderlineInputBorder(
                               borderSide: BorderSide(
@@ -114,7 +119,9 @@ class _SearchHomeWidgetState extends State<SearchHomeWidget> {
                           ),
                           validator: (val) {
                             if (val.isEmpty) {
-                              return 'Please Enter the pincode before proceeding';
+                              return FFLocalizations.of(context).getText(
+                                '8zgp8zp8' /* Please Enter the pincode befor... */,
+                              );
                             }
 
                             return null;
@@ -125,7 +132,9 @@ class _SearchHomeWidgetState extends State<SearchHomeWidget> {
                     Align(
                       alignment: AlignmentDirectional(-0.45, 0),
                       child: Text(
-                        'Expereince',
+                        FFLocalizations.of(context).getText(
+                          'ktcp3zoa' /* Expereince */,
+                        ),
                         style: FlutterFlowTheme.bodyText1,
                       ),
                     ),
@@ -180,7 +189,9 @@ class _SearchHomeWidgetState extends State<SearchHomeWidget> {
                           ),
                         );
                       },
-                      text: 'Search',
+                      text: FFLocalizations.of(context).getText(
+                        '85g87hhi' /* Search */,
+                      ),
                       icon: Icon(
                         Icons.person_search,
                         size: 15,

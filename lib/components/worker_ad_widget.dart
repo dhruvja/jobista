@@ -87,7 +87,9 @@ class _WorkerAdWidgetState extends State<WorkerAdWidget> {
                           Align(
                             alignment: AlignmentDirectional(0.9, 0),
                             child: Text(
-                              'OFFERED',
+                              FFLocalizations.of(context).getText(
+                                'n431qru1' /* OFFERED */,
+                              ),
                               style: FlutterFlowTheme.bodyText1.override(
                                 fontFamily: 'Lexend Deca',
                                 color: Color(0xFF307F07),
@@ -99,7 +101,9 @@ class _WorkerAdWidgetState extends State<WorkerAdWidget> {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Text(
-                                'Plumber',
+                                FFLocalizations.of(context).getText(
+                                  '9e062579' /* Plumber */,
+                                ),
                                 style: FlutterFlowTheme.subtitle1.override(
                                   fontFamily: 'Lexend Deca',
                                   color: Color(0xFF15212B),
@@ -111,7 +115,9 @@ class _WorkerAdWidgetState extends State<WorkerAdWidget> {
                                 child: Align(
                                   alignment: AlignmentDirectional(0.7, 0),
                                   child: Text(
-                                    '12-12-21',
+                                    FFLocalizations.of(context).getText(
+                                      'vq7hd88u' /* 12-12-21 */,
+                                    ),
                                     textAlign: TextAlign.end,
                                     style: TextStyle(
                                       color: Color(0xFF57636C),
@@ -131,7 +137,9 @@ class _WorkerAdWidgetState extends State<WorkerAdWidget> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0, 4, 4, 0),
                                   child: Text(
-                                    'Need a plumber for quixk repair',
+                                    FFLocalizations.of(context).getText(
+                                      '6wzm3cvn' /* Need a plumber for quixk repai... */,
+                                    ),
                                     style: FlutterFlowTheme.bodyText2.override(
                                       fontFamily: 'Lexend Deca',
                                       color: Color(0xFF8B97A2),
@@ -151,11 +159,9 @@ class _WorkerAdWidgetState extends State<WorkerAdWidget> {
                                   controller: textController,
                                   obscureText: false,
                                   decoration: InputDecoration(
-                                    hintText: 'Address',
-                                    hintStyle:
-                                        FlutterFlowTheme.bodyText1.override(
-                                      fontFamily: 'Lexend Deca',
-                                      lineHeight: 1,
+                                    hintText:
+                                        FFLocalizations.of(context).getText(
+                                      'q3jvsves' /* Address */,
                                     ),
                                     enabledBorder: UnderlineInputBorder(
                                       borderSide: BorderSide(

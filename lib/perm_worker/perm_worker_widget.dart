@@ -73,7 +73,9 @@ class _PermWorkerWidgetState extends State<PermWorkerWidget> {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Text(
-                                'Welcome,',
+                                FFLocalizations.of(context).getText(
+                                  'ww713nmk' /* Welcome, */,
+                                ),
                                 style: FlutterFlowTheme.title3.override(
                                   fontFamily: 'Lexend Deca',
                                   color: Color(0xFF1E2429),
@@ -85,7 +87,9 @@ class _PermWorkerWidgetState extends State<PermWorkerWidget> {
                                 padding:
                                     EdgeInsetsDirectional.fromSTEB(4, 0, 0, 0),
                                 child: Text(
-                                  'Andrew',
+                                  FFLocalizations.of(context).getText(
+                                    'fppt27j1' /* Andrew */,
+                                  ),
                                   style: FlutterFlowTheme.title3.override(
                                     fontFamily: 'Lexend Deca',
                                     color: Color(0xFF00968A),
@@ -99,7 +103,9 @@ class _PermWorkerWidgetState extends State<PermWorkerWidget> {
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
                             child: Text(
-                              'Your latest updates are below.',
+                              FFLocalizations.of(context).getText(
+                                'oba2lpwy' /* Your latest updates are below. */,
+                              ),
                               style: FlutterFlowTheme.bodyText1.override(
                                 fontFamily: 'Lexend Deca',
                                 color: Color(0xFF090F13),
@@ -150,7 +156,11 @@ class _PermWorkerWidgetState extends State<PermWorkerWidget> {
                                     children: [
                                       Expanded(
                                         child: Text(
-                                          'Jobs \nOffered',
+                                          FFLocalizations.of(context).getText(
+                                            'pqzz31eh' /* Jobs 
+Offered */
+                                            ,
+                                          ),
                                           style: FlutterFlowTheme.bodyText2
                                               .override(
                                             fontFamily: 'Lexend Deca',
@@ -169,7 +179,9 @@ class _PermWorkerWidgetState extends State<PermWorkerWidget> {
                                               EdgeInsetsDirectional.fromSTEB(
                                                   2, 2, 2, 2),
                                           child: Text(
-                                            '^ 25%',
+                                            FFLocalizations.of(context).getText(
+                                              'vxgd907j' /* ^ 25% */,
+                                            ),
                                             style: TextStyle(
                                               color: Color(0xFF4B39EF),
                                               fontWeight: FontWeight.w500,
@@ -190,7 +202,9 @@ class _PermWorkerWidgetState extends State<PermWorkerWidget> {
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           8, 0, 0, 8),
                                       child: Text(
-                                        '4',
+                                        FFLocalizations.of(context).getText(
+                                          'q3968h26' /* 4 */,
+                                        ),
                                         style: FlutterFlowTheme.title2.override(
                                           fontFamily: 'Lexend Deca',
                                           color: Color(0xFF4B39EF),
@@ -213,7 +227,9 @@ class _PermWorkerWidgetState extends State<PermWorkerWidget> {
                                           );
                                         },
                                         child: Text(
-                                          'click here',
+                                          FFLocalizations.of(context).getText(
+                                            'z7ko8shl' /* click here */,
+                                          ),
                                           style: FlutterFlowTheme.bodyText1,
                                         ),
                                       ),
@@ -257,7 +273,9 @@ class _PermWorkerWidgetState extends State<PermWorkerWidget> {
                                       children: [
                                         Expanded(
                                           child: Text(
-                                            'Profit',
+                                            FFLocalizations.of(context).getText(
+                                              '7pjztks9' /* Profit */,
+                                            ),
                                             style: FlutterFlowTheme.bodyText2
                                                 .override(
                                               fontFamily: 'Lexend Deca',
@@ -276,7 +294,10 @@ class _PermWorkerWidgetState extends State<PermWorkerWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     2, 2, 2, 2),
                                             child: Text(
-                                              '^ 25%',
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                '770sq9go' /* ^ 25% */,
+                                              ),
                                               style: TextStyle(
                                                 color: Color(0xFF3BC821),
                                                 fontWeight: FontWeight.w500,
@@ -297,7 +318,9 @@ class _PermWorkerWidgetState extends State<PermWorkerWidget> {
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             8, 0, 0, 8),
                                         child: Text(
-                                          '20',
+                                          FFLocalizations.of(context).getText(
+                                            'artbfg6t' /* 20 */,
+                                          ),
                                           style:
                                               FlutterFlowTheme.title2.override(
                                             fontFamily: 'Lexend Deca',
@@ -321,7 +344,9 @@ class _PermWorkerWidgetState extends State<PermWorkerWidget> {
                                             );
                                           },
                                           child: Text(
-                                            'click here',
+                                            FFLocalizations.of(context).getText(
+                                              'nmfa7g0m' /* click here */,
+                                            ),
                                             style: FlutterFlowTheme.bodyText1,
                                           ),
                                         ),
@@ -379,7 +404,9 @@ class _PermWorkerWidgetState extends State<PermWorkerWidget> {
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Text(
-                                    'Activities',
+                                    FFLocalizations.of(context).getText(
+                                      'qmbnk4a1' /* Activities */,
+                                    ),
                                     style: FlutterFlowTheme.bodyText1.override(
                                       fontFamily: 'Lexend Deca',
                                       color: Color(0xFF090F13),

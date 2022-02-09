@@ -83,7 +83,9 @@ class _BaseWidgetState extends State<BaseWidget> {
                                         ),
                                       );
                                     },
-                                    text: 'WORKER',
+                                    text: FFLocalizations.of(context).getText(
+                                      'vjp0r5d5' /* WORKER */,
+                                    ),
                                     options: FFButtonOptions(
                                       width: 130,
                                       height: 40,
@@ -132,7 +134,9 @@ class _BaseWidgetState extends State<BaseWidget> {
                                         ),
                                       );
                                     },
-                                    text: 'CLIENT',
+                                    text: FFLocalizations.of(context).getText(
+                                      '52r2wyx9' /* CLIENT */,
+                                    ),
                                     options: FFButtonOptions(
                                       width: 130,
                                       height: 40,

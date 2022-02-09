@@ -3,7 +3,6 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../worker_1/worker1_widget.dart';
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -73,7 +72,9 @@ class _SearchClientCompWidgetState extends State<SearchClientCompWidget> {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Text(
-                                'JOB1',
+                                FFLocalizations.of(context).getText(
+                                  'lavbthdg' /* JOB1 */,
+                                ),
                                 style: FlutterFlowTheme.bodyText1.override(
                                   fontFamily: 'Lexend Deca',
                                   color: FlutterFlowTheme.customColor1,
@@ -85,7 +86,9 @@ class _SearchClientCompWidgetState extends State<SearchClientCompWidget> {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Text(
-                                'JOB2',
+                                FFLocalizations.of(context).getText(
+                                  '3avy0mqh' /* JOB2 */,
+                                ),
                                 style: FlutterFlowTheme.bodyText1.override(
                                   fontFamily: 'Lexend Deca',
                                   color: FlutterFlowTheme.customColor1,
@@ -110,7 +113,9 @@ class _SearchClientCompWidgetState extends State<SearchClientCompWidget> {
                                     Align(
                                       alignment: AlignmentDirectional(0.05, 0),
                                       child: Text(
-                                        'Name',
+                                        FFLocalizations.of(context).getText(
+                                          'v7q3j1cs' /* Name */,
+                                        ),
                                         style:
                                             FlutterFlowTheme.bodyText1.override(
                                           fontFamily: 'Lexend Deca',
@@ -176,7 +181,9 @@ class _SearchClientCompWidgetState extends State<SearchClientCompWidget> {
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Text(
-                                    'Location',
+                                    FFLocalizations.of(context).getText(
+                                      '8xappu8f' /* Location */,
+                                    ),
                                     style: FlutterFlowTheme.bodyText1.override(
                                       fontFamily: 'Lexend Deca',
                                       color: FlutterFlowTheme.customColor1,
@@ -188,14 +195,18 @@ class _SearchClientCompWidgetState extends State<SearchClientCompWidget> {
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Text(
-                                    'Experience',
+                                    FFLocalizations.of(context).getText(
+                                      'a41msen0' /* Experience */,
+                                    ),
                                     style: FlutterFlowTheme.bodyText1.override(
                                       fontFamily: 'Lexend Deca',
                                       color: Color(0xFF289CF0),
                                     ),
                                   ),
                                   Text(
-                                    ' 3 Years',
+                                    FFLocalizations.of(context).getText(
+                                      'muo01zwn' /*  3 Years */,
+                                    ),
                                     style: FlutterFlowTheme.bodyText1.override(
                                       fontFamily: 'Lexend Deca',
                                       color: FlutterFlowTheme.customColor1,
@@ -213,7 +224,9 @@ class _SearchClientCompWidgetState extends State<SearchClientCompWidget> {
                                       onPressed: () {
                                         print('Button pressed ...');
                                       },
-                                      text: 'Book Now',
+                                      text: FFLocalizations.of(context).getText(
+                                        'medr04y7' /* Book Now */,
+                                      ),
                                       options: FFButtonOptions(
                                         width: 130,
                                         height: 40,
@@ -241,93 +254,55 @@ class _SearchClientCompWidgetState extends State<SearchClientCompWidget> {
                                   children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 10, 10, 10),
+                                          0, 10, 0, 0),
                                       child: Container(
-                                        width: 180,
-                                        height: 29,
+                                        width: 150,
+                                        height: 30,
                                         decoration: BoxDecoration(
                                           color: Color(0xFFEEEEEE),
-                                          borderRadius:
-                                              BorderRadius.circular(2),
                                         ),
-                                        child: Column(
-                                          mainAxisSize: MainAxisSize.min,
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:
-                                              MainAxisAlignment.end,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.end,
+                                              MainAxisAlignment.spaceBetween,
                                           children: [
-                                            Row(
-                                              mainAxisSize: MainAxisSize.min,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.spaceEvenly,
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.center,
-                                              children: [
-                                                Expanded(
-                                                  child: Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 0, 20, 0),
-                                                    child: Column(
-                                                      mainAxisSize:
-                                                          MainAxisSize.min,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .center,
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .center,
-                                                      children: [
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(10,
-                                                                      0, 0, 0),
-                                                          child: AutoSizeText(
-                                                            'Education',
-                                                            textAlign:
-                                                                TextAlign.start,
-                                                            style:
-                                                                FlutterFlowTheme
-                                                                    .bodyText1
-                                                                    .override(
-                                                              fontFamily:
-                                                                  'Lexend Deca',
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w600,
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ],
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(5, 0, 0, 0),
+                                              child: Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  Text(
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                      'ig77paup' /* Education */,
                                                     ),
+                                                    style: FlutterFlowTheme
+                                                        .bodyText1,
                                                   ),
-                                                ),
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(0, 0, 10, 10),
-                                                  child: Column(
-                                                    mainAxisSize:
-                                                        MainAxisSize.min,
-                                                    children: [
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(10, 5,
-                                                                    0, 0),
-                                                        child: Text(
-                                                          '10+',
-                                                          style:
-                                                              FlutterFlowTheme
-                                                                  .bodyText1,
-                                                        ),
-                                                      ),
-                                                    ],
+                                                ],
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(0, 0, 5, 0),
+                                              child: Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  Text(
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                      'kikgld27' /* 10+ */,
+                                                    ),
+                                                    style: FlutterFlowTheme
+                                                        .bodyText1,
                                                   ),
-                                                ),
-                                              ],
+                                                ],
+                                              ),
                                             ),
                                           ],
                                         ),

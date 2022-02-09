@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'auth/firebase_user_provider.dart';
 
-import '../flutter_flow/flutter_flow_theme.dart';
+import 'flutter_flow/flutter_flow_theme.dart';
+import 'flutter_flow/internationalization.dart';
 import 'package:j_o_b_ista/allinone/allinone_widget.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'flutter_flow/flutter_flow_theme.dart';
@@ -16,6 +17,7 @@ import 'client_sa/client_sa_widget.dart';
 import 'applicants/applicants_widget.dart';
 import 'allinone/allinone_widget.dart';
 import 'home_client_copy/home_client_copy_widget.dart';
+import 'offer_client/offer_client_widget.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -28,12 +30,18 @@ class MyApp extends StatefulWidget {
   // This widget is the root of your application.
   @override
   _MyAppState createState() => _MyAppState();
+
+  static _MyAppState of(BuildContext context) =>
+      context.findAncestorStateOfType<_MyAppState>();
 }
 
 class _MyAppState extends State<MyApp> {
+  Locale _locale;
   Stream<JOBIstaFirebaseUser> userStream;
   JOBIstaFirebaseUser initialUser;
   bool displaySplashImage = true;
+
+  void setLocale(Locale value) => setState(() => _locale = value);
 
   @override
   void initState() {
@@ -49,11 +57,17 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       title: 'JOBIsta',
       localizationsDelegates: [
+        FFLocalizationsDelegate(),
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
-      supportedLocales: const [Locale('en', '')],
+      locale: _locale,
+      supportedLocales: const [
+        Locale('en', ''),
+        Locale('kn', ''),
+        Locale('hi', ''),
+      ],
       theme: ThemeData(primarySwatch: Colors.blue),
       home: initialUser == null || displaySplashImage
           ? Container(
@@ -104,6 +118,7 @@ class _NavBarPageState extends State<NavBarPage> {
       'applicants': ApplicantsWidget(),
       'allinone': AllinoneWidget(),
       'home_clientCopy': HomeClientCopyWidget(),
+      'offer_client': OfferClientWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPage);
     return Scaffold(
@@ -173,6 +188,18 @@ class _NavBarPageState extends State<NavBarPage> {
             ),
             activeIcon: Icon(
               Icons.home,
+              size: 24,
+            ),
+            label: 'Home',
+            tooltip: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.monetization_on_outlined,
+              size: 24,
+            ),
+            activeIcon: Icon(
+              Icons.monetization_on,
               size: 24,
             ),
             label: 'Home',

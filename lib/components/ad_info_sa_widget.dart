@@ -79,7 +79,9 @@ class _AdInfoSaWidgetState extends State<AdInfoSaWidget> {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Text(
-                                'Plumber',
+                                FFLocalizations.of(context).getText(
+                                  'livq9ng6' /* Plumber */,
+                                ),
                                 style: FlutterFlowTheme.subtitle1.override(
                                   fontFamily: 'Lexend Deca',
                                   color: FlutterFlowTheme.customColor1,
@@ -91,7 +93,9 @@ class _AdInfoSaWidgetState extends State<AdInfoSaWidget> {
                                 child: Align(
                                   alignment: AlignmentDirectional(0.7, 0),
                                   child: Text(
-                                    '12-12-21',
+                                    FFLocalizations.of(context).getText(
+                                      'y00xa9tw' /* 12-12-21 */,
+                                    ),
                                     textAlign: TextAlign.end,
                                     style: TextStyle(
                                       color: FlutterFlowTheme.grayLighter,
@@ -111,7 +115,9 @@ class _AdInfoSaWidgetState extends State<AdInfoSaWidget> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0, 4, 4, 0),
                                   child: Text(
-                                    'Need a plumber for quixk repair',
+                                    FFLocalizations.of(context).getText(
+                                      'wl6wfk6u' /* Need a plumber for quixk repai... */,
+                                    ),
                                     style: FlutterFlowTheme.bodyText2.override(
                                       fontFamily: 'Lexend Deca',
                                       color: FlutterFlowTheme.customColor1,

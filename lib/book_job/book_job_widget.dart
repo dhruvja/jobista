@@ -84,7 +84,11 @@ class _BookJobWidgetState extends State<BookJobWidget> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 FlutterFlowRadioButton(
-                                  options: ['Electrician'],
+                                  options: [
+                                    FFLocalizations.of(context).getText(
+                                      'bhn57zdt' /* Electrician */,
+                                    )
+                                  ],
                                   onChanged: (value) {
                                     setState(() => radioButtonValue = value);
                                   },
@@ -109,7 +113,11 @@ class _BookJobWidgetState extends State<BookJobWidget> {
                       ),
                     ),
                     FlutterFlowDropDown(
-                      options: ['Select Ad'].toList(),
+                      options: [
+                        FFLocalizations.of(context).getText(
+                          'jh0zctwa' /* Select Ad */,
+                        )
+                      ].toList(),
                       onChanged: (val) => setState(() => dropDownValue1 = val),
                       width: 300,
                       height: 40,
@@ -128,7 +136,11 @@ class _BookJobWidgetState extends State<BookJobWidget> {
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
                       child: FlutterFlowDropDown(
-                        options: ['Experience'].toList(),
+                        options: [
+                          FFLocalizations.of(context).getText(
+                            '1j8gh6uk' /* Experience */,
+                          )
+                        ].toList(),
                         onChanged: (val) =>
                             setState(() => dropDownValue2 = val),
                         width: 300,
@@ -167,10 +179,8 @@ class _BookJobWidgetState extends State<BookJobWidget> {
                               controller: textController1,
                               obscureText: false,
                               decoration: InputDecoration(
-                                hintText: 'Pincode',
-                                hintStyle: FlutterFlowTheme.bodyText1.override(
-                                  fontFamily: 'Lexend Deca',
-                                  color: FlutterFlowTheme.grayDark,
+                                hintText: FFLocalizations.of(context).getText(
+                                  'kmv18z8m' /* Pincode */,
                                 ),
                                 enabledBorder: UnderlineInputBorder(
                                   borderSide: BorderSide(
@@ -216,11 +226,8 @@ class _BookJobWidgetState extends State<BookJobWidget> {
                                 controller: textController2,
                                 obscureText: false,
                                 decoration: InputDecoration(
-                                  hintText: 'Address',
-                                  hintStyle:
-                                      FlutterFlowTheme.bodyText1.override(
-                                    fontFamily: 'Lexend Deca',
-                                    color: FlutterFlowTheme.grayDark,
+                                  hintText: FFLocalizations.of(context).getText(
+                                    'xmzcs1lk' /* Address */,
                                   ),
                                   enabledBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(
@@ -257,10 +264,8 @@ class _BookJobWidgetState extends State<BookJobWidget> {
                           controller: textController3,
                           obscureText: false,
                           decoration: InputDecoration(
-                            hintText: 'JOB Information ',
-                            hintStyle: FlutterFlowTheme.bodyText1.override(
-                              fontFamily: 'Lexend Deca',
-                              color: FlutterFlowTheme.grayDark,
+                            hintText: FFLocalizations.of(context).getText(
+                              'kxx8sgp0' /* JOB Information  */,
                             ),
                             enabledBorder: UnderlineInputBorder(
                               borderSide: BorderSide(
@@ -287,7 +292,9 @@ class _BookJobWidgetState extends State<BookJobWidget> {
                           maxLines: 7,
                           validator: (val) {
                             if (val.isEmpty) {
-                              return 'Please enter your experience';
+                              return FFLocalizations.of(context).getText(
+                                '9ns2rn6s' /* Please enter your experience */,
+                              );
                             }
 
                             return null;
@@ -304,7 +311,9 @@ class _BookJobWidgetState extends State<BookJobWidget> {
                       child: Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(0, 10, 180, 10),
                         child: Text(
-                          'Salary Stake',
+                          FFLocalizations.of(context).getText(
+                            '6qlvmpkm' /* Salary Stake */,
+                          ),
                           textAlign: TextAlign.center,
                           style: FlutterFlowTheme.bodyText1,
                         ),
@@ -360,7 +369,9 @@ class _BookJobWidgetState extends State<BookJobWidget> {
                           onChanged: (newValue) =>
                               setState(() => checkboxListTileValue = newValue),
                           title: Text(
-                            'I agree for terms and conditions',
+                            FFLocalizations.of(context).getText(
+                              'jdgn7qjd' /* I agree for terms and conditio... */,
+                            ),
                             style: FlutterFlowTheme.bodyText2.override(
                               fontFamily: 'Lexend Deca',
                               color: FlutterFlowTheme.dark400,
@@ -383,7 +394,9 @@ class _BookJobWidgetState extends State<BookJobWidget> {
                           ),
                         );
                       },
-                      text: 'BOOK ',
+                      text: FFLocalizations.of(context).getText(
+                        'yp3yvwdx' /* BOOK  */,
+                      ),
                       options: FFButtonOptions(
                         width: 130,
                         height: 40,

@@ -100,7 +100,9 @@ class _WorkerConfirmationWidgetState extends State<WorkerConfirmationWidget> {
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           Text(
-                                            'Hello World',
+                                            FFLocalizations.of(context).getText(
+                                              'sztxx489' /* Hello World */,
+                                            ),
                                             style: FlutterFlowTheme.bodyText1,
                                           ),
                                         ],
@@ -113,7 +115,10 @@ class _WorkerConfirmationWidgetState extends State<WorkerConfirmationWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     10, 0, 0, 0),
                                             child: Text(
-                                              'Hello World',
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'mwangw35' /* Hello World */,
+                                              ),
                                               style: FlutterFlowTheme.bodyText1,
                                             ),
                                           ),
@@ -131,7 +136,10 @@ class _WorkerConfirmationWidgetState extends State<WorkerConfirmationWidget> {
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
                                             Text(
-                                              'Hello World',
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'zzz3ksv4' /* Hello World */,
+                                              ),
                                               style: FlutterFlowTheme.bodyText1,
                                             ),
                                           ],
@@ -143,7 +151,10 @@ class _WorkerConfirmationWidgetState extends State<WorkerConfirmationWidget> {
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(10, 0, 0, 0),
                                               child: Text(
-                                                'Hello World',
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  '5ylxvc7x' /* Hello World */,
+                                                ),
                                                 style:
                                                     FlutterFlowTheme.bodyText1,
                                               ),
@@ -164,7 +175,10 @@ class _WorkerConfirmationWidgetState extends State<WorkerConfirmationWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     0, 10, 0, 0),
                                             child: Text(
-                                              'Hello World',
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'frjmmue9' /* Hello World */,
+                                              ),
                                               style: FlutterFlowTheme.bodyText1,
                                             ),
                                           ),
@@ -179,9 +193,11 @@ class _WorkerConfirmationWidgetState extends State<WorkerConfirmationWidget> {
                                               controller: textController,
                                               obscureText: false,
                                               decoration: InputDecoration(
-                                                hintText: 'About',
-                                                hintStyle:
-                                                    FlutterFlowTheme.bodyText1,
+                                                hintText:
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                  'q35g3n4q' /* About */,
+                                                ),
                                                 enabledBorder:
                                                     UnderlineInputBorder(
                                                   borderSide: BorderSide(
@@ -255,7 +271,10 @@ class _WorkerConfirmationWidgetState extends State<WorkerConfirmationWidget> {
                                           onPressed: () {
                                             print('Button pressed ...');
                                           },
-                                          text: 'Call now',
+                                          text: FFLocalizations.of(context)
+                                              .getText(
+                                            '6h4os39l' /* Call now */,
+                                          ),
                                           icon: Icon(
                                             Icons.call,
                                             size: 15,
@@ -293,7 +312,10 @@ class _WorkerConfirmationWidgetState extends State<WorkerConfirmationWidget> {
                                           onPressed: () {
                                             print('Button pressed ...');
                                           },
-                                          text: 'Report',
+                                          text: FFLocalizations.of(context)
+                                              .getText(
+                                            'tfrpzxlg' /* Report */,
+                                          ),
                                           icon: Icon(
                                             Icons.report,
                                             size: 15,

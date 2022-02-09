@@ -32,7 +32,9 @@ class _ClientSaWidgetState extends State<ClientSaWidget> {
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Text(
-                      'Ads',
+                      FFLocalizations.of(context).getText(
+                        '4gvvucu4' /* Ads */,
+                      ),
                       style: FlutterFlowTheme.title1.override(
                         fontFamily: 'Lexend Deca',
                         color: Color(0xFF090F13),
@@ -49,7 +51,9 @@ class _ClientSaWidgetState extends State<ClientSaWidget> {
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Text(
-                      'All Activity from this past month.',
+                      FFLocalizations.of(context).getText(
+                        '4dm4zqx1' /* All Activity from this past mo... */,
+                      ),
                       style: FlutterFlowTheme.bodyText2.override(
                         fontFamily: 'Lexend Deca',
                         color: Color(0xFF8B97A2),
@@ -108,7 +112,9 @@ class _ClientSaWidgetState extends State<ClientSaWidget> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
-                                  '14, Sept. 2021',
+                                  FFLocalizations.of(context).getText(
+                                    '8f5rj5iu' /* 14, Sept. 2021 */,
+                                  ),
                                   style: FlutterFlowTheme.bodyText1.override(
                                     fontFamily: 'Lexend Deca',
                                     color: Color(0xFF95A1AC),
@@ -127,7 +133,9 @@ class _ClientSaWidgetState extends State<ClientSaWidget> {
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Text(
-                                  'New job',
+                                  FFLocalizations.of(context).getText(
+                                    'w4qrecwd' /* New job */,
+                                  ),
                                   style: FlutterFlowTheme.subtitle2.override(
                                     fontFamily: 'Lexend Deca',
                                     color: Color(0xFF151B1E),
@@ -139,7 +147,9 @@ class _ClientSaWidgetState extends State<ClientSaWidget> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       4, 0, 0, 0),
                                   child: Text(
-                                    'posted',
+                                    FFLocalizations.of(context).getText(
+                                      '7jlsfsz4' /* posted */,
+                                    ),
                                     style: FlutterFlowTheme.subtitle1.override(
                                       fontFamily: 'Lexend Deca',
                                       color: Color(0xFF4B39EF),
@@ -161,7 +171,9 @@ class _ClientSaWidgetState extends State<ClientSaWidget> {
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         8, 0, 0, 0),
                                     child: Text(
-                                      'Andrew F.',
+                                      FFLocalizations.of(context).getText(
+                                        'o5kfm3rt' /* Andrew F. */,
+                                      ),
                                       style:
                                           FlutterFlowTheme.bodyText1.override(
                                         fontFamily: 'Lexend Deca',
@@ -178,7 +190,10 @@ class _ClientSaWidgetState extends State<ClientSaWidget> {
                                         onPressed: () {
                                           print('Button pressed ...');
                                         },
-                                        text: 'Details',
+                                        text:
+                                            FFLocalizations.of(context).getText(
+                                          '73vl3jnz' /* Details */,
+                                        ),
                                         options: FFButtonOptions(
                                           width: 130,
                                           height: 40,
@@ -255,7 +270,9 @@ class _ClientSaWidgetState extends State<ClientSaWidget> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
-                                  '14, Sept. 2021',
+                                  FFLocalizations.of(context).getText(
+                                    'v7dggo21' /* 14, Sept. 2021 */,
+                                  ),
                                   style: FlutterFlowTheme.bodyText1.override(
                                     fontFamily: 'Lexend Deca',
                                     color: Color(0xFF95A1AC),
@@ -274,7 +291,9 @@ class _ClientSaWidgetState extends State<ClientSaWidget> {
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Text(
-                                  'Offer rolled',
+                                  FFLocalizations.of(context).getText(
+                                    's7y3eopm' /* Offer rolled */,
+                                  ),
                                   style: FlutterFlowTheme.subtitle2.override(
                                     fontFamily: 'Lexend Deca',
                                     color: Color(0xFF151B1E),
@@ -286,7 +305,9 @@ class _ClientSaWidgetState extends State<ClientSaWidget> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       4, 0, 0, 0),
                                   child: Text(
-                                    'declined',
+                                    FFLocalizations.of(context).getText(
+                                      '63r2515x' /* declined */,
+                                    ),
                                     style: FlutterFlowTheme.subtitle1.override(
                                       fontFamily: 'Lexend Deca',
                                       color: Color(0xFF39D2C0),
@@ -308,7 +329,9 @@ class _ClientSaWidgetState extends State<ClientSaWidget> {
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         8, 0, 0, 0),
                                     child: Text(
-                                      'Andrew F.',
+                                      FFLocalizations.of(context).getText(
+                                        'q1mp6r86' /* Andrew F. */,
+                                      ),
                                       style:
                                           FlutterFlowTheme.bodyText1.override(
                                         fontFamily: 'Lexend Deca',
@@ -325,7 +348,10 @@ class _ClientSaWidgetState extends State<ClientSaWidget> {
                                         onPressed: () {
                                           print('Button pressed ...');
                                         },
-                                        text: 'Details',
+                                        text:
+                                            FFLocalizations.of(context).getText(
+                                          'u57vikd3' /* Details */,
+                                        ),
                                         options: FFButtonOptions(
                                           width: 130,
                                           height: 40,
@@ -402,7 +428,9 @@ class _ClientSaWidgetState extends State<ClientSaWidget> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
-                                  '14, Sept. 2021',
+                                  FFLocalizations.of(context).getText(
+                                    'zseki77f' /* 14, Sept. 2021 */,
+                                  ),
                                   style: FlutterFlowTheme.bodyText1.override(
                                     fontFamily: 'Lexend Deca',
                                     color: Color(0xFF95A1AC),
@@ -421,7 +449,9 @@ class _ClientSaWidgetState extends State<ClientSaWidget> {
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Text(
-                                  'Looking for workers',
+                                  FFLocalizations.of(context).getText(
+                                    'c08p5qm7' /* Looking for workers */,
+                                  ),
                                   style: FlutterFlowTheme.subtitle2.override(
                                     fontFamily: 'Lexend Deca',
                                     color: Color(0xFF151B1E),
@@ -433,7 +463,9 @@ class _ClientSaWidgetState extends State<ClientSaWidget> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       4, 0, 0, 0),
                                   child: Text(
-                                    '#post jo',
+                                    FFLocalizations.of(context).getText(
+                                      'q7qoiuqy' /* #post jo */,
+                                    ),
                                     style: FlutterFlowTheme.subtitle1.override(
                                       fontFamily: 'Lexend Deca',
                                       color: Color(0xFF4B39EF),
@@ -466,7 +498,9 @@ class _ClientSaWidgetState extends State<ClientSaWidget> {
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         8, 0, 0, 0),
                                     child: Text(
-                                      'Andrew F.',
+                                      FFLocalizations.of(context).getText(
+                                        '3bn7h5zn' /* Andrew F. */,
+                                      ),
                                       style:
                                           FlutterFlowTheme.bodyText1.override(
                                         fontFamily: 'Lexend Deca',
@@ -483,7 +517,10 @@ class _ClientSaWidgetState extends State<ClientSaWidget> {
                                         onPressed: () {
                                           print('Button pressed ...');
                                         },
-                                        text: 'Post',
+                                        text:
+                                            FFLocalizations.of(context).getText(
+                                          'jom5lfgm' /* Post */,
+                                        ),
                                         options: FFButtonOptions(
                                           width: 130,
                                           height: 40,
@@ -569,7 +606,9 @@ class _ClientSaWidgetState extends State<ClientSaWidget> {
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
                 child: Text(
-                  'Beginning of Activity',
+                  FFLocalizations.of(context).getText(
+                    'qp5xmrl0' /* Beginning of Activity */,
+                  ),
                   style: FlutterFlowTheme.subtitle1.override(
                     fontFamily: 'Lexend Deca',
                     color: Color(0xFF151B1E),

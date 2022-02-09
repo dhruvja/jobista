@@ -124,7 +124,9 @@ class _AdInfoWidgetState extends State<AdInfoWidget> {
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0, 0, 0, 5),
                                         child: Text(
-                                          'Hello World',
+                                          FFLocalizations.of(context).getText(
+                                            'up6vpga5' /* Hello World */,
+                                          ),
                                           style: FlutterFlowTheme.bodyText1
                                               .override(
                                             fontFamily: 'Lexend Deca',
@@ -134,7 +136,9 @@ class _AdInfoWidgetState extends State<AdInfoWidget> {
                                         ),
                                       ),
                                       Text(
-                                        'Hello World',
+                                        FFLocalizations.of(context).getText(
+                                          'yids139h' /* Hello World */,
+                                        ),
                                         style: FlutterFlowTheme.bodyText1,
                                       ),
                                     ],
@@ -158,7 +162,9 @@ class _AdInfoWidgetState extends State<AdInfoWidget> {
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0, 0, 0, 5),
                                         child: Text(
-                                          'Hello World',
+                                          FFLocalizations.of(context).getText(
+                                            '9vks6afa' /* Hello World */,
+                                          ),
                                           style: FlutterFlowTheme.bodyText1
                                               .override(
                                             fontFamily: 'Lexend Deca',
@@ -167,7 +173,9 @@ class _AdInfoWidgetState extends State<AdInfoWidget> {
                                         ),
                                       ),
                                       Text(
-                                        'Hello World',
+                                        FFLocalizations.of(context).getText(
+                                          'tqzwtspd' /* Hello World */,
+                                        ),
                                         style: FlutterFlowTheme.bodyText1,
                                       ),
                                     ],
@@ -202,7 +210,9 @@ class _AdInfoWidgetState extends State<AdInfoWidget> {
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0, 0, 0, 5),
                                         child: Text(
-                                          'Hello World',
+                                          FFLocalizations.of(context).getText(
+                                            'k4flv7dx' /* Hello World */,
+                                          ),
                                           style: FlutterFlowTheme.bodyText1
                                               .override(
                                             fontFamily: 'Lexend Deca',
@@ -212,7 +222,9 @@ class _AdInfoWidgetState extends State<AdInfoWidget> {
                                         ),
                                       ),
                                       Text(
-                                        'Hello World',
+                                        FFLocalizations.of(context).getText(
+                                          'zwqtee16' /* Hello World */,
+                                        ),
                                         style: FlutterFlowTheme.bodyText1,
                                       ),
                                     ],
@@ -236,7 +248,9 @@ class _AdInfoWidgetState extends State<AdInfoWidget> {
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0, 0, 0, 5),
                                         child: Text(
-                                          'Hello World',
+                                          FFLocalizations.of(context).getText(
+                                            'hrwk9l0g' /* Hello World */,
+                                          ),
                                           style: FlutterFlowTheme.bodyText1
                                               .override(
                                             fontFamily: 'Lexend Deca',
@@ -245,7 +259,9 @@ class _AdInfoWidgetState extends State<AdInfoWidget> {
                                         ),
                                       ),
                                       Text(
-                                        'Hello World',
+                                        FFLocalizations.of(context).getText(
+                                          '9vhyvqmz' /* Hello World */,
+                                        ),
                                         style: FlutterFlowTheme.bodyText1,
                                       ),
                                     ],
@@ -271,8 +287,10 @@ class _AdInfoWidgetState extends State<AdInfoWidget> {
                                       controller: textController1,
                                       obscureText: false,
                                       decoration: InputDecoration(
-                                        hintText: '[Some hint text...]',
-                                        hintStyle: FlutterFlowTheme.bodyText1,
+                                        hintText:
+                                            FFLocalizations.of(context).getText(
+                                          'mr78leey' /* [Some hint text...] */,
+                                        ),
                                         enabledBorder: UnderlineInputBorder(
                                           borderSide: BorderSide(
                                             color: Color(0x00000000),
@@ -320,8 +338,10 @@ class _AdInfoWidgetState extends State<AdInfoWidget> {
                                     controller: textController2,
                                     obscureText: false,
                                     decoration: InputDecoration(
-                                      hintText: 'location',
-                                      hintStyle: FlutterFlowTheme.bodyText1,
+                                      hintText:
+                                          FFLocalizations.of(context).getText(
+                                        '7h1wvbe9' /* location */,
+                                      ),
                                       enabledBorder: UnderlineInputBorder(
                                         borderSide: BorderSide(
                                           color: Color(0x00000000),
@@ -362,7 +382,9 @@ class _AdInfoWidgetState extends State<AdInfoWidget> {
                                     onPressed: () {
                                       print('Button pressed ...');
                                     },
-                                    text: 'Accept',
+                                    text: FFLocalizations.of(context).getText(
+                                      'vdfegtap' /* Accept */,
+                                    ),
                                     options: FFButtonOptions(
                                       width: 300,
                                       height: 40,

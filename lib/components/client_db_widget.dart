@@ -68,7 +68,11 @@ class _ClientDbWidgetState extends State<ClientDbWidget> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
-                                  'DOUBLE\nVaccinated',
+                                  FFLocalizations.of(context).getText(
+                                    'u41uk0o7' /* DOUBLE
+Vaccinated */
+                                    ,
+                                  ),
                                   style: FlutterFlowTheme.bodyText1.override(
                                     fontFamily: 'Lexend Deca',
                                     color: FlutterFlowTheme.dark400,
@@ -133,7 +137,11 @@ class _ClientDbWidgetState extends State<ClientDbWidget> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
-                                  'AADHAR \nAuntenticated',
+                                  FFLocalizations.of(context).getText(
+                                    'f01bahf7' /* AADHAR 
+Auntenticated */
+                                    ,
+                                  ),
                                   style: FlutterFlowTheme.bodyText1,
                                 ),
                               ],

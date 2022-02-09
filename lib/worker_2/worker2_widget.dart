@@ -84,7 +84,13 @@ class _Worker2WidgetState extends State<Worker2Widget> {
                       controller: textController1,
                       obscureText: false,
                       decoration: InputDecoration(
-                        hintText: 'Type of JOB experienced',
+                        labelStyle: FlutterFlowTheme.bodyText1.override(
+                          fontFamily: 'Lexend Deca',
+                          color: Color(0xFF2B343A),
+                        ),
+                        hintText: FFLocalizations.of(context).getText(
+                          'jjofs55q' /* Type of JOB experienced */,
+                        ),
                         hintStyle: FlutterFlowTheme.bodyText2,
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
@@ -125,7 +131,9 @@ class _Worker2WidgetState extends State<Worker2Widget> {
                       maxLines: 5,
                       validator: (val) {
                         if (val.isEmpty) {
-                          return 'Please enter a valid Name';
+                          return FFLocalizations.of(context).getText(
+                            'ig1l2c4m' /* Please enter a valid Name */,
+                          );
                         }
 
                         return null;
@@ -142,7 +150,13 @@ class _Worker2WidgetState extends State<Worker2Widget> {
                         controller: textController2,
                         obscureText: false,
                         decoration: InputDecoration(
-                          hintText: 'Location',
+                          labelStyle: FlutterFlowTheme.bodyText1.override(
+                            fontFamily: 'Lexend Deca',
+                            color: FlutterFlowTheme.dark400,
+                          ),
+                          hintText: FFLocalizations.of(context).getText(
+                            '9f8s0dnp' /* Location */,
+                          ),
                           hintStyle: FlutterFlowTheme.bodyText2,
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
@@ -184,10 +198,14 @@ class _Worker2WidgetState extends State<Worker2Widget> {
                         ),
                         validator: (val) {
                           if (val.isEmpty) {
-                            return 'Please  Provide your Mobile number';
+                            return FFLocalizations.of(context).getText(
+                              'ukujigkl' /* Please  Provide your Mobile nu... */,
+                            );
                           }
                           if (val.length < 10) {
-                            return 'Number is incomplete';
+                            return FFLocalizations.of(context).getText(
+                              'qqh9g5jj' /* Number is incomplete */,
+                            );
                           }
                           return null;
                         },
@@ -204,7 +222,13 @@ class _Worker2WidgetState extends State<Worker2Widget> {
                         controller: textController3,
                         obscureText: false,
                         decoration: InputDecoration(
-                          hintText: 'PIN Code',
+                          labelStyle: FlutterFlowTheme.bodyText1.override(
+                            fontFamily: 'Lexend Deca',
+                            color: Color(0xFF2B343A),
+                          ),
+                          hintText: FFLocalizations.of(context).getText(
+                            's3moadki' /* PIN Code */,
+                          ),
                           hintStyle: FlutterFlowTheme.bodyText2,
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
@@ -244,7 +268,9 @@ class _Worker2WidgetState extends State<Worker2Widget> {
                         ),
                         validator: (val) {
                           if (val.isEmpty) {
-                            return 'Please enter a valid Name';
+                            return FFLocalizations.of(context).getText(
+                              'uafh0lg5' /* Please enter a valid Name */,
+                            );
                           }
 
                           return null;
@@ -280,7 +306,9 @@ class _Worker2WidgetState extends State<Worker2Widget> {
                                       ),
                                     );
                                   },
-                                  text: 'Next',
+                                  text: FFLocalizations.of(context).getText(
+                                    'bhrd3evn' /* Next */,
+                                  ),
                                   icon: Icon(
                                     Icons.play_arrow,
                                     size: 15,

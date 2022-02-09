@@ -98,7 +98,10 @@ class _OnboardWidgetState extends State<OnboardWidget> {
                                           children: [
                                             Expanded(
                                               child: Text(
-                                                'Want a nurse?',
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  '1pxf9vlv' /* Want a nurse? */,
+                                                ),
                                                 textAlign: TextAlign.center,
                                                 style: FlutterFlowTheme.title1
                                                     .override(
@@ -120,7 +123,10 @@ class _OnboardWidgetState extends State<OnboardWidget> {
                                           children: [
                                             Expanded(
                                               child: Text(
-                                                'Are somebody in emergency care and you are in need/ready to take care of them? ',
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  'wlz0j8pa' /* Are somebody in emergency care... */,
+                                                ),
                                                 textAlign: TextAlign.center,
                                                 style: FlutterFlowTheme
                                                     .subtitle2
@@ -168,7 +174,9 @@ class _OnboardWidgetState extends State<OnboardWidget> {
                                       children: [
                                         Expanded(
                                           child: Text(
-                                            'Oh!! the water supply is out !!',
+                                            FFLocalizations.of(context).getText(
+                                              '9of34jml' /* Oh!! the water supply is out !... */,
+                                            ),
                                             textAlign: TextAlign.center,
                                             style: FlutterFlowTheme.title1
                                                 .override(
@@ -190,7 +198,9 @@ class _OnboardWidgetState extends State<OnboardWidget> {
                                       children: [
                                         Expanded(
                                           child: Text(
-                                            'Get your plumber right in click, post the need get the man.',
+                                            FFLocalizations.of(context).getText(
+                                              'r5mhb3c2' /* Get your plumber right in clic... */,
+                                            ),
                                             textAlign: TextAlign.center,
                                             style: FlutterFlowTheme.subtitle2
                                                 .override(
@@ -235,7 +245,9 @@ class _OnboardWidgetState extends State<OnboardWidget> {
                                       children: [
                                         Expanded(
                                           child: Text(
-                                            'Oh!! the water supply is out ',
+                                            FFLocalizations.of(context).getText(
+                                              'gladbkai' /* Oh!! the water supply is out  */,
+                                            ),
                                             textAlign: TextAlign.center,
                                             style: FlutterFlowTheme.title1
                                                 .override(
@@ -257,7 +269,9 @@ class _OnboardWidgetState extends State<OnboardWidget> {
                                       children: [
                                         Expanded(
                                           child: Text(
-                                            'Get your plumber right in click, post the need get the man.',
+                                            FFLocalizations.of(context).getText(
+                                              'flgp8hd6' /* Get your plumber right in clic... */,
+                                            ),
                                             textAlign: TextAlign.center,
                                             style: FlutterFlowTheme.subtitle2
                                                 .override(
@@ -322,7 +336,11 @@ class _OnboardWidgetState extends State<OnboardWidget> {
                                                                   ),
                                                                 );
                                                               },
-                                                              text: 'Log-IN',
+                                                              text: FFLocalizations
+                                                                      .of(context)
+                                                                  .getText(
+                                                                '7cfcew2j' /* Log-IN */,
+                                                              ),
                                                               options:
                                                                   FFButtonOptions(
                                                                 width: 130,
@@ -377,7 +395,11 @@ class _OnboardWidgetState extends State<OnboardWidget> {
                                                                   ),
                                                                 );
                                                               },
-                                                              text: 'Sign-UP',
+                                                              text: FFLocalizations
+                                                                      .of(context)
+                                                                  .getText(
+                                                                'rkuoy843' /* Sign-UP */,
+                                                              ),
                                                               options:
                                                                   FFButtonOptions(
                                                                 width: 130,

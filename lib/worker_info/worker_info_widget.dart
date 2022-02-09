@@ -128,7 +128,10 @@ class _WorkerInfoWidgetState extends State<WorkerInfoWidget> {
                                                     CrossAxisAlignment.start,
                                                 children: [
                                                   Text(
-                                                    'Name',
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                      'ddb4sxyy' /* Name */,
+                                                    ),
                                                     style: FlutterFlowTheme
                                                         .bodyText1,
                                                   ),
@@ -137,7 +140,11 @@ class _WorkerInfoWidgetState extends State<WorkerInfoWidget> {
                                                         MainAxisSize.max,
                                                     children: [
                                                       Text(
-                                                        'Location',
+                                                        FFLocalizations.of(
+                                                                context)
+                                                            .getText(
+                                                          'tnyq59xn' /* Location */,
+                                                        ),
                                                         style: FlutterFlowTheme
                                                             .bodyText1,
                                                       ),
@@ -162,7 +169,11 @@ class _WorkerInfoWidgetState extends State<WorkerInfoWidget> {
                                                         print(
                                                             'Button pressed ...');
                                                       },
-                                                      text: 'match %',
+                                                      text: FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        'pkrzxz3f' /* match % */,
+                                                      ),
                                                       options: FFButtonOptions(
                                                         width: 130,
                                                         height: 40,
@@ -210,7 +221,10 @@ class _WorkerInfoWidgetState extends State<WorkerInfoWidget> {
                                                 CrossAxisAlignment.center,
                                             children: [
                                               Text(
-                                                'Overall Rating',
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  'fzpxz2sr' /* Overall Rating */,
+                                                ),
                                                 style: FlutterFlowTheme
                                                     .bodyText1
                                                     .override(
@@ -317,11 +331,15 @@ class _WorkerInfoWidgetState extends State<WorkerInfoWidget> {
                                             size: 24,
                                           ),
                                           Text(
-                                            'Education ',
+                                            FFLocalizations.of(context).getText(
+                                              'k9dhu2e6' /* Education  */,
+                                            ),
                                             style: FlutterFlowTheme.bodyText1,
                                           ),
                                           Text(
-                                            '10+',
+                                            FFLocalizations.of(context).getText(
+                                              '4tj89y5v' /* 10+ */,
+                                            ),
                                             style: FlutterFlowTheme.bodyText1
                                                 .override(
                                               fontFamily: 'Lexend Deca',
@@ -349,11 +367,15 @@ class _WorkerInfoWidgetState extends State<WorkerInfoWidget> {
                                             size: 24,
                                           ),
                                           Text(
-                                            'Experience',
+                                            FFLocalizations.of(context).getText(
+                                              'filjpq7j' /* Experience */,
+                                            ),
                                             style: FlutterFlowTheme.bodyText1,
                                           ),
                                           Text(
-                                            '2 Years',
+                                            FFLocalizations.of(context).getText(
+                                              'qffwzxb4' /* 2 Years */,
+                                            ),
                                             style: FlutterFlowTheme.bodyText1
                                                 .override(
                                               fontFamily: 'Lexend Deca',
@@ -381,7 +403,9 @@ class _WorkerInfoWidgetState extends State<WorkerInfoWidget> {
                                             size: 24,
                                           ),
                                           Text(
-                                            'Book Appointment',
+                                            FFLocalizations.of(context).getText(
+                                              'cbjbyaqg' /* Book Appointment */,
+                                            ),
                                             style: FlutterFlowTheme.bodyText1,
                                           ),
                                           InkWell(
@@ -395,7 +419,10 @@ class _WorkerInfoWidgetState extends State<WorkerInfoWidget> {
                                               );
                                             },
                                             child: Text(
-                                              'Call now',
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'k99h9kxc' /* Call now */,
+                                              ),
                                               style: FlutterFlowTheme.bodyText1
                                                   .override(
                                                 fontFamily: 'Lexend Deca',
@@ -424,7 +451,9 @@ class _WorkerInfoWidgetState extends State<WorkerInfoWidget> {
                                             size: 24,
                                           ),
                                           Text(
-                                            'Verified',
+                                            FFLocalizations.of(context).getText(
+                                              '28dep6dm' /* Verified */,
+                                            ),
                                             style: FlutterFlowTheme.bodyText1,
                                           ),
                                           InkWell(
@@ -438,7 +467,10 @@ class _WorkerInfoWidgetState extends State<WorkerInfoWidget> {
                                               );
                                             },
                                             child: Text(
-                                              'Check now',
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'c324xcd9' /* Check now */,
+                                              ),
                                               style: FlutterFlowTheme.bodyText1
                                                   .override(
                                                 fontFamily: 'Lexend Deca',
@@ -476,7 +508,9 @@ class _WorkerInfoWidgetState extends State<WorkerInfoWidget> {
                                         ),
                                       );
                                     },
-                                    text: 'Book Now',
+                                    text: FFLocalizations.of(context).getText(
+                                      'wxo33tgp' /* Book Now */,
+                                    ),
                                     icon: Icon(
                                       Icons.looks,
                                       size: 10,
@@ -518,7 +552,9 @@ class _WorkerInfoWidgetState extends State<WorkerInfoWidget> {
                                         ),
                                       );
                                     },
-                                    text: 'Wishlist',
+                                    text: FFLocalizations.of(context).getText(
+                                      'x7a5444p' /* Wishlist */,
+                                    ),
                                     icon: Icon(
                                       Icons.whatshot,
                                       size: 10,

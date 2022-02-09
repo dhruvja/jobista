@@ -43,7 +43,9 @@ class _ExperienceWidgetState extends State<ExperienceWidget> {
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
                           child: Text(
-                            'Rate our service',
+                            FFLocalizations.of(context).getText(
+                              '4l8pl03x' /* Rate our service */,
+                            ),
                             style: FlutterFlowTheme.bodyText1.override(
                               fontFamily: 'Lexend Deca',
                               color: FlutterFlowTheme.customColor1,

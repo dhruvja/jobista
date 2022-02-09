@@ -39,7 +39,9 @@ class _GenerateBillWidgetState extends State<GenerateBillWidget> {
           ),
         ),
         title: Text(
-          ' ',
+          FFLocalizations.of(context).getText(
+            't0o0mv7j' /*   */,
+          ),
           style: FlutterFlowTheme.subtitle2.override(
             fontFamily: 'Lexend Deca',
             color: Color(0xFF151B1E),
@@ -90,7 +92,9 @@ class _GenerateBillWidgetState extends State<GenerateBillWidget> {
                         fit: BoxFit.fitHeight,
                       ),
                       Text(
-                        'Hello World',
+                        FFLocalizations.of(context).getText(
+                          'hrwoqiln' /* Hello World */,
+                        ),
                         style: FlutterFlowTheme.bodyText1,
                       ),
                     ],
@@ -101,7 +105,9 @@ class _GenerateBillWidgetState extends State<GenerateBillWidget> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Text(
-                          'Plumber work',
+                          FFLocalizations.of(context).getText(
+                            'k0rn6qbd' /* Plumber work */,
+                          ),
                           style: FlutterFlowTheme.title1.override(
                             fontFamily: 'Playfair Display',
                             color: Color(0xFF090F13),
@@ -111,7 +117,9 @@ class _GenerateBillWidgetState extends State<GenerateBillWidget> {
                         ),
                         Expanded(
                           child: Text(
-                            '\$50.00',
+                            FFLocalizations.of(context).getText(
+                              'qs12ok5a' /* $50.00 */,
+                            ),
                             textAlign: TextAlign.end,
                             style: FlutterFlowTheme.subtitle1.override(
                               fontFamily: 'Lexend Deca',
@@ -134,7 +142,9 @@ class _GenerateBillWidgetState extends State<GenerateBillWidget> {
                             padding:
                                 EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
                             child: Text(
-                              'Date: 31/12/2021',
+                              FFLocalizations.of(context).getText(
+                                'o9n5smd7' /* Date: 31/12/2021 */,
+                              ),
                               style: FlutterFlowTheme.bodyText2.override(
                                 fontFamily: 'Lexend Deca',
                                 color: Color(0xFF8B97A2),
@@ -150,7 +160,9 @@ class _GenerateBillWidgetState extends State<GenerateBillWidget> {
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
                     child: Text(
-                      'Name of  customer',
+                      FFLocalizations.of(context).getText(
+                        'a5bdg9aa' /* Name of  customer */,
+                      ),
                       style: FlutterFlowTheme.bodyText1,
                     ),
                   ),
@@ -163,7 +175,17 @@ class _GenerateBillWidgetState extends State<GenerateBillWidget> {
                           child: Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
                             child: FlutterFlowDropDown(
-                              options: ['Small', 'Medium', 'Large'].toList(),
+                              options: [
+                                FFLocalizations.of(context).getText(
+                                  'z5m1i8m6' /* Small */,
+                                ),
+                                FFLocalizations.of(context).getText(
+                                  '9kqyln7q' /* Medium */,
+                                ),
+                                FFLocalizations.of(context).getText(
+                                  '4a0sf7z4' /* Large */,
+                                )
+                              ].toList(),
                               onChanged: (val) =>
                                   setState(() => dropDownValue = val),
                               width: 130,
@@ -273,7 +295,9 @@ class _GenerateBillWidgetState extends State<GenerateBillWidget> {
                           onPressed: () {
                             print('Button pressed ...');
                           },
-                          text: 'Add Bill',
+                          text: FFLocalizations.of(context).getText(
+                            'yjl15xr3' /* Add Bill */,
+                          ),
                           options: FFButtonOptions(
                             color: Color(0xFF4B39EF),
                             textStyle: FlutterFlowTheme.subtitle2.override(

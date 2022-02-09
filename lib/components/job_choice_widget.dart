@@ -44,7 +44,11 @@ class _JobChoiceWidgetState extends State<JobChoiceWidget> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         FlutterFlowRadioButton(
-                          options: ['Electrician'],
+                          options: [
+                            FFLocalizations.of(context).getText(
+                              'c36k2n4g' /* Electrician */,
+                            )
+                          ],
                           onChanged: (value) {
                             setState(() => radioButtonValue1 = value);
                           },
@@ -62,7 +66,11 @@ class _JobChoiceWidgetState extends State<JobChoiceWidget> {
                           verticalAlignment: WrapCrossAlignment.start,
                         ),
                         FlutterFlowRadioButton(
-                          options: ['Plumber'],
+                          options: [
+                            FFLocalizations.of(context).getText(
+                              'gmcom3e4' /* Plumber */,
+                            )
+                          ],
                           onChanged: (value) {
                             setState(() => radioButtonValue2 = value);
                           },
@@ -80,7 +88,11 @@ class _JobChoiceWidgetState extends State<JobChoiceWidget> {
                           verticalAlignment: WrapCrossAlignment.start,
                         ),
                         FlutterFlowRadioButton(
-                          options: ['Nurse'],
+                          options: [
+                            FFLocalizations.of(context).getText(
+                              'aglgoex6' /* Nurse */,
+                            )
+                          ],
                           onChanged: (value) {
                             setState(() => radioButtonValue3 = value);
                           },

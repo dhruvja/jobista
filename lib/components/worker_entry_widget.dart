@@ -56,7 +56,9 @@ class _WorkerEntryWidgetState extends State<WorkerEntryWidget> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Name',
+                        FFLocalizations.of(context).getText(
+                          'h9diuede' /* Name */,
+                        ),
                         style: FlutterFlowTheme.subtitle1.override(
                           fontFamily: 'Lexend Deca',
                           color: Color(0xFF1E2429),
@@ -67,7 +69,9 @@ class _WorkerEntryWidgetState extends State<WorkerEntryWidget> {
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
                         child: Text(
-                          'Service',
+                          FFLocalizations.of(context).getText(
+                            'nu3nc12r' /* Service */,
+                          ),
                           style: FlutterFlowTheme.bodyText1.override(
                             fontFamily: 'Lexend Deca',
                             color: Color(0xFF090F13),
@@ -93,7 +97,9 @@ class _WorkerEntryWidgetState extends State<WorkerEntryWidget> {
                       size: 30,
                     ),
                     Text(
-                      '15 mins',
+                      FFLocalizations.of(context).getText(
+                        'srgrgp70' /* 15 mins */,
+                      ),
                       textAlign: TextAlign.end,
                       style: FlutterFlowTheme.subtitle2.override(
                         fontFamily: 'Lexend Deca',
