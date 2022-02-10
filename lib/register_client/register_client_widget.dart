@@ -154,6 +154,10 @@ class _RegisterClientWidgetState extends State<RegisterClientWidget> {
                       controller: textController1,
                       obscureText: false,
                       decoration: InputDecoration(
+                        labelStyle: FlutterFlowTheme.bodyText1.override(
+                          fontFamily: 'Lexend Deca',
+                          color: Color(0xFF2B343A),
+                        ),
                         hintText: 'Your Name',
                         hintStyle: FlutterFlowTheme.bodyText2,
                         enabledBorder: OutlineInputBorder(
@@ -212,6 +216,10 @@ class _RegisterClientWidgetState extends State<RegisterClientWidget> {
                         controller: textController2,
                         obscureText: false,
                         decoration: InputDecoration(
+                          labelStyle: FlutterFlowTheme.bodyText1.override(
+                            fontFamily: 'Lexend Deca',
+                            color: FlutterFlowTheme.dark400,
+                          ),
                           hintText: 'Mobile Number',
                           hintStyle: FlutterFlowTheme.bodyText2,
                           enabledBorder: OutlineInputBorder(
@@ -277,6 +285,12 @@ class _RegisterClientWidgetState extends State<RegisterClientWidget> {
                               controller: emailAddressController,
                               obscureText: false,
                               decoration: InputDecoration(
+                                labelStyle: FlutterFlowTheme.bodyText1.override(
+                                  fontFamily: 'Lexend Deca',
+                                  color: Color(0xFF95A1AC),
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.normal,
+                                ),
                                 hintText: 'Email Address',
                                 hintStyle: FlutterFlowTheme.bodyText1.override(
                                   fontFamily: 'Lexend Deca',
@@ -346,6 +360,12 @@ class _RegisterClientWidgetState extends State<RegisterClientWidget> {
                               controller: passwordController,
                               obscureText: !passwordVisibility1,
                               decoration: InputDecoration(
+                                labelStyle: FlutterFlowTheme.bodyText1.override(
+                                  fontFamily: 'Lexend Deca',
+                                  color: Color(0xFF95A1AC),
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.normal,
+                                ),
                                 hintText: 'Password',
                                 hintStyle: FlutterFlowTheme.bodyText1.override(
                                   fontFamily: 'Lexend Deca',
@@ -410,7 +430,7 @@ class _RegisterClientWidgetState extends State<RegisterClientWidget> {
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
                                 content: Text(
-                                  "Passwords don't match!",
+                                  'Passwords don\'t match!',
                                 ),
                               ),
                             );
@@ -438,10 +458,6 @@ class _RegisterClientWidgetState extends State<RegisterClientWidget> {
                         obscureText: !passwordVisibility2,
                         decoration: InputDecoration(
                           hintText: 'Confirm Password',
-                          hintStyle: FlutterFlowTheme.bodyText1.override(
-                            fontFamily: 'Lexend Deca',
-                            color: FlutterFlowTheme.grayLight,
-                          ),
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: FlutterFlowTheme.grayLight,

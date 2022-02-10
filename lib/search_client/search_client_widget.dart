@@ -278,8 +278,6 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
                                               obscureText: false,
                                               decoration: InputDecoration(
                                                 hintText: 'Pincode',
-                                                hintStyle:
-                                                    FlutterFlowTheme.bodyText1,
                                                 enabledBorder:
                                                     UnderlineInputBorder(
                                                   borderSide: BorderSide(
@@ -504,7 +502,6 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
                                       obscureText: false,
                                       decoration: InputDecoration(
                                         hintText: 'Search JOB',
-                                        hintStyle: FlutterFlowTheme.bodyText1,
                                         enabledBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
                                             color: Color(0xFF022747),

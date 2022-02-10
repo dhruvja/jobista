@@ -188,10 +188,6 @@ class _BookJobWidgetState extends State<BookJobWidget> {
                               obscureText: false,
                               decoration: InputDecoration(
                                 hintText: 'Pincode',
-                                hintStyle: FlutterFlowTheme.bodyText1.override(
-                                  fontFamily: 'Lexend Deca',
-                                  color: FlutterFlowTheme.grayDark,
-                                ),
                                 enabledBorder: UnderlineInputBorder(
                                   borderSide: BorderSide(
                                     color: Color(0x00000000),
@@ -237,11 +233,6 @@ class _BookJobWidgetState extends State<BookJobWidget> {
                                 obscureText: false,
                                 decoration: InputDecoration(
                                   hintText: 'Address',
-                                  hintStyle:
-                                      FlutterFlowTheme.bodyText1.override(
-                                    fontFamily: 'Lexend Deca',
-                                    color: FlutterFlowTheme.grayDark,
-                                  ),
                                   enabledBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(
                                       color: Color(0x00000000),
@@ -278,10 +269,6 @@ class _BookJobWidgetState extends State<BookJobWidget> {
                           obscureText: false,
                           decoration: InputDecoration(
                             hintText: 'JOB Information ',
-                            hintStyle: FlutterFlowTheme.bodyText1.override(
-                              fontFamily: 'Lexend Deca',
-                              color: FlutterFlowTheme.grayDark,
-                            ),
                             enabledBorder: UnderlineInputBorder(
                               borderSide: BorderSide(
                                 color: Color(0x00000000),

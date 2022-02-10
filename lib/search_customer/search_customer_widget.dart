@@ -475,8 +475,6 @@ class _SearchCustomerWidgetState extends State<SearchCustomerWidget> {
                                             obscureText: false,
                                             decoration: InputDecoration(
                                               hintText: 'Search JOB',
-                                              hintStyle:
-                                                  FlutterFlowTheme.bodyText1,
                                               enabledBorder: OutlineInputBorder(
                                                 borderSide: BorderSide(
                                                   color: Color(0xFF022747),

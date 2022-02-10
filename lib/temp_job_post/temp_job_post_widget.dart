@@ -199,7 +199,6 @@ class _TempJobPostWidgetState extends State<TempJobPostWidget> {
                             obscureText: false,
                             decoration: InputDecoration(
                               hintText: 'Location',
-                              hintStyle: FlutterFlowTheme.bodyText1,
                               enabledBorder: UnderlineInputBorder(
                                 borderSide: BorderSide(
                                   color: Color(0x00000000),

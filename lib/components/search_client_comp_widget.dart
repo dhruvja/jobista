@@ -6,7 +6,6 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../worker_1/worker1_widget.dart';
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -262,70 +261,32 @@ class SearchWidget extends StatelessWidget {
                                   children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 10, 10, 10),
+                                          0, 10, 0, 0),
                                       child: Container(
-                                        width: 180,
-                                        height: 29,
+                                        width: 150,
+                                        height: 30,
                                         decoration: BoxDecoration(
                                           color: Color(0xFFEEEEEE),
-                                          borderRadius:
-                                              BorderRadius.circular(2),
                                         ),
-                                        child: Column(
-                                          mainAxisSize: MainAxisSize.min,
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:
-                                              MainAxisAlignment.end,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.end,
+                                              MainAxisAlignment.spaceBetween,
                                           children: [
-                                            Row(
-                                              mainAxisSize: MainAxisSize.min,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.spaceEvenly,
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.center,
-                                              children: [
-                                                Expanded(
-                                                  child: Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 0, 20, 0),
-                                                    child: Column(
-                                                      mainAxisSize:
-                                                          MainAxisSize.min,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .center,
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .center,
-                                                      children: [
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(10,
-                                                                      0, 0, 0),
-                                                          child: AutoSizeText(
-                                                            'Education',
-                                                            textAlign:
-                                                                TextAlign.start,
-                                                            style:
-                                                                FlutterFlowTheme
-                                                                    .bodyText1
-                                                                    .override(
-                                                              fontFamily:
-                                                                  'Lexend Deca',
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w600,
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(5, 0, 0, 0),
+                                              child: Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  Text(
+                                                    'Education',
+                                                    style: FlutterFlowTheme
+                                                        .bodyText1,
                                                   ),
-                                                ),
+                                                // ),
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(0, 0, 10, 10),
@@ -349,7 +310,8 @@ class SearchWidget extends StatelessWidget {
                                                     ],
                                                   ),
                                                 ),
-                                              ],
+                                                ],
+                                              ),
                                             ),
                                           ],
                                         ),

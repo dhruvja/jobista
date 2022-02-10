@@ -231,8 +231,6 @@ class _WorkerConfirmationWidgetState extends State<WorkerConfirmationWidget> {
                                               obscureText: false,
                                               decoration: InputDecoration(
                                                 hintText: 'About',
-                                                hintStyle:
-                                                    FlutterFlowTheme.bodyText1,
                                                 enabledBorder:
                                                     UnderlineInputBorder(
                                                   borderSide: BorderSide(

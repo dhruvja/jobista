@@ -256,7 +256,6 @@ class _PostJOBWidgetState extends State<PostJOBWidget> {
                             obscureText: false,
                             decoration: InputDecoration(
                               hintText: 'Location',
-                              hintStyle: FlutterFlowTheme.bodyText1,
                               enabledBorder: UnderlineInputBorder(
                                 borderSide: BorderSide(
                                   color: Color(0x00000000),
@@ -309,7 +308,6 @@ class _PostJOBWidgetState extends State<PostJOBWidget> {
                             obscureText: false,
                             decoration: InputDecoration(
                               hintText: 'Pincode',
-                              hintStyle: FlutterFlowTheme.bodyText1,
                               enabledBorder: UnderlineInputBorder(
                                 borderSide: BorderSide(
                                   color: Color(0x00000000),

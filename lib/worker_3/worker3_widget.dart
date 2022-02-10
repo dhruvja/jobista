@@ -80,17 +80,25 @@ class _Worker3WidgetState extends State<Worker3Widget> {
                         if (selectedMedia != null &&
                             validateFileFormat(
                                 selectedMedia.storagePath, context)) {
-                          showUploadMessage(context, 'Uploading file...',
-                              showLoading: true);
+                          showUploadMessage(
+                            context,
+                            'Uploading file...',
+                            showLoading: true,
+                          );
                           final downloadUrl = await uploadData(
                               selectedMedia.storagePath, selectedMedia.bytes);
                           ScaffoldMessenger.of(context).hideCurrentSnackBar();
                           if (downloadUrl != null) {
                             setState(() => uploadedFileUrl1 = downloadUrl);
-                            showUploadMessage(context, 'Success!');
+                            showUploadMessage(
+                              context,
+                              'Success!',
+                            );
                           } else {
                             showUploadMessage(
-                                context, 'Failed to upload media');
+                              context,
+                              'Failed to upload media',
+                            );
                             return;
                           }
                         }
@@ -122,10 +130,6 @@ class _Worker3WidgetState extends State<Worker3Widget> {
                           obscureText: false,
                           decoration: InputDecoration(
                             hintText: 'Experience ',
-                            hintStyle: FlutterFlowTheme.bodyText1.override(
-                              fontFamily: 'Lexend Deca',
-                              color: FlutterFlowTheme.grayDark,
-                            ),
                             enabledBorder: UnderlineInputBorder(
                               borderSide: BorderSide(
                                 color: Color(0x00000000),
@@ -171,17 +175,25 @@ class _Worker3WidgetState extends State<Worker3Widget> {
                           if (selectedMedia != null &&
                               validateFileFormat(
                                   selectedMedia.storagePath, context)) {
-                            showUploadMessage(context, 'Uploading file...',
-                                showLoading: true);
+                            showUploadMessage(
+                              context,
+                              'Uploading file...',
+                              showLoading: true,
+                            );
                             final downloadUrl = await uploadData(
                                 selectedMedia.storagePath, selectedMedia.bytes);
                             ScaffoldMessenger.of(context).hideCurrentSnackBar();
                             if (downloadUrl != null) {
                               setState(() => uploadedFileUrl2 = downloadUrl);
-                              showUploadMessage(context, 'Success!');
+                              showUploadMessage(
+                                context,
+                                'Success!',
+                              );
                             } else {
                               showUploadMessage(
-                                  context, 'Failed to upload media');
+                                context,
+                                'Failed to upload media',
+                              );
                               return;
                             }
                           }

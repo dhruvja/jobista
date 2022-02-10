@@ -79,7 +79,6 @@ class _FilterWidgetState extends State<FilterWidget> {
                           obscureText: false,
                           decoration: InputDecoration(
                             hintText: 'Pincode',
-                            hintStyle: FlutterFlowTheme.bodyText1,
                             enabledBorder: UnderlineInputBorder(
                               borderSide: BorderSide(
                                 color: Color(0x00000000),

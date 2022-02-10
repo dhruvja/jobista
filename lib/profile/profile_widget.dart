@@ -194,13 +194,6 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                 obscureText: false,
                                 decoration: InputDecoration(
                                   labelText: 'Your Nam',
-                                  labelStyle:
-                                      FlutterFlowTheme.bodyText1.override(
-                                    fontFamily: 'Lexend Deca',
-                                    color: Color(0xFF090F13),
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.normal,
-                                  ),
                                   hintText: 'What do people call you...?',
                                   hintStyle:
                                       FlutterFlowTheme.bodyText1.override(
@@ -246,13 +239,6 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                 obscureText: false,
                                 decoration: InputDecoration(
                                   labelText: 'Email Address',
-                                  labelStyle:
-                                      FlutterFlowTheme.bodyText1.override(
-                                    fontFamily: 'Lexend Deca',
-                                    color: Color(0xFF090F13),
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.normal,
-                                  ),
                                   hintText: 'Enter a new email',
                                   hintStyle:
                                       FlutterFlowTheme.bodyText1.override(

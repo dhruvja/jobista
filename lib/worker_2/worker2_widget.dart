@@ -84,6 +84,10 @@ class _Worker2WidgetState extends State<Worker2Widget> {
                       controller: textController1,
                       obscureText: false,
                       decoration: InputDecoration(
+                        labelStyle: FlutterFlowTheme.bodyText1.override(
+                          fontFamily: 'Lexend Deca',
+                          color: Color(0xFF2B343A),
+                        ),
                         hintText: 'Type of JOB experienced',
                         hintStyle: FlutterFlowTheme.bodyText2,
                         enabledBorder: OutlineInputBorder(
@@ -142,6 +146,10 @@ class _Worker2WidgetState extends State<Worker2Widget> {
                         controller: textController2,
                         obscureText: false,
                         decoration: InputDecoration(
+                          labelStyle: FlutterFlowTheme.bodyText1.override(
+                            fontFamily: 'Lexend Deca',
+                            color: FlutterFlowTheme.dark400,
+                          ),
                           hintText: 'Location',
                           hintStyle: FlutterFlowTheme.bodyText2,
                           enabledBorder: OutlineInputBorder(
@@ -204,6 +212,10 @@ class _Worker2WidgetState extends State<Worker2Widget> {
                         controller: textController3,
                         obscureText: false,
                         decoration: InputDecoration(
+                          labelStyle: FlutterFlowTheme.bodyText1.override(
+                            fontFamily: 'Lexend Deca',
+                            color: Color(0xFF2B343A),
+                          ),
                           hintText: 'PIN Code',
                           hintStyle: FlutterFlowTheme.bodyText2,
                           enabledBorder: OutlineInputBorder(

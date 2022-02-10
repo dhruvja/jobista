@@ -80,10 +80,6 @@ class _ClientFilterWidgetState extends State<ClientFilterWidget> {
                           obscureText: false,
                           decoration: InputDecoration(
                             hintText: 'Pincode',
-                            hintStyle: FlutterFlowTheme.bodyText1.override(
-                              fontFamily: 'Lexend Deca',
-                              color: FlutterFlowTheme.grayDark,
-                            ),
                             enabledBorder: UnderlineInputBorder(
                               borderSide: BorderSide(
                                 color: Color(0x00000000),
