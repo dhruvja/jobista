@@ -66,25 +66,6 @@ class _HomeClientWidgetState extends State<HomeClientWidget> {
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          FlutterFlowLanguageSelector(
-                            width: 100,
-                            backgroundColor: Color(0xFF21149C),
-                            borderColor: Color(0xFF262D34),
-                            dropdownIconColor: Color(0xFFF7F7F7),
-                            borderRadius: 8,
-                            textStyle: TextStyle(
-                              color: Color(0xFFAEE1E1),
-                              fontWeight: FontWeight.normal,
-                              fontSize: 13,
-                            ),
-                            hideFlags: true,
-                            flagSize: 0,
-                            flagTextGap: 0,
-                            currentLanguage:
-                                FFLocalizations.of(context).languageCode,
-                            languages: FFLocalizations.languages(),
-                            onChanged: (lang) => setAppLanguage(context, lang),
-                          ),
                           Padding(
                             padding:
                                 EdgeInsetsDirectional.fromSTEB(20, 16, 20, 0),

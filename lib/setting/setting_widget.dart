@@ -1,3 +1,4 @@
+import '../flutter_flow/flutter_flow_language_selector.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
@@ -465,6 +466,39 @@ class _SettingWidgetState extends State<SettingWidget> {
                       ),
                     ),
                   ],
+                ),
+              ],
+            ),
+            Row(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                  child: Container(
+                    width: 350,
+                    height: 60,
+                    decoration: BoxDecoration(
+                      color: Color(0xFFEEEEEE),
+                    ),
+                    child: FlutterFlowLanguageSelector(
+                      width: 200,
+                      backgroundColor: FlutterFlowTheme.background,
+                      borderColor: Color(0xFF262D34),
+                      dropdownIconColor: Color(0xFF14181B),
+                      borderRadius: 8,
+                      textStyle: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.normal,
+                        fontSize: 13,
+                      ),
+                      hideFlags: false,
+                      flagSize: 24,
+                      flagTextGap: 8,
+                      currentLanguage: FFLocalizations.of(context).languageCode,
+                      languages: FFLocalizations.languages(),
+                      onChanged: (lang) => setAppLanguage(context, lang),
+                    ),
+                  ),
                 ),
               ],
             ),
