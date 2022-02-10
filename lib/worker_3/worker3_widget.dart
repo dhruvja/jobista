@@ -116,9 +116,7 @@ class _Worker3WidgetState extends State<Worker3Widget> {
                       ),
                     ),
                     Text(
-                      FFLocalizations.of(context).getText(
-                        'vc5lfzin' /* Upload Photo */,
-                      ),
+                      'Upload Photo',
                       style: FlutterFlowTheme.bodyText1,
                     ),
                     Container(
@@ -131,9 +129,7 @@ class _Worker3WidgetState extends State<Worker3Widget> {
                           controller: textController,
                           obscureText: false,
                           decoration: InputDecoration(
-                            hintText: FFLocalizations.of(context).getText(
-                              'c1bc84j6' /* Experience  */,
-                            ),
+                            hintText: 'Experience ',
                             enabledBorder: UnderlineInputBorder(
                               borderSide: BorderSide(
                                 color: Color(0x00000000),
@@ -159,9 +155,7 @@ class _Worker3WidgetState extends State<Worker3Widget> {
                           maxLines: 7,
                           validator: (val) {
                             if (val.isEmpty) {
-                              return FFLocalizations.of(context).getText(
-                                '827f7yes' /* Please enter your experience */,
-                              );
+                              return 'Please enter your experience';
                             }
 
                             return null;
@@ -219,9 +213,7 @@ class _Worker3WidgetState extends State<Worker3Widget> {
                           child: Align(
                             alignment: AlignmentDirectional(0, 0),
                             child: AutoSizeText(
-                              FFLocalizations.of(context).getText(
-                                'u3iw98l3' /* Upload Age Proof */,
-                              ),
+                              'Upload Age Proof',
                               style: FlutterFlowTheme.bodyText1.override(
                                 fontFamily: 'Lexend Deca',
                                 color: FlutterFlowTheme.grayDark,
@@ -240,9 +232,7 @@ class _Worker3WidgetState extends State<Worker3Widget> {
                       child: Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(0, 10, 180, 10),
                         child: Text(
-                          FFLocalizations.of(context).getText(
-                            'iw03yq27' /* Expected Salary */,
-                          ),
+                          'Expected Salary',
                           textAlign: TextAlign.center,
                           style: FlutterFlowTheme.bodyText1,
                         ),
@@ -298,9 +288,7 @@ class _Worker3WidgetState extends State<Worker3Widget> {
                           onChanged: (newValue) =>
                               setState(() => checkboxListTileValue = newValue),
                           title: Text(
-                            FFLocalizations.of(context).getText(
-                              'qcqnjohc' /* I agree for terms and conditio... */,
-                            ),
+                            'I agree for terms and conditions',
                             style: FlutterFlowTheme.bodyText2.override(
                               fontFamily: 'Lexend Deca',
                               color: FlutterFlowTheme.dark400,
@@ -327,9 +315,7 @@ class _Worker3WidgetState extends State<Worker3Widget> {
                           (r) => false,
                         );
                       },
-                      text: FFLocalizations.of(context).getText(
-                        'zxxiadt3' /* Sign UP */,
-                      ),
+                      text: 'Sign UP',
                       icon: FaIcon(
                         FontAwesomeIcons.signLanguage,
                       ),

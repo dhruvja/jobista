@@ -62,9 +62,7 @@ class _ApplicantsWidgetState extends State<ApplicantsWidget> {
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Text(
-                                      FFLocalizations.of(context).getText(
-                                        'b9jxnzof' /* Applicants */,
-                                      ),
+                                      'Applicants',
                                       style: FlutterFlowTheme.title1.override(
                                         fontFamily: 'Lexend Deca',
                                         color: Color(0xFF090F13),
@@ -116,12 +114,7 @@ class _ApplicantsWidgetState extends State<ApplicantsWidget> {
                                         children: [
                                           Expanded(
                                             child: Text(
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                'goz7h770' /* Selected 
-candidates */
-                                                ,
-                                              ),
+                                              'Selected \ncandidates',
                                               style: FlutterFlowTheme.bodyText2
                                                   .override(
                                                 fontFamily: 'Poppins',
@@ -139,10 +132,7 @@ candidates */
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(2, 2, 2, 2),
                                               child: Text(
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  'bj4qdtno' /* ^ 25% */,
-                                                ),
+                                                '^ 25%',
                                                 style: TextStyle(
                                                   color: Color(0xFF4B39EF),
                                                   fontWeight: FontWeight.w500,
@@ -162,9 +152,7 @@ candidates */
                                               EdgeInsetsDirectional.fromSTEB(
                                                   8, 0, 0, 8),
                                           child: Text(
-                                            FFLocalizations.of(context).getText(
-                                              'idq620ps' /* 4 */,
-                                            ),
+                                            '4',
                                             style: FlutterFlowTheme.title2
                                                 .override(
                                               fontFamily: 'Lexend Deca',
@@ -204,10 +192,7 @@ candidates */
                                           children: [
                                             Expanded(
                                               child: Text(
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  '8ufi7pso' /* Number of Applicants */,
-                                                ),
+                                                'Number of Applicants',
                                                 style: FlutterFlowTheme
                                                     .bodyText2
                                                     .override(
@@ -226,10 +211,7 @@ candidates */
                                                 padding: EdgeInsetsDirectional
                                                     .fromSTEB(2, 2, 2, 2),
                                                 child: Text(
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                    'soycg0nv' /* ^ 25% */,
-                                                  ),
+                                                  '^ 25%',
                                                   style: TextStyle(
                                                     color: Color(0xFF3BC821),
                                                     fontWeight: FontWeight.w500,
@@ -249,10 +231,7 @@ candidates */
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     8, 0, 0, 8),
                                             child: Text(
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                't4qrumqs' /* 20 */,
-                                              ),
+                                              '20',
                                               style: FlutterFlowTheme.title2
                                                   .override(
                                                 fontFamily: 'Lexend Deca',
@@ -279,9 +258,7 @@ candidates */
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(16, 8, 0, 12),
                           child: Text(
-                            FFLocalizations.of(context).getText(
-                              'bwz811uz' /* This Month */,
-                            ),
+                            'This Month',
                             style: FlutterFlowTheme.bodyText2.override(
                               fontFamily: 'Lexend Deca',
                               color: Color(0xFF8B97A2),

@@ -54,14 +54,7 @@ class _ClientFilterWidgetState extends State<ClientFilterWidget> {
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
                       child: FlutterFlowDropDown(
-                        options: [
-                          FFLocalizations.of(context).getText(
-                            'jjnxlxar' /* Select AD */,
-                          ),
-                          FFLocalizations.of(context).getText(
-                            '25hetqpe' /* Electrician */,
-                          )
-                        ].toList(),
+                        options: ['Select AD', 'Electrician'].toList(),
                         onChanged: (val) =>
                             setState(() => dropDownValue1 = val),
                         width: 180,
@@ -86,9 +79,7 @@ class _ClientFilterWidgetState extends State<ClientFilterWidget> {
                           controller: textController,
                           obscureText: false,
                           decoration: InputDecoration(
-                            hintText: FFLocalizations.of(context).getText(
-                              'op8wniii' /* Pincode */,
-                            ),
+                            hintText: 'Pincode',
                             enabledBorder: UnderlineInputBorder(
                               borderSide: BorderSide(
                                 color: Color(0x00000000),
@@ -121,9 +112,7 @@ class _ClientFilterWidgetState extends State<ClientFilterWidget> {
                           ),
                           validator: (val) {
                             if (val.isEmpty) {
-                              return FFLocalizations.of(context).getText(
-                                'migzux8o' /* Please Enter the pincode befor... */,
-                              );
+                              return 'Please Enter the pincode before proceeding';
                             }
 
                             return null;
@@ -132,14 +121,7 @@ class _ClientFilterWidgetState extends State<ClientFilterWidget> {
                       ),
                     ),
                     FlutterFlowDropDown(
-                      options: [
-                        FFLocalizations.of(context).getText(
-                          '4h0ulreu' /* Education */,
-                        ),
-                        FFLocalizations.of(context).getText(
-                          't8wvnmr9' /* 10th Pass */,
-                        )
-                      ].toList(),
+                      options: ['Education', '10th Pass'].toList(),
                       onChanged: (val) => setState(() => dropDownValue2 = val),
                       width: 180,
                       height: 40,
@@ -157,9 +139,7 @@ class _ClientFilterWidgetState extends State<ClientFilterWidget> {
                     Align(
                       alignment: AlignmentDirectional(-0.45, 0),
                       child: Text(
-                        FFLocalizations.of(context).getText(
-                          'qwlrsh1d' /* Expereince */,
-                        ),
+                        'Expereince',
                         style: FlutterFlowTheme.bodyText1,
                       ),
                     ),
@@ -215,9 +195,7 @@ class _ClientFilterWidgetState extends State<ClientFilterWidget> {
                           ),
                         );
                       },
-                      text: FFLocalizations.of(context).getText(
-                        'zg7vauo5' /* Sort */,
-                      ),
+                      text: 'Sort',
                       icon: Icon(
                         Icons.person_search,
                         size: 15,

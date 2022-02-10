@@ -48,21 +48,8 @@ class _SelectJobWidgetState extends State<SelectJobWidget> {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       FlutterFlowDropDown(
-                        initialOption: dropDownValue ??=
-                            FFLocalizations.of(context).getText(
-                          '3hkg3idm' /* Choose AD */,
-                        ),
-                        options: [
-                          FFLocalizations.of(context).getText(
-                            'n5h634a5' /* Choose AD */,
-                          ),
-                          FFLocalizations.of(context).getText(
-                            '29ru2vni' /* AD-1 */,
-                          ),
-                          FFLocalizations.of(context).getText(
-                            'd6xye4sa' /* AD-2 */,
-                          )
-                        ].toList(),
+                        initialOption: dropDownValue ??= 'Choose AD',
+                        options: ['Choose AD', 'AD-1', 'AD-2'].toList(),
                         onChanged: (val) => setState(() => dropDownValue = val),
                         width: 240,
                         height: 40,
@@ -94,9 +81,7 @@ class _SelectJobWidgetState extends State<SelectJobWidget> {
                           onPressed: () {
                             print('Button pressed ...');
                           },
-                          text: FFLocalizations.of(context).getText(
-                            'ufg5w6xo' /* Go */,
-                          ),
+                          text: 'Go',
                           options: FFButtonOptions(
                             width: 150,
                             height: 40,
@@ -125,9 +110,7 @@ class _SelectJobWidgetState extends State<SelectJobWidget> {
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
                     child: Text(
-                      FFLocalizations.of(context).getText(
-                        'ao49ow5r' /* No add? post new one! */,
-                      ),
+                      'No add? post new one!',
                       style: FlutterFlowTheme.bodyText1,
                     ),
                   ),
@@ -135,9 +118,7 @@ class _SelectJobWidgetState extends State<SelectJobWidget> {
                     onPressed: () {
                       print('Button pressed ...');
                     },
-                    text: FFLocalizations.of(context).getText(
-                      'mxq43acp' /* Post AD */,
-                    ),
+                    text: 'Post AD',
                     options: FFButtonOptions(
                       width: 150,
                       height: 40,

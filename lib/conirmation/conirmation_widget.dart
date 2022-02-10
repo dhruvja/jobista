@@ -85,9 +85,7 @@ class _ConirmationWidgetState extends State<ConirmationWidget> {
                               ),
                             );
                           },
-                          text: FFLocalizations.of(context).getText(
-                            'vsjvv4ay' /* Confirm */,
-                          ),
+                          text: 'Confirm',
                           options: FFButtonOptions(
                             width: 130,
                             height: 40,

@@ -76,9 +76,7 @@ class _HomeClientWidgetState extends State<HomeClientWidget> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0, 0, 0, 10),
                                   child: Text(
-                                    FFLocalizations.of(context).getText(
-                                      'ze5g5vwp' /* Quick Service */,
-                                    ),
+                                    'Quick Service',
                                     style: FlutterFlowTheme.bodyText1.override(
                                       fontFamily: 'Lexend Deca',
                                       color: FlutterFlowTheme.customColor1,
@@ -105,9 +103,7 @@ class _HomeClientWidgetState extends State<HomeClientWidget> {
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Text(
-                                  FFLocalizations.of(context).getText(
-                                    'z6nshyje' /* Activities */,
-                                  ),
+                                  'Activities',
                                   style: FlutterFlowTheme.bodyText1.override(
                                     fontFamily: 'Lexend Deca',
                                     color: Color(0xFFFEFEFE),

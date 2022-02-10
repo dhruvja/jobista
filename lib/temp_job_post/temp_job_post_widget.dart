@@ -26,10 +26,7 @@ class _TempJobPostWidgetState extends State<TempJobPostWidget> {
   void initState() {
     super.initState();
     textController1 = TextEditingController();
-    textController2 = TextEditingController(
-        text: FFLocalizations.of(context).getText(
-      '8wwgwml7' /* Job Description */,
-    ));
+    textController2 = TextEditingController(text: 'Job Description');
   }
 
   @override
@@ -79,17 +76,8 @@ class _TempJobPostWidgetState extends State<TempJobPostWidget> {
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
                         child: FlutterFlowDropDown(
-                          options: [
-                            FFLocalizations.of(context).getText(
-                              'ivvfexnp' /* Jobtype */,
-                            ),
-                            FFLocalizations.of(context).getText(
-                              '8binzi4l' /* Electrician */,
-                            ),
-                            FFLocalizations.of(context).getText(
-                              'xehv6wq3' /* Plumber */,
-                            )
-                          ].toList(),
+                          options:
+                              ['Jobtype', 'Electrician', 'Plumber'].toList(),
                           onChanged: (val) =>
                               setState(() => dropDownValue = val),
                           width: MediaQuery.of(context).size.width * 0.85,
@@ -121,9 +109,7 @@ class _TempJobPostWidgetState extends State<TempJobPostWidget> {
                             controller: textController1,
                             obscureText: false,
                             decoration: InputDecoration(
-                              hintText: FFLocalizations.of(context).getText(
-                                '3wza0btd' /* Location */,
-                              ),
+                              hintText: 'Location',
                               enabledBorder: UnderlineInputBorder(
                                 borderSide: BorderSide(
                                   color: Color(0x00000000),
@@ -207,9 +193,7 @@ class _TempJobPostWidgetState extends State<TempJobPostWidget> {
                           onChanged: (newValue) =>
                               setState(() => checkboxListTileValue = newValue),
                           title: Text(
-                            FFLocalizations.of(context).getText(
-                              '1bdr2ms2' /* I  accept for all terms and co... */,
-                            ),
+                            'I  accept for all terms and conditions',
                             style: TextStyle(
                               color: Color(0xFF010524),
                               fontSize: 12,
@@ -229,9 +213,7 @@ class _TempJobPostWidgetState extends State<TempJobPostWidget> {
                             ),
                           );
                         },
-                        text: FFLocalizations.of(context).getText(
-                          'zh90775s' /* Post JOB */,
-                        ),
+                        text: 'Post JOB',
                         options: FFButtonOptions(
                           width: 130,
                           height: 40,

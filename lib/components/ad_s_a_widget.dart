@@ -79,9 +79,7 @@ class _AdSAWidgetState extends State<AdSAWidget> {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Text(
-                                FFLocalizations.of(context).getText(
-                                  'kx9l48on' /* Plumber */,
-                                ),
+                                'Plumber',
                                 style: FlutterFlowTheme.subtitle1.override(
                                   fontFamily: 'Lexend Deca',
                                   color: Color(0xFF15212B),
@@ -93,9 +91,7 @@ class _AdSAWidgetState extends State<AdSAWidget> {
                                 child: Align(
                                   alignment: AlignmentDirectional(0.7, 0),
                                   child: Text(
-                                    FFLocalizations.of(context).getText(
-                                      '6ava00n0' /* 12-12-21 */,
-                                    ),
+                                    '12-12-21',
                                     textAlign: TextAlign.end,
                                     style: TextStyle(
                                       color: Color(0xFF57636C),
@@ -115,9 +111,7 @@ class _AdSAWidgetState extends State<AdSAWidget> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0, 4, 4, 0),
                                   child: Text(
-                                    FFLocalizations.of(context).getText(
-                                      'v973k3l2' /* Need a plumber for quixk repai... */,
-                                    ),
+                                    'Need a plumber for quixk repair',
                                     style: FlutterFlowTheme.bodyText2.override(
                                       fontFamily: 'Lexend Deca',
                                       color: Color(0xFF8B97A2),

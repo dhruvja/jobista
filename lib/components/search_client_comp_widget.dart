@@ -72,9 +72,7 @@ class _SearchClientCompWidgetState extends State<SearchClientCompWidget> {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Text(
-                                FFLocalizations.of(context).getText(
-                                  'lavbthdg' /* JOB1 */,
-                                ),
+                                'JOB1',
                                 style: FlutterFlowTheme.bodyText1.override(
                                   fontFamily: 'Lexend Deca',
                                   color: FlutterFlowTheme.customColor1,
@@ -86,9 +84,7 @@ class _SearchClientCompWidgetState extends State<SearchClientCompWidget> {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Text(
-                                FFLocalizations.of(context).getText(
-                                  '3avy0mqh' /* JOB2 */,
-                                ),
+                                'JOB2',
                                 style: FlutterFlowTheme.bodyText1.override(
                                   fontFamily: 'Lexend Deca',
                                   color: FlutterFlowTheme.customColor1,
@@ -113,9 +109,7 @@ class _SearchClientCompWidgetState extends State<SearchClientCompWidget> {
                                     Align(
                                       alignment: AlignmentDirectional(0.05, 0),
                                       child: Text(
-                                        FFLocalizations.of(context).getText(
-                                          'v7q3j1cs' /* Name */,
-                                        ),
+                                        'Name',
                                         style:
                                             FlutterFlowTheme.bodyText1.override(
                                           fontFamily: 'Lexend Deca',
@@ -181,9 +175,7 @@ class _SearchClientCompWidgetState extends State<SearchClientCompWidget> {
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Text(
-                                    FFLocalizations.of(context).getText(
-                                      '8xappu8f' /* Location */,
-                                    ),
+                                    'Location',
                                     style: FlutterFlowTheme.bodyText1.override(
                                       fontFamily: 'Lexend Deca',
                                       color: FlutterFlowTheme.customColor1,
@@ -195,18 +187,14 @@ class _SearchClientCompWidgetState extends State<SearchClientCompWidget> {
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Text(
-                                    FFLocalizations.of(context).getText(
-                                      'a41msen0' /* Experience */,
-                                    ),
+                                    'Experience',
                                     style: FlutterFlowTheme.bodyText1.override(
                                       fontFamily: 'Lexend Deca',
                                       color: Color(0xFF289CF0),
                                     ),
                                   ),
                                   Text(
-                                    FFLocalizations.of(context).getText(
-                                      'muo01zwn' /*  3 Years */,
-                                    ),
+                                    ' 3 Years',
                                     style: FlutterFlowTheme.bodyText1.override(
                                       fontFamily: 'Lexend Deca',
                                       color: FlutterFlowTheme.customColor1,
@@ -224,9 +212,7 @@ class _SearchClientCompWidgetState extends State<SearchClientCompWidget> {
                                       onPressed: () {
                                         print('Button pressed ...');
                                       },
-                                      text: FFLocalizations.of(context).getText(
-                                        'medr04y7' /* Book Now */,
-                                      ),
+                                      text: 'Book Now',
                                       options: FFButtonOptions(
                                         width: 130,
                                         height: 40,
@@ -275,10 +261,7 @@ class _SearchClientCompWidgetState extends State<SearchClientCompWidget> {
                                                     MainAxisAlignment.center,
                                                 children: [
                                                   Text(
-                                                    FFLocalizations.of(context)
-                                                        .getText(
-                                                      'ig77paup' /* Education */,
-                                                    ),
+                                                    'Education',
                                                     style: FlutterFlowTheme
                                                         .bodyText1,
                                                   ),
@@ -294,10 +277,7 @@ class _SearchClientCompWidgetState extends State<SearchClientCompWidget> {
                                                     MainAxisAlignment.center,
                                                 children: [
                                                   Text(
-                                                    FFLocalizations.of(context)
-                                                        .getText(
-                                                      'kikgld27' /* 10+ */,
-                                                    ),
+                                                    '10+',
                                                     style: FlutterFlowTheme
                                                         .bodyText1,
                                                   ),

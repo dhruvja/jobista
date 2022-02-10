@@ -91,15 +91,8 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
                                             0, 20, 0, 0),
                                         child: FlutterFlowDropDown(
                                           initialOption: dropDownValue1 ??=
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                            'tzeomyng' /* Select job */,
-                                          ),
-                                          options: [
-                                            FFLocalizations.of(context).getText(
-                                              '9nnov7qp' /* Select job */,
-                                            )
-                                          ].toList(),
+                                              'Select job',
+                                          options: ['Select job'].toList(),
                                           onChanged: (val) => setState(
                                               () => dropDownValue1 = val),
                                           width: 190,
@@ -132,11 +125,7 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
                                               controller: textController1,
                                               obscureText: false,
                                               decoration: InputDecoration(
-                                                hintText:
-                                                    FFLocalizations.of(context)
-                                                        .getText(
-                                                  'xsnb97td' /* Pincode */,
-                                                ),
+                                                hintText: 'Pincode',
                                                 enabledBorder:
                                                     UnderlineInputBorder(
                                                   borderSide: BorderSide(
@@ -173,11 +162,7 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
                                       FlutterFlowDropDown(
                                         initialOption: dropDownValue2 ??=
                                             textController1.text,
-                                        options: [
-                                          FFLocalizations.of(context).getText(
-                                            'fdq51rio' /* Education */,
-                                          )
-                                        ].toList(),
+                                        options: ['Education'].toList(),
                                         onChanged: (val) => setState(
                                             () => dropDownValue2 = val),
                                         width: 190,
@@ -200,9 +185,7 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             10, 10, 10, 10),
                                         child: Text(
-                                          FFLocalizations.of(context).getText(
-                                            '8767v2ig' /* Experience */,
-                                          ),
+                                          'Experience',
                                           textAlign: TextAlign.center,
                                           style: FlutterFlowTheme.bodyText1,
                                         ),
@@ -256,9 +239,7 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0, 10, 0, 0),
                                         child: Text(
-                                          FFLocalizations.of(context).getText(
-                                            '0f0ze5o9' /* Salary Range */,
-                                          ),
+                                          'Salary Range',
                                           style: FlutterFlowTheme.bodyText1,
                                         ),
                                       ),
@@ -278,9 +259,7 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             10, 0, 10, 10),
                                         child: Text(
-                                          FFLocalizations.of(context).getText(
-                                            'x830aihf' /* Rating */,
-                                          ),
+                                          'Rating',
                                           style: FlutterFlowTheme.bodyText1,
                                         ),
                                       ),
@@ -311,10 +290,7 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
                                               ),
                                             );
                                           },
-                                          text: FFLocalizations.of(context)
-                                              .getText(
-                                            'iu8vggle' /* Filter */,
-                                          ),
+                                          text: 'Filter',
                                           options: FFButtonOptions(
                                             width: 130,
                                             height: 40,
@@ -387,10 +363,7 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
                                       controller: textController2,
                                       obscureText: false,
                                       decoration: InputDecoration(
-                                        hintText:
-                                            FFLocalizations.of(context).getText(
-                                          'uybv4ztb' /* Search JOB */,
-                                        ),
+                                        hintText: 'Search JOB',
                                         enabledBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
                                             color: Color(0xFF022747),
@@ -456,9 +429,7 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
                               ),
                             );
                           },
-                          text: FFLocalizations.of(context).getText(
-                            'cjmx3hfn' /* Job type */,
-                          ),
+                          text: 'Job type',
                           icon: FaIcon(
                             FontAwesomeIcons.robot,
                           ),
@@ -490,9 +461,7 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
                               ),
                             );
                           },
-                          text: FFLocalizations.of(context).getText(
-                            '7ai0esfd' /* Location */,
-                          ),
+                          text: 'Location',
                           icon: Icon(
                             Icons.location_on,
                             size: 15,
@@ -525,9 +494,7 @@ class _SearchClientWidgetState extends State<SearchClientWidget> {
                               ),
                             );
                           },
-                          text: FFLocalizations.of(context).getText(
-                            'l4nzh0g6' /* Education */,
-                          ),
+                          text: 'Education',
                           icon: Icon(
                             Icons.history_edu,
                             size: 15,

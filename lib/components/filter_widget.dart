@@ -50,15 +50,8 @@ class _FilterWidgetState extends State<FilterWidget> {
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
                     child: FlutterFlowDropDown(
-                      initialOption: dropDownValue1 ??=
-                          FFLocalizations.of(context).getText(
-                        'gwz6itag' /* Select job */,
-                      ),
-                      options: [
-                        FFLocalizations.of(context).getText(
-                          'o8eh3rur' /* Select job */,
-                        )
-                      ].toList(),
+                      initialOption: dropDownValue1 ??= 'Select job',
+                      options: ['Select job'].toList(),
                       onChanged: (val) => setState(() => dropDownValue1 = val),
                       width: 190,
                       height: 40,
@@ -85,9 +78,7 @@ class _FilterWidgetState extends State<FilterWidget> {
                           controller: textController,
                           obscureText: false,
                           decoration: InputDecoration(
-                            hintText: FFLocalizations.of(context).getText(
-                              'xsouemnx' /* Pincode */,
-                            ),
+                            hintText: 'Pincode',
                             enabledBorder: UnderlineInputBorder(
                               borderSide: BorderSide(
                                 color: Color(0x00000000),
@@ -118,11 +109,7 @@ class _FilterWidgetState extends State<FilterWidget> {
                     ),
                   ),
                   FlutterFlowDropDown(
-                    options: [
-                      FFLocalizations.of(context).getText(
-                        'ygytxgey' /* Education */,
-                      )
-                    ].toList(),
+                    options: ['Education'].toList(),
                     onChanged: (val) => setState(() => dropDownValue2 = val),
                     width: 190,
                     height: 40,
@@ -141,9 +128,7 @@ class _FilterWidgetState extends State<FilterWidget> {
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
                     child: Text(
-                      FFLocalizations.of(context).getText(
-                        'mim4ikzy' /* Experience */,
-                      ),
+                      'Experience',
                       textAlign: TextAlign.center,
                       style: FlutterFlowTheme.bodyText1,
                     ),
@@ -189,9 +174,7 @@ class _FilterWidgetState extends State<FilterWidget> {
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                     child: Text(
-                      FFLocalizations.of(context).getText(
-                        'hsecnqfw' /* Salary Range */,
-                      ),
+                      'Salary Range',
                       style: FlutterFlowTheme.bodyText1,
                     ),
                   ),
@@ -209,9 +192,7 @@ class _FilterWidgetState extends State<FilterWidget> {
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 10),
                     child: Text(
-                      FFLocalizations.of(context).getText(
-                        'dmxg3lh1' /* Rating */,
-                      ),
+                      'Rating',
                       style: FlutterFlowTheme.bodyText1,
                     ),
                   ),
@@ -241,9 +222,7 @@ class _FilterWidgetState extends State<FilterWidget> {
                           ),
                         );
                       },
-                      text: FFLocalizations.of(context).getText(
-                        't2mqi1c2' /* Filter */,
-                      ),
+                      text: 'Filter',
                       options: FFButtonOptions(
                         width: 130,
                         height: 40,

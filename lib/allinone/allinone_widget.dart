@@ -56,9 +56,7 @@ class _AllinoneWidgetState extends State<AllinoneWidget> {
                               ),
                             );
                           },
-                          text: FFLocalizations.of(context).getText(
-                            'cqvb2scm' /* landing page */,
-                          ),
+                          text: 'landing page',
                           options: FFButtonOptions(
                             width: 130,
                             height: 40,
@@ -86,9 +84,7 @@ class _AllinoneWidgetState extends State<AllinoneWidget> {
                               ),
                             );
                           },
-                          text: FFLocalizations.of(context).getText(
-                            'cbocitbk' /* worker home */,
-                          ),
+                          text: 'worker home',
                           options: FFButtonOptions(
                             width: 130,
                             height: 40,
@@ -117,9 +113,7 @@ class _AllinoneWidgetState extends State<AllinoneWidget> {
                               ),
                             );
                           },
-                          text: FFLocalizations.of(context).getText(
-                            '2uixqxu9' /* client home */,
-                          ),
+                          text: 'client home',
                           options: FFButtonOptions(
                             width: 130,
                             height: 40,
@@ -147,9 +141,7 @@ class _AllinoneWidgetState extends State<AllinoneWidget> {
                               ),
                             );
                           },
-                          text: FFLocalizations.of(context).getText(
-                            'qavglxis' /* post job */,
-                          ),
+                          text: 'post job',
                           options: FFButtonOptions(
                             width: 130,
                             height: 40,
@@ -178,9 +170,7 @@ class _AllinoneWidgetState extends State<AllinoneWidget> {
                               ),
                             );
                           },
-                          text: FFLocalizations.of(context).getText(
-                            'jvthly1l' /* Book job */,
-                          ),
+                          text: 'Book job',
                           options: FFButtonOptions(
                             width: 130,
                             height: 40,
@@ -208,9 +198,7 @@ class _AllinoneWidgetState extends State<AllinoneWidget> {
                               ),
                             );
                           },
-                          text: FFLocalizations.of(context).getText(
-                            'yhe5uurd' /* client dashboard */,
-                          ),
+                          text: 'client dashboard',
                           options: FFButtonOptions(
                             width: 130,
                             height: 40,
@@ -238,9 +226,7 @@ class _AllinoneWidgetState extends State<AllinoneWidget> {
                               ),
                             );
                           },
-                          text: FFLocalizations.of(context).getText(
-                            'h33n1jii' /* woker dashboard */,
-                          ),
+                          text: 'woker dashboard',
                           options: FFButtonOptions(
                             width: 130,
                             height: 40,
@@ -268,9 +254,7 @@ class _AllinoneWidgetState extends State<AllinoneWidget> {
                               ),
                             );
                           },
-                          text: FFLocalizations.of(context).getText(
-                            'el02whho' /* Worker info */,
-                          ),
+                          text: 'Worker info',
                           options: FFButtonOptions(
                             width: 130,
                             height: 40,
@@ -299,9 +283,7 @@ class _AllinoneWidgetState extends State<AllinoneWidget> {
                               ),
                             );
                           },
-                          text: FFLocalizations.of(context).getText(
-                            '8s6x7hfh' /* client SA */,
-                          ),
+                          text: 'client SA',
                           options: FFButtonOptions(
                             width: 130,
                             height: 40,
@@ -339,9 +321,7 @@ class _AllinoneWidgetState extends State<AllinoneWidget> {
                                 ),
                               );
                             },
-                            text: FFLocalizations.of(context).getText(
-                              '3x9z29sa' /* AD SA/worker confirmation */,
-                            ),
+                            text: 'AD SA/worker confirmation',
                             options: FFButtonOptions(
                               width: 130,
                               height: 40,
@@ -370,9 +350,7 @@ class _AllinoneWidgetState extends State<AllinoneWidget> {
                               ),
                             );
                           },
-                          text: FFLocalizations.of(context).getText(
-                            'cru0qn0v' /* Ad standalone */,
-                          ),
+                          text: 'Ad standalone',
                           options: FFButtonOptions(
                             width: 130,
                             height: 40,
@@ -401,9 +379,7 @@ class _AllinoneWidgetState extends State<AllinoneWidget> {
                               ),
                             );
                           },
-                          text: FFLocalizations.of(context).getText(
-                            'iwimur4u' /* applicants */,
-                          ),
+                          text: 'applicants',
                           options: FFButtonOptions(
                             width: 130,
                             height: 40,
@@ -431,9 +407,7 @@ class _AllinoneWidgetState extends State<AllinoneWidget> {
                               ),
                             );
                           },
-                          text: FFLocalizations.of(context).getText(
-                            '2oxr2957' /* Ad info */,
-                          ),
+                          text: 'Ad info',
                           options: FFButtonOptions(
                             width: 130,
                             height: 40,

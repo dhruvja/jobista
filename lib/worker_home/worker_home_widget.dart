@@ -74,9 +74,7 @@ class _WorkerHomeWidgetState extends State<WorkerHomeWidget> {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Text(
-                                FFLocalizations.of(context).getText(
-                                  'jm6jab2c' /* Welcome, */,
-                                ),
+                                'Welcome,',
                                 style: FlutterFlowTheme.title3.override(
                                   fontFamily: 'Lexend Deca',
                                   color: Color(0xFF1E2429),
@@ -88,9 +86,7 @@ class _WorkerHomeWidgetState extends State<WorkerHomeWidget> {
                                 padding:
                                     EdgeInsetsDirectional.fromSTEB(4, 0, 0, 0),
                                 child: Text(
-                                  FFLocalizations.of(context).getText(
-                                    '8yjbrtox' /* Andrew */,
-                                  ),
+                                  'Andrew',
                                   style: FlutterFlowTheme.title3.override(
                                     fontFamily: 'Lexend Deca',
                                     color: Color(0xFF00968A),
@@ -104,9 +100,7 @@ class _WorkerHomeWidgetState extends State<WorkerHomeWidget> {
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
                             child: Text(
-                              FFLocalizations.of(context).getText(
-                                'mduxmeu7' /* Your latest updates are below. */,
-                              ),
+                              'Your latest updates are below.',
                               style: FlutterFlowTheme.bodyText1.override(
                                 fontFamily: 'Lexend Deca',
                                 color: Color(0xFF090F13),
@@ -162,9 +156,7 @@ class _WorkerHomeWidgetState extends State<WorkerHomeWidget> {
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Text(
-                                  FFLocalizations.of(context).getText(
-                                    'cdhar0x7' /* Cureent Status */,
-                                  ),
+                                  'Cureent Status',
                                   style: FlutterFlowTheme.bodyText1.override(
                                     fontFamily: 'Lexend Deca',
                                     color: Colors.white,
@@ -182,9 +174,7 @@ class _WorkerHomeWidgetState extends State<WorkerHomeWidget> {
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Text(
-                                  FFLocalizations.of(context).getText(
-                                    'dxqxhdxq' /* 1 */,
-                                  ),
+                                  '1',
                                   style: FlutterFlowTheme.title1.override(
                                     fontFamily: 'Lexend Deca',
                                     color: Colors.white,
@@ -207,9 +197,7 @@ class _WorkerHomeWidgetState extends State<WorkerHomeWidget> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      FFLocalizations.of(context).getText(
-                                        'jxdmhtnd' /* Customer name */,
-                                      ),
+                                      'Customer name',
                                       style:
                                           FlutterFlowTheme.bodyText1.override(
                                         fontFamily: 'Roboto Mono',
@@ -318,9 +306,7 @@ class _WorkerHomeWidgetState extends State<WorkerHomeWidget> {
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Text(
-                                    FFLocalizations.of(context).getText(
-                                      'e144f6zy' /* Quick Service */,
-                                    ),
+                                    'Quick Service',
                                     style: FlutterFlowTheme.bodyText1.override(
                                       fontFamily: 'Lexend Deca',
                                       color: Color(0xFF090F13),
@@ -385,10 +371,7 @@ class _WorkerHomeWidgetState extends State<WorkerHomeWidget> {
                                                 padding: EdgeInsetsDirectional
                                                     .fromSTEB(0, 8, 0, 0),
                                                 child: Text(
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                    'ud9xy3dn' /* Applications */,
-                                                  ),
+                                                  'Applications',
                                                   style: FlutterFlowTheme
                                                       .bodyText1
                                                       .override(
@@ -453,10 +436,7 @@ class _WorkerHomeWidgetState extends State<WorkerHomeWidget> {
                                                 padding: EdgeInsetsDirectional
                                                     .fromSTEB(0, 8, 0, 0),
                                                 child: Text(
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                    'kylun0pr' /* Activity */,
-                                                  ),
+                                                  'Activity',
                                                   style: FlutterFlowTheme
                                                       .bodyText1
                                                       .override(
@@ -532,10 +512,7 @@ class _WorkerHomeWidgetState extends State<WorkerHomeWidget> {
                                                 padding: EdgeInsetsDirectional
                                                     .fromSTEB(0, 1, 0, 0),
                                                 child: Text(
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                    '0dqk52ho' /* Job offered */,
-                                                  ),
+                                                  'Job offered',
                                                   style: FlutterFlowTheme
                                                       .bodyText1
                                                       .override(
@@ -600,10 +577,7 @@ class _WorkerHomeWidgetState extends State<WorkerHomeWidget> {
                                                 padding: EdgeInsetsDirectional
                                                     .fromSTEB(0, 1, 0, 0),
                                                 child: Text(
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                    '6pzbe7nw' /* Accepted */,
-                                                  ),
+                                                  'Accepted',
                                                   style: FlutterFlowTheme
                                                       .bodyText1
                                                       .override(
@@ -632,9 +606,7 @@ class _WorkerHomeWidgetState extends State<WorkerHomeWidget> {
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Text(
-                                    FFLocalizations.of(context).getText(
-                                      '88zh93e2' /* Activities */,
-                                    ),
+                                    'Activities',
                                     style: FlutterFlowTheme.bodyText1.override(
                                       fontFamily: 'Lexend Deca',
                                       color: Color(0xFF090F13),

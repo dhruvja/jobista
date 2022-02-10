@@ -76,9 +76,7 @@ class _OptionsWidgetState extends State<OptionsWidget> {
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Text(
-                                        FFLocalizations.of(context).getText(
-                                          'dgq40pab' /* Plumber */,
-                                        ),
+                                        'Plumber',
                                         style: FlutterFlowTheme.bodyText1,
                                       ),
                                     ],
@@ -132,9 +130,7 @@ class _OptionsWidgetState extends State<OptionsWidget> {
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Text(
-                                        FFLocalizations.of(context).getText(
-                                          'cf2zq7sj' /* Electrician */,
-                                        ),
+                                        'Electrician',
                                         style: FlutterFlowTheme.bodyText1,
                                       ),
                                     ],
@@ -188,9 +184,7 @@ class _OptionsWidgetState extends State<OptionsWidget> {
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Text(
-                                        FFLocalizations.of(context).getText(
-                                          '5lq43wen' /* Nurse */,
-                                        ),
+                                        'Nurse',
                                         style: FlutterFlowTheme.bodyText1,
                                       ),
                                     ],
@@ -244,9 +238,7 @@ class _OptionsWidgetState extends State<OptionsWidget> {
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Text(
-                                        FFLocalizations.of(context).getText(
-                                          'kr7024k6' /* Carpenting */,
-                                        ),
+                                        'Carpenting',
                                         style: FlutterFlowTheme.bodyText1,
                                       ),
                                     ],

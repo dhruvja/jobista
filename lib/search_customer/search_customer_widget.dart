@@ -84,14 +84,8 @@ class _SearchCustomerWidgetState extends State<SearchCustomerWidget> {
                                         0, 20, 0, 0),
                                     child: FlutterFlowDropDown(
                                       initialOption: dropDownValue1 ??=
-                                          FFLocalizations.of(context).getText(
-                                        '6ynf09fd' /* Select job */,
-                                      ),
-                                      options: [
-                                        FFLocalizations.of(context).getText(
-                                          'r690ybrr' /* Select job */,
-                                        )
-                                      ].toList(),
+                                          'Select job',
+                                      options: ['Select job'].toList(),
                                       onChanged: (val) =>
                                           setState(() => dropDownValue1 = val),
                                       width: 190,
@@ -122,11 +116,7 @@ class _SearchCustomerWidgetState extends State<SearchCustomerWidget> {
                                           controller: textController1,
                                           obscureText: false,
                                           decoration: InputDecoration(
-                                            hintText:
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                              'z2vf7jxp' /* Pincode */,
-                                            ),
+                                            hintText: 'Pincode',
                                             enabledBorder: UnderlineInputBorder(
                                               borderSide: BorderSide(
                                                 color: Color(0x00000000),
@@ -159,11 +149,7 @@ class _SearchCustomerWidgetState extends State<SearchCustomerWidget> {
                                     ),
                                   ),
                                   FlutterFlowDropDown(
-                                    options: [
-                                      FFLocalizations.of(context).getText(
-                                        '0ah2e6b0' /* Education */,
-                                      )
-                                    ].toList(),
+                                    options: ['Education'].toList(),
                                     onChanged: (val) =>
                                         setState(() => dropDownValue2 = val),
                                     width: 190,
@@ -186,9 +172,7 @@ class _SearchCustomerWidgetState extends State<SearchCustomerWidget> {
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         10, 10, 10, 10),
                                     child: Text(
-                                      FFLocalizations.of(context).getText(
-                                        'sjifso7b' /* Experience */,
-                                      ),
+                                      'Experience',
                                       textAlign: TextAlign.center,
                                       style: FlutterFlowTheme.bodyText1,
                                     ),
@@ -239,9 +223,7 @@ class _SearchCustomerWidgetState extends State<SearchCustomerWidget> {
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         0, 10, 0, 0),
                                     child: Text(
-                                      FFLocalizations.of(context).getText(
-                                        '737d49p7' /* Salary Range */,
-                                      ),
+                                      'Salary Range',
                                       style: FlutterFlowTheme.bodyText1,
                                     ),
                                   ),
@@ -260,9 +242,7 @@ class _SearchCustomerWidgetState extends State<SearchCustomerWidget> {
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         10, 0, 10, 10),
                                     child: Text(
-                                      FFLocalizations.of(context).getText(
-                                        'xh1djepg' /* Rating */,
-                                      ),
+                                      'Rating',
                                       style: FlutterFlowTheme.bodyText1,
                                     ),
                                   ),
@@ -293,9 +273,7 @@ class _SearchCustomerWidgetState extends State<SearchCustomerWidget> {
                                           ),
                                         );
                                       },
-                                      text: FFLocalizations.of(context).getText(
-                                        'v9a8crgl' /* Filter */,
-                                      ),
+                                      text: 'Filter',
                                       options: FFButtonOptions(
                                         width: 130,
                                         height: 40,
@@ -371,11 +349,7 @@ class _SearchCustomerWidgetState extends State<SearchCustomerWidget> {
                                             controller: textController2,
                                             obscureText: false,
                                             decoration: InputDecoration(
-                                              hintText:
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                'oznoe6s9' /* Search JOB */,
-                                              ),
+                                              hintText: 'Search JOB',
                                               enabledBorder: OutlineInputBorder(
                                                 borderSide: BorderSide(
                                                   color: Color(0xFF022747),
@@ -441,10 +415,7 @@ class _SearchCustomerWidgetState extends State<SearchCustomerWidget> {
                                                 ),
                                               );
                                             },
-                                            text: FFLocalizations.of(context)
-                                                .getText(
-                                              'q84ejfgc' /* Job type */,
-                                            ),
+                                            text: 'Job type',
                                             icon: FaIcon(
                                               FontAwesomeIcons.robot,
                                             ),
@@ -482,10 +453,7 @@ class _SearchCustomerWidgetState extends State<SearchCustomerWidget> {
                                                 ),
                                               );
                                             },
-                                            text: FFLocalizations.of(context)
-                                                .getText(
-                                              'a2p1mf67' /* Location */,
-                                            ),
+                                            text: 'Location',
                                             icon: Icon(
                                               Icons.location_on,
                                               size: 15,
@@ -524,10 +492,7 @@ class _SearchCustomerWidgetState extends State<SearchCustomerWidget> {
                                                 ),
                                               );
                                             },
-                                            text: FFLocalizations.of(context)
-                                                .getText(
-                                              's7eaf58f' /* Education */,
-                                            ),
+                                            text: 'Education',
                                             icon: Icon(
                                               Icons.history_edu,
                                               size: 15,

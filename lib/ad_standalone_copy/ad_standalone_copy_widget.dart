@@ -85,9 +85,7 @@ class _AdStandaloneCopyWidgetState extends State<AdStandaloneCopyWidget> {
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Text(
-                                      FFLocalizations.of(context).getText(
-                                        'l8fi2s4q' /* Offer */,
-                                      ),
+                                      'Offer',
                                       style: FlutterFlowTheme.title1.override(
                                         fontFamily: 'Lexend Deca',
                                         color: Color(0xFF090F13),
@@ -144,12 +142,7 @@ class _AdStandaloneCopyWidgetState extends State<AdStandaloneCopyWidget> {
                                         children: [
                                           Expanded(
                                             child: Text(
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                'r79taxxl' /* Jobs 
-Offered */
-                                                ,
-                                              ),
+                                              'Jobs \nOffered',
                                               style: FlutterFlowTheme.bodyText2
                                                   .override(
                                                 fontFamily: 'Lexend Deca',
@@ -167,10 +160,7 @@ Offered */
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(2, 2, 2, 2),
                                               child: Text(
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  'jrs7ekib' /* ^ 25% */,
-                                                ),
+                                                '^ 25%',
                                                 style: TextStyle(
                                                   color: Color(0xFF4B39EF),
                                                   fontWeight: FontWeight.w500,
@@ -190,9 +180,7 @@ Offered */
                                               EdgeInsetsDirectional.fromSTEB(
                                                   8, 0, 0, 8),
                                           child: Text(
-                                            FFLocalizations.of(context).getText(
-                                              'om2r6bx2' /* 4 */,
-                                            ),
+                                            '4',
                                             style: FlutterFlowTheme.title2
                                                 .override(
                                               fontFamily: 'Lexend Deca',
@@ -232,10 +220,7 @@ Offered */
                                           children: [
                                             Expanded(
                                               child: Text(
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  'y1r8wzud' /* Profit */,
-                                                ),
+                                                'Profit',
                                                 style: FlutterFlowTheme
                                                     .bodyText2
                                                     .override(
@@ -254,10 +239,7 @@ Offered */
                                                 padding: EdgeInsetsDirectional
                                                     .fromSTEB(2, 2, 2, 2),
                                                 child: Text(
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                    'g80x715v' /* ^ 25% */,
-                                                  ),
+                                                  '^ 25%',
                                                   style: TextStyle(
                                                     color: Color(0xFF3BC821),
                                                     fontWeight: FontWeight.w500,
@@ -277,10 +259,7 @@ Offered */
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     8, 0, 0, 8),
                                             child: Text(
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                'p9cudy20' /* 20 */,
-                                              ),
+                                              '20',
                                               style: FlutterFlowTheme.title2
                                                   .override(
                                                 fontFamily: 'Lexend Deca',
@@ -307,9 +286,7 @@ Offered */
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(16, 8, 0, 12),
                           child: Text(
-                            FFLocalizations.of(context).getText(
-                              '4wghgvja' /* This Month */,
-                            ),
+                            'This Month',
                             style: FlutterFlowTheme.bodyText2.override(
                               fontFamily: 'Lexend Deca',
                               color: Color(0xFF8B97A2),

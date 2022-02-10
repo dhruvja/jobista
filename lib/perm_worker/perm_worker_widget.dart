@@ -73,9 +73,7 @@ class _PermWorkerWidgetState extends State<PermWorkerWidget> {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Text(
-                                FFLocalizations.of(context).getText(
-                                  'ww713nmk' /* Welcome, */,
-                                ),
+                                'Welcome,',
                                 style: FlutterFlowTheme.title3.override(
                                   fontFamily: 'Lexend Deca',
                                   color: Color(0xFF1E2429),
@@ -87,9 +85,7 @@ class _PermWorkerWidgetState extends State<PermWorkerWidget> {
                                 padding:
                                     EdgeInsetsDirectional.fromSTEB(4, 0, 0, 0),
                                 child: Text(
-                                  FFLocalizations.of(context).getText(
-                                    'fppt27j1' /* Andrew */,
-                                  ),
+                                  'Andrew',
                                   style: FlutterFlowTheme.title3.override(
                                     fontFamily: 'Lexend Deca',
                                     color: Color(0xFF00968A),
@@ -103,9 +99,7 @@ class _PermWorkerWidgetState extends State<PermWorkerWidget> {
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
                             child: Text(
-                              FFLocalizations.of(context).getText(
-                                'oba2lpwy' /* Your latest updates are below. */,
-                              ),
+                              'Your latest updates are below.',
                               style: FlutterFlowTheme.bodyText1.override(
                                 fontFamily: 'Lexend Deca',
                                 color: Color(0xFF090F13),
@@ -156,11 +150,7 @@ class _PermWorkerWidgetState extends State<PermWorkerWidget> {
                                     children: [
                                       Expanded(
                                         child: Text(
-                                          FFLocalizations.of(context).getText(
-                                            'pqzz31eh' /* Jobs 
-Offered */
-                                            ,
-                                          ),
+                                          'Jobs \nOffered',
                                           style: FlutterFlowTheme.bodyText2
                                               .override(
                                             fontFamily: 'Lexend Deca',
@@ -179,9 +169,7 @@ Offered */
                                               EdgeInsetsDirectional.fromSTEB(
                                                   2, 2, 2, 2),
                                           child: Text(
-                                            FFLocalizations.of(context).getText(
-                                              'vxgd907j' /* ^ 25% */,
-                                            ),
+                                            '^ 25%',
                                             style: TextStyle(
                                               color: Color(0xFF4B39EF),
                                               fontWeight: FontWeight.w500,
@@ -202,9 +190,7 @@ Offered */
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           8, 0, 0, 8),
                                       child: Text(
-                                        FFLocalizations.of(context).getText(
-                                          'q3968h26' /* 4 */,
-                                        ),
+                                        '4',
                                         style: FlutterFlowTheme.title2.override(
                                           fontFamily: 'Lexend Deca',
                                           color: Color(0xFF4B39EF),
@@ -227,9 +213,7 @@ Offered */
                                           );
                                         },
                                         child: Text(
-                                          FFLocalizations.of(context).getText(
-                                            'z7ko8shl' /* click here */,
-                                          ),
+                                          'click here',
                                           style: FlutterFlowTheme.bodyText1,
                                         ),
                                       ),
@@ -273,9 +257,7 @@ Offered */
                                       children: [
                                         Expanded(
                                           child: Text(
-                                            FFLocalizations.of(context).getText(
-                                              '7pjztks9' /* Profit */,
-                                            ),
+                                            'Profit',
                                             style: FlutterFlowTheme.bodyText2
                                                 .override(
                                               fontFamily: 'Lexend Deca',
@@ -294,10 +276,7 @@ Offered */
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     2, 2, 2, 2),
                                             child: Text(
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                '770sq9go' /* ^ 25% */,
-                                              ),
+                                              '^ 25%',
                                               style: TextStyle(
                                                 color: Color(0xFF3BC821),
                                                 fontWeight: FontWeight.w500,
@@ -318,9 +297,7 @@ Offered */
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             8, 0, 0, 8),
                                         child: Text(
-                                          FFLocalizations.of(context).getText(
-                                            'artbfg6t' /* 20 */,
-                                          ),
+                                          '20',
                                           style:
                                               FlutterFlowTheme.title2.override(
                                             fontFamily: 'Lexend Deca',
@@ -344,9 +321,7 @@ Offered */
                                             );
                                           },
                                           child: Text(
-                                            FFLocalizations.of(context).getText(
-                                              'nmfa7g0m' /* click here */,
-                                            ),
+                                            'click here',
                                             style: FlutterFlowTheme.bodyText1,
                                           ),
                                         ),
@@ -404,9 +379,7 @@ Offered */
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Text(
-                                    FFLocalizations.of(context).getText(
-                                      'qmbnk4a1' /* Activities */,
-                                    ),
+                                    'Activities',
                                     style: FlutterFlowTheme.bodyText1.override(
                                       fontFamily: 'Lexend Deca',
                                       color: Color(0xFF090F13),

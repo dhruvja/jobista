@@ -127,17 +127,11 @@ class _DashboardClientWidgetState extends State<DashboardClientWidget> {
                                               size: 24,
                                             ),
                                             Text(
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                '0bjk0r4o' /* All Adds */,
-                                              ),
+                                              'All Adds',
                                               style: FlutterFlowTheme.bodyText1,
                                             ),
                                             Text(
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                'i7bedxa5' /* 10+ */,
-                                              ),
+                                              '10+',
                                               style: FlutterFlowTheme.bodyText1
                                                   .override(
                                                 fontFamily: 'Lexend Deca',
@@ -176,17 +170,11 @@ class _DashboardClientWidgetState extends State<DashboardClientWidget> {
                                               size: 24,
                                             ),
                                             Text(
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                'pzivv91f' /* Applied Candidates */,
-                                              ),
+                                              'Applied Candidates',
                                               style: FlutterFlowTheme.bodyText1,
                                             ),
                                             Text(
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                't1cgawx7' /* 22 */,
-                                              ),
+                                              '22',
                                               style: FlutterFlowTheme.bodyText1
                                                   .override(
                                                 fontFamily: 'Lexend Deca',
@@ -225,10 +213,7 @@ class _DashboardClientWidgetState extends State<DashboardClientWidget> {
                                               size: 24,
                                             ),
                                             Text(
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                'tz38brkm' /* Shortlisted */,
-                                              ),
+                                              'Shortlisted',
                                               style: FlutterFlowTheme.bodyText1,
                                             ),
                                             InkWell(
@@ -244,10 +229,7 @@ class _DashboardClientWidgetState extends State<DashboardClientWidget> {
                                                 );
                                               },
                                               child: Text(
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  '5m8vb364' /* Call now */,
-                                                ),
+                                                'Call now',
                                                 style: FlutterFlowTheme
                                                     .bodyText1
                                                     .override(
@@ -288,10 +270,7 @@ class _DashboardClientWidgetState extends State<DashboardClientWidget> {
                                               size: 24,
                                             ),
                                             Text(
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                'n1k7f5d8' /* Wishlist */,
-                                              ),
+                                              'Wishlist',
                                               style: FlutterFlowTheme.bodyText1,
                                             ),
                                             InkWell(
@@ -305,10 +284,7 @@ class _DashboardClientWidgetState extends State<DashboardClientWidget> {
                                                 );
                                               },
                                               child: Text(
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  'qbjpifdo' /* Check now */,
-                                                ),
+                                                'Check now',
                                                 style: FlutterFlowTheme
                                                     .bodyText1
                                                     .override(

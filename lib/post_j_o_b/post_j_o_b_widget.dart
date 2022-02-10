@@ -33,10 +33,7 @@ class _PostJOBWidgetState extends State<PostJOBWidget> {
     super.initState();
     textController1 = TextEditingController();
     textController2 = TextEditingController();
-    textController3 = TextEditingController(
-        text: FFLocalizations.of(context).getText(
-      '0zd8hogj' /* Job Description */,
-    ));
+    textController3 = TextEditingController(text: 'Job Description');
   }
 
   @override
@@ -86,17 +83,8 @@ class _PostJOBWidgetState extends State<PostJOBWidget> {
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
                         child: FlutterFlowDropDown(
-                          options: [
-                            FFLocalizations.of(context).getText(
-                              '21822noc' /* Jobtype */,
-                            ),
-                            FFLocalizations.of(context).getText(
-                              'ut03bwlc' /* Electrician */,
-                            ),
-                            FFLocalizations.of(context).getText(
-                              'mbe3n7jb' /* Plumber */,
-                            )
-                          ].toList(),
+                          options:
+                              ['Jobtype', 'Electrician', 'Plumber'].toList(),
                           onChanged: (val) =>
                               setState(() => dropDownValue1 = val),
                           width: MediaQuery.of(context).size.width * 0.85,
@@ -117,17 +105,7 @@ class _PostJOBWidgetState extends State<PostJOBWidget> {
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
                         child: FlutterFlowDropDown(
-                          options: [
-                            FFLocalizations.of(context).getText(
-                              'ys5cvmd2' /* Education */,
-                            ),
-                            FFLocalizations.of(context).getText(
-                              'c501wbye' /* 10th */,
-                            ),
-                            FFLocalizations.of(context).getText(
-                              'cnmui9sh' /* 12th */,
-                            )
-                          ].toList(),
+                          options: ['Education', '10th', '12th'].toList(),
                           onChanged: (val) =>
                               setState(() => dropDownValue2 = val),
                           width: MediaQuery.of(context).size.width * 0.85,
@@ -159,9 +137,7 @@ class _PostJOBWidgetState extends State<PostJOBWidget> {
                             controller: textController1,
                             obscureText: false,
                             decoration: InputDecoration(
-                              hintText: FFLocalizations.of(context).getText(
-                                'edlmp780' /* Location */,
-                              ),
+                              hintText: 'Location',
                               enabledBorder: UnderlineInputBorder(
                                 borderSide: BorderSide(
                                   color: Color(0x00000000),
@@ -213,9 +189,7 @@ class _PostJOBWidgetState extends State<PostJOBWidget> {
                             controller: textController2,
                             obscureText: false,
                             decoration: InputDecoration(
-                              hintText: FFLocalizations.of(context).getText(
-                                'kcpd61v7' /* Pincode */,
-                              ),
+                              hintText: 'Pincode',
                               enabledBorder: UnderlineInputBorder(
                                 borderSide: BorderSide(
                                   color: Color(0x00000000),
@@ -291,9 +265,7 @@ class _PostJOBWidgetState extends State<PostJOBWidget> {
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(0, 0, 50, 0),
                         child: Text(
-                          FFLocalizations.of(context).getText(
-                            'judqx35i' /* Experience */,
-                          ),
+                          'Experience',
                           style: FlutterFlowTheme.bodyText1,
                         ),
                       ),
@@ -341,9 +313,7 @@ class _PostJOBWidgetState extends State<PostJOBWidget> {
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(0, 10, 50, 0),
                         child: Text(
-                          FFLocalizations.of(context).getText(
-                            'vs91m0gl' /* Salary */,
-                          ),
+                          'Salary',
                           style: FlutterFlowTheme.bodyText1,
                         ),
                       ),
@@ -395,9 +365,7 @@ class _PostJOBWidgetState extends State<PostJOBWidget> {
                           onChanged: (newValue) =>
                               setState(() => checkboxListTileValue = newValue),
                           title: Text(
-                            FFLocalizations.of(context).getText(
-                              '5ar4lbj6' /* I  accept for all terms and co... */,
-                            ),
+                            'I  accept for all terms and conditions',
                             style: TextStyle(
                               color: Color(0xFF010524),
                               fontSize: 12,
@@ -417,9 +385,7 @@ class _PostJOBWidgetState extends State<PostJOBWidget> {
                             ),
                           );
                         },
-                        text: FFLocalizations.of(context).getText(
-                          '4vxxddcu' /* Post JOB */,
-                        ),
+                        text: 'Post JOB',
                         options: FFButtonOptions(
                           width: 130,
                           height: 40,

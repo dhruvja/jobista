@@ -65,9 +65,7 @@ class _ActivityWidgetState extends State<ActivityWidget> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        FFLocalizations.of(context).getText(
-                          'p6hxnga2' /* 14, Sept. 2021 */,
-                        ),
+                        '14, Sept. 2021',
                         style: FlutterFlowTheme.bodyText1.override(
                           fontFamily: 'Lexend Deca',
                           color: Color(0xFF95A1AC),
@@ -86,9 +84,7 @@ class _ActivityWidgetState extends State<ActivityWidget> {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Text(
-                        FFLocalizations.of(context).getText(
-                          'wi9i8dhb' /* New job */,
-                        ),
+                        'New job',
                         style: FlutterFlowTheme.subtitle2.override(
                           fontFamily: 'Lexend Deca',
                           color: Color(0xFF151B1E),
@@ -99,9 +95,7 @@ class _ActivityWidgetState extends State<ActivityWidget> {
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(4, 0, 0, 0),
                         child: Text(
-                          FFLocalizations.of(context).getText(
-                            'fhtcpmsp' /* posted */,
-                          ),
+                          'posted',
                           style: FlutterFlowTheme.subtitle1.override(
                             fontFamily: 'Lexend Deca',
                             color: Color(0xFF4B39EF),
@@ -121,9 +115,7 @@ class _ActivityWidgetState extends State<ActivityWidget> {
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(8, 0, 0, 0),
                           child: Text(
-                            FFLocalizations.of(context).getText(
-                              'fq97pyyd' /* Andrew F. */,
-                            ),
+                            'Andrew F.',
                             style: FlutterFlowTheme.bodyText1.override(
                               fontFamily: 'Lexend Deca',
                               color: Color(0xFF95A1AC),
@@ -139,9 +131,7 @@ class _ActivityWidgetState extends State<ActivityWidget> {
                               onPressed: () {
                                 print('Button pressed ...');
                               },
-                              text: FFLocalizations.of(context).getText(
-                                '4ghdsk1x' /* Details */,
-                              ),
+                              text: 'Details',
                               options: FFButtonOptions(
                                 width: 130,
                                 height: 40,

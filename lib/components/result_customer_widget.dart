@@ -72,9 +72,7 @@ class _ResultCustomerWidgetState extends State<ResultCustomerWidget> {
                                       ),
                                     ),
                                     Text(
-                                      FFLocalizations.of(context).getText(
-                                        'p8rp1bhh' /* Job type */,
-                                      ),
+                                      'Job type',
                                       style:
                                           FlutterFlowTheme.bodyText1.override(
                                         fontFamily: 'Lexend Deca',
@@ -106,9 +104,7 @@ class _ResultCustomerWidgetState extends State<ResultCustomerWidget> {
                                           alignment:
                                               AlignmentDirectional(0.05, 0),
                                           child: AutoSizeText(
-                                            FFLocalizations.of(context).getText(
-                                              '5q5t8rzc' /* Name */,
-                                            ),
+                                            'Name',
                                             style: FlutterFlowTheme.bodyText1
                                                 .override(
                                               fontFamily: 'Lexend Deca',
@@ -124,9 +120,7 @@ class _ResultCustomerWidgetState extends State<ResultCustomerWidget> {
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       AutoSizeText(
-                                        FFLocalizations.of(context).getText(
-                                          'q49gag7t' /* Location */,
-                                        ),
+                                        'Location',
                                         style:
                                             FlutterFlowTheme.bodyText1.override(
                                           fontFamily: 'Lexend Deca',
@@ -139,9 +133,7 @@ class _ResultCustomerWidgetState extends State<ResultCustomerWidget> {
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Text(
-                                        FFLocalizations.of(context).getText(
-                                          'ji6xdogt' /* AD-1 */,
-                                        ),
+                                        'AD-1',
                                         style:
                                             FlutterFlowTheme.bodyText1.override(
                                           fontFamily: 'Lexend Deca',
@@ -154,9 +146,7 @@ class _ResultCustomerWidgetState extends State<ResultCustomerWidget> {
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Text(
-                                        FFLocalizations.of(context).getText(
-                                          '1hp2yjf5' /* Experience */,
-                                        ),
+                                        'Experience',
                                         style:
                                             FlutterFlowTheme.bodyText1.override(
                                           fontFamily: 'Lexend Deca',
@@ -164,9 +154,7 @@ class _ResultCustomerWidgetState extends State<ResultCustomerWidget> {
                                         ),
                                       ),
                                       Text(
-                                        FFLocalizations.of(context).getText(
-                                          'kjhg0dfs' /*  3 Years */,
-                                        ),
+                                        ' 3 Years',
                                         style:
                                             FlutterFlowTheme.bodyText1.override(
                                           fontFamily: 'Lexend Deca',
@@ -189,10 +177,7 @@ class _ResultCustomerWidgetState extends State<ResultCustomerWidget> {
                                           onPressed: () {
                                             print('Button pressed ...');
                                           },
-                                          text: FFLocalizations.of(context)
-                                              .getText(
-                                            '756wrkc7' /* Book */,
-                                          ),
+                                          text: 'Book',
                                           options: FFButtonOptions(
                                             width: 80,
                                             height: 40,
@@ -216,10 +201,7 @@ class _ResultCustomerWidgetState extends State<ResultCustomerWidget> {
                                           onPressed: () {
                                             print('Button pressed ...');
                                           },
-                                          text: FFLocalizations.of(context)
-                                              .getText(
-                                            'sx05halw' /* Reject */,
-                                          ),
+                                          text: 'Reject',
                                           options: FFButtonOptions(
                                             width: 80,
                                             height: 40,

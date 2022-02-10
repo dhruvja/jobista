@@ -86,9 +86,7 @@ class _SearchWorkerCompWidgetState extends State<SearchWorkerCompWidget> {
                                     Align(
                                       alignment: AlignmentDirectional(0.05, 0),
                                       child: Text(
-                                        FFLocalizations.of(context).getText(
-                                          'lc2esx1z' /* Job type */,
-                                        ),
+                                        'Job type',
                                         style:
                                             FlutterFlowTheme.bodyText1.override(
                                           fontFamily: 'Lexend Deca',
@@ -148,9 +146,7 @@ class _SearchWorkerCompWidgetState extends State<SearchWorkerCompWidget> {
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Text(
-                                    FFLocalizations.of(context).getText(
-                                      'nz3di8w8' /* Location */,
-                                    ),
+                                    'Location',
                                     style: FlutterFlowTheme.bodyText1.override(
                                       fontFamily: 'Lexend Deca',
                                       color: FlutterFlowTheme.customColor1,
@@ -162,18 +158,14 @@ class _SearchWorkerCompWidgetState extends State<SearchWorkerCompWidget> {
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Text(
-                                    FFLocalizations.of(context).getText(
-                                      '58sz0b6r' /* Experience */,
-                                    ),
+                                    'Experience',
                                     style: FlutterFlowTheme.bodyText1.override(
                                       fontFamily: 'Lexend Deca',
                                       color: Color(0xFF289CF0),
                                     ),
                                   ),
                                   Text(
-                                    FFLocalizations.of(context).getText(
-                                      '4f93475k' /*  3 Years */,
-                                    ),
+                                    ' 3 Years',
                                     style: FlutterFlowTheme.bodyText1.override(
                                       fontFamily: 'Lexend Deca',
                                       color: FlutterFlowTheme.customColor1,
@@ -197,9 +189,7 @@ class _SearchWorkerCompWidgetState extends State<SearchWorkerCompWidget> {
                                           ),
                                         );
                                       },
-                                      text: FFLocalizations.of(context).getText(
-                                        'k76ruhiy' /* Apply now */,
-                                      ),
+                                      text: 'Apply now',
                                       options: FFButtonOptions(
                                         width: 130,
                                         height: 40,
@@ -270,11 +260,7 @@ class _SearchWorkerCompWidgetState extends State<SearchWorkerCompWidget> {
                                                                       0,
                                                                       10),
                                                           child: Text(
-                                                            FFLocalizations.of(
-                                                                    context)
-                                                                .getText(
-                                                              'p6gws1wc' /* Education */,
-                                                            ),
+                                                            'Education',
                                                             style:
                                                                 FlutterFlowTheme
                                                                     .bodyText1
@@ -311,11 +297,7 @@ class _SearchWorkerCompWidgetState extends State<SearchWorkerCompWidget> {
                                                                       10,
                                                                       0),
                                                           child: Text(
-                                                            FFLocalizations.of(
-                                                                    context)
-                                                                .getText(
-                                                              'n1d3wcpz' /* 10+ */,
-                                                            ),
+                                                            '10+',
                                                             style:
                                                                 FlutterFlowTheme
                                                                     .bodyText1,

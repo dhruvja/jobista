@@ -120,9 +120,7 @@ class _HomeClientCopyWidgetState extends State<HomeClientCopyWidget> {
                               padding:
                                   EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
                               child: Text(
-                                FFLocalizations.of(context).getText(
-                                  't0gq55e2' /* Quick Service */,
-                                ),
+                                'Quick Service',
                                 style: FlutterFlowTheme.bodyText1.override(
                                   fontFamily: 'Lexend Deca',
                                   color: FlutterFlowTheme.customColor1,
@@ -148,9 +146,7 @@ class _HomeClientCopyWidgetState extends State<HomeClientCopyWidget> {
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Text(
-                              FFLocalizations.of(context).getText(
-                                's4ocmrlm' /* Activities */,
-                              ),
+                              'Activities',
                               style: FlutterFlowTheme.bodyText1.override(
                                 fontFamily: 'Lexend Deca',
                                 color: Color(0xFFFEFEFE),

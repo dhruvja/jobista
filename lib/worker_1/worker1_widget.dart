@@ -96,9 +96,7 @@ class _Worker1WidgetState extends State<Worker1Widget> {
                           fontFamily: 'Lexend Deca',
                           color: Color(0xFF2B343A),
                         ),
-                        hintText: FFLocalizations.of(context).getText(
-                          'nuo5mcm8' /* Your Name */,
-                        ),
+                        hintText: 'Your Name',
                         hintStyle: FlutterFlowTheme.bodyText2,
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
@@ -139,9 +137,7 @@ class _Worker1WidgetState extends State<Worker1Widget> {
                       keyboardType: TextInputType.name,
                       validator: (val) {
                         if (val.isEmpty) {
-                          return FFLocalizations.of(context).getText(
-                            'fm27td5k' /* Please enter a valid Name */,
-                          );
+                          return 'Please enter a valid Name';
                         }
 
                         return null;
@@ -162,9 +158,7 @@ class _Worker1WidgetState extends State<Worker1Widget> {
                             fontFamily: 'Lexend Deca',
                             color: FlutterFlowTheme.dark400,
                           ),
-                          hintText: FFLocalizations.of(context).getText(
-                            'o0r19cud' /* Mobile Number */,
-                          ),
+                          hintText: 'Mobile Number',
                           hintStyle: FlutterFlowTheme.bodyText2,
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
@@ -204,14 +198,10 @@ class _Worker1WidgetState extends State<Worker1Widget> {
                         keyboardType: TextInputType.phone,
                         validator: (val) {
                           if (val.isEmpty) {
-                            return FFLocalizations.of(context).getText(
-                              '2gpb7s9c' /* Please  Provide your Mobile nu... */,
-                            );
+                            return 'Please  Provide your Mobile number';
                           }
                           if (val.length < 10) {
-                            return FFLocalizations.of(context).getText(
-                              'lfw67hik' /* Number is incomplete */,
-                            );
+                            return 'Number is incomplete';
                           }
                           return null;
                         },
@@ -234,9 +224,7 @@ class _Worker1WidgetState extends State<Worker1Widget> {
                                   fontSize: 14,
                                   fontWeight: FontWeight.normal,
                                 ),
-                                hintText: FFLocalizations.of(context).getText(
-                                  '5l0erm8k' /* Password */,
-                                ),
+                                hintText: 'Password',
                                 hintStyle: FlutterFlowTheme.bodyText1.override(
                                   fontFamily: 'Lexend Deca',
                                   color: Color(0xFF95A1AC),
@@ -278,9 +266,7 @@ class _Worker1WidgetState extends State<Worker1Widget> {
                               style: FlutterFlowTheme.bodyText1,
                               validator: (val) {
                                 if (val.isEmpty) {
-                                  return FFLocalizations.of(context).getText(
-                                    'ctr67f4k' /* Please Enter your password */,
-                                  );
+                                  return 'Please Enter your password';
                                 }
 
                                 return null;
@@ -312,9 +298,7 @@ class _Worker1WidgetState extends State<Worker1Widget> {
                         controller: confirmPasswordTextController,
                         obscureText: !passwordVisibility2,
                         decoration: InputDecoration(
-                          hintText: FFLocalizations.of(context).getText(
-                            'pc2aw0w3' /* Confirm Password */,
-                          ),
+                          hintText: 'Confirm Password',
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: FlutterFlowTheme.grayLight,
@@ -373,9 +357,7 @@ class _Worker1WidgetState extends State<Worker1Widget> {
                                       ),
                                     );
                                   },
-                                  text: FFLocalizations.of(context).getText(
-                                    'sx97rhnh' /* Next */,
-                                  ),
+                                  text: 'Next',
                                   icon: Icon(
                                     Icons.play_arrow,
                                     size: 15,

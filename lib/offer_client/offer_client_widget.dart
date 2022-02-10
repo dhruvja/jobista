@@ -76,9 +76,7 @@ class _OfferClientWidgetState extends State<OfferClientWidget> {
                                       ),
                                     ),
                                     Text(
-                                      FFLocalizations.of(context).getText(
-                                        '5jjnatg2' /* Applicants */,
-                                      ),
+                                      'Applicants',
                                       style: FlutterFlowTheme.title1.override(
                                         fontFamily: 'Lexend Deca',
                                         color: Color(0xFF090F13),
@@ -130,12 +128,7 @@ class _OfferClientWidgetState extends State<OfferClientWidget> {
                                         children: [
                                           Expanded(
                                             child: Text(
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                '0lhuybri' /* Selected 
-candidates */
-                                                ,
-                                              ),
+                                              'Selected \ncandidates',
                                               style: FlutterFlowTheme.bodyText2
                                                   .override(
                                                 fontFamily: 'Poppins',
@@ -153,10 +146,7 @@ candidates */
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(2, 2, 2, 2),
                                               child: Text(
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  'txwtfbcp' /* ^ 25% */,
-                                                ),
+                                                '^ 25%',
                                                 style: TextStyle(
                                                   color: Color(0xFF4B39EF),
                                                   fontWeight: FontWeight.w500,
@@ -176,9 +166,7 @@ candidates */
                                               EdgeInsetsDirectional.fromSTEB(
                                                   8, 0, 0, 8),
                                           child: Text(
-                                            FFLocalizations.of(context).getText(
-                                              'n3vf297b' /* 4 */,
-                                            ),
+                                            '4',
                                             style: FlutterFlowTheme.title2
                                                 .override(
                                               fontFamily: 'Lexend Deca',
@@ -218,10 +206,7 @@ candidates */
                                           children: [
                                             Expanded(
                                               child: Text(
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  'npjeum8s' /* Number of Applicants */,
-                                                ),
+                                                'Number of Applicants',
                                                 style: FlutterFlowTheme
                                                     .bodyText2
                                                     .override(
@@ -240,10 +225,7 @@ candidates */
                                                 padding: EdgeInsetsDirectional
                                                     .fromSTEB(2, 2, 2, 2),
                                                 child: Text(
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                    '3tll3hc7' /* ^ 25% */,
-                                                  ),
+                                                  '^ 25%',
                                                   style: TextStyle(
                                                     color: Color(0xFF3BC821),
                                                     fontWeight: FontWeight.w500,
@@ -263,10 +245,7 @@ candidates */
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     8, 0, 0, 8),
                                             child: Text(
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                'tzue9p22' /* 20 */,
-                                              ),
+                                              '20',
                                               style: FlutterFlowTheme.title2
                                                   .override(
                                                 fontFamily: 'Lexend Deca',
@@ -293,9 +272,7 @@ candidates */
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(16, 8, 0, 12),
                           child: Text(
-                            FFLocalizations.of(context).getText(
-                              'mf3jgf8p' /* This Month */,
-                            ),
+                            'This Month',
                             style: FlutterFlowTheme.bodyText2.override(
                               fontFamily: 'Lexend Deca',
                               color: Color(0xFF8B97A2),

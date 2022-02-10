@@ -84,11 +84,7 @@ class _BookJobWidgetState extends State<BookJobWidget> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 FlutterFlowRadioButton(
-                                  options: [
-                                    FFLocalizations.of(context).getText(
-                                      'bhn57zdt' /* Electrician */,
-                                    )
-                                  ],
+                                  options: ['Electrician'],
                                   onChanged: (value) {
                                     setState(() => radioButtonValue = value);
                                   },
@@ -113,11 +109,7 @@ class _BookJobWidgetState extends State<BookJobWidget> {
                       ),
                     ),
                     FlutterFlowDropDown(
-                      options: [
-                        FFLocalizations.of(context).getText(
-                          'jh0zctwa' /* Select Ad */,
-                        )
-                      ].toList(),
+                      options: ['Select Ad'].toList(),
                       onChanged: (val) => setState(() => dropDownValue1 = val),
                       width: 300,
                       height: 40,
@@ -136,11 +128,7 @@ class _BookJobWidgetState extends State<BookJobWidget> {
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
                       child: FlutterFlowDropDown(
-                        options: [
-                          FFLocalizations.of(context).getText(
-                            '1j8gh6uk' /* Experience */,
-                          )
-                        ].toList(),
+                        options: ['Experience'].toList(),
                         onChanged: (val) =>
                             setState(() => dropDownValue2 = val),
                         width: 300,
@@ -179,9 +167,7 @@ class _BookJobWidgetState extends State<BookJobWidget> {
                               controller: textController1,
                               obscureText: false,
                               decoration: InputDecoration(
-                                hintText: FFLocalizations.of(context).getText(
-                                  'kmv18z8m' /* Pincode */,
-                                ),
+                                hintText: 'Pincode',
                                 enabledBorder: UnderlineInputBorder(
                                   borderSide: BorderSide(
                                     color: Color(0x00000000),
@@ -226,9 +212,7 @@ class _BookJobWidgetState extends State<BookJobWidget> {
                                 controller: textController2,
                                 obscureText: false,
                                 decoration: InputDecoration(
-                                  hintText: FFLocalizations.of(context).getText(
-                                    'xmzcs1lk' /* Address */,
-                                  ),
+                                  hintText: 'Address',
                                   enabledBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(
                                       color: Color(0x00000000),
@@ -264,9 +248,7 @@ class _BookJobWidgetState extends State<BookJobWidget> {
                           controller: textController3,
                           obscureText: false,
                           decoration: InputDecoration(
-                            hintText: FFLocalizations.of(context).getText(
-                              'kxx8sgp0' /* JOB Information  */,
-                            ),
+                            hintText: 'JOB Information ',
                             enabledBorder: UnderlineInputBorder(
                               borderSide: BorderSide(
                                 color: Color(0x00000000),
@@ -292,9 +274,7 @@ class _BookJobWidgetState extends State<BookJobWidget> {
                           maxLines: 7,
                           validator: (val) {
                             if (val.isEmpty) {
-                              return FFLocalizations.of(context).getText(
-                                '9ns2rn6s' /* Please enter your experience */,
-                              );
+                              return 'Please enter your experience';
                             }
 
                             return null;
@@ -311,9 +291,7 @@ class _BookJobWidgetState extends State<BookJobWidget> {
                       child: Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(0, 10, 180, 10),
                         child: Text(
-                          FFLocalizations.of(context).getText(
-                            '6qlvmpkm' /* Salary Stake */,
-                          ),
+                          'Salary Stake',
                           textAlign: TextAlign.center,
                           style: FlutterFlowTheme.bodyText1,
                         ),
@@ -369,9 +347,7 @@ class _BookJobWidgetState extends State<BookJobWidget> {
                           onChanged: (newValue) =>
                               setState(() => checkboxListTileValue = newValue),
                           title: Text(
-                            FFLocalizations.of(context).getText(
-                              'jdgn7qjd' /* I agree for terms and conditio... */,
-                            ),
+                            'I agree for terms and conditions',
                             style: FlutterFlowTheme.bodyText2.override(
                               fontFamily: 'Lexend Deca',
                               color: FlutterFlowTheme.dark400,
@@ -394,9 +370,7 @@ class _BookJobWidgetState extends State<BookJobWidget> {
                           ),
                         );
                       },
-                      text: FFLocalizations.of(context).getText(
-                        'yp3yvwdx' /* BOOK  */,
-                      ),
+                      text: 'BOOK ',
                       options: FFButtonOptions(
                         width: 130,
                         height: 40,

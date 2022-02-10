@@ -55,9 +55,7 @@ class _ActivitiesWidgetState extends State<ActivitiesWidget> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        FFLocalizations.of(context).getText(
-                          'm2lsyec0' /*  Call for electrician */,
-                        ),
+                        ' Call for electrician',
                         style: FlutterFlowTheme.subtitle1.override(
                           fontFamily: 'Lexend Deca',
                           color: Color(0xFF1E2429),
@@ -68,9 +66,7 @@ class _ActivitiesWidgetState extends State<ActivitiesWidget> {
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
                         child: Text(
-                          FFLocalizations.of(context).getText(
-                            'twecns67' /* Income */,
-                          ),
+                          'Income',
                           style: FlutterFlowTheme.bodyText1.override(
                             fontFamily: 'Lexend Deca',
                             color: Color(0xFF090F13),
@@ -91,9 +87,7 @@ class _ActivitiesWidgetState extends State<ActivitiesWidget> {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     Text(
-                      FFLocalizations.of(context).getText(
-                        'gg7uthks' /* 5000 Rs  */,
-                      ),
+                      '5000 Rs ',
                       textAlign: TextAlign.end,
                       style: FlutterFlowTheme.subtitle2.override(
                         fontFamily: 'Lexend Deca',
@@ -105,9 +99,7 @@ class _ActivitiesWidgetState extends State<ActivitiesWidget> {
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
                       child: Text(
-                        FFLocalizations.of(context).getText(
-                          'kpqiixxs' /* Apply */,
-                        ),
+                        'Apply',
                         textAlign: TextAlign.end,
                         style: FlutterFlowTheme.bodyText1.override(
                           fontFamily: 'Lexend Deca',

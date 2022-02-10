@@ -129,9 +129,7 @@ class _PhoneAuthWidgetState extends State<PhoneAuthWidget> {
                           ),
                           Expanded(
                             child: Text(
-                              FFLocalizations.of(context).getText(
-                                'xigfr14o' /* Phone Sign In */,
-                              ),
+                              'Phone Sign In',
                               style: FlutterFlowTheme.title1.override(
                                 fontFamily: 'Lexend Deca',
                                 color: Color(0xFF090F13),
@@ -154,18 +152,14 @@ class _PhoneAuthWidgetState extends State<PhoneAuthWidget> {
                               controller: phoneNumberController1,
                               obscureText: false,
                               decoration: InputDecoration(
-                                labelText: FFLocalizations.of(context).getText(
-                                  'd1a1tceh' /* Your Phone Number... */,
-                                ),
+                                labelText: 'Your Phone Number...',
                                 labelStyle: FlutterFlowTheme.bodyText1.override(
                                   fontFamily: 'Lexend Deca',
                                   color: Color(0xFF95A1AC),
                                   fontSize: 14,
                                   fontWeight: FontWeight.normal,
                                 ),
-                                hintText: FFLocalizations.of(context).getText(
-                                  'za35p7us' /* +1 (204) 204-2056 */,
-                                ),
+                                hintText: '+1 (204) 204-2056',
                                 hintStyle: FlutterFlowTheme.bodyText1.override(
                                   fontFamily: 'Lexend Deca',
                                   color: Color(0xFF95A1AC),
@@ -212,18 +206,14 @@ class _PhoneAuthWidgetState extends State<PhoneAuthWidget> {
                               controller: phoneNumberController2,
                               obscureText: false,
                               decoration: InputDecoration(
-                                labelText: FFLocalizations.of(context).getText(
-                                  '4x6ycyuc' /* Your Phone Number... */,
-                                ),
+                                labelText: 'Your Phone Number...',
                                 labelStyle: FlutterFlowTheme.bodyText1.override(
                                   fontFamily: 'Lexend Deca',
                                   color: Color(0xFF95A1AC),
                                   fontSize: 14,
                                   fontWeight: FontWeight.normal,
                                 ),
-                                hintText: FFLocalizations.of(context).getText(
-                                  'dlex86ic' /* +1 (204) 204-2056 */,
-                                ),
+                                hintText: '+1 (204) 204-2056',
                                 hintStyle: FlutterFlowTheme.bodyText1.override(
                                   fontFamily: 'Lexend Deca',
                                   color: Color(0xFF95A1AC),
@@ -275,9 +265,7 @@ class _PhoneAuthWidgetState extends State<PhoneAuthWidget> {
                                 ),
                               );
                             },
-                            text: FFLocalizations.of(context).getText(
-                              'w74prsxr' /* Sign In */,
-                            ),
+                            text: 'Sign In',
                             options: FFButtonOptions(
                               width: 130,
                               height: 50,
