@@ -73,179 +73,174 @@ class _GenerateBillWidgetState extends State<GenerateBillWidget> {
         child: Column(
           mainAxisSize: MainAxisSize.max,
           children: [
-            SingleChildScrollView(
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset(
+                      'assets/images/albfo_3.png',
+                      width: MediaQuery.of(context).size.width,
+                      height: 350,
+                      fit: BoxFit.fitHeight,
+                    ),
+                    Text(
+                      'Hello World',
+                      style: FlutterFlowTheme.bodyText1,
+                    ),
+                  ],
+                ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 0),
+                  child: Row(
                     mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Image.asset(
-                        'assets/images/albfo_3.png',
-                        width: MediaQuery.of(context).size.width,
-                        height: 350,
-                        fit: BoxFit.fitHeight,
-                      ),
                       Text(
-                        'Hello World',
-                        style: FlutterFlowTheme.bodyText1,
+                        'Plumber work',
+                        style: FlutterFlowTheme.title1.override(
+                          fontFamily: 'Playfair Display',
+                          color: Color(0xFF090F13),
+                          fontSize: 24,
+                          fontWeight: FontWeight.w500,
+                        ),
                       ),
-                    ],
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Text(
-                          'Plumber work',
-                          style: FlutterFlowTheme.title1.override(
-                            fontFamily: 'Playfair Display',
-                            color: Color(0xFF090F13),
-                            fontSize: 24,
+                      Expanded(
+                        child: Text(
+                          '\$50.00',
+                          textAlign: TextAlign.end,
+                          style: FlutterFlowTheme.subtitle1.override(
+                            fontFamily: 'Lexend Deca',
+                            color: Color(0xFF4B39EF),
+                            fontSize: 18,
                             fontWeight: FontWeight.w500,
                           ),
                         ),
-                        Expanded(
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 8),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Expanded(
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
                           child: Text(
-                            '\$50.00',
-                            textAlign: TextAlign.end,
-                            style: FlutterFlowTheme.subtitle1.override(
+                            'Date: 31/12/2021',
+                            style: FlutterFlowTheme.bodyText2.override(
                               fontFamily: 'Lexend Deca',
-                              color: Color(0xFF4B39EF),
-                              fontSize: 18,
-                              fontWeight: FontWeight.w500,
+                              color: Color(0xFF8B97A2),
+                              fontSize: 14,
+                              fontWeight: FontWeight.normal,
                             ),
                           ),
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 8),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Expanded(
-                          child: Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
-                            child: Text(
-                              'Date: 31/12/2021',
-                              style: FlutterFlowTheme.bodyText2.override(
-                                fontFamily: 'Lexend Deca',
-                                color: Color(0xFF8B97A2),
-                                fontSize: 14,
-                                fontWeight: FontWeight.normal,
-                              ),
+                ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
+                  child: Text(
+                    'Name of  customer',
+                    style: FlutterFlowTheme.bodyText1,
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(12, 0, 12, 0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Expanded(
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
+                          child: FlutterFlowDropDown(
+                            options: ['Small', 'Medium', 'Large'].toList(),
+                            onChanged: (val) =>
+                                setState(() => dropDownValue = val),
+                            width: 130,
+                            height: 50,
+                            textStyle: FlutterFlowTheme.bodyText1.override(
+                              fontFamily: 'Lexend Deca',
+                              color: Color(0xFF090F13),
+                              fontSize: 16,
+                              fontWeight: FontWeight.normal,
                             ),
+                            icon: Icon(
+                              Icons.arrow_drop_down_rounded,
+                              color: Color(0xFF95A1AC),
+                              size: 15,
+                            ),
+                            fillColor: Colors.white,
+                            elevation: 2,
+                            borderColor: Color(0xFFDBE2E7),
+                            borderWidth: 2,
+                            borderRadius: 8,
+                            margin: EdgeInsetsDirectional.fromSTEB(24, 4, 8, 4),
+                            hidesUnderline: true,
                           ),
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
-                    child: Text(
-                      'Name of  customer',
-                      style: FlutterFlowTheme.bodyText1,
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(12, 0, 12, 0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Expanded(
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
-                            child: FlutterFlowDropDown(
-                              options: ['Small', 'Medium', 'Large'].toList(),
-                              onChanged: (val) =>
-                                  setState(() => dropDownValue = val),
-                              width: 130,
-                              height: 50,
-                              textStyle: FlutterFlowTheme.bodyText1.override(
-                                fontFamily: 'Lexend Deca',
-                                color: Color(0xFF090F13),
-                                fontSize: 16,
-                                fontWeight: FontWeight.normal,
-                              ),
-                              icon: Icon(
-                                Icons.arrow_drop_down_rounded,
-                                color: Color(0xFF95A1AC),
-                                size: 15,
-                              ),
-                              fillColor: Colors.white,
-                              elevation: 2,
-                              borderColor: Color(0xFFDBE2E7),
-                              borderWidth: 2,
-                              borderRadius: 8,
-                              margin:
-                                  EdgeInsetsDirectional.fromSTEB(24, 4, 8, 4),
-                              hidesUnderline: true,
-                            ),
+                ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        width: 160,
+                        height: 50,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(25),
+                          shape: BoxShape.rectangle,
+                          border: Border.all(
+                            color: Color(0xFF9E9E9E),
+                            width: 1,
                           ),
                         ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                          width: 160,
-                          height: 50,
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(25),
-                            shape: BoxShape.rectangle,
-                            border: Border.all(
-                              color: Color(0xFF9E9E9E),
-                              width: 1,
+                        child: FlutterFlowCountController(
+                          decrementIconBuilder: (enabled) => FaIcon(
+                            FontAwesomeIcons.minus,
+                            color:
+                                enabled ? Color(0xDD000000) : Color(0xFFEEEEEE),
+                            size: 20,
+                          ),
+                          incrementIconBuilder: (enabled) => FaIcon(
+                            FontAwesomeIcons.plus,
+                            color: enabled ? Colors.blue : Color(0xFFEEEEEE),
+                            size: 20,
+                          ),
+                          countBuilder: (count) => Text(
+                            count.toString(),
+                            style: GoogleFonts.getFont(
+                              'Roboto',
+                              color: Colors.black,
+                              fontWeight: FontWeight.w600,
+                              fontSize: 16,
                             ),
                           ),
-                          child: FlutterFlowCountController(
-                            decrementIconBuilder: (enabled) => FaIcon(
-                              FontAwesomeIcons.minus,
-                              color: enabled
-                                  ? Color(0xDD000000)
-                                  : Color(0xFFEEEEEE),
-                              size: 20,
-                            ),
-                            incrementIconBuilder: (enabled) => FaIcon(
-                              FontAwesomeIcons.plus,
-                              color: enabled ? Colors.blue : Color(0xFFEEEEEE),
-                              size: 20,
-                            ),
-                            countBuilder: (count) => Text(
-                              count.toString(),
-                              style: GoogleFonts.getFont(
-                                'Roboto',
-                                color: Colors.black,
-                                fontWeight: FontWeight.w600,
-                                fontSize: 16,
-                              ),
-                            ),
-                            count: countControllerValue ??= 100,
-                            updateCount: (count) =>
-                                setState(() => countControllerValue = count),
-                            stepSize: 50,
-                            minimum: 100,
-                            maximum: 150000,
-                          ),
+                          count: countControllerValue ??= 100,
+                          updateCount: (count) =>
+                              setState(() => countControllerValue = count),
+                          stepSize: 50,
+                          minimum: 100,
+                          maximum: 150000,
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 20),
